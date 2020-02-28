@@ -206,14 +206,19 @@ namespace Demo.HL7MessageParser
         }
 
 
-        public void CheckDrugClass(PatientDemoEnquiry patientEnquiry, AlertProfileResult alertProfileRes, GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes, GetPreparationResponse getPreparationRes)
+        public void CheckDrugClass(PatientDemoEnquiry patientEnquiry, 
+            AlertProfileResult alertProfileRes, 
+            GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes, 
+            GetPreparationResponse getPreparationRes)
         {
             var mdsCheckObj = new MDSCheckInputParm
             {
                 HasPregnancy = "false",
                 CallerSourceSystem = "PMS",
-                CheckDiscon = "false"
+                CheckDiscon = "false",
+               
             };
+            mdsCheckObj.HasG6pdDeficiency = true;
 
             var patientInfo = new MDSCheck_PatientInfo
             {

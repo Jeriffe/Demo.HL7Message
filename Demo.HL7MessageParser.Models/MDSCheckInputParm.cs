@@ -24,7 +24,7 @@ namespace Demo.HL7MessageParser.Models
         /// if AlertProfileResult.AlertProfile= G6PD, then “true”, else “false”
         /// </summary>
         [XmlElement(ElementName = "hasG6pdDeficiency")]
-        public string HasG6pdDeficiency { get; set; }
+        public bool HasG6pdDeficiency { get; set; }
         /// <summary>
         /// Default: "false"
         /// </summary>

@@ -50,10 +50,6 @@ namespace Demo.HL7MessageParser.Models
 
     public class AlertProfile
     {
-        public AlertProfile()
-        {
-            HicSeqno = new List<string>();
-        }
         public string AlertCode { get; set; }
         public string AlertDesc { get; set; }
         public string AlertSeqNo { get; set; }
@@ -71,6 +67,10 @@ namespace Demo.HL7MessageParser.Models
 
     public class AllergyProfile
     {
+        public AllergyProfile()
+        {
+            HicSeqno = new List<string>();
+        }
         public string AliasName { get; set; }
         public string Allergen { get; set; }
         public string AllergenType { get; set; }

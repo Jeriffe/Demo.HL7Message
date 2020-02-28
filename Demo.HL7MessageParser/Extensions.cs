@@ -1,4 +1,5 @@
 ﻿using Demo.HL7MessageParser.Common;
+using Demo.HL7MessageParser.Models;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -85,5 +86,71 @@ namespace Demo.HL7MessageParser
                 return defaultProxy;
             }
         }
+    }
+
+
+    public static class Cache_HK
+    {
+        static Cache_HK()
+        {
+            PataientCache = new Cache<Patient_AlertProfile>();
+            MDS_CheckCache = new Cache<MDSCheckLiteResult>();
+        }
+
+        public static Cache<MDSCheckLiteResult> MDS_CheckCache { get; set; }
+        public static Cache<Patient_AlertProfile> PataientCache { get; set; }
+    }
+
+    public class Cache<T>
+    {
+        static Dictionary<string, T> cache = new Dictionary<string, T>();
+      
+        public T this[string hkId]
+        {
+            get
+            {
+                if (cache.ContainsKey(hkId))
+                {
+                    return cache[hkId];
+                }
+
+                return default(T);
+            }
+        }
+        public T GetByCache(string hkId)
+        {
+            if (cache.ContainsKey(hkId))
+            {
+                return cache[hkId];
+            }
+
+            return default(T);
+        }
+
+        public void Register(string hkId, T result)
+        {
+            cache[hkId] = result;
+        }
+
+        public void Clear()
+        {
+            cache.Clear();
+        }
+    }
+
+    public class Patient_AlertProfile
+    {
+        public PatientDemoEnquiry PatientDemoEnquiry { get; set; }
+        public AlertProfileResult AlertProfileRes { get; set; }
+    }
+
+    public class MDSCheckLiteResult
+    {
+        public string Cautaion { get; set; }
+
+        public List<string> AllergyMdsCheckResults { get; set; }
+
+        public List<string> AdrMdsCheckResults { get; set; }
+
     }
 }

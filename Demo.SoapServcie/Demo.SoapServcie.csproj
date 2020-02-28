@@ -64,8 +64,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="HelloWorldWebService.asmx" />
-    <Content Include="PreparationService.asmx" />
     <Content Include="wse3policyCache.config" />
   </ItemGroup>
   <ItemGroup>
@@ -75,16 +73,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HelloWorldWebService.asmx.cs">
-      <DependentUpon>HelloWorldWebService.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="PatientService.asmx.cs">
       <DependentUpon>PatientService.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="PreparationService.asmx.cs">
-      <DependentUpon>PreparationService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

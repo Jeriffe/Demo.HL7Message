@@ -16,6 +16,8 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
     {
         static void Main(string[] args)
         {
+            CacheTest();
+
             MDSCheckInputTest();
 
             //SoapClientProxy();
@@ -43,6 +45,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
         {
             var input = new MDSCheckInputParm
             {
+                HasG6pdDeficiency = true,
                 PatientAllergyProfile = new List<PatientAllergyProfile> {
             new PatientAllergyProfile{
                  HiclSeqNo="HiclSeqNoStr",
@@ -52,6 +55,39 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
             };
 
             var xmlStr = XmlHelper.XmlSerializeToString(input);
+        }
+
+        private static void CacheTest()
+        {
+            MDSCheckLiteResult cacheMDSResult = Cache_HK.MDS_CheckCache["DRUG_ITEM_CODE"];
+
+            if (cacheMDSResult != null)
+            {
+                //return cache result
+                return;
+            }
+
+            // result from HL7 req
+            MDSCheckLiteResult mdsResult = new MDSCheckLiteResult { Cautaion = "CAUTAION_DRUG_ITEM_CODE" };
+
+            Cache_HK.MDS_CheckCache.Register("DRUG_ITEM_CODE", mdsResult);
+
+
+            var cachePatientResult = Cache_HK.PataientCache["HKID"];
+            if (cachePatientResult != null)
+            {
+                //return cache result
+                return;
+            }
+
+            // result from HL7 req
+            Patient_AlertProfile p_rResult = new Patient_AlertProfile
+            {
+                AlertProfileRes = new AlertProfileResult(),
+                PatientDemoEnquiry = new Models.PatientDemoEnquiry()
+            };
+
+            Cache_HK.PataientCache.Register("HKID", p_rResult);
         }
 
         private static void DrugMasterSosapService()
