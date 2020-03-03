@@ -13,7 +13,7 @@
             <specialtyType>I</specialtyType>
             <pasSpecialty></pasSpecialty>
             <pasSubSpecialty></pasSubSpecialty>
-            <costIncluded>true</costIncluded>>
+            <costIncluded>true</costIncluded>
             <hqFlag>true</hqFlag>
          </arg0>
       </biz:getPreparation>

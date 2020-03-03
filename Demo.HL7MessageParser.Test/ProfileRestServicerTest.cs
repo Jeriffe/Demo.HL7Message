@@ -95,7 +95,7 @@ namespace Demo.HL7MessageParser.Test
 
             var httpStatusCode = HttpStatusCode.NotFound;
 
-            var localParser = new ProfileRestService(restUri+@"invalidurl/", "CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
+            var localParser = new ProfileRestService(restUri + @"invalidurl/", "CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
             var actualException = Assert.ThrowsException<AMException>(() => localParser.GetMedicationProfile(caseNumber));
 
             Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);
@@ -118,9 +118,9 @@ namespace Demo.HL7MessageParser.Test
         [TestMethod]
         public void Test_GetAlertProfile_Successful()
         {
-            var alertInputParam = new AlertInputParm { PatientInfo = new PatientInfo { Hkid = "HN170002520" } };
+            var alertInputParam = new AlertInputParm { PatientInfo = new PatientInfo { Hkid = "H0002520" } };
 
-            var relateivePath = string.Format("Data/AP/{0}.json", alertInputParam.PatientInfo.Hkid);
+            var relateivePath = string.Format(@"Data\AP\{0}.json", alertInputParam.PatientInfo.Hkid);
             var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relateivePath);
 
             var expectedProfile = JsonHelper.JsonToObjectFromFile<AlertProfileResult>(fileName);
@@ -142,53 +142,42 @@ namespace Demo.HL7MessageParser.Test
         {
             var caseNumber = new AlertInputParm { PatientInfo = new PatientInfo { Hkid = "INVALID_HKID" } };
 
-            var actualProfile = parser.GetAlertProfile(caseNumber);
-
-            Assert.IsNotNull(actualProfile);
-            Assert.AreEqual(actualProfile.AdrProfile.Count, 0);
-            Assert.AreEqual(actualProfile.AlertProfile.Count, 0);
-            Assert.AreEqual(actualProfile.AllergyProfile.Count, 0);
-
-            Assert.IsNull(actualProfile.MoePatientSteroidTag);
-
-            Assert.IsNotNull(actualProfile.ErrorMessage);
-            Assert.IsNotNull(actualProfile.ErrorMessage[0].MsgCode, "20001");
+            try
+            {
+                var actualProfile = parser.GetAlertProfile(caseNumber);
+            }
+            catch (AMException e)
+            {
+                Assert.IsTrue(e.Message.Contains("Invalid Request:20001"));
+            }
         }
 
         [TestMethod]
+        [ExpectedException(typeof(AMException), "20083")]
         public void Test_GetAlertProfile_Invalid_AccessCode()
         {
             var caseNumber = new AlertInputParm { PatientInfo = new PatientInfo { Hkid = "INVALID_ACCESSCODE" } };
 
             var actualProfile = parser.GetAlertProfile(caseNumber);
-
-            Assert.IsNotNull(actualProfile);
-            Assert.AreEqual(actualProfile.AdrProfile.Count, 0);
-            Assert.AreEqual(actualProfile.AlertProfile.Count, 0);
-            Assert.AreEqual(actualProfile.AllergyProfile.Count, 0);
-
-            Assert.IsNull(actualProfile.MoePatientSteroidTag);
-
-            Assert.IsNotNull(actualProfile.ErrorMessage);
-            Assert.IsNotNull(actualProfile.ErrorMessage[0].MsgCode, "20083");
         }
 
         [TestMethod]
+        [ExpectedException(typeof(AMException), "20002")]
         public void Test_GetAlertProfile_Invalid_PatientInfo()
         {
             var caseNumber = new AlertInputParm { PatientInfo = new PatientInfo { Hkid = "INVALID_PATIENT" } };
 
             var actualProfile = parser.GetAlertProfile(caseNumber);
 
-            Assert.IsNotNull(actualProfile);
-            Assert.AreEqual(actualProfile.AdrProfile.Count, 0);
-            Assert.AreEqual(actualProfile.AlertProfile.Count, 0);
-            Assert.AreEqual(actualProfile.AllergyProfile.Count, 0);
+            //Assert.IsNotNull(actualProfile);
+            //Assert.AreEqual(actualProfile.AdrProfile.Count, 0);
+            //Assert.AreEqual(actualProfile.AlertProfile.Count, 0);
+            //Assert.AreEqual(actualProfile.AllergyProfile.Count, 0);
 
-            Assert.IsNull(actualProfile.MoePatientSteroidTag);
+            //Assert.IsNull(actualProfile.MoePatientSteroidTag);
 
-            Assert.IsNotNull(actualProfile.ErrorMessage);
-            Assert.IsNotNull(actualProfile.ErrorMessage[0].MsgCode, "20002");
+            //Assert.IsNotNull(actualProfile.ErrorMessage);
+            //Assert.IsNotNull(actualProfile.ErrorMessage[0].MsgCode, "20002");
         }
 
         [TestMethod]
@@ -213,7 +202,7 @@ namespace Demo.HL7MessageParser.Test
 
             var httpStatusCode = HttpStatusCode.NotFound;
 
-            var localParser = new ProfileRestService(restUri+@"invalidurl/", "CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
+            var localParser = new ProfileRestService(restUri + @"invalidurl/", "CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
             var actualException = Assert.ThrowsException<AMException>(() => localParser.GetAlertProfile(alertInput));
 
             Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);

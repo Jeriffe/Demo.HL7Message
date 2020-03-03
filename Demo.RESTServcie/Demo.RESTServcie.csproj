@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="HellowWorld.html" />
     <Content Include="IIS_start_issue.txt" />
     <Content Include="Web.config" />
   </ItemGroup>

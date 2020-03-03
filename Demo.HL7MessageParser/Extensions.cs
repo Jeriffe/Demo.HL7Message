@@ -10,18 +10,7 @@ using System.Text;
 namespace Demo.HL7MessageParser
 {
 
-    public static class ExtensionMethods
-    {
-        public static DateTime ToDateTime(this string dateTimeStr)
-        {
-            DateTime dateTime = DateTime.MinValue;
-
-            DateTime.TryParse(dateTimeStr, out dateTime);
-
-            return dateTime;
-
-        }
-    }
+   
     /// <summary>
     /// RestSharpExtensions.cs
     /// https://gist.github.com/lkaczanowski/febb25cc49f339c5f516

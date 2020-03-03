@@ -11,9 +11,10 @@ namespace Demo.HL7MessageParser.Test.Fake
 {
     public class FakeSoapPatientVisitParser : IPatientVisitParser
     {
+        private static string RELATIVE_URL = @"Data\PE";
         public PatientDemoEnquiry GetPatientResult(string caseNumber)
         {
-            var result = SoapParserHelper.LoadSamplePatientDemoEnquiry(caseNumber);
+            var result = SoapParserHelper.LoadSamplePatientDemoEnquiry(caseNumber, RELATIVE_URL);
 
             return result;
         }

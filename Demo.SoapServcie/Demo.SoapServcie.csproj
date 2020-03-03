@@ -64,6 +64,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="DrugMasterService.asmx" />
     <Content Include="wse3policyCache.config" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +74,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DrugMasterService.asmx.cs">
+      <DependentUpon>DrugMasterService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PatientService.asmx.cs">
       <DependentUpon>PatientService.asmx</DependentUpon>
       <SubType>Component</SubType>

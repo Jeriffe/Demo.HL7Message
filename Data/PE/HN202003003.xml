@@ -1,0 +1,51 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Header>
+    <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdqADF3ZWJsb2dpYy5hcHAuUEFTX1BBU19QQVRJRU5UX0VOUVVJUllfV1NTXzJfMF8xMl82AAAA1gAAACN3ZWJsb2dpYy53b3JrYXJlYS5TdHJpbmdXb3JrQ29udGV4dAAIMi4wLjEyLjYAAA==</work:WorkContext>
+  </S:Header>
+  <S:Body>
+    <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+      <PatientDemoEnquiryResult>
+        <caseList>
+          <case>
+            <admissionDatetime>20200302 16:06</admissionDatetime>
+            <bedNo>01</bedNo>
+            <hospitalCode>TPH</hospitalCode>
+            <number> HN202003003</number>
+            <patientType>PA</patientType>
+            <sourceCode>AHN</sourceCode>
+            <sourceIndicator>5</sourceIndicator>
+            <specialty>MED</specialty>
+            <type>I</type>
+            <wardClass>3</wardClass>
+            <wardCode>4CL</wardCode>
+          </case>
+        </caseList>
+        <patient>
+          <address>
+            <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+            <districtCode>TP</districtCode>
+            <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+            <record_id>5000667</record_id>
+            <room>A,B</room>
+          </address>
+          <CCCode1>78061</CCCode1>
+          <CCCode2>08571</CCCode2>
+          <CCCode3>35551</CCCode3>
+          <chineseName>王钢蛋</chineseName>
+          <confidentialFlag>N</confidentialFlag>
+          <DOB>19670223</DOB>
+          <exactDOBFlag>Y</exactDOBFlag>
+          <HKID>H2003003</HKID>
+          <hkicSymbol>A</hkicSymbol>
+          <homePhone>26656100</homePhone>
+          <key>02271254</key>
+          <lastPayCode>PA</lastPayCode>
+          <maritalStatus>U</maritalStatus>
+          <name>WONG, KA WAI</name>
+          <race>CH</race>
+          <sex>M</sex>
+        </patient>
+      </PatientDemoEnquiryResult>
+    </ns2:searchHKPMIPatientByCaseNoResponse>
+  </S:Body>
+</S:Envelope>

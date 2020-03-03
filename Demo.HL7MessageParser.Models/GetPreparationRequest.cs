@@ -43,10 +43,10 @@ namespace Demo.HL7MessageParser.Models
         public string PasSubSpecialty { get; set; }
 
         [XmlElement(ElementName = "costIncluded")]
-        public string CostIncluded { get; set; }
+        public bool CostIncluded { get; set; }
 
         [XmlElement(ElementName = "hqFlag")]
-        public string HqFlag { get; set; }
+        public bool HqFlag { get; set; }
     }
 
     /*

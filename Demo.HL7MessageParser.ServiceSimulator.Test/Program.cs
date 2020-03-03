@@ -16,6 +16,14 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
     {
         static void Main(string[] args)
         {
+            var datetimeStr = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.0");
+            var r1 = string.Format("{0:0000.00}", 12394.039); //结果为：12394.04
+            var r2 = string.Format("{0:0000.00}", 194.039); //结果为：0194.04
+            var r3 = string.Format("{0:###.##}", 12394.039); //结果为：12394.04
+            var r4 = string.Format("{0:####.#}", 194.039); //结果为：194
+            var r5 = string.Format("{0:#######.####}", 195474.039675); //结果为：194
+
+
             CacheTest();
 
             MDSCheckInputTest();

@@ -10,7 +10,7 @@ namespace Demo.HL7MessageParser
 {
     public interface IHL7MessageParser
     {
-        string SaveRemoteHL7PatientToLocal(string caseNumber, out string errorMessage);
+        string SearchRemotePatient(string caseNumber, out string errorMessage);
 
 
         PatientDemoEnquiry GetPatientEnquiry(string caseno);
@@ -19,9 +19,9 @@ namespace Demo.HL7MessageParser
 
         AlertProfileResult GetAlertProfiles(AlertInputParm alertinput);
 
-        GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(Models.GetDrugMdsPropertyHqRequest request);
+        GetDrugMdsPropertyHqResponse GetDrugMdsPropertyHq(Models.GetDrugMdsPropertyHqRequest request);
 
-        GetPreparationResponse getPreparation(Models.GetPreparationRequest request);
+        GetPreparationResponse GetPreparation(Models.GetPreparationRequest request);
 
         MDSCheckResult CheckMDS(MDSCheckInputParm inputParam);
     }

@@ -29,47 +29,47 @@ namespace Demo.HL7MessageParser.Models
         /// Default: "false"
         /// </summary>
         [XmlElement(ElementName = "hasPregnancy")]
-        public string HasPregnancy { get; set; }
+        public bool HasPregnancy { get; set; }
         /// <summary>
         /// “false” for DDIM checking
         /// </summary>
         [XmlElement(ElementName = "checkDdim")]
-        public string CheckDdim { get; set; }
+        public bool CheckDdim { get; set; }
         /// <summary>
         ///if hasG6pdDeficiency or hasPregnancy is true, then “true”,else “false”
         /// </summary>
         [XmlElement(ElementName = "checkDdcm")]
-        public string CheckDdcm { get; set; }
+        public bool CheckDdcm { get; set; }
         /// <summary>
         /// “true” for Allergy checking
         /// </summary>
         [XmlElement(ElementName = "checkDam")]
-        public string CheckDam { get; set; }
+        public bool CheckDam { get; set; }
         /// <summary>
         /// “true” for ADR checking
         /// </summary>
         [XmlElement(ElementName = "checkAdr")]
-        public string CheckAdr { get; set; }
+        public bool CheckAdr { get; set; }
         /// <summary>
         /// DEFAULT:"false"
         /// </summary>
         [XmlElement(ElementName = "checkDscm")]
-        public string CheckDscm { get; set; }
+        public bool CheckDscm { get; set; }
         /// <summary>
         /// “false” for Dosage Range checking
         /// </summary>
         [XmlElement(ElementName = "checkDrcm")]
-        public string CheckDrcm { get; set; }
+        public bool CheckDrcm { get; set; }
         /// <summary>
         /// “false” for HLA checking
         /// </summary>
         [XmlElement(ElementName = "checkDlcm")]
-        public string CheckDlcm { get; set; }
+        public bool CheckDlcm { get; set; }
         /// <summary>
         /// “false” for Steroid checking
         /// </summary>
         [XmlElement(ElementName = "checkSteroid")]
-        public string CheckSteroid { get; set; }
+        public bool CheckSteroid { get; set; }
         /// <summary>
         /// DEFAULT: "PMS"
         /// </summary>
@@ -79,7 +79,7 @@ namespace Demo.HL7MessageParser.Models
         /// DEFAULT: "false"
         /// </summary>
         [XmlElement(ElementName = "checkDiscon")]
-        public string CheckDiscon { get; set; }
+        public bool CheckDiscon { get; set; }
     }
 
     [XmlRoot(ElementName = "patientInfo")]
@@ -516,7 +516,7 @@ namespace Demo.HL7MessageParser.Models
         ///ELSE Skip MDS checking
         /// </summary>
         [XmlElement(ElementName = "rGenId")]
-        public string RGenId { get; set; }
+        public int RGenId { get; set; }
         /// <summary>
         ///From DrugMDSObj:
         ///IF MoeCheckFlag="Y" 
@@ -526,7 +526,7 @@ namespace Demo.HL7MessageParser.Models
         ///ELSE Skip MDS checking
         /// </summary>
         [XmlElement(ElementName = "rDfGenId")]
-        public string RDfGenId { get; set; }
+        public int RDfGenId { get; set; }
         /// <summary>
         ///From DrugMDSObj:
         ///IF MoeCheckFlag="Y" THEN GcnSeqno ELSE "0";
@@ -534,7 +534,7 @@ namespace Demo.HL7MessageParser.Models
         ///ELSE Skip MDS checking
         /// </summary>
         [XmlElement(ElementName = "gcnSeqNo")]
-        public string GcnSeqNo { get; set; }
+        public int GcnSeqNo { get; set; }
         /// <summary>
         /// DrugProperty.Displayname
         /// </summary>

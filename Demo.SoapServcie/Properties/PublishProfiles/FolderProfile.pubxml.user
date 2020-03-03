@@ -25,22 +25,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/29/2019 16:03:28</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Common.dll">
-      <publishTime>02/10/2020 16:47:19</publishTime>
+      <publishTime>03/02/2020 10:26:47</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Common.pdb">
-      <publishTime>02/10/2020 16:47:19</publishTime>
+      <publishTime>03/02/2020 10:26:47</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Models.dll">
-      <publishTime>02/10/2020 16:47:19</publishTime>
+      <publishTime>03/02/2020 10:26:47</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Models.pdb">
-      <publishTime>02/10/2020 16:47:19</publishTime>
+      <publishTime>03/02/2020 10:26:47</publishTime>
     </File>
     <File Include="bin/Demo.SoapServcie.dll">
-      <publishTime>02/10/2020 16:48:44</publishTime>
+      <publishTime>03/02/2020 10:29:04</publishTime>
     </File>
     <File Include="bin/Demo.SoapServcie.pdb">
-      <publishTime>02/10/2020 16:48:44</publishTime>
+      <publishTime>03/02/2020 10:29:04</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Services3.dll">
       <publishTime>11/01/2005 17:28:12</publishTime>
@@ -65,6 +65,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Data/Soap_Patient.xml">
       <publishTime>09/22/2019 10:37:07</publishTime>
+    </File>
+    <File Include="DrugMasterService.asmx">
+      <publishTime>03/02/2020 10:27:54</publishTime>
     </File>
     <File Include="PatientService.asmx">
       <publishTime>09/05/2019 17:38:08</publishTime>

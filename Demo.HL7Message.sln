@@ -37,11 +37,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{5A6E0108-9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AP", "AP", "{A902BCE8-868A-477C-9B43-10EB4B53D240}"
 	ProjectSection(SolutionItems) = preProject
-		Data\AP\HN03191100Y.json = Data\AP\HN03191100Y.json
-		Data\AP\HN170002512.json = Data\AP\HN170002512.json
-		Data\AP\HN170002520.json = Data\AP\HN170002520.json
-		Data\AP\HN17000256S.json = Data\AP\HN17000256S.json
-		Data\AP\HN18001140Y.json = Data\AP\HN18001140Y.json
+		Data\AP\H0002512.json = Data\AP\H0002512.json
+		Data\AP\H0002520.json = Data\AP\H0002520.json
+		Data\AP\H000256S.json = Data\AP\H000256S.json
+		Data\AP\H001140Y.json = Data\AP\H001140Y.json
+		Data\AP\H191100Y.json = Data\AP\H191100Y.json
+		Data\AP\H2003001.json = Data\AP\H2003001.json
+		Data\AP\H2003002.json = Data\AP\H2003002.json
+		Data\AP\H2003003.json = Data\AP\H2003003.json
+		Data\AP\H2003004.json = Data\AP\H2003004.json
 		Data\AP\INVALID_ACCESSCODE.json = Data\AP\INVALID_ACCESSCODE.json
 		Data\AP\INVALID_HKID.json = Data\AP\INVALID_HKID.json
 		Data\AP\INVALID_PATIENT.json = Data\AP\INVALID_PATIENT.json
@@ -56,6 +60,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MP", "MP", "{19DA17F4-2945-
 		Data\MP\HN18001140Y.json = Data\MP\HN18001140Y.json
 		Data\MP\HN191068129.json = Data\MP\HN191068129.json
 		Data\MP\HN191099571.json = Data\MP\HN191099571.json
+		Data\MP\HN202003001.json = Data\MP\HN202003001.json
+		Data\MP\HN202003002.json = Data\MP\HN202003002.json
+		Data\MP\HN202003003.json = Data\MP\HN202003003.json
+		Data\MP\HN202003004.json = Data\MP\HN202003004.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4D68A9A2-9C15-4E07-94D8-3E9B2407A1F4}"
@@ -86,6 +94,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PE", "PE", "{D0E66100-869F-
 		Data\PE\HN18001140Y.xml = Data\PE\HN18001140Y.xml
 		Data\PE\HN191068129.xml = Data\PE\HN191068129.xml
 		Data\PE\HN191099571.xml = Data\PE\HN191099571.xml
+		Data\PE\HN202003001.xml = Data\PE\HN202003001.xml
+		Data\PE\HN202003002.xml = Data\PE\HN202003002.xml
+		Data\PE\HN202003003.xml = Data\PE\HN202003003.xml
+		Data\PE\HN202003004.xml = Data\PE\HN202003004.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demp.SimpleSoapService", "Demp.SimpleSoapService\Demp.SimpleSoapService.csproj", "{7CF63643-7D3D-4D7A-AA55-9F8A6F876678}"
@@ -120,6 +132,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Req", "Req", "{8EB05B79-87E
 		Data\DM\getDrugMdsPropertyHq\Req\1.xml = Data\DM\getDrugMdsPropertyHq\Req\1.xml
 		Data\DM\getDrugMdsPropertyHq\Req\2.xml = Data\DM\getDrugMdsPropertyHq\Req\2.xml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0_Ref", "0_Ref", "{4C5BE759-CEEB-4A97-83DB-9DDE727CF053}"
+	ProjectSection(SolutionItems) = preProject
+		0_Ref\Microsoft.Practices.EnterpriseLibrary.Common.dll = 0_Ref\Microsoft.Practices.EnterpriseLibrary.Common.dll
+		0_Ref\Microsoft.Practices.EnterpriseLibrary.Configuration.dll = 0_Ref\Microsoft.Practices.EnterpriseLibrary.Configuration.dll
+		0_Ref\Microsoft.Practices.EnterpriseLibrary.Data.dll = 0_Ref\Microsoft.Practices.EnterpriseLibrary.Data.dll
+		0_Ref\Microsoft.Practices.EnterpriseLibrary.Logging.dll = 0_Ref\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+		0_Ref\Microsoft.Practices.ObjectBuilder2.dll = 0_Ref\Microsoft.Practices.ObjectBuilder2.dll
+		0_Ref\Microsoft.Practices.Unity.dll = 0_Ref\Microsoft.Practices.Unity.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.EnterpriseLibrarySamples", "Demo.EnterpriseLibrarySamples\Demo.EnterpriseLibrarySamples.csproj", "{DE8903DE-725C-4DEB-AC3D-0E2B5E56354E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{11B10188-7E26-4CAB-B4F9-DC0E9B24A38F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RQ", "RQ", "{CB5A400F-F537-4EF9-8FBB-AED754C575FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -167,6 +195,10 @@ Global
 		{7CF63643-7D3D-4D7A-AA55-9F8A6F876678}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CF63643-7D3D-4D7A-AA55-9F8A6F876678}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CF63643-7D3D-4D7A-AA55-9F8A6F876678}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE8903DE-725C-4DEB-AC3D-0E2B5E56354E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8903DE-725C-4DEB-AC3D-0E2B5E56354E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8903DE-725C-4DEB-AC3D-0E2B5E56354E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8903DE-725C-4DEB-AC3D-0E2B5E56354E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -185,6 +217,8 @@ Global
 		{785EB32E-E008-4BAD-9B8A-967D819FB593} = {EED021E0-62B9-4A39-849A-18D23C8ABDD9}
 		{87C1AAA2-1497-4301-A2DE-BFE4B9BEAE2D} = {F721A3DF-9D67-440C-95E6-72BA3E6B1840}
 		{8EB05B79-87EF-423A-B0A5-9093A89A8939} = {785EB32E-E008-4BAD-9B8A-967D819FB593}
+		{DE8903DE-725C-4DEB-AC3D-0E2B5E56354E} = {11B10188-7E26-4CAB-B4F9-DC0E9B24A38F}
+		{CB5A400F-F537-4EF9-8FBB-AED754C575FD} = {1442D4B8-6B5B-4227-BF1C-C457E7B13FD0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {64A04E52-286E-4C99-9020-002615A1B03E}

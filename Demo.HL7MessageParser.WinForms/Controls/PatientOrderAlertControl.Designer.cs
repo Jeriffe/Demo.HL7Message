@@ -38,7 +38,7 @@
             this.scintillaProfiles = new ScintillaNET.Scintilla();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.scintillaAlerts = new ScintillaNET.Scintilla();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.bgWorker = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -184,7 +184,7 @@
             // 
             // backgroundWorker1
             // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.bgWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorker_DoWork);
             // 
             // PatientOrderAlertControl
             // 
@@ -222,6 +222,6 @@
         private ScintillaNET.Scintilla scintillaProfiles;
         private System.Windows.Forms.TabPage tabPage3;
         private ScintillaNET.Scintilla scintillaAlerts;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker bgWorker;
     }
 }

@@ -1,0 +1,15 @@
+{
+  "medProfileId": 202003003,
+  "caseNum": "HN202003003",
+  "medProfileMoItems": [
+    {
+      "medProfileMoItemId": 101993226,
+      "medProfilePoItems": [
+        {
+          "medProfilePoItemId": 100964233,
+          "itemCode": "DEMO03"
+        }
+      ]
+    }
+  ]
+}

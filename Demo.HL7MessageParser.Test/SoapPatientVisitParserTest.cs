@@ -20,7 +20,7 @@ namespace Demo.HL7MessageParser.Test
         [TestInitialize]
         public void Initialize()
         {
-            parser = new SoapPatientVisitParser();
+            parser = new FakeSoapPatientVisitParser();
         }
 
         [TestMethod]
@@ -28,25 +28,25 @@ namespace Demo.HL7MessageParser.Test
         {
             var caseNumber = "HN170002512";
 
-            var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("Data/PE/{0}.json", caseNumber));
+            var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format(@"Data\PE\{0}.xml", caseNumber));
 
-            var expectedProfile = JsonHelper.JsonToObjectFromFile<PatientDemoEnquiry>(fileName);
+            var expetctedObject = SoapParserHelper.LoadSamplePatientDemoEnquiry(caseNumber, @"Data\PE");
 
-            Assert.IsNotNull(expectedProfile);
+            Assert.IsNotNull(expetctedObject);
 
-            var expectedProfileJSONStr = JsonHelper.ToJson(expectedProfile);
+            var expectedXmlStr = XmlHelper.XmlSerializeToString(expetctedObject);
 
 
-            var actualProfile = parser.GetPatientResult(caseNumber);
-            Assert.IsNotNull(expectedProfile);
+            var actualObject = parser.GetPatientResult(caseNumber);
+            Assert.IsNotNull(expetctedObject);
 
-            var actualProfileJSONStr = JsonHelper.ToJson(actualProfile);
+            var actualXmlStr = XmlHelper.XmlSerializeToString(actualObject);
 
-            Assert.AreEqual(expectedProfileJSONStr, actualProfileJSONStr);
+            Assert.AreEqual(expectedXmlStr, actualXmlStr);
         }
 
         [TestMethod]
-        public void Test_GetMedicationProfile_Invalid_CasseNumber()
+        public void Test_GetPatientDemographic_Invalid_CasseNumber()
         {
             var caseNumber = "Invalid_CaseNumber";
 
@@ -54,53 +54,7 @@ namespace Demo.HL7MessageParser.Test
 
             Assert.IsNotNull(actualProfile);
         }
-
-        [TestMethod]
-        public void Test_GetMedicationProfile_Invalid_PATHOSPCODE()
-        {
-            var caseNumber = "Any_CaseNumber";
-            var localParser = new ProfileRestService(Uri, "CLIENT_SECRET", "CLIENT_ID", "INVALID_PATHOSPCODE");
-
-            var actualProfile = localParser.GetMedicationProfile(caseNumber);
-
-            Assert.IsNotNull(actualProfile);
-            Assert.IsNull(actualProfile.MedProfileId);
-            Assert.IsNull(actualProfile.CaseNum);
-            Assert.IsNull(actualProfile.MedProfileMoItems);
-        }
-
-       
-
-        //https://www.nuget.org/packages/MSTestExtensions/4.0.0
-        [TestMethod]
-        public void Test_GetMedicationProfile_Invalid_Client_Secret()
-        {
-            var caseNumber = "INVALID_CLIENT_SECRET";
-
-            var errorMessage = "Unauthorized";
-            var httpStatusCode = HttpStatusCode.Unauthorized;
-
-            var localParser = new ProfileRestService(Uri, "CLIENT_SECRET", "CLIENT_ID", "INVALID_PATHOSPCODE");
-
-            var actualException = Assert.ThrowsException<AMException>(() => localParser.GetMedicationProfile(caseNumber));
-
-            Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);
-            Assert.AreEqual(actualException.Message, errorMessage);
-        }
-
-        [TestMethod]
-        public void Test_GetMedicationProfile_Service_Unavailable()
-        {
-            var caseNumber = "Any_CaseNumber";
-
-            var httpStatusCode = HttpStatusCode.ServiceUnavailable;
-
-            //  var localParser = new JSONMedicationProfileParser("http://localhost:3181/pms-asa/invalidurl/", "CLIENT_SECRET", "PATHOSPCODE");
-            var localParser = new ProfileRestService("http://localhost:9527/pms-asa/invalidurl/", "CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
-            var actualException = Assert.ThrowsException<AMException>(() => localParser.GetMedicationProfile(caseNumber));
-
-            Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);
-        }
+        
 
         [TestCleanup]
         public void CleanUp()

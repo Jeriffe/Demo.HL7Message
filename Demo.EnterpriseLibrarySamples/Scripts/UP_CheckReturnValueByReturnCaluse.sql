@@ -1,0 +1,16 @@
+﻿CREATE PROCEDURE [dbo].[UP_CheckReturnValueByReturnCaluse]
+(
+@InputValue NCHAR(5)
+)
+AS
+SET NOCOUNT ON
+
+IF @InputValue=123
+BEGIN
+RETURN 1
+END
+ELSE
+BEGIN
+RETURN 2
+END
+GO

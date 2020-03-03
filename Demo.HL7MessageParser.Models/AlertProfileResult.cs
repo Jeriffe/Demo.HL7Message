@@ -10,6 +10,9 @@ namespace Demo.HL7MessageParser.Models
         public AlertProfileResult()
         {
             ErrorMessage = new List<ErrorMessage>();
+            AdrProfile = new List<AdrProfile>();
+            AlertProfile = new List<AlertProfile>();
+            AllergyProfile = new List<AllergyProfile>();
         }
         public List<AdrProfile> AdrProfile { get; set; }
         public List<AlertProfile> AlertProfile { get; set; }
@@ -41,7 +44,7 @@ namespace Demo.HL7MessageParser.Models
         public string SourceSystem { get; set; }
         public string TextColor { get; set; }
         public string UpdateBy { get; set; }
-        public string UpdateDtm { get; set; }
+        public DateTime UpdateDtm { get; set; }
         public string UpdateHospital { get; set; }
         public string UpdateRankDesc { get; set; }
         public string UpdateUser { get; set; }
@@ -87,7 +90,7 @@ namespace Demo.HL7MessageParser.Models
         public string SourceSystem { get; set; }
         public string TextColor { get; set; }
         public string UpdateBy { get; set; }
-        public string UpdateDtm { get; set; }
+        public DateTime UpdateDtm { get; set; }
         public string UpdateHospital { get; set; }
         public string UpdateRankDesc { get; set; }
         public string UpdateUser { get; set; }
@@ -100,7 +103,8 @@ namespace Demo.HL7MessageParser.Models
         public string AlertRecord { get; set; }
         public string AllergyRecord { get; set; }
     }
-    public class ErrorMessage {
+    public class ErrorMessage
+    {
         public string MsgCode { get; set; }
         public string MsgText { get; set; }
         public string StandardMsg { get; set; }

@@ -27,6 +27,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         public static string DrugMasterSoapUrl { get; internal set; }
         public static string MDSCheckRestUrl { get; internal set; }
+        public static bool IsDirty { get; internal set; }
 
         public const string CONFIG_KEY_PROFILERESTURI = "ProfileRestUri";
         public const string CONFIG_KEY_PATIENTENQUIRYSOAPURI = "PatientEnquirySoapUri";
@@ -66,6 +67,8 @@ namespace Demo.HL7MessageParser.WinForms
             MDSCheckRestUrl = Utility.GetConfigValue(CONFIG_KEY_MDSCHECKRESTURL);
 
             ClientId = "AccessCenter";
+
+            IsDirty = true;
 
         }
 

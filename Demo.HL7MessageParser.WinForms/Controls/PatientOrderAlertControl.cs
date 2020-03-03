@@ -23,13 +23,21 @@ namespace Demo.HL7MessageParser.WinForms
     public partial class PatientOrderAlertControl : UserControl
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
+
+        private Loading loadForm;
         private HL7MessageParser_NTEC parser;
+
         public PatientOrderAlertControl()
         {
             InitializeComponent();
 
-            backgroundWorker1.RunWorkerCompleted += new RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            bgWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(this.bgWorker_RunWorkerCompleted);
 
+            Initialize();
+        }
+
+        private void Initialize()
+        {
             var patientVisitParser = new SoapPatientVisitParser(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
 
             var profileService = new ProfileRestService(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
@@ -39,20 +47,6 @@ namespace Demo.HL7MessageParser.WinForms
             var mdsCheckRestService = new MDSCheckRestService(Global.MDSCheckRestUrl);
 
             parser = new HL7MessageParser_NTEC(patientVisitParser, profileService, drugMasterSoapService, mdsCheckRestService);
-        }
-
-        private void btnRequest_Click(object sender, EventArgs e)
-        {
-            scintillaAlerts.Text = string.Empty;
-            scintillaProfiles.Text = string.Empty;
-            scintillaPatient.Text = string.Empty;
-
-            // Start the asynchronous operation.
-            backgroundWorker1.RunWorkerAsync(cbxCaseNumber.Text.Trim());
-
-            loadForm = new Loading { Width = this.Width, Height = this.Height };
-
-            loadForm.ShowDialog();
         }
 
         private void HL7MessageParserFormTest_Load(object sender, EventArgs e)
@@ -65,11 +59,28 @@ namespace Demo.HL7MessageParser.WinForms
                                             .Select(o => o.Substring(0, o.Length - ".xml".Length))
                                             .ToList();
 
-            //  cbxCaseNumber.DataSource = new string[] { "HN03191100Y", "HN17000256S", "HN18001140Y", "HN170002512", "HN170002520", };
         }
 
-        Loading loadForm;
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void btnRequest_Click(object sender, EventArgs e)
+        {
+            if (Global.IsDirty)
+            {
+                Initialize();
+            }
+
+            scintillaAlerts.Text = string.Empty;
+            scintillaProfiles.Text = string.Empty;
+            scintillaPatient.Text = string.Empty;
+
+            // Start the asynchronous operation.
+            bgWorker.RunWorkerAsync(cbxCaseNumber.Text.Trim());
+
+            loadForm = new Loading { Width = this.Width, Height = this.Height };
+
+            loadForm.ShowDialog();
+        }
+
+        private void bgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             var result = new EventResult();
             e.Result = result;
@@ -117,7 +128,7 @@ namespace Demo.HL7MessageParser.WinForms
                     },
                     SysInfo = new SysInfo
                     {
-                        WsId = GetCurrentStationIP(),
+                        WsId = UtilityExtensions.GetLoalIPAddress(),
                         SourceSystem = Global.SourceSystem
                     },
                     Credentials = new Credentials
@@ -134,21 +145,9 @@ namespace Demo.HL7MessageParser.WinForms
                 });
             }
         }
-        private static string GetCurrentStationIP()
-        {
-            string AddressIP = string.Empty;
-            foreach (IPAddress _IPAddress in Dns.GetHostEntry(Dns.GetHostName()).AddressList)
-            {
-                if (_IPAddress.AddressFamily.ToString() == "InterNetwork")
-                {
-                    AddressIP = _IPAddress.ToString();
-                }
-            }
+      
 
-            return AddressIP;
-        }
-
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void bgWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (loadForm != null)
             {

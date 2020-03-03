@@ -6,7 +6,9 @@ using System.Xml.Serialization;
 
 namespace Demo.HL7MessageParser.Models
 {
-
+    /// <summary>
+    /// 2.4.2.2 getPreparation
+    /// </summary>
     [XmlRoot(ElementName = "getPreparationResponse")]
     public class GetPreparationResponse
     {
@@ -96,7 +98,7 @@ namespace Demo.HL7MessageParser.Models
         [XmlElement(ElementName = "volumeUnit")]
         public string VolumeUnit { get; set; }
         [XmlElement(ElementName = "volumeValue")]
-        public string VolumeValue { get; set; }
+        public float VolumeValue { get; set; }
     }
 
     [XmlRoot(ElementName = "drugMds")]

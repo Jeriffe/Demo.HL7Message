@@ -101,7 +101,7 @@ namespace Demo.HL7MessageParser.WinForms
                     request = new GetDrugMdsPropertyHqRequest { Arg0 = arg0 };
                 }
 
-                var res = hl7messageParser.getDrugMdsPropertyHq(request);
+                var res = hl7messageParser.GetDrugMdsPropertyHq(request);
 
                 var resStr = XmlHelper.XmlSerializeToString(res);
 
@@ -172,7 +172,7 @@ namespace Demo.HL7MessageParser.WinForms
                     request = XmlHelper.XmlDeserialize<GetPreparationRequest>(argElement.ToString());
                 }
 
-                var res = hl7messageParser.getPreparation(request);
+                var res = hl7messageParser.GetPreparation(request);
 
                 var resStr = XmlHelper.XmlSerializeToString(res);
 

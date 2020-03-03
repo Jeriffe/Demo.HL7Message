@@ -5,6 +5,9 @@ using System.Collections.Generic;
 namespace Demo.HL7MessageParser.Models
 {
 
+    /// <summary>
+    /// 2.4.1.2 getDrugMdsPropertyHq
+    /// </summary>
     [XmlRoot(ElementName = "getDrugMdsPropertyHqResponse")]
     public class GetDrugMdsPropertyHqResponse
     {
@@ -53,15 +56,15 @@ namespace Demo.HL7MessageParser.Models
         [XmlElement(ElementName = "duplicateFlag")]
         public string DuplicateFlag { get; set; }
         [XmlElement(ElementName = "gcnSeqno")]
-        public string GcnSeqno { get; set; }
+        public int GcnSeqno { get; set; }
         [XmlElement(ElementName = "groupGcnSeqno")]
-        public string GroupGcnSeqno { get; set; }
+        public int GroupGcnSeqno { get; set; }
         [XmlElement(ElementName = "groupMoeCheckFlag")]
         public string GroupMoeCheckFlag { get; set; }
         [XmlElement(ElementName = "groupRoutedGeneric")]
-        public string GroupRoutedGeneric { get; set; }
+        public int GroupRoutedGeneric { get; set; }
         [XmlElement(ElementName = "groupRouteformGeneric")]
-        public string GroupRouteformGeneric { get; set; }
+        public int GroupRouteformGeneric { get; set; }
         [XmlElement(ElementName = "groupSingleIngred")]
         public string GroupSingleIngred { get; set; }
         [XmlElement(ElementName = "hiclSeqno")]
@@ -69,9 +72,9 @@ namespace Demo.HL7MessageParser.Models
         [XmlElement(ElementName = "moeCheckFlag")]
         public string MoeCheckFlag { get; set; }
         [XmlElement(ElementName = "routedGeneric")]
-        public string RoutedGeneric { get; set; }
+        public int RoutedGeneric { get; set; }
         [XmlElement(ElementName = "routeformGeneric")]
-        public string RouteformGeneric { get; set; }
+        public int RouteformGeneric { get; set; }
     }
 
     [XmlRoot(ElementName = "drugProperty")]
