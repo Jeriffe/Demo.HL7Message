@@ -8,6 +8,12 @@ namespace Demo.HL7MessageParser.Models
     [XmlRoot(ElementName = "inputParm")]
     public class MDSCheckInputParm
     {
+        public MDSCheckInputParm()
+        {
+            PatientAllergyProfile = new List<PatientAllergyProfile>();
+            PatientAdrProfile = new List<PatientAdrProfile>();
+        }
+
         [XmlElement(ElementName = "patientInfo")]
         public MDSCheck_PatientInfo PatientInfo { get; set; }
         [XmlElement(ElementName = "userInfo")]
@@ -16,7 +22,7 @@ namespace Demo.HL7MessageParser.Models
         public List<PatientAllergyProfile> PatientAllergyProfile { get; set; }
 
         [XmlElement(ElementName = "patientAdrProfile")]
-        public PatientAdrProfile PatientAdrProfile { get; set; }
+        public List<PatientAdrProfile>   PatientAdrProfile { get; set; }
 
         [XmlElement(ElementName = "currentRxDrugProfile")]
         public CurrentRxDrugProfile CurrentRxDrugProfile { get; set; }

@@ -16,6 +16,23 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
     {
         static void Main(string[] args)
         {
+
+            var files = Directory.GetFiles(@"D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Data\AP", "*.json");
+            foreach (var fileName in files)
+            {
+                try
+                {
+                    var result = JsonHelper.JsonToObjectFromFile<AlertProfileResult>(fileName);
+
+                }
+                catch (Exception ex)
+                {
+                    ex = ex;
+                }
+
+            }
+
+
             var datetimeStr = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.0");
             var r1 = string.Format("{0:0000.00}", 12394.039); //结果为：12394.04
             var r2 = string.Format("{0:0000.00}", 194.039); //结果为：0194.04
@@ -67,7 +84,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
 
         private static void CacheTest()
         {
-            MDSCheckLiteResult cacheMDSResult = Cache_HK.MDS_CheckCache["DRUG_ITEM_CODE"];
+            MDSCheckCacheResult cacheMDSResult = Cache_HK.MDS_CheckCache["DRUG_ITEM_CODE"];
 
             if (cacheMDSResult != null)
             {
@@ -76,7 +93,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
             }
 
             // result from HL7 req
-            MDSCheckLiteResult mdsResult = new MDSCheckLiteResult { Cautaion = "CAUTAION_DRUG_ITEM_CODE" };
+            MDSCheckCacheResult mdsResult = new MDSCheckCacheResult { Cautaion = "CAUTAION_DRUG_ITEM_CODE" };
 
             Cache_HK.MDS_CheckCache.Register("DRUG_ITEM_CODE", mdsResult);
 

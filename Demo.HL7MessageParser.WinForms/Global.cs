@@ -68,6 +68,15 @@ namespace Demo.HL7MessageParser.WinForms
 
             ClientId = "AccessCenter";
 
+
+            PatientEnquirySoapUrl = "http://localhost:8096/PatientService.asmx";
+
+            MDSCheckRestUrl = "http://localhost:8290/pms-asa/1/";
+
+            ProfileRestUrl = "http://localhost:8290/pms-asa/1/";
+
+            DrugMasterSoapUrl = "http://localhost:8096/DrugMasterService.asmx";
+
             IsDirty = true;
 
         }

@@ -59,6 +59,9 @@ namespace Demo.HL7MessageParser.WinForms
                                             .Select(o => o.Substring(0, o.Length - ".xml".Length))
                                             .ToList();
 
+            cbxItemCodes.DataSource = new List<string> { "DEMO01", "DEMO02", "DEMO03", "DEMO04" };
+
+            btnMDSCheck.Enabled = false;
         }
 
         private void btnRequest_Click(object sender, EventArgs e)
@@ -92,8 +95,10 @@ namespace Demo.HL7MessageParser.WinForms
             if (pd != null)
             {
                 result.PatientVisit = pd;
+
                 this.BeginInvoke((MethodInvoker)delegate
                 {
+                    HK_ID = pd.Patient.HKID;
                     scintillaPatient.FormatStyle(StyleType.Xml);
                     scintillaPatient.Text = XmlHelper.FormatXML(XmlHelper.XmlSerializeToString(result.PatientVisit));
                 });
@@ -140,12 +145,17 @@ namespace Demo.HL7MessageParser.WinForms
                 result.Allergies = (allergys ?? new AlertProfileResult());
                 this.BeginInvoke((MethodInvoker)delegate
                 {
+                    btnMDSCheck.Enabled = true;
                     scintillaAlerts.FormatJsonStyle();
                     scintillaAlerts.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Allergies));
                 });
             }
+            else
+            {
+                this.BeginInvoke((MethodInvoker)(() => btnMDSCheck.Enabled = false));
+            }
         }
-      
+
 
         private void bgWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -197,6 +207,29 @@ namespace Demo.HL7MessageParser.WinForms
             public Models.PatientDemoEnquiry PatientVisit { get; set; }
             public MedicationProfileResult Orders { get; set; }
             public AlertProfileResult Allergies { get; set; }
+        }
+        private string HK_ID = string.Empty;
+
+        private void btnMDSCheck_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string errorMsg = null;
+                var result = parser.CheckRemoteMasterDrug(HK_ID, cbxItemCodes.SelectedItem.ToString(), out errorMsg);
+
+                var resultJson = JsonHelper.ToJson(result);
+
+                var request = Cache_HK.MDS_CheckCache[HK_ID].Req;
+
+                var requestXml = XmlHelper.XmlSerializeToString(request);
+
+            }
+            catch (Exception ex)
+            {
+                //LOGGER EX
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

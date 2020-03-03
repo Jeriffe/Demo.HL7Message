@@ -90,7 +90,14 @@ namespace Demo.HL7MessageParser
                 {
                     var pr = patientVisitParser.GetPatientResult(caseno);
 
+
+                    if (pr != null && pr.Patient != null && pr.CaseList != null)
+                    {
+                        Cache_HK.PataientCache.Register(pr.Patient.HKID, new Patient_AlertProfile { PatientDemoEnquiry = pr });
+                    }
+
                     logger.Info(XmlHelper.XmlSerializeToString(pr));
+
 
                     //TODO: storage the response Postponse
 
@@ -135,6 +142,12 @@ namespace Demo.HL7MessageParser
                 alertinput.Credentials.AccessCode = AccessCode;
 
                 var apr = profileService.GetAlertProfile(alertinput);
+
+                if (Cache_HK.PataientCache[alertinput.PatientInfo.Hkid] != null)
+                {
+                    Cache_HK.PataientCache[alertinput.PatientInfo.Hkid].AlertProfileRes = apr;
+                }
+
 
                 logger.Info(JsonHelper.ToJson(apr));
                 //TODO:storage the response
@@ -240,7 +253,7 @@ namespace Demo.HL7MessageParser
             return patient.Patient.HKID;
         }
 
-        public object CheckRemoteMasterDrug(string HKID, string drugItemCode, out string errorMessage)
+        public ComplexMDSResult CheckRemoteMasterDrug(string HKID, string drugItemCode, out string errorMessage)
         {
             errorMessage = string.Empty;
 
@@ -273,9 +286,7 @@ namespace Demo.HL7MessageParser
                 }
             });
 
-            CheckDrugClass(patient, patientInfo.AlertProfileRes, getDrugMdsPropertyHq, getpreparation);
-
-            return patient.Patient.HKID;
+            return CheckDrugClass(patient, patientInfo.AlertProfileRes, getDrugMdsPropertyHq, getpreparation);
         }
 
         private static bool IsInvalidAccessCode(AlertProfileResult actualProfile)
@@ -354,7 +365,7 @@ namespace Demo.HL7MessageParser
 
             mdsCheckObj.HasG6pdDeficiency = true;
 
-            var patientInfo = new MDSCheck_PatientInfo
+            mdsCheckObj.PatientInfo = new MDSCheck_PatientInfo
             {
                 HKID = patientEnquiry.Patient.HKID,
                 PatientKey = patientEnquiry.Patient.Key,
@@ -368,7 +379,7 @@ namespace Demo.HL7MessageParser
                 DataWithinValidPeriod = "N"
             };
 
-            var userInfo = new MDSCheck_UserInfo
+            mdsCheckObj.UserInfo = new MDSCheck_UserInfo
             {
                 HospCode = HospitalCode,
                 PharSpec = patientEnquiry.CaseList[0].Specialty,
@@ -403,7 +414,7 @@ namespace Demo.HL7MessageParser
                     UpdateRank = profile.UpdateUserRank,
                     UpdateRankDesc = profile.UpdateRankDesc,
                     //TODO: MAYE NEED TO CHECK profile.UpdateDtm IS NULL
-                    UpdateDtm = profile.UpdateDtm.ToString("yyyy-MM-dd HH:mm:ss.0"),
+                    UpdateDtm = profile.UpdateDtm,
                     Manifestations = null,
                     EhrLocalDesc = string.Empty,
                     HiclSeqNo = profile.HiclSeqno,
@@ -436,6 +447,8 @@ namespace Demo.HL7MessageParser
                         MDesc = item,
                     });
                 }
+
+                mdsCheckObj.PatientAllergyProfile.Add(patientAllergyProfile);
             }
 
             foreach (var adrProfile in alertProfileRes.AdrProfile)
@@ -465,7 +478,7 @@ namespace Demo.HL7MessageParser
                     UpdateRank = adrProfile.UpdateUserRank,
                     UpdateRankDesc = adrProfile.UpdateRankDesc,
                     //TODO: MAYE NEED TO CHECK profile.UpdateDtm IS NULL
-                    UpdateDtm = adrProfile.UpdateDtm.ToString("yyyy-MM-dd HH:mm:ss.0"),
+                    UpdateDtm = adrProfile.UpdateDtm,
                     Reactions = null,
                     HiclSeqNo = adrProfile.HiclSeqno,
                     HicSeqNos = new HiclSeqNos { HicSeqNo = adrProfile.HicSeqno }
@@ -492,6 +505,9 @@ namespace Demo.HL7MessageParser
                         FreqCode = "0",
                     });
                 }
+
+                mdsCheckObj.PatientAdrProfile.Add(patientAdrProfile);
+
             }
 
             var currentRxDrugProfile = new CurrentRxDrugProfile
@@ -624,6 +640,8 @@ namespace Demo.HL7MessageParser
                 currentRxDrugProfile.DrugErrorDisplayName += " " + formatValue + getPreparationRes.Return.VolumeUnit.ToLower();
             }
 
+            mdsCheckObj.CurrentRxDrugProfile = currentRxDrugProfile;
+
             /*if alertProfile from 1.4.2 = G6PD, then “true”, 
               else “false”
             */
@@ -643,9 +661,16 @@ namespace Demo.HL7MessageParser
             mdsCheckObj.CallerSourceSystem = "PMS";
 
 
+            var medCache = new MDSCheckCacheResult { Req = mdsCheckObj, };
+            Cache_HK.MDS_CheckCache.Register(mdsCheckObj.PatientInfo.HKID, medCache);
+
             var result = mdsCheckRestService.CheckMDS(mdsCheckObj);
 
-            return WrapperMDSResponse(result);
+            var wrapperResult = WrapperMDSResponse(result);
+
+            medCache.Res = wrapperResult;
+
+            return medCache.Res;
         }
 
         private ComplexMDSResult WrapperMDSResponse(MDSCheckResult result)

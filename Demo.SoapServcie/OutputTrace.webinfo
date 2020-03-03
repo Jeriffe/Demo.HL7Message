@@ -24477,4 +24477,3408 @@ File name: 'D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.SoapServcie\Data\Soa
       </soap:Envelope>
     </processingStep>
   </outputMessage>
+  <outputMessage utc="03/03/2020 4:46:49 AM" messageId="urn:uuid:8201a9c4-68d4-44e9-abd3-a6e03efd2b7e">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <soap:Fault>
+            <faultcode>soap:Client</faultcode>
+            <faultstring>System.Web.Services.Protocols.SoapException: Server did not recognize the value of HTTP Header SOAPAction: http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo.
+   at System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()
+   at System.Web.Services.Protocols.SoapServerProtocol.RouteRequest(SoapServerMessage message)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <detail />
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://schemas.xmlsoap.org/ws/2004/08/addressing/fault</wsa:Action>
+          <wsa:MessageID>urn:uuid:8201a9c4-68d4-44e9-abd3-a6e03efd2b7e</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:0ed10193-eccf-494d-8bbd-afb49c5a0b14</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-f347c79a-9e43-4a94-8923-a241d48998a6">
+              <wsu:Created>2020-03-03T04:46:49Z</wsu:Created>
+              <wsu:Expires>2020-03-03T04:51:49Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <soap:Fault>
+            <faultcode>soap:Client</faultcode>
+            <faultstring>System.Web.Services.Protocols.SoapException: Server did not recognize the value of HTTP Header SOAPAction: http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo.
+   at System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()
+   at System.Web.Services.Protocols.SoapServerProtocol.RouteRequest(SoapServerMessage message)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <detail />
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 4:47:03 AM" messageId="urn:uuid:337167f7-b530-4fed-b920-4e45640d5148">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <soap:Fault>
+            <faultcode>soap:Client</faultcode>
+            <faultstring>System.Web.Services.Protocols.SoapException: Server did not recognize the value of HTTP Header SOAPAction: http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo.
+   at System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()
+   at System.Web.Services.Protocols.SoapServerProtocol.RouteRequest(SoapServerMessage message)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <detail />
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://schemas.xmlsoap.org/ws/2004/08/addressing/fault</wsa:Action>
+          <wsa:MessageID>urn:uuid:337167f7-b530-4fed-b920-4e45640d5148</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:e31190f3-d368-4cf5-98d8-d1d13dfc4a3c</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-d60be458-09c8-4996-8531-5a5d07180365">
+              <wsu:Created>2020-03-03T04:47:03Z</wsu:Created>
+              <wsu:Expires>2020-03-03T04:52:03Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <soap:Fault>
+            <faultcode>soap:Client</faultcode>
+            <faultstring>System.Web.Services.Protocols.SoapException: Server did not recognize the value of HTTP Header SOAPAction: http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo.
+   at System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()
+   at System.Web.Services.Protocols.SoapServerProtocol.RouteRequest(SoapServerMessage message)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <detail />
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 4:47:09 AM" messageId="urn:uuid:577ec3b8-e271-402b-962d-f46becbe3a6f">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <soap:Fault>
+            <faultcode>soap:Client</faultcode>
+            <faultstring>System.Web.Services.Protocols.SoapException: Server did not recognize the value of HTTP Header SOAPAction: http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo.
+   at System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()
+   at System.Web.Services.Protocols.SoapServerProtocol.RouteRequest(SoapServerMessage message)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <detail />
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://schemas.xmlsoap.org/ws/2004/08/addressing/fault</wsa:Action>
+          <wsa:MessageID>urn:uuid:577ec3b8-e271-402b-962d-f46becbe3a6f</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:d7d53008-dcf3-43de-a9c0-f5ac550bd446</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-35fdda6a-b688-448b-8949-1da8cbe8d82b">
+              <wsu:Created>2020-03-03T04:47:09Z</wsu:Created>
+              <wsu:Expires>2020-03-03T04:52:09Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <soap:Fault>
+            <faultcode>soap:Client</faultcode>
+            <faultstring>System.Web.Services.Protocols.SoapException: Server did not recognize the value of HTTP Header SOAPAction: http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo.
+   at System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()
+   at System.Web.Services.Protocols.SoapServerProtocol.RouteRequest(SoapServerMessage message)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <detail />
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 5:08:10 AM" messageId="urn:uuid:dcf9da47-1dbe-48dd-9da6-7a3de2f2223b">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <soap:Fault>
+            <faultcode>soap:Client</faultcode>
+            <faultstring>System.Web.Services.Protocols.SoapException: Server did not recognize the value of HTTP Header SOAPAction: http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo.
+   at System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()
+   at System.Web.Services.Protocols.SoapServerProtocol.RouteRequest(SoapServerMessage message)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <detail />
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://schemas.xmlsoap.org/ws/2004/08/addressing/fault</wsa:Action>
+          <wsa:MessageID>urn:uuid:dcf9da47-1dbe-48dd-9da6-7a3de2f2223b</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:f30254af-c97d-4135-8be8-76dad16d66e3</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-60f10c27-faa0-41e6-a989-4cbe21951414">
+              <wsu:Created>2020-03-03T05:08:10Z</wsu:Created>
+              <wsu:Expires>2020-03-03T05:13:10Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <soap:Fault>
+            <faultcode>soap:Client</faultcode>
+            <faultstring>System.Web.Services.Protocols.SoapException: Server did not recognize the value of HTTP Header SOAPAction: http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo.
+   at System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()
+   at System.Web.Services.Protocols.SoapServerProtocol.RouteRequest(SoapServerMessage message)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <detail />
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 5:08:10 AM" messageId="urn:uuid:2d5e2b57-7352-4d09-96ef-dac4fd59df1f">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <soap:Fault>
+            <faultcode>soap:Client</faultcode>
+            <faultstring>System.Web.Services.Protocols.SoapException: Server did not recognize the value of HTTP Header SOAPAction: http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo.
+   at System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()
+   at System.Web.Services.Protocols.SoapServerProtocol.RouteRequest(SoapServerMessage message)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <detail />
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://schemas.xmlsoap.org/ws/2004/08/addressing/fault</wsa:Action>
+          <wsa:MessageID>urn:uuid:2d5e2b57-7352-4d09-96ef-dac4fd59df1f</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:a6dd5cc3-fbdb-424e-b3e8-8f91edf527e3</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-92aabae3-3956-4fd1-83b8-d12bb726a513">
+              <wsu:Created>2020-03-03T05:08:10Z</wsu:Created>
+              <wsu:Expires>2020-03-03T05:13:10Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <soap:Fault>
+            <faultcode>soap:Client</faultcode>
+            <faultstring>System.Web.Services.Protocols.SoapException: Server did not recognize the value of HTTP Header SOAPAction: http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo.
+   at System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()
+   at System.Web.Services.Protocols.SoapServerProtocol.RouteRequest(SoapServerMessage message)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <detail />
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 5:08:11 AM" messageId="urn:uuid:118c12f6-3b00-4e73-9770-6243024ed7e4">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <soap:Fault>
+            <faultcode>soap:Client</faultcode>
+            <faultstring>System.Web.Services.Protocols.SoapException: Server did not recognize the value of HTTP Header SOAPAction: http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo.
+   at System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()
+   at System.Web.Services.Protocols.SoapServerProtocol.RouteRequest(SoapServerMessage message)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <detail />
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://schemas.xmlsoap.org/ws/2004/08/addressing/fault</wsa:Action>
+          <wsa:MessageID>urn:uuid:118c12f6-3b00-4e73-9770-6243024ed7e4</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:0aa328b6-d3e1-4bb2-9081-8a4d6be9c550</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-3ef6e0ff-fed5-41fb-908a-3fde1de87bf4">
+              <wsu:Created>2020-03-03T05:08:10Z</wsu:Created>
+              <wsu:Expires>2020-03-03T05:13:10Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <soap:Fault>
+            <faultcode>soap:Client</faultcode>
+            <faultstring>System.Web.Services.Protocols.SoapException: Server did not recognize the value of HTTP Header SOAPAction: http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo.
+   at System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()
+   at System.Web.Services.Protocols.SoapServerProtocol.RouteRequest(SoapServerMessage message)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <detail />
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 5:08:27 AM" messageId="urn:uuid:34111f68-3bf1-46f8-96da-e1497c5be11b">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <soap:Fault>
+            <faultcode>soap:Client</faultcode>
+            <faultstring>System.Web.Services.Protocols.SoapException: Server did not recognize the value of HTTP Header SOAPAction: http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo.
+   at System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()
+   at System.Web.Services.Protocols.SoapServerProtocol.RouteRequest(SoapServerMessage message)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <detail />
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://schemas.xmlsoap.org/ws/2004/08/addressing/fault</wsa:Action>
+          <wsa:MessageID>urn:uuid:34111f68-3bf1-46f8-96da-e1497c5be11b</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:e315c119-ae43-49fa-a803-1c18db65921e</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-09ce1179-36a0-45d9-bc97-c1b0639fea52">
+              <wsu:Created>2020-03-03T05:08:27Z</wsu:Created>
+              <wsu:Expires>2020-03-03T05:13:27Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <soap:Fault>
+            <faultcode>soap:Client</faultcode>
+            <faultstring>System.Web.Services.Protocols.SoapException: Server did not recognize the value of HTTP Header SOAPAction: http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo.
+   at System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()
+   at System.Web.Services.Protocols.SoapServerProtocol.RouteRequest(SoapServerMessage message)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <detail />
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 5:11:31 AM" messageId="urn:uuid:2059fefa-7604-41d9-8c3f-aa198a9f5114">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6A</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <CCCode4>4</CCCode4>
+                <CCCode5>5</CCCode5>
+                <CCCode6>6</CCCode6>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H191100Y</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:2059fefa-7604-41d9-8c3f-aa198a9f5114</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:7fabef80-23a9-47df-b75d-898b4a533eca</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-b8e46cb6-7822-4a79-bfc5-6fba81894597">
+              <wsu:Created>2020-03-03T05:11:31Z</wsu:Created>
+              <wsu:Expires>2020-03-03T05:16:31Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6A</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <CCCode4>4</CCCode4>
+                <CCCode5>5</CCCode5>
+                <CCCode6>6</CCCode6>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H191100Y</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:32:05 AM" messageId="urn:uuid:7c9f1729-ebdc-4a22-bd07-dabf389e08a4">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6A</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <CCCode4>4</CCCode4>
+                <CCCode5>5</CCCode5>
+                <CCCode6>6</CCCode6>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H191100Y</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:7c9f1729-ebdc-4a22-bd07-dabf389e08a4</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:9e7cd953-58a1-44bd-a71c-1232209467d1</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-248a7917-fdf8-41fd-9e7f-e3ac18fabe2c">
+              <wsu:Created>2020-03-03T06:32:05Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:37:05Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6A</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <CCCode4>4</CCCode4>
+                <CCCode5>5</CCCode5>
+                <CCCode6>6</CCCode6>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H191100Y</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:32:12 AM" messageId="urn:uuid:f04e735a-f2a6-4622-a430-f853a639a0eb">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:f04e735a-f2a6-4622-a430-f853a639a0eb</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:ea9a25c1-92c3-4f1b-9fe8-b61ed11a54ed</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-24ba09ad-d91b-4ad7-957c-4f65b5bbf1a4">
+              <wsu:Created>2020-03-03T06:32:12Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:37:12Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:32:51 AM" messageId="urn:uuid:173d7f76-53cc-4f32-83fe-c886e92cf182">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getDrugMdsPropertyHqResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:173d7f76-53cc-4f32-83fe-c886e92cf182</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:be6dd303-b1bf-486f-b441-450751583e7a</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-09512a8a-3e3b-4003-9d2c-79e6317608b3">
+              <wsu:Created>2020-03-03T06:32:51Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:37:51Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:32:57 AM" messageId="urn:uuid:f51cf537-91c1-4c30-b1c6-fb60e2facd77">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getPreparationResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:f51cf537-91c1-4c30-b1c6-fb60e2facd77</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:1a7adeaf-9714-4482-9cc3-c3e28401c965</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-fbd2a778-8ddf-4937-8282-e21b74206e98">
+              <wsu:Created>2020-03-03T06:32:57Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:37:57Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:36:22 AM" messageId="urn:uuid:5465e438-9edd-4385-b4dd-e56fac641de0">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:5465e438-9edd-4385-b4dd-e56fac641de0</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:c97d565a-7474-493e-a541-bab148b76b27</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-681a6adc-4141-4065-8550-d75001f6186d">
+              <wsu:Created>2020-03-03T06:36:22Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:41:22Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:36:33 AM" messageId="urn:uuid:5412805b-72e3-4ce7-831e-155def731bee">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getDrugMdsPropertyHqResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:5412805b-72e3-4ce7-831e-155def731bee</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:997c856f-7b8e-4812-bc98-646b4dc991e1</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-f0cc1cce-2e32-404e-a0af-f33ed875fa55">
+              <wsu:Created>2020-03-03T06:36:33Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:41:33Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:36:33 AM" messageId="urn:uuid:a29b9923-68ad-44f9-a908-bbb18daa93c1">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getPreparationResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:a29b9923-68ad-44f9-a908-bbb18daa93c1</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:633ca988-5a3e-4f8d-83b1-f8ae79eebe0b</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-27fa9733-9dd5-484c-a727-a91f46447f41">
+              <wsu:Created>2020-03-03T06:36:33Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:41:33Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:43:42 AM" messageId="urn:uuid:eea08a6c-9f77-4d37-ac50-927f1c0a8994">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6A</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <CCCode4>4</CCCode4>
+                <CCCode5>5</CCCode5>
+                <CCCode6>6</CCCode6>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H191100Y</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:eea08a6c-9f77-4d37-ac50-927f1c0a8994</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:60e10779-53f3-42b9-b502-8a6898a5f509</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-992a24cf-4c09-4cb3-9adf-dcd8b76caeb4">
+              <wsu:Created>2020-03-03T06:43:42Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:48:42Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6A</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <CCCode4>4</CCCode4>
+                <CCCode5>5</CCCode5>
+                <CCCode6>6</CCCode6>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H191100Y</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:43:52 AM" messageId="urn:uuid:bf8f48b4-e3c9-4f9f-ad57-5a79a3499c2d">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getDrugMdsPropertyHqResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:bf8f48b4-e3c9-4f9f-ad57-5a79a3499c2d</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:84c963d9-964d-4cf3-b3ec-eddfb0453c19</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-d31f6059-fed7-4209-9fbd-2c765a8568e2">
+              <wsu:Created>2020-03-03T06:43:52Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:48:52Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:43:52 AM" messageId="urn:uuid:cbe1b902-2800-44df-a4a5-05c7feff5e29">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getPreparationResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:cbe1b902-2800-44df-a4a5-05c7feff5e29</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:8c8f970f-ba13-4449-b9fe-b5b7f4179c58</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-13d2556a-ecb0-4604-8148-9891bd09a1ea">
+              <wsu:Created>2020-03-03T06:43:52Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:48:52Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:44:02 AM" messageId="urn:uuid:4c272b83-c99b-45ed-92ae-227cfee0476e">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:4c272b83-c99b-45ed-92ae-227cfee0476e</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:fc3f30eb-2b84-4721-b2b8-27d570bb0448</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-72fd5fbd-1d6d-4ab4-abf9-e73bfe569532">
+              <wsu:Created>2020-03-03T06:44:02Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:49:02Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:44:10 AM" messageId="urn:uuid:409c27a5-7b24-4ea7-a38f-ac0be63b68c7">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getDrugMdsPropertyHqResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:409c27a5-7b24-4ea7-a38f-ac0be63b68c7</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:9b48b778-40f2-4096-99a1-db46dc3fd022</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-10bae66d-5fd6-48bf-a0aa-60c8589171d5">
+              <wsu:Created>2020-03-03T06:44:10Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:49:10Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:44:10 AM" messageId="urn:uuid:440a4b42-7ce5-4ca6-880d-805439f03ec8">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getPreparationResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:440a4b42-7ce5-4ca6-880d-805439f03ec8</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:476c55bd-b5c7-4218-80fe-b1922625212a</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-f3988f9b-05c2-463e-815f-f97c1d4d54ac">
+              <wsu:Created>2020-03-03T06:44:10Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:49:10Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:44:51 AM" messageId="urn:uuid:22bb56d6-0aff-4f04-b6a7-c33e6ee0a917">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getDrugMdsPropertyHqResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:22bb56d6-0aff-4f04-b6a7-c33e6ee0a917</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:56724a92-5255-4609-9523-53876f5e251b</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-fb39666f-5290-4a96-a620-abc5ce5d1264">
+              <wsu:Created>2020-03-03T06:44:51Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:49:51Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:44:51 AM" messageId="urn:uuid:a8a45bac-a43f-4156-9936-3c678d6a0cd9">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getPreparationResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:a8a45bac-a43f-4156-9936-3c678d6a0cd9</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:33499353-fd28-4be4-84d9-b6b0a3f03cae</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-d308986b-926a-478a-aa1a-7b538ae20b8e">
+              <wsu:Created>2020-03-03T06:44:51Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:49:51Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:45:02 AM" messageId="urn:uuid:18dfa71f-4897-4277-a2eb-eae2bfd648ee">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getDrugMdsPropertyHqResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:18dfa71f-4897-4277-a2eb-eae2bfd648ee</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:c51e91cb-d514-48b9-8f55-528cdf4aacca</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-2f6dfaab-1631-4da4-a1ae-de4bc832f32b">
+              <wsu:Created>2020-03-03T06:45:02Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:50:02Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:45:03 AM" messageId="urn:uuid:8a1b2824-234e-4dc4-bd40-2686e3eb533e">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getPreparationResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:8a1b2824-234e-4dc4-bd40-2686e3eb533e</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:a9acca6d-6e6b-4e2c-b82d-0dc92e5f8393</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-0b7e17d4-152c-4978-8e5a-412aed26ee17">
+              <wsu:Created>2020-03-03T06:45:03Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:50:03Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:46:25 AM" messageId="urn:uuid:c3b30b0f-531b-463e-8a41-2487e2bbcf0f">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20191227 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN191099571</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>黃嘉煒</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID> H1099571</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:c3b30b0f-531b-463e-8a41-2487e2bbcf0f</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:175d1bf0-c79d-4d9a-b3e4-e82c88f060c9</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-6fe31a9f-0c28-43b7-b945-f54664875531">
+              <wsu:Created>2020-03-03T06:46:25Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:51:25Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20191227 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN191099571</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>黃嘉煒</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID> H1099571</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:46:46 AM" messageId="urn:uuid:d1441ca3-3cb3-4a31-b277-cd1bfc1d4097">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:d1441ca3-3cb3-4a31-b277-cd1bfc1d4097</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:f2da81ba-b453-4591-af3c-7dc4065241bd</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-6528ce3b-db54-4694-8c25-745018968655">
+              <wsu:Created>2020-03-03T06:46:46Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:51:46Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:46:55 AM" messageId="urn:uuid:b2e01b65-7fae-4c6b-95d7-1974c790c9d3">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getDrugMdsPropertyHqResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:b2e01b65-7fae-4c6b-95d7-1974c790c9d3</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:1a9ff40e-ae74-4d8a-9437-e4b274884951</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-2679b8c4-38b6-4584-a4a7-ef1f5138b933">
+              <wsu:Created>2020-03-03T06:46:55Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:51:55Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:46:55 AM" messageId="urn:uuid:d2e16052-975c-4275-9c20-0b8357ad1cc0">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getPreparationResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:d2e16052-975c-4275-9c20-0b8357ad1cc0</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:162af5f7-a22f-40ef-b41c-46ddedc9cd7b</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-3476ca4e-97bc-4c40-9145-13b1edceaf39">
+              <wsu:Created>2020-03-03T06:46:55Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:51:55Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:58:56 AM" messageId="urn:uuid:34d778ba-87bf-44fa-8a4d-76fb56bfc36b">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:34d778ba-87bf-44fa-8a4d-76fb56bfc36b</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:6e3a5f1a-25f1-44ba-add2-02a9c82605c2</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-22690b85-31dd-48f4-955c-ea5f2f1aa4a3">
+              <wsu:Created>2020-03-03T06:58:56Z</wsu:Created>
+              <wsu:Expires>2020-03-03T07:03:56Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:59:05 AM" messageId="urn:uuid:bdbb9df9-86bd-4076-a299-21ffbfc66028">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getDrugMdsPropertyHqResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:bdbb9df9-86bd-4076-a299-21ffbfc66028</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:6dedd543-c61b-4e39-8bf3-8165b7ee101d</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-0ff6600f-9013-4d18-9c3a-03460c61b332">
+              <wsu:Created>2020-03-03T06:59:05Z</wsu:Created>
+              <wsu:Expires>2020-03-03T07:04:05Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="03/03/2020 6:59:05 AM" messageId="urn:uuid:a1d7431d-fbad-4d65-982a-146a66ff7738">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getPreparationResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:a1d7431d-fbad-4d65-982a-146a66ff7738</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:8bf35b53-5dc4-47ea-8e09-9868b8b01816</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-07b8cff4-319a-4904-afa1-1a3932593102">
+              <wsu:Created>2020-03-03T06:59:05Z</wsu:Created>
+              <wsu:Expires>2020-03-03T07:04:05Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getPreparationResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <return>
+              <averageUnitPrice>14.25</averageUnitPrice>
+              <baseUnit>UNIT</baseUnit>
+              <corpDrugPrice>14.25</corpDrugPrice>
+              <dangerousDrug>N</dangerousDrug>
+              <drugMds>
+                <duplicateFlag>false</duplicateFlag>
+                <gcnSeqno>16491</gcnSeqno>
+                <groupGcnSeqno>0</groupGcnSeqno>
+                <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+                <groupRoutedGeneric>6292938</groupRoutedGeneric>
+                <groupRouteformGeneric>3740</groupRouteformGeneric>
+                <groupSingleIngred>Y</groupSingleIngred>
+                <hiclSeqno>1482</hiclSeqno>
+                <moeCheckFlag>Y</moeCheckFlag>
+                <routedGeneric>6292938</routedGeneric>
+                <routeformGeneric>3740</routeformGeneric>
+              </drugMds>
+              <formCode>MIN</formCode>
+              <formRank>2305</formRank>
+              <groupBaseUnit>UNIT</groupBaseUnit>
+              <isCommonDose>false</isCommonDose>
+              <itemCode>AMET02</itemCode>
+              <moeDesc>EYE MINIMS</moeDesc>
+              <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+              <pmsFmStatus>F</pmsFmStatus>
+              <ppmi>N</ppmi>
+              <preparationDesc>1% 0.5 ML</preparationDesc>
+              <privateDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </privateDrugPatTypeCharge>
+              <publicCdp>14.3925</publicCdp>
+              <publicDrugPatTypeCharge>
+                <addedCharge>0.0</addedCharge>
+                <handleCharge>105.0</handleCharge>
+                <markupFactor>1.01</markupFactor>
+              </publicDrugPatTypeCharge>
+              <routeDesc>EYE</routeDesc>
+              <routeFormSortSeq>999</routeFormSortSeq>
+              <routeSortSeq>999</routeSortSeq>
+              <saltProperty>HCL</saltProperty>
+              <sfiCategory>N</sfiCategory>
+              <specRestrict>*</specRestrict>
+              <strength>1%</strength>
+              <strengthUnit>%</strengthUnit>
+              <strengthValue>1.0</strengthValue>
+              <trueDisplayname>AMETHOCAINE</trueDisplayname>
+              <volumeUnit>ML</volumeUnit>
+              <volumeValue>0.5</volumeValue>
+            </return>
+          </ns2:getPreparationResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
 </log>

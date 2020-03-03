@@ -83,10 +83,10 @@ namespace Demo.HL7MessageParser
         static Cache_HK()
         {
             PataientCache = new Cache<Patient_AlertProfile>();
-            MDS_CheckCache = new Cache<MDSCheckLiteResult>();
+            MDS_CheckCache = new Cache<MDSCheckCacheResult>();
         }
 
-        public static Cache<MDSCheckLiteResult> MDS_CheckCache { get; set; }
+        public static Cache<MDSCheckCacheResult> MDS_CheckCache { get; set; }
         public static Cache<Patient_AlertProfile> PataientCache { get; set; }
     }
 
@@ -133,7 +133,7 @@ namespace Demo.HL7MessageParser
         public AlertProfileResult AlertProfileRes { get; set; }
     }
 
-    public class MDSCheckLiteResult
+    public class MDSCheckCacheResult
     {
         public string Cautaion { get; set; }
 
@@ -141,5 +141,7 @@ namespace Demo.HL7MessageParser
 
         public List<string> AdrMdsCheckResults { get; set; }
 
+        public ComplexMDSResult Res { get; internal set; }
+        public MDSCheckInputParm Req { get; internal set; }
     }
 }

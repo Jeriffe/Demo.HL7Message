@@ -9397,4 +9397,1398 @@
       </soap:Envelope>
     </processingStep>
   </inputMessage>
+  <inputMessage utc="03/03/2020 4:46:49 AM" messageId="urn:uuid:0ed10193-eccf-494d-8bbd-afb49c5a0b14">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:0ed10193-eccf-494d-8bbd-afb49c5a0b14</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/DrugMasterService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-72c989a8-b773-435f-bf8a-5a5cf80a0825">
+              <wsu:Created>2020-03-03T04:46:46Z</wsu:Created>
+              <wsu:Expires>2020-03-03T04:51:46Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-5e6a2be3-a240-42a9-83b9-4b5b47af3b44">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>/MGOGk2/k4f9hI8CjRRokQ==</wsse:Nonce>
+              <wsu:Created>2020-03-03T04:46:46Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 4:47:03 AM" messageId="urn:uuid:e31190f3-d368-4cf5-98d8-d1d13dfc4a3c">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:e31190f3-d368-4cf5-98d8-d1d13dfc4a3c</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/DrugMasterService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-28560149-37e0-4268-9bd1-92d7898ab695">
+              <wsu:Created>2020-03-03T04:47:03Z</wsu:Created>
+              <wsu:Expires>2020-03-03T04:52:03Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-e71ae570-410c-4cfa-89a4-014c7ed78029">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>ALxu5rLYTsPW/SQr41lUXg==</wsse:Nonce>
+              <wsu:Created>2020-03-03T04:47:03Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 4:47:09 AM" messageId="urn:uuid:d7d53008-dcf3-43de-a9c0-f5ac550bd446">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:d7d53008-dcf3-43de-a9c0-f5ac550bd446</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/DrugMasterService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-73021a9f-b039-424d-8dec-08e965e61fc4">
+              <wsu:Created>2020-03-03T04:47:09Z</wsu:Created>
+              <wsu:Expires>2020-03-03T04:52:09Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-753b5a2a-7a98-4263-a3da-cadc7ac712ca">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>z0XUcGo9n1jkJVbQzzOJGw==</wsse:Nonce>
+              <wsu:Created>2020-03-03T04:47:09Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN170002520</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN170002520</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 5:08:10 AM" messageId="urn:uuid:f30254af-c97d-4135-8be8-76dad16d66e3">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:f30254af-c97d-4135-8be8-76dad16d66e3</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/DrugMasterService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-a3f5364a-bd92-428a-b70d-07e2b335e774">
+              <wsu:Created>2020-03-03T05:08:07Z</wsu:Created>
+              <wsu:Expires>2020-03-03T05:13:07Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-35ba68c0-21c2-4816-bf84-2cde2c077aad">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>1PCWpLBJ5Nj/YB5Iun19Hw==</wsse:Nonce>
+              <wsu:Created>2020-03-03T05:08:07Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 5:08:10 AM" messageId="urn:uuid:a6dd5cc3-fbdb-424e-b3e8-8f91edf527e3">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:a6dd5cc3-fbdb-424e-b3e8-8f91edf527e3</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/DrugMasterService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-9a18c9b8-4e34-41d9-b913-d9e18fbdbfa6">
+              <wsu:Created>2020-03-03T05:08:10Z</wsu:Created>
+              <wsu:Expires>2020-03-03T05:13:10Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-a7435044-f7f4-4be0-84df-ef5f623b1c2a">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>n4lw6qwIJiLeixnnElkPjw==</wsse:Nonce>
+              <wsu:Created>2020-03-03T05:08:10Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 5:08:10 AM" messageId="urn:uuid:0aa328b6-d3e1-4bb2-9081-8a4d6be9c550">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:0aa328b6-d3e1-4bb2-9081-8a4d6be9c550</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/DrugMasterService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-ff6a7942-2b72-4397-ae34-8d672e56d96d">
+              <wsu:Created>2020-03-03T05:08:10Z</wsu:Created>
+              <wsu:Expires>2020-03-03T05:13:10Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-d95ce27c-d336-400e-ad49-fabfbe651b23">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>+KFusu/yyfTWsTpBtriz3A==</wsse:Nonce>
+              <wsu:Created>2020-03-03T05:08:10Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 5:08:27 AM" messageId="urn:uuid:e315c119-ae43-49fa-a803-1c18db65921e">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:e315c119-ae43-49fa-a803-1c18db65921e</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/DrugMasterService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-82bf90e5-89bc-460a-8bb5-1abd7a8e4f41">
+              <wsu:Created>2020-03-03T05:08:27Z</wsu:Created>
+              <wsu:Expires>2020-03-03T05:13:27Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-281ca8bc-19c3-40e9-ae4e-1c58b92cfaf8">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>q1pDdVYWdrbEP/BP0nK1Vg==</wsse:Nonce>
+              <wsu:Created>2020-03-03T05:08:27Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN202003001</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN202003001</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 5:11:31 AM" messageId="urn:uuid:7fabef80-23a9-47df-b75d-898b4a533eca">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:7fabef80-23a9-47df-b75d-898b4a533eca</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/PatientService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-99a63783-2ca1-4d88-aeb6-dfef81fbbd3b">
+              <wsu:Created>2020-03-03T05:11:28Z</wsu:Created>
+              <wsu:Expires>2020-03-03T05:16:28Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-8105fc5e-afd6-4f16-bcd7-62f917246ba7">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>yLz+F3AvEFAWMfiotG2bOw==</wsse:Nonce>
+              <wsu:Created>2020-03-03T05:11:28Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:32:04 AM" messageId="urn:uuid:9e7cd953-58a1-44bd-a71c-1232209467d1">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:9e7cd953-58a1-44bd-a71c-1232209467d1</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/PatientService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-09bc41c4-7cd3-489b-8a35-cc625a6a1100">
+              <wsu:Created>2020-03-03T06:32:02Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:37:02Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-683fc448-985b-46f6-a5f5-31707dd6d9c1">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>HL/G+WdbzG3GRnDoEFX1cA==</wsse:Nonce>
+              <wsu:Created>2020-03-03T06:32:02Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:32:12 AM" messageId="urn:uuid:ea9a25c1-92c3-4f1b-9fe8-b61ed11a54ed">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:ea9a25c1-92c3-4f1b-9fe8-b61ed11a54ed</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/PatientService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-d6c9b4e0-7b8d-4d5c-8faa-73f31bf6de9a">
+              <wsu:Created>2020-03-03T06:32:12Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:37:12Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-7d1fde49-b156-4fab-b721-606b8ec7fef1">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>W2sxiHahXaKg0DxpGj8jBw==</wsse:Nonce>
+              <wsu:Created>2020-03-03T06:32:12Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN202003001</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN202003001</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:32:50 AM" messageId="urn:uuid:be6dd303-b1bf-486f-b441-450751583e7a">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:32:56 AM" messageId="urn:uuid:1a7adeaf-9714-4482-9cc3-c3e28401c965">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:36:22 AM" messageId="urn:uuid:c97d565a-7474-493e-a541-bab148b76b27">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:c97d565a-7474-493e-a541-bab148b76b27</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/PatientService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-42f191dd-5adc-492b-bc20-e079e6df149c">
+              <wsu:Created>2020-03-03T06:36:22Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:41:22Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-4fe362a6-33c4-4f5f-b608-21a87d6f3a80">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>hp/Q+hElWgSX16cQ60ZoxQ==</wsse:Nonce>
+              <wsu:Created>2020-03-03T06:36:22Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN202003001</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN202003001</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:36:33 AM" messageId="urn:uuid:997c856f-7b8e-4812-bc98-646b4dc991e1">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:36:33 AM" messageId="urn:uuid:633ca988-5a3e-4f8d-83b1-f8ae79eebe0b">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:43:42 AM" messageId="urn:uuid:60e10779-53f3-42b9-b502-8a6898a5f509">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:60e10779-53f3-42b9-b502-8a6898a5f509</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/PatientService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-8010cce0-8cff-4ccf-b065-151eadeb84db">
+              <wsu:Created>2020-03-03T06:43:39Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:48:39Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-3a55886b-4149-46eb-b3e8-8ae4b1edffdc">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>bK6Yb6I5V/D0fWBuu+3tNQ==</wsse:Nonce>
+              <wsu:Created>2020-03-03T06:43:39Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:43:51 AM" messageId="urn:uuid:84c963d9-964d-4cf3-b3ec-eddfb0453c19">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:43:52 AM" messageId="urn:uuid:8c8f970f-ba13-4449-b9fe-b5b7f4179c58">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:44:02 AM" messageId="urn:uuid:fc3f30eb-2b84-4721-b2b8-27d570bb0448">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:fc3f30eb-2b84-4721-b2b8-27d570bb0448</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/PatientService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-33772dca-b0b2-4d7f-b6f4-ceab375eea77">
+              <wsu:Created>2020-03-03T06:44:02Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:49:02Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-e82f95ec-88e3-41ba-8228-ea30d822dec4">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>WiGKIiTYgoDmznE1Run+QA==</wsse:Nonce>
+              <wsu:Created>2020-03-03T06:44:02Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN202003001</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN202003001</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:44:10 AM" messageId="urn:uuid:9b48b778-40f2-4096-99a1-db46dc3fd022">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:44:10 AM" messageId="urn:uuid:476c55bd-b5c7-4218-80fe-b1922625212a">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:44:51 AM" messageId="urn:uuid:56724a92-5255-4609-9523-53876f5e251b">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:44:51 AM" messageId="urn:uuid:33499353-fd28-4be4-84d9-b6b0a3f03cae">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:45:02 AM" messageId="urn:uuid:c51e91cb-d514-48b9-8f55-528cdf4aacca">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:45:03 AM" messageId="urn:uuid:a9acca6d-6e6b-4e2c-b82d-0dc92e5f8393">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:46:24 AM" messageId="urn:uuid:175d1bf0-c79d-4d9a-b3e4-e82c88f060c9">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:175d1bf0-c79d-4d9a-b3e4-e82c88f060c9</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/PatientService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-9054b4ba-b160-455f-825a-ae1ebd740fe6">
+              <wsu:Created>2020-03-03T06:46:22Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:51:22Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-4617fdf2-e1a3-4c81-9d6f-0d3efcff6da1">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>a4P0jkFF5IzqO9Nrkg6wKw==</wsse:Nonce>
+              <wsu:Created>2020-03-03T06:46:22Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN191099571</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN191099571</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:46:46 AM" messageId="urn:uuid:f2da81ba-b453-4591-af3c-7dc4065241bd">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:f2da81ba-b453-4591-af3c-7dc4065241bd</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/PatientService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-082445e1-d823-43d0-b7b7-bf015130fd50">
+              <wsu:Created>2020-03-03T06:46:46Z</wsu:Created>
+              <wsu:Expires>2020-03-03T06:51:46Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-e03e1b30-3444-4005-bb5e-eea8cb738fb3">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>wDhUJeTmCk7zhKPMeyICxw==</wsse:Nonce>
+              <wsu:Created>2020-03-03T06:46:46Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN202003001</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN202003001</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:46:55 AM" messageId="urn:uuid:1a9ff40e-ae74-4d8a-9437-e4b274884951">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:46:55 AM" messageId="urn:uuid:162af5f7-a22f-40ef-b41c-46ddedc9cd7b">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:58:56 AM" messageId="urn:uuid:6e3a5f1a-25f1-44ba-add2-02a9c82605c2">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+          <wsa:MessageID>urn:uuid:6e3a5f1a-25f1-44ba-add2-02a9c82605c2</wsa:MessageID>
+          <wsa:ReplyTo>
+            <wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+          </wsa:ReplyTo>
+          <wsa:To>http://localhost:8096/PatientService.asmx</wsa:To>
+          <wsse:Security soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="Timestamp-d929e805-0fb4-43f1-8a37-99a528d98fe5">
+              <wsu:Created>2020-03-03T06:58:53Z</wsu:Created>
+              <wsu:Expires>2020-03-03T07:03:53Z</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecurityToken-6eed5c39-5126-4a89-b9c4-d189d8ae344e">
+              <wsse:Username>pas-appt-ws-user</wsse:Username>
+              <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+              <wsse:Nonce>nkxKGdegsXE6+4OaqhMeUw==</wsse:Nonce>
+              <wsu:Created>2020-03-03T06:58:53Z</wsu:Created>
+            </wsse:UsernameToken>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN202003001</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header />
+        <soap:Body>
+          <web:searchHKPMIPatientByCaseNo xmlns:web="http://webservice.pas.ha.org.hk/">
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN202003001</caseNo>
+          </web:searchHKPMIPatientByCaseNo>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:59:05 AM" messageId="urn:uuid:6dedd543-c61b-4e39-8bf3-8165b7ee101d">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <getDrugMdsPropertyHq xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0>
+              <itemCode>DEMO01</itemCode>
+            </arg0>
+          </getDrugMdsPropertyHq>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
+  <inputMessage utc="03/03/2020 6:59:05 AM" messageId="urn:uuid:8bf35b53-5dc4-47ea-8e09-9868b8b01816">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <getPreparation xmlns="http://biz.dms.pms.model.ha.org.hk/">
+            <arg0 xmlns="">
+              <dispHospCode />
+              <dispWorkstore />
+              <itemCode>DEMO01</itemCode>
+              <drugScope>I</drugScope>
+              <specialtyType>I</specialtyType>
+              <pasSpecialty />
+              <pasSubSpecialty />
+              <costIncluded>true</costIncluded>
+              <hqFlag>true</hqFlag>
+            </arg0>
+          </getPreparation>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </inputMessage>
 </log>

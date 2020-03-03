@@ -44,7 +44,7 @@ namespace Demo.HL7MessageParser.Models
         public string SourceSystem { get; set; }
         public string TextColor { get; set; }
         public string UpdateBy { get; set; }
-        public DateTime UpdateDtm { get; set; }
+        public string UpdateDtm { get; set; }
         public string UpdateHospital { get; set; }
         public string UpdateRankDesc { get; set; }
         public string UpdateUser { get; set; }
@@ -90,7 +90,7 @@ namespace Demo.HL7MessageParser.Models
         public string SourceSystem { get; set; }
         public string TextColor { get; set; }
         public string UpdateBy { get; set; }
-        public DateTime UpdateDtm { get; set; }
+        public string UpdateDtm { get; set; }
         public string UpdateHospital { get; set; }
         public string UpdateRankDesc { get; set; }
         public string UpdateUser { get; set; }

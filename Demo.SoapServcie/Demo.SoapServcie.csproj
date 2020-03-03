@@ -122,10 +122,13 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>SET TARGET=$(TargetDir)\Data\PE
+    <PostBuildEvent>SET TARGET=$(TargetDir)\Data
 rmdir /S/Q "%25TARGET%25"
-SET Source=$(SolutionDir)\Data\PE
-xcopy /Y/S "%25Source%25\*.*" "%25TARGET%25\"</PostBuildEvent>
+rmdir /S/Q "%25TARGET%25\PE"
+rmdir /S/Q "%25TARGET%25\DM"
+SET Source=$(SolutionDir)\Data
+xcopy /Y/S "%25Source%25\PE\*.*" "%25TARGET%25\PE\"
+xcopy /Y/S "%25Source%25\DM\*.*" "%25TARGET%25\DM\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
