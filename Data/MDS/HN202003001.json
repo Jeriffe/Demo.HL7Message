@@ -1,0 +1,83 @@
+{
+    "adrError": {
+        "errorAction": null,
+        "errorCause": null,
+        "errorDesc": null,
+        "errorDetails": [],
+        "hasAdrError": false
+    },
+    "allergyError": {
+        "errorAction": null,
+        "errorCause": null,
+        "errorDesc": null,
+        "errorDetails": [],
+        "hasAllergyError": false
+    },
+    "ddcmCheckingResults": {
+        "ddcmAlertMessages": [],
+        "ddcmAlerts": [],
+        "errorCode": "0",
+        "errorDesc": "",
+        "hasDdcmAlert": false,
+        "hasG6PdDeficiencyAlert": false,
+        "hasPregnancyAlert": false,
+        "messageCount": 0
+    },
+    "ddimCheckingResults": {
+        "ddimAlertMessages": [],
+        "ddimAlerts": [],
+        "errorCode": null,
+        "errorDesc": null,
+        "hasDdimAlert": false,
+        "messageCount": 0
+    },
+    "disconCheckingResults": null,
+    "dlcmCheckingResults": null,
+    "drcmCheckingResults": null,
+    "drugAdrCheckingResults": {
+        "drugAdrAlertMessages": [],
+        "drugAdrAlerts": [],
+        "errorCode": "0",
+        "errorDesc": "",
+        "hasDrugAdrAlert": false,
+        "messageCount": 0
+    },
+    "drugAllergyCheckingResults": {
+        "drugAllergyAlertMessages": [
+            "The use of METHYLPREDNISOLONE ACEPONATE OINTMENT may result in an allergic reaction based on a reported history of allergy to METHYLPREDNISOLONE ACEPONATE in which ALLERGIC RHINITIS; ASTHMA; RASH was experienced."
+        ],
+        "drugAllergyAlerts": [
+            {
+                "allergen": "METHYLPREDNISOLONE ACEPONATE",
+                "allergenCustomId": "0000090020",
+                "certainty": "Certain",
+                "drugAllergyAlertMessage": "The use of METHYLPREDNISOLONE ACEPONATE OINTMENT may result in an allergic reaction based on a reported history of allergy to METHYLPREDNISOLONE ACEPONATE in which ALLERGIC RHINITIS; ASTHMA; RASH was experienced.",
+                "drugCustomId": "METHYLPREDNISOLONE ACEPONATE OINTMENT|1||VH|0|1|5254937",
+                "drugName": "METHYLPREDNISOLONE ACEPONATE OINTMENT",
+                "indexRow": 1,
+                "manifestation": "ALLERGIC RHINITIS; ASTHMA; RASH",
+                "matchType": "1",
+                "remark": "Asthma",
+                "suppress": false
+            }
+        ],
+        "errorCode": "0",
+        "errorDesc": "",
+        "hasDrugAllergyAlert": true,
+        "messageCount": 1
+    },
+    "drugError": {
+        "errorAction": null,
+        "errorCause": null,
+        "errorDesc": null,
+        "errorDetails": [],
+        "hasDrugError": false
+    },
+    "dscmCheckingResults": null,
+    "errorCode": null,
+    "errorDesc": null,
+    "hasMdsAlert": true,
+    "hepaBCheckingResults": null,
+    "steroidCheckingResults": null,
+    "tenoCheckingResults": null
+}

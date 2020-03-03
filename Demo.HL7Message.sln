@@ -106,6 +106,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MDS", "MDS", "{1442D4B8-6B5
 	ProjectSection(SolutionItems) = preProject
 		Data\MDS\HN130005510.json = Data\MDS\HN130005510.json
 		Data\MDS\HN170002520.json = Data\MDS\HN170002520.json
+		Data\MDS\HN202003001.json = Data\MDS\HN202003001.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM", "DM", "{EED021E0-62B9-4A39-849A-18D23C8ABDD9}"
@@ -113,17 +114,20 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "getPreparation", "getPreparation", "{F721A3DF-9D67-440C-95E6-72BA3E6B1840}"
 	ProjectSection(SolutionItems) = preProject
 		Data\DM\getPreparation\AMET02.xml = Data\DM\getPreparation\AMET02.xml
+		Data\DM\getPreparation\H2003001.xml = Data\DM\getPreparation\H2003001.xml
 		Data\DM\getPreparation\METH66.xml = Data\DM\getPreparation\METH66.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "getDrugMdsPropertyHq", "getDrugMdsPropertyHq", "{785EB32E-E008-4BAD-9B8A-967D819FB593}"
 	ProjectSection(SolutionItems) = preProject
 		Data\DM\getDrugMdsPropertyHq\1.xml = Data\DM\getDrugMdsPropertyHq\1.xml
+		Data\DM\getDrugMdsPropertyHq\H2003001.xml = Data\DM\getDrugMdsPropertyHq\H2003001.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Req", "Req", "{87C1AAA2-1497-4301-A2DE-BFE4B9BEAE2D}"
 	ProjectSection(SolutionItems) = preProject
 		Data\DM\getPreparation\Req\AMET02.xml = Data\DM\getPreparation\Req\AMET02.xml
+		Data\DM\getPreparation\Req\H2003001.xml = Data\DM\getPreparation\Req\H2003001.xml
 		Data\DM\getPreparation\Req\METH66.xml = Data\DM\getPreparation\Req\METH66.xml
 	EndProjectSection
 EndProject
@@ -131,6 +135,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Req", "Req", "{8EB05B79-87E
 	ProjectSection(SolutionItems) = preProject
 		Data\DM\getDrugMdsPropertyHq\Req\1.xml = Data\DM\getDrugMdsPropertyHq\Req\1.xml
 		Data\DM\getDrugMdsPropertyHq\Req\2.xml = Data\DM\getDrugMdsPropertyHq\Req\2.xml
+		Data\DM\getDrugMdsPropertyHq\Req\H2003001.xml = Data\DM\getDrugMdsPropertyHq\Req\H2003001.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0_Ref", "0_Ref", "{4C5BE759-CEEB-4A97-83DB-9DDE727CF053}"
