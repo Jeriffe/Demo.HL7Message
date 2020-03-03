@@ -218,11 +218,16 @@ namespace Demo.HL7MessageParser.WinForms
                 var result = parser.CheckRemoteMasterDrug(HK_ID, cbxItemCodes.SelectedItem.ToString(), out errorMsg);
 
                 var resultJson = JsonHelper.ToJson(result);
+                scintillaMdsCheckRes.FormatJsonStyle();
+                scintillaMdsCheckRes.Text = JsonHelper.FormatJson(resultJson);
 
                 var request = Cache_HK.MDS_CheckCache[HK_ID].Req;
 
                 var requestXml = XmlHelper.XmlSerializeToString(request);
+                scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
+                scintillaMdsCheckReq.Text = requestXml;
 
+                Application.DoEvents();
             }
             catch (Exception ex)
             {

@@ -35,11 +35,20 @@
             this.cbxCaseNumber = new System.Windows.Forms.ComboBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.scintillaPatient = new ScintillaNET.Scintilla();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.scintillaProfiles = new ScintillaNET.Scintilla();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.scintillaAlerts = new ScintillaNET.Scintilla();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.scintillaMdsCheckReq = new ScintillaNET.Scintilla();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.scintillaMdsCheckRes = new ScintillaNET.Scintilla();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -47,8 +56,24 @@
             this.splitContainer1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnRequest
@@ -131,7 +156,6 @@
             // 
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
-            this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Margin = new System.Windows.Forms.Padding(2);
@@ -142,69 +166,183 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.scintillaPatient);
+            this.tabPage1.Controls.Add(this.splitContainer2);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(797, 403);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "PatientDemorgaic";
+            this.tabPage1.Text = "Patient & Medication & Allergy";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(2, 2);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox1);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
+            this.splitContainer2.Size = new System.Drawing.Size(793, 399);
+            this.splitContainer2.SplitterDistance = 301;
+            this.splitContainer2.TabIndex = 5;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.scintillaPatient);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(301, 399);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "PatientInfo";
             // 
             // scintillaPatient
             // 
             this.scintillaPatient.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaPatient.Location = new System.Drawing.Point(2, 2);
+            this.scintillaPatient.Location = new System.Drawing.Point(3, 17);
             this.scintillaPatient.Margin = new System.Windows.Forms.Padding(2);
             this.scintillaPatient.Name = "scintillaPatient";
-            this.scintillaPatient.Size = new System.Drawing.Size(793, 399);
+            this.scintillaPatient.Size = new System.Drawing.Size(295, 379);
             this.scintillaPatient.TabIndex = 1;
-            this.scintillaPatient.Text = "PatientVisit";
+            this.scintillaPatient.Text = "Patient Info";
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.groupBox2);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.groupBox3);
+            this.splitContainer3.Size = new System.Drawing.Size(488, 399);
+            this.splitContainer3.SplitterDistance = 254;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.scintillaProfiles);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(254, 399);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "MedicationProfile";
+            // 
+            // scintillaProfiles
+            // 
+            this.scintillaProfiles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scintillaProfiles.Location = new System.Drawing.Point(3, 17);
+            this.scintillaProfiles.Margin = new System.Windows.Forms.Padding(2);
+            this.scintillaProfiles.Name = "scintillaProfiles";
+            this.scintillaProfiles.Size = new System.Drawing.Size(248, 379);
+            this.scintillaProfiles.TabIndex = 2;
+            this.scintillaProfiles.Text = "Patient Profile";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.scintillaAlerts);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(230, 399);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "AlertProfile";
+            // 
+            // scintillaAlerts
+            // 
+            this.scintillaAlerts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scintillaAlerts.Location = new System.Drawing.Point(3, 17);
+            this.scintillaAlerts.Margin = new System.Windows.Forms.Padding(2);
+            this.scintillaAlerts.Name = "scintillaAlerts";
+            this.scintillaAlerts.Size = new System.Drawing.Size(224, 379);
+            this.scintillaAlerts.TabIndex = 1;
+            this.scintillaAlerts.Text = "Patient Allergy";
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.scintillaProfiles);
+            this.tabPage2.Controls.Add(this.splitContainer4);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(797, 403);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "MedicationProfile";
+            this.tabPage2.Text = "Medication Drug Check";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // scintillaProfiles
+            // splitContainer4
             // 
-            this.scintillaProfiles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaProfiles.Location = new System.Drawing.Point(2, 2);
-            this.scintillaProfiles.Margin = new System.Windows.Forms.Padding(2);
-            this.scintillaProfiles.Name = "scintillaProfiles";
-            this.scintillaProfiles.Size = new System.Drawing.Size(793, 399);
-            this.scintillaProfiles.TabIndex = 1;
-            this.scintillaProfiles.Text = "Patient Profile";
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(2, 2);
+            this.splitContainer4.Name = "splitContainer4";
             // 
-            // tabPage3
+            // splitContainer4.Panel1
             // 
-            this.tabPage3.Controls.Add(this.scintillaAlerts);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Size = new System.Drawing.Size(797, 403);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "AlertProfile";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.splitContainer4.Panel1.Controls.Add(this.groupBox4);
             // 
-            // scintillaAlerts
+            // splitContainer4.Panel2
             // 
-            this.scintillaAlerts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaAlerts.Location = new System.Drawing.Point(2, 2);
-            this.scintillaAlerts.Margin = new System.Windows.Forms.Padding(2);
-            this.scintillaAlerts.Name = "scintillaAlerts";
-            this.scintillaAlerts.Size = new System.Drawing.Size(793, 399);
-            this.scintillaAlerts.TabIndex = 0;
-            this.scintillaAlerts.Text = "Patient Allergy";
+            this.splitContainer4.Panel2.Controls.Add(this.groupBox5);
+            this.splitContainer4.Size = new System.Drawing.Size(793, 399);
+            this.splitContainer4.SplitterDistance = 412;
+            this.splitContainer4.TabIndex = 1;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.scintillaMdsCheckReq);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(0, 0);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(412, 399);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Request";
+            // 
+            // scintillaMdsCheckReq
+            // 
+            this.scintillaMdsCheckReq.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scintillaMdsCheckReq.Location = new System.Drawing.Point(3, 17);
+            this.scintillaMdsCheckReq.Margin = new System.Windows.Forms.Padding(2);
+            this.scintillaMdsCheckReq.Name = "scintillaMdsCheckReq";
+            this.scintillaMdsCheckReq.Size = new System.Drawing.Size(406, 379);
+            this.scintillaMdsCheckReq.TabIndex = 2;
+            this.scintillaMdsCheckReq.Text = "MDS Check Request";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.scintillaMdsCheckRes);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(0, 0);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(377, 399);
+            this.groupBox5.TabIndex = 4;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Response";
+            // 
+            // scintillaMdsCheckRes
+            // 
+            this.scintillaMdsCheckRes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scintillaMdsCheckRes.Location = new System.Drawing.Point(3, 17);
+            this.scintillaMdsCheckRes.Margin = new System.Windows.Forms.Padding(2);
+            this.scintillaMdsCheckRes.Name = "scintillaMdsCheckRes";
+            this.scintillaMdsCheckRes.Size = new System.Drawing.Size(371, 379);
+            this.scintillaMdsCheckRes.TabIndex = 1;
+            this.scintillaMdsCheckRes.Text = "MDS Check Response";
             // 
             // bgWorker
             // 
@@ -227,8 +365,24 @@
             this.splitContainer1.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -243,11 +397,20 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private ScintillaNET.Scintilla scintillaProfiles;
-        private System.Windows.Forms.TabPage tabPage3;
-        private ScintillaNET.Scintilla scintillaAlerts;
         private System.ComponentModel.BackgroundWorker bgWorker;
         private System.Windows.Forms.Button btnMDSCheck;
         private System.Windows.Forms.ComboBox cbxItemCodes;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private ScintillaNET.Scintilla scintillaAlerts;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private ScintillaNET.Scintilla scintillaProfiles;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private ScintillaNET.Scintilla scintillaMdsCheckReq;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private ScintillaNET.Scintilla scintillaMdsCheckRes;
     }
 }
