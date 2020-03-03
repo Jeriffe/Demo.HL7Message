@@ -1,6 +1,6 @@
 ﻿namespace Demo.HL7MessageParser.WinForms
 {
-    partial class PatientOrderAlertControl
+    partial class FullWorkFlowControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,6 +30,8 @@
             this.btnRequest = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnMDSCheck = new System.Windows.Forms.Button();
+            this.cbxItemCodes = new System.Windows.Forms.ComboBox();
             this.cbxCaseNumber = new System.Windows.Forms.ComboBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -39,8 +41,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.scintillaAlerts = new ScintillaNET.Scintilla();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
-            this.cbxItemCodes = new System.Windows.Forms.ComboBox();
-            this.btnMDSCheck = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -98,6 +98,26 @@
             this.splitContainer1.SplitterDistance = 56;
             this.splitContainer1.TabIndex = 3;
             // 
+            // btnMDSCheck
+            // 
+            this.btnMDSCheck.Location = new System.Drawing.Point(538, 16);
+            this.btnMDSCheck.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMDSCheck.Name = "btnMDSCheck";
+            this.btnMDSCheck.Size = new System.Drawing.Size(100, 26);
+            this.btnMDSCheck.TabIndex = 4;
+            this.btnMDSCheck.Text = "MDS-Check";
+            this.btnMDSCheck.UseVisualStyleBackColor = true;
+            this.btnMDSCheck.Click += new System.EventHandler(this.btnMDSCheck_Click);
+            // 
+            // cbxItemCodes
+            // 
+            this.cbxItemCodes.FormattingEnabled = true;
+            this.cbxItemCodes.Location = new System.Drawing.Point(376, 19);
+            this.cbxItemCodes.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxItemCodes.Name = "cbxItemCodes";
+            this.cbxItemCodes.Size = new System.Drawing.Size(138, 23);
+            this.cbxItemCodes.TabIndex = 3;
+            // 
             // cbxCaseNumber
             // 
             this.cbxCaseNumber.FormattingEnabled = true;
@@ -145,11 +165,11 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.scintillaProfiles);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(797, 405);
+            this.tabPage2.Size = new System.Drawing.Size(797, 403);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "MedicationProfile";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -160,18 +180,18 @@
             this.scintillaProfiles.Location = new System.Drawing.Point(2, 2);
             this.scintillaProfiles.Margin = new System.Windows.Forms.Padding(2);
             this.scintillaProfiles.Name = "scintillaProfiles";
-            this.scintillaProfiles.Size = new System.Drawing.Size(793, 401);
+            this.scintillaProfiles.Size = new System.Drawing.Size(793, 399);
             this.scintillaProfiles.TabIndex = 1;
             this.scintillaProfiles.Text = "Patient Profile";
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.scintillaAlerts);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Size = new System.Drawing.Size(797, 405);
+            this.tabPage3.Size = new System.Drawing.Size(797, 403);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "AlertProfile";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -182,7 +202,7 @@
             this.scintillaAlerts.Location = new System.Drawing.Point(2, 2);
             this.scintillaAlerts.Margin = new System.Windows.Forms.Padding(2);
             this.scintillaAlerts.Name = "scintillaAlerts";
-            this.scintillaAlerts.Size = new System.Drawing.Size(793, 401);
+            this.scintillaAlerts.Size = new System.Drawing.Size(793, 399);
             this.scintillaAlerts.TabIndex = 0;
             this.scintillaAlerts.Text = "Patient Allergy";
             // 
@@ -190,34 +210,14 @@
             // 
             this.bgWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorker_DoWork);
             // 
-            // cbxItemCodes
-            // 
-            this.cbxItemCodes.FormattingEnabled = true;
-            this.cbxItemCodes.Location = new System.Drawing.Point(376, 19);
-            this.cbxItemCodes.Margin = new System.Windows.Forms.Padding(2);
-            this.cbxItemCodes.Name = "cbxItemCodes";
-            this.cbxItemCodes.Size = new System.Drawing.Size(138, 23);
-            this.cbxItemCodes.TabIndex = 3;
-            // 
-            // button1
-            // 
-            this.btnMDSCheck.Location = new System.Drawing.Point(538, 16);
-            this.btnMDSCheck.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMDSCheck.Name = "button1";
-            this.btnMDSCheck.Size = new System.Drawing.Size(100, 26);
-            this.btnMDSCheck.TabIndex = 4;
-            this.btnMDSCheck.Text = "MDS-Check";
-            this.btnMDSCheck.UseVisualStyleBackColor = true;
-            this.btnMDSCheck.Click += new System.EventHandler(this.btnMDSCheck_Click);
-            // 
-            // PatientOrderAlertControl
+            // FullWorkFlowControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "PatientOrderAlertControl";
+            this.Name = "FullWorkFlowControl";
             this.Size = new System.Drawing.Size(805, 491);
             this.Load += new System.EventHandler(this.HL7MessageParserFormTest_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

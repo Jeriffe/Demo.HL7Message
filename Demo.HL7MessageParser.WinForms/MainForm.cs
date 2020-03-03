@@ -60,12 +60,11 @@ namespace Demo.HL7MessageParser.WinForms
             tc.TabPages.Add(new TabPage { Name = "tbAlertProfileControl", Text = "AlertProfile" });
             tc.TabPages["tbAlertProfileControl"].Controls.Add(new AlertProfileParserControl { Dock = DockStyle.Fill });
 
-            tc.TabPages.Add(new TabPage { Name = "tbPatientOrderAlertsControl", Text = "Patient-Order-Allergy" });
-            tc.TabPages["tbPatientOrderAlertsControl"].Controls.Add(new PatientOrderAlertControl { Dock = DockStyle.Fill });
-
-
             tc.TabPages.Add(new TabPage { Name = "tbDrugMasterControl", Text = "DrugMaster" });
             tc.TabPages["tbDrugMasterControl"].Controls.Add(new DrugMasterControl(parser) { Dock = DockStyle.Fill });
+
+            tc.TabPages.Add(new TabPage { Name = "tbFullWorkFlowControl", Text = "Full Work Flow" });
+            tc.TabPages["tbFullWorkFlowControl"].Controls.Add(new FullWorkFlowControl { Dock = DockStyle.Fill });
 
             this.Controls.Add(tc);
             this.Controls.Add(this.menuStrip1);

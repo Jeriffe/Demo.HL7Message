@@ -20,14 +20,14 @@ using Demo.HL7MessageParser.Models;
 
 namespace Demo.HL7MessageParser.WinForms
 {
-    public partial class PatientOrderAlertControl : UserControl
+    public partial class FullWorkFlowControl : UserControl
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
         private Loading loadForm;
         private HL7MessageParser_NTEC parser;
 
-        public PatientOrderAlertControl()
+        public FullWorkFlowControl()
         {
             InitializeComponent();
 

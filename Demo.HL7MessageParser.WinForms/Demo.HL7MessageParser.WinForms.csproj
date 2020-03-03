@@ -114,11 +114,11 @@
     <Compile Include="Controls\DrugMasterContror.Designer.cs">
       <DependentUpon>DrugMasterContror.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\PatientOrderAlertControl.cs">
+    <Compile Include="Controls\FullWorkFlowControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\PatientOrderAlertControl.Designer.cs">
-      <DependentUpon>PatientOrderAlertControl.cs</DependentUpon>
+    <Compile Include="Controls\FullWorkFlowControl.Designer.cs">
+      <DependentUpon>FullWorkFlowControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\PatientDemographicControl.cs">
       <SubType>UserControl</SubType>
@@ -182,8 +182,8 @@
     <EmbeddedResource Include="Controls\DrugMasterContror.resx">
       <DependentUpon>DrugMasterContror.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\PatientOrderAlertControl.resx">
-      <DependentUpon>PatientOrderAlertControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\FullWorkFlowControl.resx">
+      <DependentUpon>FullWorkFlowControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PatientDemographicControl.resx">
       <DependentUpon>PatientDemographicControl.cs</DependentUpon>
