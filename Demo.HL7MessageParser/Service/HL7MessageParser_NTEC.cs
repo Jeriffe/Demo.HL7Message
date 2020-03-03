@@ -642,15 +642,27 @@ namespace Demo.HL7MessageParser
 
             mdsCheckObj.CallerSourceSystem = "PMS";
 
+
+            var result = mdsCheckRestService.CheckMDS(mdsCheckObj);
+
+            return WrapperMDSResponse(result);
+        }
+
+        private ComplexMDSResult WrapperMDSResponse(MDSCheckResult result)
+        {
+            //Mapper result
+
             return new ComplexMDSResult
             {
+                ErrorMessage = "",
                 IsPerformMDSCheck = true,
+                Result = result
             };
         }
 
         private string FormatVolumeValue(float volumeValue)
         {
-            return string.Format("{0:#######.####}", 195474.039675);
+            return string.Format("{0:#######.####}", volumeValue);
         }
     }
 
@@ -658,6 +670,8 @@ namespace Demo.HL7MessageParser
     {
         public bool IsPerformMDSCheck { get; set; }
         public string ErrorMessage { get; set; }
+
+        public MDSCheckResult Result { get; set; }
     }
 }
 /*MDS Check Service 
@@ -752,8 +766,6 @@ namespace Demo.HL7MessageParser
         <hiclSeqNo xsi:nil="true" 
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
         <hicSeqNos>
-            <hicSeqNo>743</hicSeqNo>
-            <hicSeqNo>1117</hicSeqNo>
             <hicSeqNo>1121</hicSeqNo>
             <hicSeqNo>1123</hicSeqNo>
             <hicSeqNo>2434</hicSeqNo>
@@ -786,7 +798,13 @@ namespace Demo.HL7MessageParser
         <updateDtm>2020-02-24 10:02:15.0</updateDtm>
         <reactions>
             <seqNo></seqNo>
-            <rDesc>Bronchospasm</rDesc>
+            <rDesc>Abdominal Pain with Cramps</rDesc>
+            <severCode>0</severCode>
+            <freqCode>0</freqCode>
+        </reactions>
+        <reactions>
+            <seqNo></seqNo>
+            <rDesc>Others</rDesc>
             <severCode>0</severCode>
             <freqCode>0</freqCode>
         </reactions>
