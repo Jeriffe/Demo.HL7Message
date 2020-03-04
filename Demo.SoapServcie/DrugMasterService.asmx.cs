@@ -22,15 +22,6 @@ namespace Demp.SimpleSoapService
     // [System.Web.Script.Services.ScriptService]
     public class DrugMasterService : System.Web.Services.WebService
     {
-        static Dictionary<string, string> HKID_DrugItemCodeMapping = new Dictionary<string, string>();
-        static DrugMasterService()
-        {
-            HKID_DrugItemCodeMapping["DEMO01"] = "H2003001_DEMO01";
-            HKID_DrugItemCodeMapping["DEMO02"] = "H2003002_DEMO02";
-            HKID_DrugItemCodeMapping["DEMO03"] = "H2003003_DEMO03";
-            HKID_DrugItemCodeMapping["DEMO04"] = "H2003004_DEMO04";
-        }
-
         public WorkContextSoapHeader WorkContext { get; set; }
 
         [WebMethod]
@@ -49,9 +40,9 @@ namespace Demp.SimpleSoapService
             try
             {
                 var relativeItemCode = request.Arg0.ItemCode;
-                if (HKID_DrugItemCodeMapping.ContainsKey(relativeItemCode))
+                if (RuleMappingHelper.ItemCode_HKID_Mapping.ContainsKey(relativeItemCode))
                 {
-                    relativeItemCode = HKID_DrugItemCodeMapping[relativeItemCode];
+                    relativeItemCode = RuleMappingHelper.ItemCode_HKID_Mapping[relativeItemCode];
                 }
 
                 var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/DM/getPreparation/{0}.xml", relativeItemCode));
@@ -111,9 +102,9 @@ namespace Demp.SimpleSoapService
 
                 var relativeItemCode = request.Arg0.ItemCode[0];
 
-                if (HKID_DrugItemCodeMapping.ContainsKey(relativeItemCode))
+                if (RuleMappingHelper.ItemCode_HKID_Mapping.ContainsKey(relativeItemCode))
                 {
-                    relativeItemCode = HKID_DrugItemCodeMapping[relativeItemCode];
+                    relativeItemCode = RuleMappingHelper.ItemCode_HKID_Mapping[relativeItemCode];
                 }
 
                 file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/DM/getDrugMdsPropertyHq/{0}.xml", relativeItemCode));

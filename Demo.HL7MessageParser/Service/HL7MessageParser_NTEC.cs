@@ -208,7 +208,7 @@ namespace Demo.HL7MessageParser
                 },
                 SysInfo = new SysInfo
                 {
-                    WsId = UtilityExtensions.GetLoalIPAddress(),
+                    WsId = UtilityHelper.GetLoalIPAddress(),
                     SourceSystem = "PMS"
                 },
                 Credentials = new Credentials
@@ -383,7 +383,7 @@ namespace Demo.HL7MessageParser
             {
                 HospCode = HospitalCode,
                 PharSpec = patientEnquiry.CaseList[0].Specialty,
-                WrkStnID = UtilityExtensions.GetLoalIPAddress(),
+                WrkStnID = UtilityHelper.GetLoalIPAddress(),
                 WrkStnType = "I"
             };
 

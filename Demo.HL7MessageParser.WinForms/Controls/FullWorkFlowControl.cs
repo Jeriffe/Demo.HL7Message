@@ -23,7 +23,7 @@ namespace Demo.HL7MessageParser.WinForms
     public partial class FullWorkFlowControl : UserControl
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-
+        private string HK_ID = string.Empty;
         private Loading loadForm;
         private HL7MessageParser_NTEC parser;
 
@@ -32,22 +32,12 @@ namespace Demo.HL7MessageParser.WinForms
             InitializeComponent();
 
             bgWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(this.bgWorker_RunWorkerCompleted);
-
+            bgWorkerMDSCheck.RunWorkerCompleted += bgWorkerMDSCheck_RunWorkerCompleted;
+            loadForm = new Loading { Width = this.Width, Height = this.Height };
             Initialize();
         }
 
-        private void Initialize()
-        {
-            var patientVisitParser = new SoapPatientVisitParser(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
 
-            var profileService = new ProfileRestService(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
-
-            var drugMasterSoapService = new DrugMasterSoapService(Global.DrugMasterSoapUrl);
-
-            var mdsCheckRestService = new MDSCheckRestService(Global.MDSCheckRestUrl);
-
-            parser = new HL7MessageParser_NTEC(patientVisitParser, profileService, drugMasterSoapService, mdsCheckRestService);
-        }
 
         private void HL7MessageParserFormTest_Load(object sender, EventArgs e)
         {
@@ -59,11 +49,13 @@ namespace Demo.HL7MessageParser.WinForms
                                             .Select(o => o.Substring(0, o.Length - ".xml".Length))
                                             .ToList();
 
-            cbxItemCodes.DataSource = new List<string> { "DEMO01", "DEMO02", "DEMO03", "DEMO04" };
-
             btnMDSCheck.Enabled = false;
         }
 
+        private void cbxCaseNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshMDSControlseState(false);
+        }
         private void btnRequest_Click(object sender, EventArgs e)
         {
             if (Global.IsDirty)
@@ -74,15 +66,17 @@ namespace Demo.HL7MessageParser.WinForms
             scintillaAlerts.Text = string.Empty;
             scintillaProfiles.Text = string.Empty;
             scintillaPatient.Text = string.Empty;
+            scintillaMdsCheckReq.Text = string.Empty;
+            scintillaMdsCheckRes.Text = string.Empty;
 
+            ChangeSelectedTabPage(tbpPatient);
             // Start the asynchronous operation.
             bgWorker.RunWorkerAsync(cbxCaseNumber.Text.Trim());
 
-            loadForm = new Loading { Width = this.Width, Height = this.Height };
+
 
             loadForm.ShowDialog();
         }
-
         private void bgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             var result = new EventResult();
@@ -99,6 +93,14 @@ namespace Demo.HL7MessageParser.WinForms
                 this.BeginInvoke((MethodInvoker)delegate
                 {
                     HK_ID = pd.Patient.HKID;
+
+                    if (RuleMappingHelper.HKID_ItemCode_Mapping.ContainsKey(HK_ID))
+                    {
+                        RefreshMDSControlseState(true);
+
+                        cbxItemCodes.DataSource = RuleMappingHelper.HKID_ItemCode_Mapping[HK_ID].Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                    }
+
                     scintillaPatient.FormatStyle(StyleType.Xml);
                     scintillaPatient.Text = XmlHelper.FormatXML(XmlHelper.XmlSerializeToString(result.PatientVisit));
                 });
@@ -133,7 +135,7 @@ namespace Demo.HL7MessageParser.WinForms
                     },
                     SysInfo = new SysInfo
                     {
-                        WsId = UtilityExtensions.GetLoalIPAddress(),
+                        WsId = UtilityHelper.GetLoalIPAddress(),
                         SourceSystem = Global.SourceSystem
                     },
                     Credentials = new Credentials
@@ -145,18 +147,16 @@ namespace Demo.HL7MessageParser.WinForms
                 result.Allergies = (allergys ?? new AlertProfileResult());
                 this.BeginInvoke((MethodInvoker)delegate
                 {
-                    btnMDSCheck.Enabled = true;
+
                     scintillaAlerts.FormatJsonStyle();
                     scintillaAlerts.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Allergies));
                 });
             }
             else
             {
-                this.BeginInvoke((MethodInvoker)(() => btnMDSCheck.Enabled = false));
+                this.BeginInvoke((MethodInvoker)(() => RefreshMDSControlseState(false)));
             }
         }
-
-
         private void bgWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (loadForm != null)
@@ -202,39 +202,108 @@ namespace Demo.HL7MessageParser.WinForms
             }*/
         }
 
+        private void cbxItemCodes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+        private void btnMDSCheck_Click(object sender, EventArgs e)
+        {
+            ChangeSelectedTabPage(tbpMDSCheck);
+
+            // Start the asynchronous operation.
+            bgWorkerMDSCheck.RunWorkerAsync(cbxItemCodes.SelectedItem.ToString());
+
+            loadForm.ShowDialog();
+        }
+        private void bgWorkerMDSCheck_DoWork(object sender, DoWorkEventArgs e)
+        {
+            var itemCode = e.Argument as string;
+            string errorMsg = null;
+            var result = parser.CheckRemoteMasterDrug(HK_ID, itemCode, out errorMsg);
+            var resultJson = JsonHelper.ToJson(result);
+
+
+            this.BeginInvoke((MethodInvoker)delegate
+            {
+                scintillaMdsCheckRes.FormatJsonStyle();
+                scintillaMdsCheckRes.Text = JsonHelper.FormatJson(resultJson);
+
+                if (result.IsPerformMDSCheck)
+                {
+                    var request = Cache_HK.MDS_CheckCache[HK_ID].Req;
+                    var requestXml = XmlHelper.XmlSerializeToString(request);
+                    scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
+                    scintillaMdsCheckReq.Text = requestXml;
+                }
+            });
+        }
+
+        private void bgWorkerMDSCheck_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (loadForm != null)
+            {
+                loadForm.Close();
+            }
+
+            //如果用户取消了当前操作就关闭窗口。
+            if (e.Cancelled)
+            {
+                return;
+            }
+
+            //计算过程中的异常会被抓住，在这里可以进行处理。
+            if (e.Error != null)
+            {
+                if (e.Error is AMException)
+                {
+                    var amex = e.Error as AMException;
+
+                    MessageBox.Show(string.Format("{0}-{1}", amex.HttpStatusCode, amex.Message));
+                }
+                else
+                {
+                    MessageBox.Show(e.Error.Message);
+                }
+
+                return;
+            }
+        }
+
+        private void Initialize()
+        {
+            var patientVisitParser = new SoapPatientVisitParser(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
+
+            var profileService = new ProfileRestService(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
+
+            var drugMasterSoapService = new DrugMasterSoapService(Global.DrugMasterSoapUrl);
+
+            var mdsCheckRestService = new MDSCheckRestService(Global.MDSCheckRestUrl);
+
+            parser = new HL7MessageParser_NTEC(patientVisitParser, profileService, drugMasterSoapService, mdsCheckRestService);
+        }
+
+        private void ChangeSelectedTabPage(TabPage tabPage)
+        {
+            if (tabControl.SelectedTab != tabPage)
+            {
+                tabControl.SelectedTab = tabPage;
+            }
+        }
+
+        private void RefreshMDSControlseState(bool enable)
+        {
+            btnMDSCheck.Enabled = enable;
+            cbxItemCodes.Enabled = enable;
+            if (!enable)
+            {
+                cbxItemCodes.DataSource = null;
+            }
+        }
+
         public class EventResult
         {
             public Models.PatientDemoEnquiry PatientVisit { get; set; }
             public MedicationProfileResult Orders { get; set; }
             public AlertProfileResult Allergies { get; set; }
-        }
-        private string HK_ID = string.Empty;
-
-        private void btnMDSCheck_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string errorMsg = null;
-                var result = parser.CheckRemoteMasterDrug(HK_ID, cbxItemCodes.SelectedItem.ToString(), out errorMsg);
-
-                var resultJson = JsonHelper.ToJson(result);
-                scintillaMdsCheckRes.FormatJsonStyle();
-                scintillaMdsCheckRes.Text = JsonHelper.FormatJson(resultJson);
-
-                var request = Cache_HK.MDS_CheckCache[HK_ID].Req;
-
-                var requestXml = XmlHelper.XmlSerializeToString(request);
-                scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
-                scintillaMdsCheckReq.Text = requestXml;
-
-                Application.DoEvents();
-            }
-            catch (Exception ex)
-            {
-                //LOGGER EX
-                MessageBox.Show(ex.Message);
-            }
-
         }
     }
 }
