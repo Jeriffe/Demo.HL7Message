@@ -107,6 +107,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MDS", "MDS", "{1442D4B8-6B5B-4227-BF1C-C457E7B13FD0}"
 	ProjectSection(SolutionItems) = preProject
 		Data\MDS\H2003001.json = Data\MDS\H2003001.json
+		Data\MDS\H2003002.json = Data\MDS\H2003002.json
+		Data\MDS\H2003003.json = Data\MDS\H2003003.json
+		Data\MDS\H2003004.json = Data\MDS\H2003004.json
 		Data\MDS\HN130005510.json = Data\MDS\HN130005510.json
 		Data\MDS\HN202003001.json = Data\MDS\HN202003001.json
 	EndProjectSection
@@ -117,6 +120,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "getPreparation", "getPrepar
 	ProjectSection(SolutionItems) = preProject
 		Data\DM\getPreparation\AMET02.xml = Data\DM\getPreparation\AMET02.xml
 		Data\DM\getPreparation\H2003001_DEMO01.xml = Data\DM\getPreparation\H2003001_DEMO01.xml
+		Data\DM\getPreparation\H2003002_DEMO02.xml = Data\DM\getPreparation\H2003002_DEMO02.xml
+		Data\DM\getPreparation\H2003003_DEMO03.xml = Data\DM\getPreparation\H2003003_DEMO03.xml
+		Data\DM\getPreparation\H2003004_DEMO04.xml = Data\DM\getPreparation\H2003004_DEMO04.xml
 		Data\DM\getPreparation\METH66.xml = Data\DM\getPreparation\METH66.xml
 	EndProjectSection
 EndProject
@@ -124,12 +130,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "getDrugMdsPropertyHq", "get
 	ProjectSection(SolutionItems) = preProject
 		Data\DM\getDrugMdsPropertyHq\1.xml = Data\DM\getDrugMdsPropertyHq\1.xml
 		Data\DM\getDrugMdsPropertyHq\H2003001_DEMO01.xml = Data\DM\getDrugMdsPropertyHq\H2003001_DEMO01.xml
+		Data\DM\getDrugMdsPropertyHq\H2003002_DEMO02.xml = Data\DM\getDrugMdsPropertyHq\H2003002_DEMO02.xml
+		Data\DM\getDrugMdsPropertyHq\H2003003_DEMO03.xml = Data\DM\getDrugMdsPropertyHq\H2003003_DEMO03.xml
+		Data\DM\getDrugMdsPropertyHq\H2003004_DEMO04.xml = Data\DM\getDrugMdsPropertyHq\H2003004_DEMO04.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Req", "Req", "{87C1AAA2-1497-4301-A2DE-BFE4B9BEAE2D}"
 	ProjectSection(SolutionItems) = preProject
 		Data\DM\getPreparation\Req\AMET02.xml = Data\DM\getPreparation\Req\AMET02.xml
 		Data\DM\getPreparation\Req\H2003001_DEMO01.xml = Data\DM\getPreparation\Req\H2003001_DEMO01.xml
+		Data\DM\getPreparation\Req\H2003002_DEMO02.xml = Data\DM\getPreparation\Req\H2003002_DEMO02.xml
+		Data\DM\getPreparation\Req\H2003003_DEMO03.xml = Data\DM\getPreparation\Req\H2003003_DEMO03.xml
+		Data\DM\getPreparation\Req\H2003004_DEMO04.xml = Data\DM\getPreparation\Req\H2003004_DEMO04.xml
 		Data\DM\getPreparation\Req\METH66.xml = Data\DM\getPreparation\Req\METH66.xml
 	EndProjectSection
 EndProject
@@ -138,6 +150,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Req", "Req", "{8EB05B79-87E
 		Data\DM\getDrugMdsPropertyHq\Req\1.xml = Data\DM\getDrugMdsPropertyHq\Req\1.xml
 		Data\DM\getDrugMdsPropertyHq\Req\2.xml = Data\DM\getDrugMdsPropertyHq\Req\2.xml
 		Data\DM\getDrugMdsPropertyHq\Req\H2003001_DEMO01.xml = Data\DM\getDrugMdsPropertyHq\Req\H2003001_DEMO01.xml
+		Data\DM\getDrugMdsPropertyHq\Req\H2003002_DEMO02.xml = Data\DM\getDrugMdsPropertyHq\Req\H2003002_DEMO02.xml
+		Data\DM\getDrugMdsPropertyHq\Req\H2003003_DEMO03.xml = Data\DM\getDrugMdsPropertyHq\Req\H2003003_DEMO03.xml
+		Data\DM\getDrugMdsPropertyHq\Req\H2003004_DEMO04.xml = Data\DM\getDrugMdsPropertyHq\Req\H2003004_DEMO04.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0_Ref", "0_Ref", "{4C5BE759-CEEB-4A97-83DB-9DDE727CF053}"

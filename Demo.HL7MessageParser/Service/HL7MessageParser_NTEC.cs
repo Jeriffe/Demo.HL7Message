@@ -361,11 +361,11 @@ namespace Demo.HL7MessageParser
                 };
             }
 
-            var mdsCheckObj = new MDSCheckInputParm { };
+            var mdsInput = new MDSCheckInputParm { };
 
-            mdsCheckObj.HasG6pdDeficiency = true;
+            mdsInput.HasG6pdDeficiency = true;
 
-            mdsCheckObj.PatientInfo = new MDSCheck_PatientInfo
+            mdsInput.PatientInfo = new MDSCheck_PatientInfo
             {
                 HKID = patientEnquiry.Patient.HKID,
                 PatientKey = patientEnquiry.Patient.Key,
@@ -379,7 +379,7 @@ namespace Demo.HL7MessageParser
                 DataWithinValidPeriod = "N"
             };
 
-            mdsCheckObj.UserInfo = new MDSCheck_UserInfo
+            mdsInput.UserInfo = new MDSCheck_UserInfo
             {
                 HospCode = HospitalCode,
                 PharSpec = patientEnquiry.CaseList[0].Specialty,
@@ -448,7 +448,7 @@ namespace Demo.HL7MessageParser
                     });
                 }
 
-                mdsCheckObj.PatientAllergyProfile.Add(patientAllergyProfile);
+                mdsInput.PatientAllergyProfile.Add(patientAllergyProfile);
             }
 
             foreach (var adrProfile in alertProfileRes.AdrProfile)
@@ -506,7 +506,7 @@ namespace Demo.HL7MessageParser
                     });
                 }
 
-                mdsCheckObj.PatientAdrProfile.Add(patientAdrProfile);
+                mdsInput.PatientAdrProfile.Add(patientAdrProfile);
 
             }
 
@@ -640,31 +640,31 @@ namespace Demo.HL7MessageParser
                 currentRxDrugProfile.DrugErrorDisplayName += " " + formatValue + getPreparationRes.Return.VolumeUnit.ToLower();
             }
 
-            mdsCheckObj.CurrentRxDrugProfile = currentRxDrugProfile;
+            mdsInput.CurrentRxDrugProfile = currentRxDrugProfile;
 
             /*if alertProfile from 1.4.2 = G6PD, then “true”, 
               else “false”
             */
-            mdsCheckObj.HasG6pdDeficiency = false;
-            mdsCheckObj.HasPregnancy = false;
+            mdsInput.HasG6pdDeficiency = false;
+            mdsInput.HasPregnancy = false;
 
-            mdsCheckObj.CheckDdim = false;
-            mdsCheckObj.CheckDdcm = false;
-            mdsCheckObj.CheckDam = false;
-            mdsCheckObj.CheckAdr = false;
-            mdsCheckObj.CheckDscm = false;
-            mdsCheckObj.CheckDrcm = false;
-            mdsCheckObj.CheckDlcm = false;
-            mdsCheckObj.CheckSteroid = false;
-            mdsCheckObj.CheckDiscon = false;
+            mdsInput.CheckDdim = false;
+            mdsInput.CheckDdcm = false;
+            mdsInput.CheckDam = false;
+            mdsInput.CheckAdr = false;
+            mdsInput.CheckDscm = false;
+            mdsInput.CheckDrcm = false;
+            mdsInput.CheckDlcm = false;
+            mdsInput.CheckSteroid = false;
+            mdsInput.CheckDiscon = false;
 
-            mdsCheckObj.CallerSourceSystem = "PMS";
+            mdsInput.CallerSourceSystem = "PMS";
 
 
-            var medCache = new MDSCheckCacheResult { Req = mdsCheckObj, };
-            Cache_HK.MDS_CheckCache.Register(mdsCheckObj.PatientInfo.HKID, medCache);
+            var medCache = new MDSCheckCacheResult { Req = mdsInput, };
+            Cache_HK.MDS_CheckCache.Register(mdsInput.PatientInfo.HKID, medCache);
 
-            var result = mdsCheckRestService.CheckMDS(mdsCheckObj);
+            var result = mdsCheckRestService.CheckMDS(mdsInput);
 
             var wrapperResult = WrapperMDSResponse(result);
 
