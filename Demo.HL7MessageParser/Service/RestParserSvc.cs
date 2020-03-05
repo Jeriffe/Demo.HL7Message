@@ -10,14 +10,14 @@ using System.Text;
 
 namespace Demo.HL7MessageParser
 {
-    public sealed class ProfileRestService : IProfileRestService
+    public sealed class RestParserSvc : IRestParserSvc
     {
         private string restUri;
         private string client_secret;
         private string client_id;
         private string pathospcode;
 
-        public ProfileRestService()
+        public RestParserSvc()
         {
             restUri = "http://localhost:3181/pms-asa/1/";
             client_secret = "CLIENT_SECRET";
@@ -25,7 +25,7 @@ namespace Demo.HL7MessageParser
             pathospcode = "PATHOSPCODE";
         }
 
-        public ProfileRestService(string restUri, string client_secret, string client_id, string pathospcode)
+        public RestParserSvc(string restUri, string client_secret, string client_id, string pathospcode)
         {
             Initialize(restUri, client_secret, client_id, pathospcode);
         }
@@ -119,6 +119,32 @@ namespace Demo.HL7MessageParser
 
                 throw new AMException(HttpStatusCode.Unauthorized, errorMsg, null);
             }
+
+            return result;
+        }
+        public MDSCheckResult CheckMDS(MDSCheckInputParm inputParam)
+        {
+            var client = new RestClient(restUri);
+
+            var request = new RestRequest("mdsCheck", Method.POST);
+
+            request.AddHeader("client_secret", client_secret);
+            request.AddHeader("client_id", client_id);
+            request.AddHeader("pathospcode", pathospcode);
+
+            request.XmlSerializer = new DotNetXmlSerializer();
+
+            var xmlRequestBody = XmlHelper.XmlSerializeToString(inputParam);
+            request.AddParameter("application/json", xmlRequestBody, ParameterType.RequestBody);
+
+            var response = client.Execute<MDSCheckResult>(request);
+
+            if (!response.IsSuccessful())
+            {
+                response.ThrowException();
+            }
+
+            var result = response.Data;
 
             return result;
         }

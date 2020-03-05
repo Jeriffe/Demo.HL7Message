@@ -9,7 +9,7 @@ using Demo.HL7MessageParser.Models;
 
 namespace Demo.HL7MessageParser.Test.Fake
 {
-    public class FakeProfileRestService : IProfileRestService
+    public class FakeProfileRestService : IRestParserSvc
     {
         static List<string> HKIDs = new List<string> { "HN03191100Y", "HN170002520" };
 

@@ -133,12 +133,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
-    <Compile Include="HL7MessageParserFormTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HL7MessageParserFormTest.Designer.cs">
-      <DependentUpon>HL7MessageParserFormTest.cs</DependentUpon>
-    </Compile>
     <Compile Include="Data\Lexers\CSharpLexerStyle.cs" />
     <Compile Include="Data\Lexers\ILexerStyle.cs" />
     <Compile Include="Data\Lexers\JsonLexerStyle.cs" />
@@ -190,9 +184,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HL7MessageParserFormTest.resx">
-      <DependentUpon>HL7MessageParserFormTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Loading.resx">
       <DependentUpon>Loading.cs</DependentUpon>

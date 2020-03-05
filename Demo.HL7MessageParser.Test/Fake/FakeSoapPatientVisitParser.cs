@@ -9,7 +9,7 @@ using Demo.HL7MessageParser.Models;
 
 namespace Demo.HL7MessageParser.Test.Fake
 {
-    public class FakeSoapPatientVisitParser : IPatientVisitParser
+    public class FakeSoapPatientVisitParser : ISoapWSEService
     {
         private static string RELATIVE_URL = @"Data\PE";
         public PatientDemoEnquiry GetPatientResult(string caseNumber)

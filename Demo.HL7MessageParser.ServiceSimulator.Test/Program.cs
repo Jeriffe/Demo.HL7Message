@@ -164,7 +164,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
         private static void SoapClientProxy()
         {
             //init web service proxy 
-            PatientService serviceProxy = new PatientService();
+            PatientServiceProxy serviceProxy = new PatientServiceProxy();
 
             //init UsernameToken, password is the reverted string of username, the same logic in AuthenticateToken
             //  of ServiceUsernameTokenManager class.

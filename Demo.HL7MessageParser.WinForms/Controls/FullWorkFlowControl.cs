@@ -217,8 +217,12 @@ namespace Demo.HL7MessageParser.WinForms
         private void bgWorkerMDSCheck_DoWork(object sender, DoWorkEventArgs e)
         {
             var itemCode = e.Argument as string;
-            string errorMsg = null;
-            var result = parser.CheckRemoteMasterDrug(HK_ID, itemCode, out errorMsg);
+
+            var patient = Cache_HK.PataientCache[HK_ID].PatientDemoEnquiry;
+            var alertProfile = Cache_HK.PataientCache[HK_ID].AlertProfileRes;
+
+            var result = parser.MDSCheck(itemCode, patient, alertProfile);
+
             var resultJson = JsonHelper.ToJson(result);
 
 
@@ -270,15 +274,14 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void Initialize()
         {
-            var patientVisitParser = new SoapPatientVisitParser(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
+            var soapService = new SoapParserSvc(Global.DrugMasterSoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
 
-            var profileService = new ProfileRestService(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
+            var soapWSEService = new SoapWSEParserSvc(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
 
-            var drugMasterSoapService = new DrugMasterSoapService(Global.DrugMasterSoapUrl);
+            var restService = new RestParserSvc(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
 
-            var mdsCheckRestService = new MDSCheckRestService(Global.MDSCheckRestUrl);
 
-            parser = new HL7MessageParser_NTEC(patientVisitParser, profileService, drugMasterSoapService, mdsCheckRestService);
+            parser = new HL7MessageParser_NTEC(soapService, soapWSEService, restService);
         }
 
         private void ChangeSelectedTabPage(TabPage tabPage)

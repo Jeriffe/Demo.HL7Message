@@ -12,9 +12,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Demo.HL7MessageParser.Test
 {
     [TestClass]
-    public class SoapPatientVisitParserTest
+    public class SoapParserSvcTest
     {
-        IPatientVisitParser parser;
+        ISoapWSEService parser;
 
         string Uri = "http://localhost:8096/PatientService.asmx";
         [TestInitialize]

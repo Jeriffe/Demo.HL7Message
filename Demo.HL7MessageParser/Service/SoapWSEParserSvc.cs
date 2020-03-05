@@ -12,21 +12,22 @@ using System.Xml.Linq;
 
 namespace Demo.HL7MessageParser
 {
-    public class SoapPatientVisitParser : IPatientVisitParser
+    public class SoapWSEParserSvc : ISoapWSEService
     {
         private string Url;
         private string userName;
         private string password;
         private string pathospcode;
 
-        public SoapPatientVisitParser()
+        PatientServiceProxy patientServiceProxy;
+        public SoapWSEParserSvc()
         {
-            Url = "http://localhost:8096/PatientService.asmx";
+            Url = "http://localhost:8096//PatientService.asmx";
             userName = "pas-appt-ws-user";
             password = "pas-appt-ws-user-pwd";
             pathospcode = "VH";
         }
-        public SoapPatientVisitParser(string uri, string userName, string password, string pathospcode)
+        public SoapWSEParserSvc(string uri, string userName, string password, string pathospcode)
         {
             Initialize(uri, userName, password, pathospcode);
         }
@@ -37,64 +38,28 @@ namespace Demo.HL7MessageParser
             this.userName = userName;
             this.password = password;
             this.pathospcode = pathospcode;
+
+            patientServiceProxy = new PatientServiceProxy(Url);
         }
 
         public Models.PatientDemoEnquiry GetPatientResult(string caseNumber)
         {
-            try
-            {
-                //var temp = CallByWebReq(caseNumber);
-                //var result = XmlHelper.XmlDeserialize<Models.PatientDemoEnquiry>(temp);
-
-                var patientResultXmlElement = CallByProxyClient(caseNumber);
-
-            var    result = XmlHelper.XmlDeserialize<Models.PatientDemoEnquiry>(patientResultXmlElement);
-
-                return result;
-            }
-            catch
-            {
-                throw;
-            }
-
-        }
-
-
-        private string CallByProxyClient(string caseNumber)
-        {
-            //init web service proxy 
-            PatientService serviceProxy = new PatientService(Url);
 
             //init UsernameToken, password is the reverted string of username, the same logic in AuthenticateToken
             //  of ServiceUsernameTokenManager class.
             UsernameToken token = new UsernameToken(userName, password, PasswordOption.SendPlainText);
 
-            // Set the token onto the proxy
-            serviceProxy.SetClientCredential(token);
+            patientServiceProxy.SetClientCredential(token);
 
-            // Set the ClientPolicy onto the proxy
-            serviceProxy.SetPolicy("ClientPolicy");
+            patientServiceProxy.SetPolicy("ClientPolicy");
 
-            //invoke the HelloMyFriend web service method
-            try
+            var res = patientServiceProxy.searchHKPMIPatientByCaseNo(new WebProxy.searchHKPMIPatientByCaseNo
             {
-                var res = serviceProxy.searchHKPMIPatientByCaseNo(new WebProxy.searchHKPMIPatientByCaseNo
-                {
-                    caseNo = caseNumber,
-                    hospitalCode = pathospcode
-                });
+                caseNo = caseNumber,
+                hospitalCode = pathospcode
+            });
 
-                var resStr = XmlHelper.XmlSerializeToString(res.PatientDemoEnquiryResult);
-
-                //  XmlHelper.FormatXML(resStr);
-
-                return resStr;
-
-            }
-            catch
-            {
-                throw;
-            }
+            return XmlHelper.XmlDeserialize<Models.PatientDemoEnquiry>(XmlHelper.XmlSerializeToString(res.PatientDemoEnquiryResult));
         }
 
         private string CallByWebReq(string caseNumber)
@@ -193,7 +158,5 @@ namespace Demo.HL7MessageParser
             string phrase = Guid.NewGuid().ToString();
             return phrase;
         }
-
-
     }
 }

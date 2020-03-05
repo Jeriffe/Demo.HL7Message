@@ -65,7 +65,7 @@ namespace Demo.HL7MessageParser.WinForms
             var caseNo = cbxCaseNumber.Text.Trim();
 
             //init web service proxy 
-            PatientService serviceProxy = new PatientService(url);
+            PatientServiceProxy serviceProxy = new PatientServiceProxy(url);
 
             //init UsernameToken, password is the reverted string of username, the same logic in AuthenticateToken
             //  of ServiceUsernameTokenManager class.

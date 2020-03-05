@@ -62,21 +62,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DrugMasterServiceProxy.cs" />
-    <Compile Include="Service\DrugMasterSoapService.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="Interface\ISoapWSEService.cs" />
     <Compile Include="Service\HL7MessageParser_NTEC.cs" />
-    <Compile Include="Interface\IDrugMasterSoapService .cs" />
     <Compile Include="Interface\IHL7MessageParser.cs" />
-    <Compile Include="Interface\IMDSCheckRestService .cs" />
-    <Compile Include="Interface\IPatientVisitParser.cs" />
-    <Compile Include="Interface\IProfileRestService.cs" />
-    <Compile Include="Service\MDSCheckRestService.cs" />
+    <Compile Include="Interface\ISoapParserSvc.cs" />
+    <Compile Include="Interface\IRestParserSvc.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="ObjectAutoMapping.cs" />
     <Compile Include="PatientServiceProxy.cs" />
-    <Compile Include="Service\ProfileRestService.cs" />
+    <Compile Include="Service\RestParserSvc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\SoapPatientVisitParser.cs" />
+    <Compile Include="Service\SoapWSEParserSvc.cs" />
+    <Compile Include="Service\SoapParserSvc.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Demo.HL7MessageParser.ClassDiagram.cd" />

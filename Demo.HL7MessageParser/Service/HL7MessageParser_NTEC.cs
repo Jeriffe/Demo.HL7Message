@@ -29,25 +29,17 @@ namespace Demo.HL7MessageParser
         private string HospitalCode;
         private string AccessCode;
 
-        private string DrugMasterSoapUrl;
-        private string MDSCheckRestUrl;
-        private IPatientVisitParser patientVisitParser;
-        private IProfileRestService profileService;
-        private IDrugMasterSoapService drugMasterSoapService;
-        private IMDSCheckRestService mdsCheckRestService;
+        private ISoapParserSvc soapSvc;
+        private ISoapWSEService soapWSESvc;
+        private IRestParserSvc restSvc;
 
         public HL7MessageParser_NTEC()
         {
             Initialize();
 
-            patientVisitParser = new SoapPatientVisitParser(SoapUrl, UserName, Password, HospitalCode);
+            soapSvc = new SoapParserSvc(SoapUrl, UserName, Password, HospitalCode);
 
-            profileService = new ProfileRestService(RestUrl, ClientSecret, ClientId, HospitalCode);
-
-            drugMasterSoapService = new DrugMasterSoapService(DrugMasterSoapUrl);
-
-            mdsCheckRestService = new MDSCheckRestService(MDSCheckRestUrl);
-
+            restSvc = new RestParserSvc(RestUrl, ClientSecret, ClientId, HospitalCode);
         }
 
         private void Initialize()
@@ -65,128 +57,53 @@ namespace Demo.HL7MessageParser
 
             AccessCode = "AccessCode";
             HospitalCode = "VH";
-
-            DrugMasterSoapUrl = "http://localhost:44368/DrugMasterService.asmx";
-
-            MDSCheckRestUrl = "http://localhost:3181/pms-asa/1/";
         }
 
-        public HL7MessageParser_NTEC(IPatientVisitParser patientVisitParser,
-                                     IProfileRestService profileService,
-                                     IDrugMasterSoapService drugMasterSoapService,
-                                     IMDSCheckRestService mdsCheckRestService)
+        public HL7MessageParser_NTEC(ISoapParserSvc soapSvc, ISoapWSEService soapWSESvc, IRestParserSvc restSvc)
         {
-            this.patientVisitParser = patientVisitParser;
-            this.profileService = profileService;
-            this.drugMasterSoapService = drugMasterSoapService;
-            this.mdsCheckRestService = mdsCheckRestService;
+            this.soapSvc = soapSvc;
+            this.soapWSESvc = soapWSESvc;
+            this.restSvc = restSvc;
         }
 
-        public PatientDemoEnquiry GetPatientEnquiry(string caseno)
-        {
-            try
-            {
-                return GetFuncWithRetry<PatientDemoEnquiry>(() =>
-                {
-                    var pr = patientVisitParser.GetPatientResult(caseno);
-
-
-                    if (pr != null && pr.Patient != null && pr.CaseList != null)
-                    {
-                        Cache_HK.PataientCache.Register(pr.Patient.HKID, new Patient_AlertProfile { PatientDemoEnquiry = pr });
-                    }
-
-                    logger.Info(XmlHelper.XmlSerializeToString(pr));
-
-
-                    //TODO: storage the response Postponse
-
-                    //var patientVisit = pr.ToConvert();
-
-                    //TODO: storage accesscenter business object to db            
-
-
-                    return pr;
-                });
-            }
-            catch (AMException amex)
-            {
-                logger.Error(amex);
-
-                throw amex;
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex);
-
-                throw ex;
-            }
-        }
-
-        public MedicationProfileResult GetMedicationProfiles(string caseno)
-        {
-            return GetFuncWithRetry<MedicationProfileResult>(() =>
-            {
-                var medicationProfile = profileService.GetMedicationProfile(caseno);
-
-                logger.Info(JsonHelper.ToJson(medicationProfile));
-
-                return medicationProfile;
-            });
-        }
-
-        public AlertProfileResult GetAlertProfiles(AlertInputParm alertinput)
-        {
-            return GetFuncWithRetry<AlertProfileResult>(() =>
-            {
-                alertinput.Credentials.AccessCode = AccessCode;
-
-                var apr = profileService.GetAlertProfile(alertinput);
-
-                if (Cache_HK.PataientCache[alertinput.PatientInfo.Hkid] != null)
-                {
-                    Cache_HK.PataientCache[alertinput.PatientInfo.Hkid].AlertProfileRes = apr;
-                }
-
-
-                logger.Info(JsonHelper.ToJson(apr));
-                //TODO:storage the response
-
-                // var result = apr.ToConvert();
-
-                return apr;
-            });
-        }
-
-        public GetDrugMdsPropertyHqResponse GetDrugMdsPropertyHq(GetDrugMdsPropertyHqRequest request)
-        {
-            return drugMasterSoapService.getDrugMdsPropertyHq(request);
-        }
-
-        public GetPreparationResponse GetPreparation(GetPreparationRequest request)
-        {
-            return drugMasterSoapService.getPreparation(request);
-        }
-
-        public MDSCheckResult CheckMDS(MDSCheckInputParm inputParam)
-        {
-            return mdsCheckRestService.CheckMDS(inputParam);
-        }
-
-        public string SearchRemotePatient(string caseNumber, out string errorMessage)
+        public string SearchRemotePatient(string caseNumber, ref string errorMessage)
         {
             errorMessage = string.Empty;
 
-            var patient = patientVisitParser.GetPatientResult(caseNumber);
+            var patient = CallFuncWithRetry<PatientDemoEnquiry>(() =>
+            {
+                var pr = soapWSESvc.GetPatientResult(caseNumber);
+
+                if (pr != null && pr.Patient != null && pr.CaseList != null)
+                {
+                    Cache_HK.PataientCache.Register(pr.Patient.HKID, new Patient_AlertProfile { PatientDemoEnquiry = pr });
+                }
+
+                logger.Info(XmlHelper.XmlSerializeToString(pr));
+
+
+                return pr;
+            });
 
             if (patient == null)
             {
                 return string.Empty;
             }
-            var orders = profileService.GetMedicationProfile(caseNumber);
 
+            /*TODO:Storage Patient */
 
-            var alertInputParm = new Models.AlertInputParm
+            var orders = CallFuncWithRetry<MedicationProfileResult>(() =>
+          {
+              var medicationProfile = restSvc.GetMedicationProfile(caseNumber);
+
+              logger.Info(JsonHelper.ToJson(medicationProfile));
+
+              return medicationProfile;
+          });
+
+            CheckItemCodeofMedicationProfile(orders, ref errorMessage);
+
+            var alertRequest = new Models.AlertInputParm
             {
                 PatientInfo = new PatientInfo
                 {
@@ -216,115 +133,27 @@ namespace Demo.HL7MessageParser
                     AccessCode = AccessCode
                 }
             };
-            var allergys = profileService.GetAlertProfile(alertInputParm);
 
-            var itemCodes = orders.MedProfileMoItems
-                .SelectMany(s => s.MedProfilePoItems)
-                .Select(o => o.ItemCode)
-                .ToList();
-
-            var getDrugMdsPropertyHq = drugMasterSoapService.getDrugMdsPropertyHq(
-                new GetDrugMdsPropertyHqRequest
-                {
-                    Arg0 = new Arg { ItemCode = itemCodes }
-                });
-
-            foreach (var ICode in itemCodes)
+            var allergys = CallFuncWithRetry<AlertProfileResult>(() =>
             {
-                var getpreparation = drugMasterSoapService.getPreparation(new GetPreparationRequest
-                {
-                    Arg0 = new Arg0
-                    {
-                        DispHospCode = string.Empty,
-                        DispWorkstore = string.Empty,
-                        ItemCode = ICode,
-                        DrugScope = "I",
-                        SpecialtyType = "I",
-                        PasSpecialty = string.Empty,
-                        PasSubSpecialty = string.Empty,
-                        CostIncluded = true,
-                        HqFlag = true
-                    }
-                });
-            }
+                var apr = restSvc.GetAlertProfile(alertRequest);
 
+                if (Cache_HK.PataientCache[alertRequest.PatientInfo.Hkid] != null)
+                {
+                    Cache_HK.PataientCache[alertRequest.PatientInfo.Hkid].AlertProfileRes = apr;
+                }
+
+                logger.Info(JsonHelper.ToJson(apr));
+
+                return apr;
+            });
 
 
             return patient.Patient.HKID;
         }
 
-        public ComplexMDSResult CheckRemoteMasterDrug(string HKID, string drugItemCode, out string errorMessage)
+        public ComplexMDSResult MDSCheck(string drugItemCode, PatientDemoEnquiry patientEnquiry, AlertProfileResult alertProfileRes)
         {
-            errorMessage = string.Empty;
-
-            var patientInfo = Cache_HK.PataientCache[HKID];
-
-            if (patientInfo == null)
-            {
-                return null;
-            }
-            var patient = patientInfo.PatientDemoEnquiry;
-
-            var getDrugMdsPropertyHq = drugMasterSoapService.getDrugMdsPropertyHq(new GetDrugMdsPropertyHqRequest
-            {
-                Arg0 = new Arg { ItemCode = new List<string> { drugItemCode } }
-            });
-
-            var getpreparation = drugMasterSoapService.getPreparation(new GetPreparationRequest
-            {
-                Arg0 = new Arg0
-                {
-                    DispHospCode = string.Empty,
-                    DispWorkstore = string.Empty,
-                    ItemCode = drugItemCode,
-                    DrugScope = "I",
-                    SpecialtyType = "I",
-                    PasSpecialty = string.Empty,
-                    PasSubSpecialty = string.Empty,
-                    CostIncluded = true,
-                    HqFlag = true
-                }
-            });
-
-            return CheckDrugClass(patient, patientInfo.AlertProfileRes, getDrugMdsPropertyHq, getpreparation);
-        }
-
-        private static bool IsInvalidAccessCode(AlertProfileResult actualProfile)
-        {
-            return actualProfile.ErrorMessage.Count > 0 && "20083".Equals(actualProfile.ErrorMessage[0].MsgCode);
-        }
-
-        static int Max_Retry_Count = 3;
-        private static T GetFuncWithRetry<T>(Func<T> func) where T : class
-        {
-            int retryCount = 1;
-
-            while (true)
-            {
-                try
-                {
-                    return func();
-                }
-                catch
-                {
-                    retryCount++;
-
-                    if (retryCount > Max_Retry_Count)
-                    {
-                        throw;
-                    }
-
-                    Thread.Sleep(100);
-                }
-            }
-        }
-
-        public ComplexMDSResult CheckDrugClass(PatientDemoEnquiry patientEnquiry,
-            AlertProfileResult alertProfileRes,
-            GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes,
-            GetPreparationResponse getPreparationRes)
-        {
-
             if (alertProfileRes == null
                 || alertProfileRes.AdrProfile.Count == 0
                 || alertProfileRes.AlertProfile.Count == 0
@@ -340,6 +169,27 @@ namespace Demo.HL7MessageParser
                     ErrorMessage = "System cannot perform Allergy, AlertProfile is empty."
                 };
             }
+
+            var getDrugMdsPropertyHqRes = soapSvc.getDrugMdsPropertyHq(new GetDrugMdsPropertyHqRequest
+            {
+                Arg0 = new Arg { ItemCode = new List<string> { drugItemCode } }
+            });
+
+            var getPreparationRes = soapSvc.getPreparation(new GetPreparationRequest
+            {
+                Arg0 = new Arg0
+                {
+                    DispHospCode = string.Empty,
+                    DispWorkstore = string.Empty,
+                    ItemCode = drugItemCode,
+                    DrugScope = "I",
+                    SpecialtyType = "I",
+                    PasSpecialty = string.Empty,
+                    PasSubSpecialty = string.Empty,
+                    CostIncluded = true,
+                    HqFlag = true
+                }
+            });
 
             if (getDrugMdsPropertyHqRes == null
               || getDrugMdsPropertyHqRes.Return.Count == 0
@@ -360,6 +210,100 @@ namespace Demo.HL7MessageParser
                     ErrorMessage = "System cannot perform Allergy, getPreparation Response is empty."
                 };
             }
+
+            return CheckDrugClass(patientEnquiry, alertProfileRes, getDrugMdsPropertyHqRes, getPreparationRes);
+        }
+
+
+        public PatientDemoEnquiry GetPatientEnquiry(string caseno)
+        {
+            try
+            {
+                return CallFuncWithRetry<PatientDemoEnquiry>(() =>
+                {
+                    var pr = soapWSESvc.GetPatientResult(caseno);
+
+
+                    if (pr != null && pr.Patient != null && pr.CaseList != null)
+                    {
+                        Cache_HK.PataientCache.Register(pr.Patient.HKID, new Patient_AlertProfile { PatientDemoEnquiry = pr });
+                    }
+
+                    logger.Info(XmlHelper.XmlSerializeToString(pr));
+
+                    return pr;
+                });
+            }
+            catch (AMException amex)
+            {
+                logger.Error(amex);
+
+                throw amex;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+
+                throw ex;
+            }
+        }
+
+        public MedicationProfileResult GetMedicationProfiles(string caseno)
+        {
+            return CallFuncWithRetry<MedicationProfileResult>(() =>
+            {
+                var medicationProfile = restSvc.GetMedicationProfile(caseno);
+
+                logger.Info(JsonHelper.ToJson(medicationProfile));
+
+                return medicationProfile;
+            });
+        }
+
+        public AlertProfileResult GetAlertProfiles(AlertInputParm alertinput)
+        {
+            return CallFuncWithRetry<AlertProfileResult>(() =>
+            {
+                alertinput.Credentials.AccessCode = AccessCode;
+
+                var apr = restSvc.GetAlertProfile(alertinput);
+
+                if (Cache_HK.PataientCache[alertinput.PatientInfo.Hkid] != null)
+                {
+                    Cache_HK.PataientCache[alertinput.PatientInfo.Hkid].AlertProfileRes = apr;
+                }
+
+
+                logger.Info(JsonHelper.ToJson(apr));
+                //TODO:storage the response
+
+                // var result = apr.ToConvert();
+
+                return apr;
+            });
+        }
+
+        public GetDrugMdsPropertyHqResponse GetDrugMdsPropertyHq(GetDrugMdsPropertyHqRequest request)
+        {
+            return soapSvc.getDrugMdsPropertyHq(request);
+        }
+
+        public GetPreparationResponse GetPreparation(GetPreparationRequest request)
+        {
+            return soapSvc.getPreparation(request);
+        }
+
+        public MDSCheckResult CheckMDS(MDSCheckInputParm inputParam)
+        {
+            return restSvc.CheckMDS(inputParam);
+        }
+
+        public ComplexMDSResult CheckDrugClass(PatientDemoEnquiry patientEnquiry,
+            AlertProfileResult alertProfileRes,
+            GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes,
+            GetPreparationResponse getPreparationRes)
+        {
+
 
             var mdsInput = new MDSCheckInputParm { };
 
@@ -664,7 +608,7 @@ namespace Demo.HL7MessageParser
             var medCache = new MDSCheckCacheResult { Req = mdsInput, };
             Cache_HK.MDS_CheckCache.Register(mdsInput.PatientInfo.HKID, medCache);
 
-            var result = mdsCheckRestService.CheckMDS(mdsInput);
+            var result = restSvc.CheckMDS(mdsInput);
 
             var wrapperResult = WrapperMDSResponse(result);
 
@@ -672,6 +616,44 @@ namespace Demo.HL7MessageParser
 
             return medCache.Res;
         }
+
+
+        private void CheckItemCodeofMedicationProfile(MedicationProfileResult orders, ref string errorMessage)
+        {
+            //CHECK ITEM CODES
+        }
+
+
+        private static bool IsInvalidAccessCode(AlertProfileResult actualProfile)
+        {
+            return actualProfile.ErrorMessage.Count > 0 && "20083".Equals(actualProfile.ErrorMessage[0].MsgCode);
+        }
+
+        static int Max_Retry_Count = 3;
+        private static T CallFuncWithRetry<T>(Func<T> func) where T : class
+        {
+            int retryCount = 1;
+
+            while (true)
+            {
+                try
+                {
+                    return func();
+                }
+                catch
+                {
+                    retryCount++;
+
+                    if (retryCount > Max_Retry_Count)
+                    {
+                        throw;
+                    }
+
+                    Thread.Sleep(100);
+                }
+            }
+        }
+
 
         private ComplexMDSResult WrapperMDSResponse(MDSCheckResult result)
         {

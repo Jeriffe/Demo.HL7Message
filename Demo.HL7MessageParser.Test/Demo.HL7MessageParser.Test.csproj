@@ -56,7 +56,7 @@
     <Compile Include="Fake\FakeProfileRestService.cs" />
     <Compile Include="Fake\FakeSoapPatientVisitParser.cs" />
     <Compile Include="Fake\FakeObj.cs" />
-    <Compile Include="SoapPatientVisitParserTest.cs" />
+    <Compile Include="SoapParserSvcTest.cs" />
     <Compile Include="DrugMasterSoapServiceTest.cs" />
     <Compile Include="ProfileRestServicerTest.cs" />
     <Compile Include="Hl7MessageParserTest.cs" />

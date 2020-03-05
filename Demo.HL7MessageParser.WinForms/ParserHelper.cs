@@ -10,7 +10,7 @@ namespace Demo.HL7MessageParser
 {
     public static class ParserHelper
     {
-        static IProfileRestService profileService = new ProfileRestService();
+        static IRestParserSvc profileService = new RestParserSvc();
         public static MedicationProfileResult ProcessMedicationProfile(RestRequestParam requestParam)
         {
             profileService.Initialize(requestParam.url, requestParam.clientsecret, requestParam.clientid, requestParam.pahospCode);

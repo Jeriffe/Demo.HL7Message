@@ -14,13 +14,13 @@ namespace Demo.HL7MessageParser.Test
     [TestClass]
     public class ProfileRestServicerTest
     {
-        IProfileRestService parser;
+        IRestParserSvc parser;
         string restUri = "http://localhost:8290/pms-asa/1/";
 
         [TestInitialize]
         public void Initialize()
         {
-            parser = new ProfileRestService(restUri, "CLIENT_SECRET", "CLIENT_ID", "VH");
+            parser = new RestParserSvc(restUri, "CLIENT_SECRET", "CLIENT_ID", "VH");
         }
 
         [TestMethod]
@@ -61,7 +61,7 @@ namespace Demo.HL7MessageParser.Test
         public void Test_GetMedicationProfile_Invalid_PATHOSPCODE()
         {
             var caseNumber = "Any_CaseNumber";
-            var localParser = new ProfileRestService(restUri, "CLIENT_SECRET", "CLIENT_ID", "INVALID_PATHOSPCODE");
+            var localParser = new RestParserSvc(restUri, "CLIENT_SECRET", "CLIENT_ID", "INVALID_PATHOSPCODE");
 
             var actualProfile = localParser.GetMedicationProfile(caseNumber);
 
@@ -80,7 +80,7 @@ namespace Demo.HL7MessageParser.Test
             var errorMessage = "Unauthorized";
             var httpStatusCode = HttpStatusCode.Unauthorized;
 
-            var localParser = new ProfileRestService(restUri, "INVALID_CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
+            var localParser = new RestParserSvc(restUri, "INVALID_CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
 
             var actualException = Assert.ThrowsException<AMException>(() => localParser.GetMedicationProfile(caseNumber));
 
@@ -95,7 +95,7 @@ namespace Demo.HL7MessageParser.Test
 
             var httpStatusCode = HttpStatusCode.NotFound;
 
-            var localParser = new ProfileRestService(restUri + @"invalidurl/", "CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
+            var localParser = new RestParserSvc(restUri + @"invalidurl/", "CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
             var actualException = Assert.ThrowsException<AMException>(() => localParser.GetMedicationProfile(caseNumber));
 
             Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);
@@ -108,7 +108,7 @@ namespace Demo.HL7MessageParser.Test
 
             var httpStatusCode = HttpStatusCode.ServiceUnavailable;
 
-            var localParser = new ProfileRestService("http://localhost:3181/pms-asa/invalidurl/", "CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
+            var localParser = new RestParserSvc("http://localhost:3181/pms-asa/invalidurl/", "CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
             var actualException = Assert.ThrowsException<AMException>(() => localParser.GetMedicationProfile(caseNumber));
 
             Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);
@@ -187,7 +187,7 @@ namespace Demo.HL7MessageParser.Test
             var errorMessage = "Unauthorized";
             var httpStatusCode = HttpStatusCode.Unauthorized;
 
-            var localParser = new ProfileRestService(restUri, "INVALID_CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
+            var localParser = new RestParserSvc(restUri, "INVALID_CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
 
             var actualException = Assert.ThrowsException<AMException>(() => localParser.GetAlertProfile(alertInput));
 
@@ -202,7 +202,7 @@ namespace Demo.HL7MessageParser.Test
 
             var httpStatusCode = HttpStatusCode.NotFound;
 
-            var localParser = new ProfileRestService(restUri + @"invalidurl/", "CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
+            var localParser = new RestParserSvc(restUri + @"invalidurl/", "CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
             var actualException = Assert.ThrowsException<AMException>(() => localParser.GetAlertProfile(alertInput));
 
             Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);
@@ -215,7 +215,7 @@ namespace Demo.HL7MessageParser.Test
 
             var httpStatusCode = HttpStatusCode.ServiceUnavailable;
 
-            var localParser = new ProfileRestService("http://localhost:3181/pms-asa/invalidurl/", "CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
+            var localParser = new RestParserSvc("http://localhost:3181/pms-asa/invalidurl/", "CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
             var actualException = Assert.ThrowsException<AMException>(() => localParser.GetAlertProfile(alertInput));
 
             Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);

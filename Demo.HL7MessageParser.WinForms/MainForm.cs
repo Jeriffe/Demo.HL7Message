@@ -18,36 +18,17 @@ namespace Demo.HL7MessageParser.WinForms
 
             Global.RefreshConfigValues();
         }
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            switch (keyData)
-            {
-                case Keys.F1:
-                case Keys.F2:
-                    {
-                        new HL7MessageParserFormTest().ShowDialog();
-                        return true;
-                    }
-                default:
-                    break;
-            }
-
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            var soapWSEService = new SoapWSEParserSvc(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
+
+            var soapService = new SoapParserSvc(Global.DrugMasterSoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
 
 
-            var patientVisitParser = new SoapPatientVisitParser(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
+            var restService = new RestParserSvc(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
 
-            var profileService = new ProfileRestService(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
-
-            var drugMasterSoapService = new DrugMasterSoapService(Global.DrugMasterSoapUrl);
-
-            var mdsCheckRestService = new MDSCheckRestService(Global.MDSCheckRestUrl);
-
-            var parser = new HL7MessageParser_NTEC(patientVisitParser, profileService, drugMasterSoapService, mdsCheckRestService);
+            var hl7messageParser = new HL7MessageParser_NTEC(soapService, soapWSEService, restService);
 
             TabControl tc = new TabControl { Dock = DockStyle.Fill };
 
@@ -61,7 +42,7 @@ namespace Demo.HL7MessageParser.WinForms
             tc.TabPages["tbAlertProfileControl"].Controls.Add(new AlertProfileParserControl { Dock = DockStyle.Fill });
 
             tc.TabPages.Add(new TabPage { Name = "tbDrugMasterControl", Text = "DrugMaster" });
-            tc.TabPages["tbDrugMasterControl"].Controls.Add(new DrugMasterControl(parser) { Dock = DockStyle.Fill });
+            tc.TabPages["tbDrugMasterControl"].Controls.Add(new DrugMasterControl(hl7messageParser) { Dock = DockStyle.Fill });
 
             tc.TabPages.Add(new TabPage { Name = "tbFullWorkFlowControl", Text = "Full Work Flow" });
             tc.TabPages["tbFullWorkFlowControl"].Controls.Add(new FullWorkFlowControl { Dock = DockStyle.Fill });

@@ -56,8 +56,8 @@ namespace Demo.HL7MessageParser.WinForms
 
 
             RefreshPreparationReqUI(false);
-            RefreshCustomDrugMdsReqUI(false);
 
+            RefreshCustomDrugMdsReqUI(false);
 
 
             try

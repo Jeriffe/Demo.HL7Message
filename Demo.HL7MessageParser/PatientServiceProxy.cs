@@ -25,7 +25,7 @@ namespace Demo.HL7MessageParser.WebProxy
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name = "PatientServiceSoap", Namespace = "http://webservice.pas.ha.org.hk/")]
-    public partial class PatientService : Microsoft.Web.Services3.WebServicesClientProtocol
+    public partial class PatientServiceProxy : Microsoft.Web.Services3.WebServicesClientProtocol
     {
 
         private WorkContextSoapHeader workContextField;
@@ -33,12 +33,12 @@ namespace Demo.HL7MessageParser.WebProxy
         private System.Threading.SendOrPostCallback searchHKPMIPatientByCaseNoOperationCompleted;
 
         /// <remarks/>
-        public PatientService(string Url)
+        public PatientServiceProxy(string Url)
         {
             this.Url = Url;
         }
 
-        public PatientService() : this("http://localhost:8096/PatientService.asmx")
+        public PatientServiceProxy() : this("http://localhost:8096/PatientService.asmx")
         {
         }
 
