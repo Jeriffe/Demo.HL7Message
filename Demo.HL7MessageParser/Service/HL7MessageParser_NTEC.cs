@@ -17,9 +17,7 @@ namespace Demo.HL7MessageParser
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
         private string RestUrl;
-
         private string DrugMasterSoapUrl;
-
         private string SoapUrl;
 
         private string UserName;
@@ -27,9 +25,9 @@ namespace Demo.HL7MessageParser
 
         private string ClientSecret;
         private string ClientId;
+        private string AccessCode;
 
         private string HospitalCode;
-        private string AccessCode;
 
         private ISoapParserSvc soapSvc;
         private ISoapWSEService soapWSESvc;
@@ -38,11 +36,6 @@ namespace Demo.HL7MessageParser
         public HL7MessageParser_NTEC()
         {
             Initialize();
-            soapWSESvc = new SoapWSEParserSvc(SoapUrl, UserName, Password, HospitalCode);
-
-            soapSvc = new SoapParserSvc(DrugMasterSoapUrl, HospitalCode);
-
-            restSvc = new RestParserSvc(RestUrl, ClientSecret, ClientId, HospitalCode);
         }
 
         private void Initialize()
@@ -62,6 +55,12 @@ namespace Demo.HL7MessageParser
             HospitalCode = "VH";
 
             DrugMasterSoapUrl = "http://localhost:8096/DrugMasterService.asmx";
+
+            soapWSESvc = new SoapWSEParserSvc(SoapUrl, UserName, Password, HospitalCode);
+
+            soapSvc = new SoapParserSvc(DrugMasterSoapUrl, HospitalCode);
+
+            restSvc = new RestParserSvc(RestUrl, ClientSecret, ClientId, HospitalCode);
         }
 
         public HL7MessageParser_NTEC(ISoapParserSvc soapSvc, ISoapWSEService soapWSESvc, IRestParserSvc restSvc)
@@ -225,7 +224,7 @@ namespace Demo.HL7MessageParser
             return CheckDrugClass(patientEnquiry, alertProfileRes, getDrugMdsPropertyHqRes, getPreparationRes);
         }
 
-        public ComplexMDSResult CheckDrugClass(PatientDemoEnquiry patientEnquiry,
+        private ComplexMDSResult CheckDrugClass(PatientDemoEnquiry patientEnquiry,
             AlertProfileResult alertProfileRes,
             GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes,
             GetPreparationResponse getPreparationRes)
@@ -544,7 +543,6 @@ namespace Demo.HL7MessageParser
             return medCache.Res;
         }
 
-
         private void CheckItemCodeofMedicationProfile(MedicationProfileResult orders, ref string errorMessage)
         {
             //CHECK ITEM CODES
@@ -607,6 +605,7 @@ namespace Demo.HL7MessageParser
         public MDSCheckResult Result { get; set; }
     }
 }
+
 /*MDS Check Service 
 <inputParm>
     <patientInfo>        
