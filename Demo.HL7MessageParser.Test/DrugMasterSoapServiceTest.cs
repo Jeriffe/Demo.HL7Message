@@ -14,12 +14,12 @@ namespace Demo.HL7MessageParser.Test
     [TestClass]
     public class DrugMasterSoapServiceTest
     {
-        IDrugMasterSoapService parser;
+        ISoapParserSvc parser;
         string restUri = "http://localhost:44368/DrugMasterService.asmx";
         [TestInitialize]
         public void Initialize()
         {
-            parser = new DrugMasterSoapService(restUri);
+            parser = new SoapParserSvc(restUri,"HOSPITALCODE");
         }
         [TestMethod]
         public void Test_GetDrugMdsPropertyHqResponse_Successful()
@@ -34,7 +34,7 @@ namespace Demo.HL7MessageParser.Test
                 }
             };
 
-            var actualResult = parser.getDrugMdsPropertyHq(getDrugMdsPropertyHq);
+            var actualResult = parser.GetDrugMdsPropertyHq(getDrugMdsPropertyHq);
 
             Assert.IsNotNull(actualResult);
             // var actualProfileJSONStr = JsonHelper.ToJson(actualResult);
@@ -45,7 +45,7 @@ namespace Demo.HL7MessageParser.Test
         {
             var request = new Models.GetPreparationRequest { Arg0 = new Models.Arg0 { ItemCode = "AMET02" } };
 
-            var actualResult = parser.getPreparation(request);
+            var actualResult = parser.GetPreparation(request);
 
             Assert.IsNotNull(actualResult);
             // var actualProfileJSONStr = JsonHelper.ToJson(actualResult);

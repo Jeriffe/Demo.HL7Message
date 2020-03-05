@@ -9,10 +9,9 @@ using System.Threading.Tasks;
 
 namespace Demo.HL7MessageParser
 {
-    public class LoadDataThreadHelper<T, R> where R : class where T : class
+    public class DataLoader<R> where R : class
     {
         private Thread t = null;
-        private Func<T, R> func;
 
         //public Action<R> Completed { get; set; }
         //public Action<Exception> Exceptioned { get; set; }
@@ -21,12 +20,7 @@ namespace Demo.HL7MessageParser
         //而委托是可以由客户端(声明并使用LoadDataThreadHelper实例的地方)来触发的，从这点来说事件是对委托的一个很好的封装。
         public event Action<R> Completed;
         public event Action<Exception> Exceptioned;
-        
-        public void Initialize(Func<T, R> func)
-        {
-            this.func = func;
-        }
-    
+
         public void Stop()
         {
             if (t != null)
@@ -43,7 +37,7 @@ namespace Demo.HL7MessageParser
             }
         }
 
-        public void LoadDataAsync(T obj)
+        public void LoadDataAsync<T>(Func<T, R> func, T obj) where T : class
         {
             if (t != null)
             {
@@ -53,12 +47,12 @@ namespace Demo.HL7MessageParser
                 }
             }
 
-            t = new Thread(() => { DoProcess(obj); });
+            t = new Thread(() => Doprocess<T>(func, obj));
 
             t.Start();
         }
 
-        private void DoProcess(object obj)
+        private void Doprocess<T>(Func<T, R> func, T obj) where T : class
         {
             try
             {

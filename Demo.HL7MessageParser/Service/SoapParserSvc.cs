@@ -15,41 +15,34 @@ namespace Demo.HL7MessageParser
     public class SoapParserSvc : ISoapParserSvc
     {
         private string Url;
-        private string userName;
-        private string password;
         private string pathospcode;
 
         DrugMasterServiceProxy drugMasterSoapSvcProxy;
         public SoapParserSvc()
         {
             Url = "http://localhost:8096/DrugMasterService.asmx";
-            userName = "pas-appt-ws-user";
-            password = "pas-appt-ws-user-pwd";
-            pathospcode = "VH";
         }
-        public SoapParserSvc(string uri, string userName, string password, string pathospcode)
+        public SoapParserSvc(string uri, string pathospcode)
         {
-            Initialize(uri, userName, password, pathospcode);
+            Initialize(uri, pathospcode);
         }
 
-        public void Initialize(string restUri, string userName, string password, string pathospcode)
+        public void Initialize(string restUri, string pathospcode)
         {
             this.Url = restUri;
-            this.userName = userName;
-            this.password = password;
             this.pathospcode = pathospcode;
 
             drugMasterSoapSvcProxy = new DrugMasterServiceProxy(Url);
         }
 
-        public GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(Models.GetDrugMdsPropertyHqRequest request)
+        public GetDrugMdsPropertyHqResponse GetDrugMdsPropertyHq(Models.GetDrugMdsPropertyHqRequest request)
         {
             var response = drugMasterSoapSvcProxy.getDrugMdsPropertyHq(request);
 
             return new GetDrugMdsPropertyHqResponse { Return = response.ToList() };
         }
 
-        public Models.GetPreparationResponse getPreparation(Models.GetPreparationRequest request)
+        public Models.GetPreparationResponse GetPreparation(Models.GetPreparationRequest request)
         {
             var returnResponse = drugMasterSoapSvcProxy.getPreparation(request);
 

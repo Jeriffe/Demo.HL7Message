@@ -18,48 +18,46 @@ namespace Demo.HL7MessageParser.WinForms
     public partial class MedicationProfileControl : UserControl
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
+        IRestParserSvc restService;
+        DataLoader<MedicationProfileResult> dataLoader;
 
         public MedicationProfileControl()
         {
             InitializeComponent();
 
-            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-            {
-                InitializeMP();
-            }
+            InitializeService();
 
-            InitializeMP();
         }
 
-        private void InitializeMP()
+        private void MedicationProfileControl_Load(object sender, EventArgs e)
         {
-            try
-            {
-                var profilesDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data/MP");
-                var profiles = Directory.GetFiles(profilesDir, "*.json");
+            Initialize();
 
-                cbxCaseNumber.DataSource = profiles.Select(o => new FileInfo(o).Name)
-                                                .Select(o => o.Substring(0, o.Length - ".json".Length))
-                                                .ToList();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-            //   cbxCaseNumber.DataSource = new string[] { "HN03191100Y", "HN17000256S", "HN18001140Y", "HN170002512", "HN170002520", };
         }
-
         private void btnSendMedicationProfile_Click(object sender, EventArgs e)
         {
-            // BeginInvoke((MethodInvoker)(() => scintillaRes.Text = string.Empty));
             scintillaRes.Text = string.Empty;
 
-            var loadData = new LoadDataThreadHelper<RestRequestParam, MedicationProfileResult>();
+            var caseNumber = cbxCaseNumber.SelectedItem.ToString();
 
-            loadData.Initialize(ParserHelper.ProcessMedicationProfile);
+            dataLoader.LoadDataAsync(restService.GetMedicationProfile, caseNumber);
+        }
+        
+        private void InitializeService()
+        {
+            restService = new RestParserSvc(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
+        }
+        private void Initialize()
+        {
+            var profilesDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data/MP");
+            var profiles = Directory.GetFiles(profilesDir, "*.json");
 
-            loadData.Completed += (MedicationProfileResult data) =>
+            cbxCaseNumber.DataSource = profiles.Select(o => new FileInfo(o).Name)
+                                            .Select(o => o.Substring(0, o.Length - ".json".Length))
+                                            .ToList();
+
+            dataLoader = new DataLoader<MedicationProfileResult>();
+            dataLoader.Completed += (MedicationProfileResult data) =>
             {
                 if (data != null)
                 {
@@ -74,8 +72,7 @@ namespace Demo.HL7MessageParser.WinForms
                     }, false);
                 }
             };
-
-            loadData.Exceptioned += (Exception ex) =>
+            dataLoader.Exceptioned += (Exception ex) =>
             {
                 logger.Error(ex, ex.Message);
 
@@ -95,19 +92,6 @@ namespace Demo.HL7MessageParser.WinForms
                 }, false);
 
             };
-
-            loadData.LoadDataAsync(new RestRequestParam
-            {
-                url = Global.ProfileRestUrl,
-                clientsecret = Global.ClientSecret,
-                pahospCode = Global.HospitalCode,
-                casenumber = cbxCaseNumber.Text.Trim()
-            }); ; ;
-        }
-
-        private void cbxCaseNumber_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

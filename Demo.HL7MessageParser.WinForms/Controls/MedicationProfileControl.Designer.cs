@@ -48,7 +48,6 @@
             this.cbxCaseNumber.Name = "cbxCaseNumber";
             this.cbxCaseNumber.Size = new System.Drawing.Size(234, 23);
             this.cbxCaseNumber.TabIndex = 9;
-            this.cbxCaseNumber.SelectedIndexChanged += new System.EventHandler(this.cbxCaseNumber_SelectedIndexChanged);
             // 
             // btnSendMedicationProfile
             // 
@@ -76,7 +75,7 @@
             // 
             this.scintillaRes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scintillaRes.Location = new System.Drawing.Point(3, 17);
-            this.scintillaRes.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.scintillaRes.Margin = new System.Windows.Forms.Padding(5);
             this.scintillaRes.Name = "scintillaRes";
             this.scintillaRes.Size = new System.Drawing.Size(755, 267);
             this.scintillaRes.TabIndex = 1;
@@ -137,6 +136,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MedicationProfileControl";
             this.Size = new System.Drawing.Size(761, 369);
+            this.Load += new System.EventHandler(this.MedicationProfileControl_Load);
             this.panelMain.ResumeLayout(false);
             this.gbxRes.ResumeLayout(false);
             this.gbxSearch.ResumeLayout(false);

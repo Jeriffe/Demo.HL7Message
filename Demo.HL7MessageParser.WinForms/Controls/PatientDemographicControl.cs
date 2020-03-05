@@ -23,6 +23,8 @@ namespace Demo.HL7MessageParser.WinForms
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
+        private ISoapWSEService soapWSEService;
+
         public PatientDemographicControl()
         {
             InitializeComponent();
@@ -33,6 +35,13 @@ namespace Demo.HL7MessageParser.WinForms
             }
 
             InitializePE();
+
+            InitializeService();
+        }
+
+        private void InitializeService()
+        {
+            soapWSEService = new SoapWSEParserSvc(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
         }
 
         private void InitializePE()
@@ -40,51 +49,23 @@ namespace Demo.HL7MessageParser.WinForms
             btnCallByWebReq.Enabled = chxEnableWSAddress.Checked = false;
 
             var patientDemoEnquiryXmlDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data/PE/");
-            try
-            {
-                var files = Directory.GetFiles(patientDemoEnquiryXmlDir, "*.xml");
 
-                cbxCaseNumber.DataSource = files.Select(o => new FileInfo(o).Name)
-                                                .Select(o => o.Substring(0, o.Length - ".xml".Length))
-                                                .ToList();
-            }
-            catch (Exception)
-            {
+            var files = Directory.GetFiles(patientDemoEnquiryXmlDir, "*.xml");
 
-                throw;
-            }
+            cbxCaseNumber.DataSource = files.Select(o => new FileInfo(o).Name)
+                                            .Select(o => o.Substring(0, o.Length - ".xml".Length))
+                                            .ToList();
         }
 
         private void btnCallByProxy_Click(object sender, EventArgs e)
         {
             scintillaRes.Text = string.Empty;
-            string credid = Global.UserName;
-            string credpassword =Global.Password;
-            string url = Global.PatientEnquirySoapUrl;
-            var hospitalCode = Global.HospitalCode;
-            var caseNo = cbxCaseNumber.Text.Trim();
 
-            //init web service proxy 
-            PatientServiceProxy serviceProxy = new PatientServiceProxy(url);
+            var caseNumber = cbxCaseNumber.Text.Trim();
 
-            //init UsernameToken, password is the reverted string of username, the same logic in AuthenticateToken
-            //  of ServiceUsernameTokenManager class.
-            UsernameToken token = new UsernameToken(credid, credpassword, PasswordOption.SendPlainText);
-
-            // Set the token onto the proxy
-            serviceProxy.SetClientCredential(token);
-
-            // Set the ClientPolicy onto the proxy
-            serviceProxy.SetPolicy("ClientPolicy");
-
-            //invoke the HelloMyFriend web service method
             try
             {
-                var res = serviceProxy.searchHKPMIPatientByCaseNo(new searchHKPMIPatientByCaseNo
-                {
-                    caseNo = caseNo,
-                    hospitalCode = hospitalCode
-                });
+                var res = soapWSEService.GetPatientResult(caseNumber);
 
                 var resStr = XmlHelper.XmlSerializeToString(res);
 
@@ -240,7 +221,6 @@ namespace Demo.HL7MessageParser.WinForms
             }
 
             btnCallByWebReq.Enabled = chxEnableWSAddress.Checked;
-
         }
     }
 }

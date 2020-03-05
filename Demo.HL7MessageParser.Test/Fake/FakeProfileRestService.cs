@@ -87,5 +87,10 @@ namespace Demo.HL7MessageParser.Test.Fake
         {
             throw new NotImplementedException();
         }
+
+        public MDSCheckResult CheckMDS(MDSCheckInputParm inputParam)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

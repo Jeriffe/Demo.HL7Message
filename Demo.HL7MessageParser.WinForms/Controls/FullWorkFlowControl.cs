@@ -24,20 +24,28 @@ namespace Demo.HL7MessageParser.WinForms
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
         private string HK_ID = string.Empty;
+        private string CASE_NUMBER = string.Empty;
+
         private Loading loadForm;
         private HL7MessageParser_NTEC parser;
-
-        public FullWorkFlowControl()
+        private MainForm mainForm;
+        public FullWorkFlowControl(MainForm mainForm)
         {
             InitializeComponent();
 
+            this.mainForm = mainForm;
+
             bgWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(this.bgWorker_RunWorkerCompleted);
             bgWorkerMDSCheck.RunWorkerCompleted += bgWorkerMDSCheck_RunWorkerCompleted;
-            loadForm = new Loading { Width = this.Width, Height = this.Height };
+
+            loadForm = new Loading
+            {
+                Width = mainForm.Width,
+                Height = mainForm.Height
+            };
+
             Initialize();
         }
-
-
 
         private void HL7MessageParserFormTest_Load(object sender, EventArgs e)
         {
@@ -79,83 +87,48 @@ namespace Demo.HL7MessageParser.WinForms
         }
         private void bgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
+            string errorStr = null;
+
             var result = new EventResult();
             e.Result = result;
 
             var caseNumber = e.Argument as string;
+            var AccountNumber = parser.SearchRemotePatient(caseNumber, ref errorStr);
 
-            var pd = parser.GetPatientEnquiry(caseNumber);
-
-            if (pd != null)
-            {
-                result.PatientVisit = pd;
-
-                this.BeginInvoke((MethodInvoker)delegate
-                {
-                    HK_ID = pd.Patient.HKID;
-
-                    if (RuleMappingHelper.HKID_ItemCode_Mapping.ContainsKey(HK_ID))
-                    {
-                        RefreshMDSControlseState(true);
-
-                        cbxItemCodes.DataSource = RuleMappingHelper.HKID_ItemCode_Mapping[HK_ID].Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                    }
-
-                    scintillaPatient.FormatStyle(StyleType.Xml);
-                    scintillaPatient.Text = XmlHelper.FormatXML(XmlHelper.XmlSerializeToString(result.PatientVisit));
-                });
-                var orders = parser.GetMedicationProfiles(caseNumber);
-                result.Orders = (orders ?? new MedicationProfileResult());
-                this.BeginInvoke((MethodInvoker)delegate
-                {
-                    scintillaProfiles.FormatJsonStyle();
-                    scintillaProfiles.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Orders));
-                });
-
-                var alertInputParm = new Models.AlertInputParm
-                {
-                    PatientInfo = new PatientInfo
-                    {
-                        Hkid = pd.Patient.HKID,
-                        Name = pd.Patient.Name,
-                        Sex = pd.Patient.Sex,
-                        Dob = pd.Patient.DOB,
-                        Cccode1 = pd.Patient.CCCode1,
-                        Cccode2 = pd.Patient.CCCode2,
-                        Cccode3 = pd.Patient.CCCode3,
-                        Cccode4 = pd.Patient.CCCode4,
-                        Cccode5 = pd.Patient.CCCode5,
-                        Cccode6 = pd.Patient.CCCode6
-                    },
-
-                    UserInfo = new UserInfo
-                    {
-                        HospCode = Global.HospitalCode,
-                        LoginId = Global.LoginId
-                    },
-                    SysInfo = new SysInfo
-                    {
-                        WsId = UtilityHelper.GetLoalIPAddress(),
-                        SourceSystem = Global.SourceSystem
-                    },
-                    Credentials = new Credentials
-                    {
-                        AccessCode = Global.AccessCode
-                    }
-                };
-                var allergys = parser.GetAlertProfiles(alertInputParm);
-                result.Allergies = (allergys ?? new AlertProfileResult());
-                this.BeginInvoke((MethodInvoker)delegate
-                {
-
-                    scintillaAlerts.FormatJsonStyle();
-                    scintillaAlerts.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Allergies));
-                });
-            }
-            else
+            if (!string.IsNullOrEmpty(errorStr))
             {
                 this.BeginInvoke((MethodInvoker)(() => RefreshMDSControlseState(false)));
+
+                return;
             }
+
+            CASE_NUMBER = caseNumber.Trim().ToUpper();
+            var patientCache = Cache_HK.PataientCache[caseNumber];
+
+            result.Patient = patientCache.PatientDemoEnquiry;
+            result.Orders = (patientCache.MedicationProfileRes ?? new MedicationProfileResult());
+            result.Allergies = (patientCache.AlertProfileRes ?? new AlertProfileResult());
+
+            this.BeginInvoke((MethodInvoker)delegate
+            {
+                var HK_ID = result.Patient.Patient.HKID;
+                if (RuleMappingHelper.HKID_ItemCode_Mapping.ContainsKey(HK_ID))
+                {
+                    RefreshMDSControlseState(true);
+
+                    var itemCodes = RuleMappingHelper.HKID_ItemCode_Mapping[HK_ID].Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                    cbxItemCodes.DataSource = itemCodes;
+                }
+
+                scintillaPatient.FormatStyle(StyleType.Xml);
+                scintillaPatient.Text = XmlHelper.FormatXML(XmlHelper.XmlSerializeToString(result.Patient));
+
+                scintillaProfiles.FormatJsonStyle();
+                scintillaProfiles.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Orders));
+
+                scintillaAlerts.FormatJsonStyle();
+                scintillaAlerts.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Allergies));
+            });
         }
         private void bgWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -216,29 +189,44 @@ namespace Demo.HL7MessageParser.WinForms
         }
         private void bgWorkerMDSCheck_DoWork(object sender, DoWorkEventArgs e)
         {
-            var itemCode = e.Argument as string;
-
-            var patient = Cache_HK.PataientCache[HK_ID].PatientDemoEnquiry;
-            var alertProfile = Cache_HK.PataientCache[HK_ID].AlertProfileRes;
-
-            var result = parser.MDSCheck(itemCode, patient, alertProfile);
-
-            var resultJson = JsonHelper.ToJson(result);
-
-
-            this.BeginInvoke((MethodInvoker)delegate
+            try
             {
-                scintillaMdsCheckRes.FormatJsonStyle();
-                scintillaMdsCheckRes.Text = JsonHelper.FormatJson(resultJson);
+                var itemCode = e.Argument as string;
 
-                if (result.IsPerformMDSCheck)
+                var patientCache = Cache_HK.PataientCache[CASE_NUMBER];
+
+                var result = parser.MDSCheck(itemCode, patientCache.PatientDemoEnquiry, patientCache.AlertProfileRes);
+
+                var resultJson = JsonHelper.ToJson(result);
+
+                this.BeginInvoke((MethodInvoker)delegate
                 {
-                    var request = Cache_HK.MDS_CheckCache[HK_ID].Req;
-                    var requestXml = XmlHelper.XmlSerializeToString(request);
-                    scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
-                    scintillaMdsCheckReq.Text = requestXml;
-                }
-            });
+                    try
+                    {
+                        scintillaMdsCheckRes.FormatJsonStyle();
+                        scintillaMdsCheckRes.Text = JsonHelper.FormatJson(resultJson);
+
+                        if (result.IsPerformMDSCheck)
+                        {
+                            var request = Cache_HK.MDS_CheckCache[CASE_NUMBER].Req;
+                            var requestXml = XmlHelper.XmlSerializeToString(request);
+                            scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
+                            scintillaMdsCheckReq.Text = requestXml;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        ex = ex;
+                    }
+
+                });
+            }
+            catch (Exception EX)
+            {
+                EX = EX;
+            }
+
         }
 
         private void bgWorkerMDSCheck_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -274,7 +262,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void Initialize()
         {
-            var soapService = new SoapParserSvc(Global.DrugMasterSoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
+            var soapService = new SoapParserSvc(Global.DrugMasterSoapUrl, Global.HospitalCode);
 
             var soapWSEService = new SoapWSEParserSvc(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
 
@@ -304,7 +292,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         public class EventResult
         {
-            public Models.PatientDemoEnquiry PatientVisit { get; set; }
+            public Models.PatientDemoEnquiry Patient { get; set; }
             public MedicationProfileResult Orders { get; set; }
             public AlertProfileResult Allergies { get; set; }
         }

@@ -13,6 +13,7 @@ namespace Demo.HL7MessageParser
         MedicationProfileResult GetMedicationProfile(string caseNumber);
 
         MDSCheckResult CheckMDS(MDSCheckInputParm inputParam);
+
         void Initialize(string restUri, string client_secret, string client_id, string pathospcode);
     }
 }

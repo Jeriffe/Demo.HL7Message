@@ -12,20 +12,5 @@ namespace Demo.HL7MessageParser
     {
         string SearchRemotePatient(string caseNumber, ref string errorMessage);
         ComplexMDSResult MDSCheck(string drugItemCode, PatientDemoEnquiry patientEnquiry, AlertProfileResult alertProfileRes);
-
-        #region Just Wrapper the Soap OR REST service
-
-        PatientDemoEnquiry GetPatientEnquiry(string caseno);
-
-        MedicationProfileResult GetMedicationProfiles(string caseno);
-
-        AlertProfileResult GetAlertProfiles(AlertInputParm alertinput);
-
-        GetDrugMdsPropertyHqResponse GetDrugMdsPropertyHq(Models.GetDrugMdsPropertyHqRequest request);
-
-        GetPreparationResponse GetPreparation(Models.GetPreparationRequest request);
-
-        MDSCheckResult CheckMDS(MDSCheckInputParm inputParam);
-        #endregion
     }
 }

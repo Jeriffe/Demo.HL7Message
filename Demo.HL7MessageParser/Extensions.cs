@@ -92,6 +92,9 @@ namespace Demo.HL7MessageParser
 
     public class Cache<T>
     {
+        /// <summary>
+        /// CASENUMBER IS THE KEY
+        /// </summary>
         static Dictionary<string, T> cache = new Dictionary<string, T>();
       
         public T this[string hkId]
@@ -130,6 +133,7 @@ namespace Demo.HL7MessageParser
     public class Patient_AlertProfile
     {
         public PatientDemoEnquiry PatientDemoEnquiry { get; set; }
+        public MedicationProfileResult MedicationProfileRes { get; set; }
         public AlertProfileResult AlertProfileRes { get; set; }
     }
 

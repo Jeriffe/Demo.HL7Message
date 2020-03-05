@@ -24,16 +24,25 @@ namespace Demo.HL7MessageParser.WinForms
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
+        IRestParserSvc restService;
+        DataLoader<AlertProfileResult> dataLoader;
+
         public AlertProfileParserControl()
         {
             InitializeComponent();
 
-            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-            {
-                InitializeAP();
-            }
 
-            InitializeAP();
+
+            InitializeService();
+        }
+
+        private void InitializeService()
+        {
+            restService = new RestParserSvc(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
+        }
+        private void AlertProfileParserControl_Load(object sender, EventArgs e)
+        {
+            Initialize();
         }
 
         private void cbxHKId_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,12 +97,29 @@ namespace Demo.HL7MessageParser.WinForms
         private void btnSend_Click(object sender, EventArgs e)
         {
             scintillaRes.Text = string.Empty;
+            try
+            {
+                var inputParam = XmlHelper.XmlDeserialize<AlertInputParm>(scintillaReq.Text.Trim());
+                dataLoader.LoadDataAsync(restService.GetAlertProfile,inputParam);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-            var loadData = new LoadDataThreadHelper<RestRequestParam, AlertProfileResult>();
+        private void Initialize()
+        {
+            var alertsDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data/AP");
+            var alerts = Directory.GetFiles(alertsDir, "*.json");
 
-            loadData.Initialize(ParserHelper.ProcessAlertProfile);
+            hkIds = alerts.Select(o => new FileInfo(o).Name)
+                                            .Select(o => o.Substring(0, o.Length - ".json".Length))
+                                            .ToList();
 
-            loadData.Completed += (AlertProfileResult data) =>
+            dataLoader = new DataLoader<AlertProfileResult>();
+
+            dataLoader.Completed += (AlertProfileResult data) =>
             {
                 if (data != null)
                 {
@@ -102,17 +128,14 @@ namespace Demo.HL7MessageParser.WinForms
                     this.SafeInvoke(() =>
                     {
                         scintillaRes.FormatJsonStyle();
-
                         scintillaRes.Focus();
-
-
                         scintillaRes.Text = JsonHelper.FormatJson(responseJsonStr);
 
                     }, false);
                 }
             };
 
-            loadData.Exceptioned += (Exception ex) =>
+            dataLoader.Exceptioned += (Exception ex) =>
             {
                 logger.Error(ex, ex.Message);
 
@@ -132,71 +155,14 @@ namespace Demo.HL7MessageParser.WinForms
 
             };
 
-            loadData.LoadDataAsync(new RestRequestParam
-            {
-                url = Global.ProfileRestUrl,
-                clientsecret = Global.ClientSecret,
-                accessCode = Global.AccessCode,
-                pahospCode = Global.HospitalCode,
-                xmlReq = scintillaReq.Text.Trim()
-            });
-        }
-
-        private void InitializeAP()
-        {
-            try
-            {
-                var alertsDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data/AP");
-                var alerts = Directory.GetFiles(alertsDir, "*.json");
-
-                hkIds = alerts.Select(o => new FileInfo(o).Name)
-                                                .Select(o => o.Substring(0, o.Length - ".json".Length))
-                                                .ToList();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            //hkIds = new List<string>
-            //{
-            //    "HN03191100Y",
-            //    "HN17000256S",
-            //    "HN18001140Y",
-            //    "HN170002512",
-            //    "HN170002520",
-            //    "INVALID_HKID",
-            //    "INVALID_PATIENT",
-            //    "INVALID_ACCESSCODE"
-            //};
 
             cbxHKId.DataSource = hkIds;
-            scintillaReq.FormatStyle(StyleType.Xml);
+            if (hkIds.Count > 0)
+            {
+                cbxHKId.SelectedIndex = 0;
 
-            scintillaReq.Text = @"<alertInputParm>
-    <patientInfo>
-        <hkid>HKID_DEMO</hkid>
-        <name>Bob</name>
-        <dob>19560809</dob>
-        <sex>F</sex>
-        <cccode1>17761</cccode1>
-        <cccode2>54301</cccode2>
-        <cccode3>54481</cccode3>
-        <cccode4></cccode4>
-        <cccode5></cccode5>
-        <cccode6></cccode6>
-    </patientInfo>
-    <userInfo>
-        <hospCode>VH</hospCode>
-        <loginId>itdadmin</loginId>
-    </userInfo>
-    <sysInfo>
-        <wsId>160.68.34.60</wsId>
-        <sourceSystem>PMS</sourceSystem>
-    </sysInfo>
-    <credentials>
-        <accessCode>YAYRoZAJoaYD5qYZbwjQsTGI</accessCode>
-    </credentials>
-</alertInputParm>";
+            }
+            scintillaReq.FormatStyle(StyleType.Xml);
         }
         private static string XmlFromFile(string hkId)
         {
@@ -214,16 +180,6 @@ namespace Demo.HL7MessageParser.WinForms
 
                 return string.Empty;
             }
-        }
-
-        private void btnSendMedicationProfile_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbxCaseNumber_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -8,10 +8,10 @@ namespace Demo.HL7MessageParser
 {
     public interface ISoapParserSvc
     {
-        void Initialize(string restUri, string userName, string password, string pathospcode);
+        void Initialize(string restUri, string pathospcode);
 
-        GetPreparationResponse getPreparation(GetPreparationRequest request);
+        GetPreparationResponse GetPreparation(GetPreparationRequest request);
 
-        GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(GetDrugMdsPropertyHqRequest request);
+        GetDrugMdsPropertyHqResponse GetDrugMdsPropertyHq(GetDrugMdsPropertyHqRequest request);
     }
 }

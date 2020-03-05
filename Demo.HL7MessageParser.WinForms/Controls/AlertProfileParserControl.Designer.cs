@@ -84,7 +84,7 @@
             // 
             this.scintillaReq.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scintillaReq.Location = new System.Drawing.Point(3, 17);
-            this.scintillaReq.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.scintillaReq.Margin = new System.Windows.Forms.Padding(5);
             this.scintillaReq.Name = "scintillaReq";
             this.scintillaReq.Size = new System.Drawing.Size(420, 290);
             this.scintillaReq.TabIndex = 10;
@@ -94,7 +94,7 @@
             // 
             this.scintillaRes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scintillaRes.Location = new System.Drawing.Point(3, 17);
-            this.scintillaRes.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.scintillaRes.Margin = new System.Windows.Forms.Padding(5);
             this.scintillaRes.Name = "scintillaRes";
             this.scintillaRes.Size = new System.Drawing.Size(440, 290);
             this.scintillaRes.TabIndex = 1;
@@ -174,6 +174,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "AlertProfileParserControl";
             this.Size = new System.Drawing.Size(877, 395);
+            this.Load += new System.EventHandler(this.AlertProfileParserControl_Load);
             this.splitContainerReqRes.Panel1.ResumeLayout(false);
             this.splitContainerReqRes.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerReqRes)).EndInit();

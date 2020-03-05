@@ -98,7 +98,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
             Cache_HK.MDS_CheckCache.Register("DRUG_ITEM_CODE", mdsResult);
 
 
-            var cachePatientResult = Cache_HK.PataientCache["HKID"];
+            var cachePatientResult = Cache_HK.PataientCache["CASENUMBER"];
             if (cachePatientResult != null)
             {
                 //return cache result
@@ -112,7 +112,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
                 PatientDemoEnquiry = new Models.PatientDemoEnquiry()
             };
 
-            Cache_HK.PataientCache.Register("HKID", p_rResult);
+            Cache_HK.PataientCache.Register("CASENUMBER", p_rResult);
         }
 
         private static void DrugMasterSosapService()

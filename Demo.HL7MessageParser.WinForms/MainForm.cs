@@ -23,7 +23,7 @@ namespace Demo.HL7MessageParser.WinForms
         {
             var soapWSEService = new SoapWSEParserSvc(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
 
-            var soapService = new SoapParserSvc(Global.DrugMasterSoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
+            var soapService = new SoapParserSvc(Global.DrugMasterSoapUrl, Global.HospitalCode);
 
 
             var restService = new RestParserSvc(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
@@ -42,10 +42,10 @@ namespace Demo.HL7MessageParser.WinForms
             tc.TabPages["tbAlertProfileControl"].Controls.Add(new AlertProfileParserControl { Dock = DockStyle.Fill });
 
             tc.TabPages.Add(new TabPage { Name = "tbDrugMasterControl", Text = "DrugMaster" });
-            tc.TabPages["tbDrugMasterControl"].Controls.Add(new DrugMasterControl(hl7messageParser) { Dock = DockStyle.Fill });
+            tc.TabPages["tbDrugMasterControl"].Controls.Add(new DrugMasterControl(this) { Dock = DockStyle.Fill });
 
             tc.TabPages.Add(new TabPage { Name = "tbFullWorkFlowControl", Text = "Full Work Flow" });
-            tc.TabPages["tbFullWorkFlowControl"].Controls.Add(new FullWorkFlowControl { Dock = DockStyle.Fill });
+            tc.TabPages["tbFullWorkFlowControl"].Controls.Add(new FullWorkFlowControl(this) { Dock = DockStyle.Fill });
 
             this.Controls.Add(tc);
             this.Controls.Add(this.menuStrip1);

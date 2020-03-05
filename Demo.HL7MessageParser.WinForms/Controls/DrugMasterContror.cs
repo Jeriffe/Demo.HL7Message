@@ -25,32 +25,36 @@ namespace Demo.HL7MessageParser.WinForms
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
         private static readonly string reqDir;
+        private MainForm mainForm;
 
-        private IHL7MessageParser hl7messageParser;
-
-        GetPreparationRequest SelectedGetPreparationRequest = null;
+        private ISoapParserSvc soapService;
 
         static DrugMasterControl()
         {
+
             reqDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\DM");
         }
 
-        public DrugMasterControl(IHL7MessageParser hl7messageParser)
+        public DrugMasterControl(MainForm mainForm)
         {
             InitializeComponent();
 
-            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-            {
-                Initialize();
-            }
+            this.mainForm = mainForm;
 
-            this.hl7messageParser = hl7messageParser;
+            InitializeService();
 
             Initialize();
         }
 
+        private void InitializeService()
+        {
+            soapService = new SoapParserSvc(Global.DrugMasterSoapUrl, Global.HospitalCode);
+        }
+
         private void Initialize()
         {
+            
+
             chxCustomDrugMdsReq.Checked = false;
             chxCustomPreparationReq.Checked = false;
 
@@ -101,7 +105,7 @@ namespace Demo.HL7MessageParser.WinForms
                     request = new GetDrugMdsPropertyHqRequest { Arg0 = arg0 };
                 }
 
-                var res = hl7messageParser.GetDrugMdsPropertyHq(request);
+                var res = soapService.GetDrugMdsPropertyHq(request);
 
                 var resStr = XmlHelper.XmlSerializeToString(res);
 
@@ -172,7 +176,7 @@ namespace Demo.HL7MessageParser.WinForms
                     request = XmlHelper.XmlDeserialize<GetPreparationRequest>(argElement.ToString());
                 }
 
-                var res = hl7messageParser.GetPreparation(request);
+                var res = soapService.GetPreparation(request);
 
                 var resStr = XmlHelper.XmlSerializeToString(res);
 
