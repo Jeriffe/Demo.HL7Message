@@ -79,6 +79,7 @@ namespace Demo.HL7MessageParser.WinForms
 
             IsDirty = true;
 
+
         }
 
         //public static void UpdateConfigValues()
