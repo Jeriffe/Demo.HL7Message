@@ -1,6 +1,4 @@
 ﻿using Demo.HL7MessageParser.Models;
-using Demo.RESTServcie.Controllers;
-using FluentValidation.WebApi;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
