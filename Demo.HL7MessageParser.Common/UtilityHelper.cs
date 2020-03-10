@@ -52,7 +52,13 @@ namespace Demo.HL7MessageParser.Common
             ItemCode_HKID_Mapping["DEMO16"] = "H2003016_DEMO16";
             ItemCode_HKID_Mapping["DEMO17"] = "H2003017_DEMO17";
             ItemCode_HKID_Mapping["DEMO18"] = "H2003018_DEMO18";
-
+            ItemCode_HKID_Mapping["DEMO19"] = "H2003019_DEMO19";
+            ItemCode_HKID_Mapping["DEMO20"] = "H2003020_DEMO20";
+            ItemCode_HKID_Mapping["DEMO21"] = "H2003021_DEMO21";
+            ItemCode_HKID_Mapping["DEMO22"] = "H2003022_DEMO22";
+            ItemCode_HKID_Mapping["DEMO23"] = "H2003023_DEMO23";
+            ItemCode_HKID_Mapping["DEMO24"] = "H2003024_DEMO24";
+            ItemCode_HKID_Mapping["DEMO25"] = "H2003025_DEMO25";
 
             HKID_ItemCode_Mapping = new Dictionary<string, string>();
             HKID_ItemCode_Mapping["H2003001"] = "DEMO01,";
@@ -73,6 +79,13 @@ namespace Demo.HL7MessageParser.Common
             HKID_ItemCode_Mapping["H2003016"] = "DEMO16";
             HKID_ItemCode_Mapping["H2003017"] = "DEMO17";
             HKID_ItemCode_Mapping["H2003018"] = "DEMO18";
+            ItemCode_HKID_Mapping["H2003019"] = "DEMO19";
+            ItemCode_HKID_Mapping["H2003020"] = "DEMO20";
+            ItemCode_HKID_Mapping["H2003021"] = "DEMO21";
+            ItemCode_HKID_Mapping["H2003022"] = "DEMO22";
+            ItemCode_HKID_Mapping["H2003023"] = "DEMO23";
+            ItemCode_HKID_Mapping["H2003024"] = "DEMO24";
+            ItemCode_HKID_Mapping["H2003025"] = "DEMO25";
         }
 
         public static Dictionary<string, string> ItemCode_HKID_Mapping { get; private set; }
