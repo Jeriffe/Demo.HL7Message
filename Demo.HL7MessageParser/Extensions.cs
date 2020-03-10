@@ -97,13 +97,13 @@ namespace Demo.HL7MessageParser
         /// </summary>
         static Dictionary<string, T> cache = new Dictionary<string, T>();
       
-        public T this[string hkId]
+        public T this[string caseNumber]
         {
             get
             {
-                if (cache.ContainsKey(hkId))
+                if (cache.ContainsKey(caseNumber))
                 {
-                    return cache[hkId];
+                    return cache[caseNumber];
                 }
 
                 return default(T);
@@ -119,9 +119,9 @@ namespace Demo.HL7MessageParser
             return default(T);
         }
 
-        public void Register(string hkId, T result)
+        public void Register(string caseNumber, T result)
         {
-            cache[hkId] = result;
+            cache[caseNumber] = result;
         }
 
         public void Clear()

@@ -79,10 +79,6 @@ namespace Demo.HL7MessageParser
             {
                 var pr = soapWSESvc.GetPatientResult(caseNumber);
 
-                if (pr != null && pr.Patient != null && pr.CaseList != null)
-                {
-                    Cache_HK.PataientCache.Register(CASE_NUMBER, new Patient_AlertProfile { PatientDemoEnquiry = pr });
-                }
 
                 logger.Info(XmlHelper.XmlSerializeToString(pr));
 
@@ -90,7 +86,7 @@ namespace Demo.HL7MessageParser
                 return pr;
             });
 
-            if (patient == null)
+            if (patient == null || patient.Patient == null)
             {
                 return string.Empty;
             }
@@ -101,10 +97,6 @@ namespace Demo.HL7MessageParser
           {
               var medicationProfile = restSvc.GetMedicationProfile(caseNumber);
 
-              if (Cache_HK.PataientCache[CASE_NUMBER] != null)
-              {
-                  Cache_HK.PataientCache[CASE_NUMBER].MedicationProfileRes = medicationProfile;
-              }
 
               logger.Info(JsonHelper.ToJson(medicationProfile));
 
@@ -148,15 +140,25 @@ namespace Demo.HL7MessageParser
             {
                 var apr = restSvc.GetAlertProfile(alertRequest);
 
-                if (Cache_HK.PataientCache[CASE_NUMBER] != null)
-                {
-                    Cache_HK.PataientCache[CASE_NUMBER].AlertProfileRes = apr;
-                }
 
                 logger.Info(JsonHelper.ToJson(apr));
 
                 return apr;
             });
+
+
+            if (patient != null && patient.Patient != null && patient.CaseList != null)
+            {
+                Cache_HK.PataientCache.Register(CASE_NUMBER, new Patient_AlertProfile { PatientDemoEnquiry = patient });
+            }
+            if (Cache_HK.PataientCache[CASE_NUMBER] != null)
+            {
+                Cache_HK.PataientCache[CASE_NUMBER].MedicationProfileRes = orders;
+                Cache_HK.PataientCache[CASE_NUMBER].AlertProfileRes = allergys;
+            }
+            if (Cache_HK.PataientCache[CASE_NUMBER] != null)
+            {
+            }
 
 
             return patient.Patient.HKID;
@@ -476,7 +478,6 @@ namespace Demo.HL7MessageParser
             else
             {
                 currentRxDrugProfile.Type = "X";
-
             }
 
             /*DrugDdimDisplayName
