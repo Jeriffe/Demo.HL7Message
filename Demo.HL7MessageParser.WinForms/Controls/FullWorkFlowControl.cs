@@ -206,10 +206,24 @@ namespace Demo.HL7MessageParser.WinForms
                         scintillaMdsCheckRes.FormatJsonStyle();
                         scintillaMdsCheckRes.Text = JsonHelper.FormatJson(resultJson);
 
+                        if (Cache_HK.DrugMasterCache[CASE_NUMBER]!=null)
+                        {
+                            var drugMasterCache = Cache_HK.DrugMasterCache[CASE_NUMBER];
+
+                            scintillaDrugMdsPropertyHqReq.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugMdsPropertyHqReq);
+                            scintillaDrugMdsPropertyHqRes.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugMdsPropertyHqRes);
+
+                            scintillaDrugPreparationReq.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugPreparationReq);
+                            scintillaDrugPreparationRes.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugPreparationRes);
+                        }
                         if (result.IsPerformMDSCheck)
                         {
                             var request = Cache_HK.MDS_CheckCache[CASE_NUMBER].Req;
                             var requestXml = XmlHelper.XmlSerializeToString(request);
+                            scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
+                            scintillaMdsCheckReq.Text = requestXml;
+
+                            var resJson = JsonHelper.ToJson(request);
                             scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
                             scintillaMdsCheckReq.Text = requestXml;
                         }
@@ -270,6 +284,12 @@ namespace Demo.HL7MessageParser.WinForms
 
 
             parser = new HL7MessageParser_NTEC(soapService, soapWSEService, restService);
+
+
+            scintillaDrugMdsPropertyHqReq.FormatStyle(StyleType.Xml);
+            scintillaDrugMdsPropertyHqRes.FormatStyle(StyleType.Xml);
+            scintillaDrugPreparationReq.FormatStyle(StyleType.Xml);
+            scintillaDrugPreparationRes.FormatStyle(StyleType.Xml);
         }
 
         private void ChangeSelectedTabPage(TabPage tabPage)

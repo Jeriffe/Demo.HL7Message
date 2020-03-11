@@ -151,7 +151,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl);
             this.splitContainer1.Panel2MinSize = 50;
-            this.splitContainer1.Size = new System.Drawing.Size(877, 505);
+            this.splitContainer1.Size = new System.Drawing.Size(1067, 617);
             this.splitContainer1.SplitterDistance = 56;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -207,7 +207,7 @@
             this.tabControl.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(877, 445);
+            this.tabControl.Size = new System.Drawing.Size(1067, 557);
             this.tabControl.TabIndex = 0;
             // 
             // tbpPatient
@@ -324,7 +324,7 @@
             this.tabDrugMaster.Controls.Add(this.splitContainerDrugMaster);
             this.tabDrugMaster.Location = new System.Drawing.Point(4, 24);
             this.tabDrugMaster.Name = "tabDrugMaster";
-            this.tabDrugMaster.Size = new System.Drawing.Size(869, 417);
+            this.tabDrugMaster.Size = new System.Drawing.Size(1059, 529);
             this.tabDrugMaster.TabIndex = 2;
             this.tabDrugMaster.Text = "Drug Master";
             this.tabDrugMaster.UseVisualStyleBackColor = true;
@@ -421,8 +421,8 @@
             // splitContainerDrugMaster.Panel2
             // 
             this.splitContainerDrugMaster.Panel2.Controls.Add(this.splitContainerDrugMasterRight);
-            this.splitContainerDrugMaster.Size = new System.Drawing.Size(869, 417);
-            this.splitContainerDrugMaster.SplitterDistance = 444;
+            this.splitContainerDrugMaster.Size = new System.Drawing.Size(1059, 529);
+            this.splitContainerDrugMaster.SplitterDistance = 541;
             this.splitContainerDrugMaster.TabIndex = 6;
             // 
             // splitContainerDrugMasterRight
@@ -438,8 +438,8 @@
             // splitContainerDrugMasterRight.Panel2
             // 
             this.splitContainerDrugMasterRight.Panel2.Controls.Add(this.gbxDrugPreparationRes);
-            this.splitContainerDrugMasterRight.Size = new System.Drawing.Size(421, 417);
-            this.splitContainerDrugMasterRight.SplitterDistance = 218;
+            this.splitContainerDrugMasterRight.Size = new System.Drawing.Size(514, 529);
+            this.splitContainerDrugMasterRight.SplitterDistance = 206;
             this.splitContainerDrugMasterRight.TabIndex = 0;
             // 
             // gbxDrugPreparationReq
@@ -448,10 +448,10 @@
             this.gbxDrugPreparationReq.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxDrugPreparationReq.Location = new System.Drawing.Point(0, 0);
             this.gbxDrugPreparationReq.Name = "gbxDrugPreparationReq";
-            this.gbxDrugPreparationReq.Size = new System.Drawing.Size(218, 417);
+            this.gbxDrugPreparationReq.Size = new System.Drawing.Size(206, 529);
             this.gbxDrugPreparationReq.TabIndex = 3;
             this.gbxDrugPreparationReq.TabStop = false;
-            this.gbxDrugPreparationReq.Text = "DrugPreparationReq";
+            this.gbxDrugPreparationReq.Text = "DrugPreparationRequest";
             // 
             // scintillaDrugPreparationReq
             // 
@@ -459,7 +459,7 @@
             this.scintillaDrugPreparationReq.Location = new System.Drawing.Point(3, 17);
             this.scintillaDrugPreparationReq.Margin = new System.Windows.Forms.Padding(2);
             this.scintillaDrugPreparationReq.Name = "scintillaDrugPreparationReq";
-            this.scintillaDrugPreparationReq.Size = new System.Drawing.Size(212, 397);
+            this.scintillaDrugPreparationReq.Size = new System.Drawing.Size(200, 509);
             this.scintillaDrugPreparationReq.TabIndex = 2;
             this.scintillaDrugPreparationReq.Text = "DrugPreparationReq";
             // 
@@ -469,10 +469,10 @@
             this.gbxDrugPreparationRes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxDrugPreparationRes.Location = new System.Drawing.Point(0, 0);
             this.gbxDrugPreparationRes.Name = "gbxDrugPreparationRes";
-            this.gbxDrugPreparationRes.Size = new System.Drawing.Size(199, 417);
+            this.gbxDrugPreparationRes.Size = new System.Drawing.Size(304, 529);
             this.gbxDrugPreparationRes.TabIndex = 4;
             this.gbxDrugPreparationRes.TabStop = false;
-            this.gbxDrugPreparationRes.Text = "DrugPreparationRes";
+            this.gbxDrugPreparationRes.Text = "DrugPreparationResponse";
             // 
             // scintillaDrugPreparationRes
             // 
@@ -480,7 +480,7 @@
             this.scintillaDrugPreparationRes.Location = new System.Drawing.Point(3, 17);
             this.scintillaDrugPreparationRes.Margin = new System.Windows.Forms.Padding(2);
             this.scintillaDrugPreparationRes.Name = "scintillaDrugPreparationRes";
-            this.scintillaDrugPreparationRes.Size = new System.Drawing.Size(193, 397);
+            this.scintillaDrugPreparationRes.Size = new System.Drawing.Size(298, 509);
             this.scintillaDrugPreparationRes.TabIndex = 1;
             this.scintillaDrugPreparationRes.Text = "DrugPreparationRes";
             // 
@@ -497,8 +497,8 @@
             // splitContainerDrugMasterLeft.Panel2
             // 
             this.splitContainerDrugMasterLeft.Panel2.Controls.Add(this.gbxDrugMdsPropertyHqRes);
-            this.splitContainerDrugMasterLeft.Size = new System.Drawing.Size(444, 417);
-            this.splitContainerDrugMasterLeft.SplitterDistance = 230;
+            this.splitContainerDrugMasterLeft.Size = new System.Drawing.Size(541, 529);
+            this.splitContainerDrugMasterLeft.SplitterDistance = 205;
             this.splitContainerDrugMasterLeft.TabIndex = 1;
             // 
             // gbxDrugMdsPropertyHqReq
@@ -507,10 +507,10 @@
             this.gbxDrugMdsPropertyHqReq.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxDrugMdsPropertyHqReq.Location = new System.Drawing.Point(0, 0);
             this.gbxDrugMdsPropertyHqReq.Name = "gbxDrugMdsPropertyHqReq";
-            this.gbxDrugMdsPropertyHqReq.Size = new System.Drawing.Size(230, 417);
+            this.gbxDrugMdsPropertyHqReq.Size = new System.Drawing.Size(205, 529);
             this.gbxDrugMdsPropertyHqReq.TabIndex = 3;
             this.gbxDrugMdsPropertyHqReq.TabStop = false;
-            this.gbxDrugMdsPropertyHqReq.Text = "DrugMdsPropertyHqReq";
+            this.gbxDrugMdsPropertyHqReq.Text = "DrugMdsPropertyHqRequest";
             // 
             // scintillaDrugMdsPropertyHqReq
             // 
@@ -518,7 +518,7 @@
             this.scintillaDrugMdsPropertyHqReq.Location = new System.Drawing.Point(3, 17);
             this.scintillaDrugMdsPropertyHqReq.Margin = new System.Windows.Forms.Padding(2);
             this.scintillaDrugMdsPropertyHqReq.Name = "scintillaDrugMdsPropertyHqReq";
-            this.scintillaDrugMdsPropertyHqReq.Size = new System.Drawing.Size(224, 397);
+            this.scintillaDrugMdsPropertyHqReq.Size = new System.Drawing.Size(199, 509);
             this.scintillaDrugMdsPropertyHqReq.TabIndex = 2;
             this.scintillaDrugMdsPropertyHqReq.Text = "DrugMdsPropertyHqReq";
             // 
@@ -528,10 +528,10 @@
             this.gbxDrugMdsPropertyHqRes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxDrugMdsPropertyHqRes.Location = new System.Drawing.Point(0, 0);
             this.gbxDrugMdsPropertyHqRes.Name = "gbxDrugMdsPropertyHqRes";
-            this.gbxDrugMdsPropertyHqRes.Size = new System.Drawing.Size(210, 417);
+            this.gbxDrugMdsPropertyHqRes.Size = new System.Drawing.Size(332, 529);
             this.gbxDrugMdsPropertyHqRes.TabIndex = 4;
             this.gbxDrugMdsPropertyHqRes.TabStop = false;
-            this.gbxDrugMdsPropertyHqRes.Text = "DrugMdsPropertyHqRes";
+            this.gbxDrugMdsPropertyHqRes.Text = "DrugMdsPropertyHqResponse";
             // 
             // scintillaDrugMdsPropertyHqRes
             // 
@@ -539,7 +539,7 @@
             this.scintillaDrugMdsPropertyHqRes.Location = new System.Drawing.Point(3, 17);
             this.scintillaDrugMdsPropertyHqRes.Margin = new System.Windows.Forms.Padding(2);
             this.scintillaDrugMdsPropertyHqRes.Name = "scintillaDrugMdsPropertyHqRes";
-            this.scintillaDrugMdsPropertyHqRes.Size = new System.Drawing.Size(204, 397);
+            this.scintillaDrugMdsPropertyHqRes.Size = new System.Drawing.Size(326, 509);
             this.scintillaDrugMdsPropertyHqRes.TabIndex = 1;
             this.scintillaDrugMdsPropertyHqRes.Text = "DrugMdsPropertyHqRes";
             // 
@@ -551,7 +551,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FullWorkFlowControl";
-            this.Size = new System.Drawing.Size(877, 505);
+            this.Size = new System.Drawing.Size(1067, 617);
             this.Load += new System.EventHandler(this.HL7MessageParserFormTest_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

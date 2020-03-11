@@ -84,6 +84,7 @@ namespace Demo.HL7MessageParser
         {
             PataientCache = new Cache<Patient_AlertProfile>();
             MDS_CheckCache = new Cache<MDSCheckCacheResult>();
+            DrugMasterCache = new Cache<DrugMasterCache>();
         }
 
         public static Cache<MDSCheckCacheResult> MDS_CheckCache { get; set; }
@@ -156,7 +157,7 @@ namespace Demo.HL7MessageParser
         public GetDrugMdsPropertyHqRequest DrugMdsPropertyHqReq { get; set; }
         public GetDrugMdsPropertyHqResponse DrugMdsPropertyHqRes { get; set; }
 
-        public GetPreparationResponse PreparationRes { get; set; }
-        public GetPreparationRequest PreparationReq { get; set; }
+        public GetPreparationResponse DrugPreparationRes { get; set; }
+        public GetPreparationRequest DrugPreparationReq { get; set; }
     }
 }

@@ -243,7 +243,18 @@ namespace Demo.HL7MessageParser
                     ErrorMessage = "System cannot perform Allergy, getPreparation Response is empty."
                 };
             }
+            var caseNumber = patientEnquiry.CaseList[0].Number.Trim().ToUpper();
+            if (Cache_HK.DrugMasterCache[caseNumber] == null)
+            {
+                Cache_HK.DrugMasterCache.Register(caseNumber, new DrugMasterCache
+                {
+                    DrugMdsPropertyHqReq = getDrugMdsPropertyHqReq,
+                    DrugMdsPropertyHqRes = getDrugMdsPropertyHqRes,
+                    DrugPreparationReq = getPreparationReq,
+                    DrugPreparationRes = getPreparationRes
+                });
 
+            }
             return CheckDrugClass(patientEnquiry, alertProfileRes, getDrugMdsPropertyHqRes, getPreparationRes);
         }
         /// <summary>
@@ -643,8 +654,8 @@ namespace Demo.HL7MessageParser
 
             return medCache.Res;
         }
-  
-        
+
+
         private void CheckItemCodeofMedicationProfile(MedicationProfileResult orders, ref string errorMessage)
         {
             //CHECK ITEM CODES
