@@ -156,9 +156,6 @@ namespace Demo.HL7MessageParser
                 Cache_HK.PataientCache[CASE_NUMBER].MedicationProfileRes = orders;
                 Cache_HK.PataientCache[CASE_NUMBER].AlertProfileRes = allergys;
             }
-            if (Cache_HK.PataientCache[CASE_NUMBER] != null)
-            {
-            }
 
 
             return patient.Patient.HKID;
@@ -166,6 +163,8 @@ namespace Demo.HL7MessageParser
 
         public ComplexMDSResult MDSCheck(string drugItemCode, PatientDemoEnquiry patientEnquiry, AlertProfileResult alertProfileRes)
         {
+            ComplexMDSResult mdsResult = new ComplexMDSResult();
+
             if (alertProfileRes == null
                 || alertProfileRes.AdrProfile.Count == 0
                 || alertProfileRes.AlertProfile.Count == 0
@@ -175,12 +174,23 @@ namespace Demo.HL7MessageParser
                 /*ErrorMessage = "System cannot perform Allergy, ADR and G6PD Deficiency Contraindication checking. 
                 Please exercise your professional judgement during the downtime period and contact [vendor contact information].*/
 
-                return new ComplexMDSResult
-                {
-                    IsPerformMDSCheck = false,
-                    ErrorMessage = "System cannot perform Allergy, AlertProfile is empty."
-                };
+                mdsResult.IsPerformMDSCheck = false;
+                mdsResult.ErrorMessage = "System cannot perform Allergy, AlertProfile is empty.";
+
+                return mdsResult;
             }
+
+            #region check if need MDS check
+            /*****2.5.3 2: ADR record (1.4.2) if its severity is “Mild”, not perform MDS checking for current ADR profile*****/
+            CheckADRProfileForMDSCheck(ref alertProfileRes);
+            /****2.5.3 3:System should not perform MDS checking on a drug item if its itemCode starts with “PDF”, e.g. “PDF 2Q “, “PDF 48”.*****/
+            if (drugItemCode.ToUpper().StartsWith("PDF"))
+            {
+                //skip MDS checking, and no message
+                mdsResult.IsPerformMDSCheck = false;
+            }
+            CheckAllergyProfileForMDSCheck(ref alertProfileRes, ref mdsResult);
+            #endregion
 
             var getDrugMdsPropertyHqRes = soapSvc.GetDrugMdsPropertyHq(new GetDrugMdsPropertyHqRequest
             {
@@ -207,25 +217,91 @@ namespace Demo.HL7MessageParser
               || getDrugMdsPropertyHqRes.Return.Count == 0
               )
             {
-                return new ComplexMDSResult
-                {
-                    IsPerformMDSCheck = false,
-                    ErrorMessage = "System cannot perform Allergy, getDrugMdsPropertyHq Response is empty."
-                };
+                
+                mdsResult.IsPerformMDSCheck = false;
+                mdsResult.ErrorMessage = "System cannot perform Allergy, getDrugMdsPropertyHq Response is empty.";
+                return mdsResult;
             }
 
             if (getPreparationRes == null)
             {
-                return new ComplexMDSResult
-                {
-                    IsPerformMDSCheck = false,
-                    ErrorMessage = "System cannot perform Allergy, getPreparation Response is empty."
-                };
+                mdsResult.IsPerformMDSCheck = false;
+                mdsResult.ErrorMessage = "System cannot perform Allergy, getPreparation Response is empty.";
+                return mdsResult;
             }
 
             return CheckDrugClass(patientEnquiry, alertProfileRes, getDrugMdsPropertyHqRes, getPreparationRes);
         }
+        /// <summary>
+        /// 2.5.3 2: ADR record (1.4.2) if its severity is “Mild”, not perform MDS checking for current ADR profile
+        /// </summary>
+        /// <param name="alertProfileRes"></param>
+        private static void CheckADRProfileForMDSCheck(ref AlertProfileResult alertProfileRes)
+        {
+            var adrProfiles = alertProfileRes.AdrProfile;            
+            foreach (var adrProfile in adrProfiles)
+            {
+                if (!string.IsNullOrEmpty(adrProfile.Severity) && adrProfile.Severity.ToUpper() == "MILD")
+                {
+                    alertProfileRes.AdrProfile.Remove(alertProfileRes.AdrProfile.First(a => a.AdrSeqNo == adrProfile.AdrSeqNo));
+                }
+            }
+        }
 
+        /// <summary>
+        /// No need MDS check for allergy profile
+        /// </summary>
+        /// <param name="allergyProfile"></param>
+        /// <param name="mdsResult"></param>
+        private void CheckAllergyProfileForMDSCheck(ref AlertProfileResult alertProfileRes, ref ComplexMDSResult mdsResult)
+        {
+            /****2.5.3 4-1:System should alert user and not perform MDS checking on allergen, ADR record or drug item for the following conditions:
+            •	For allergen (refer to [Only for allergyProfile from 1.4.2]):
+            o	both [hiclSeqNo] and [hicSeqNos] is EMPTY or zero; and
+            o	allergenType != “N”, “O”, “X” or “XP”
+            Message:
+            System cannot perform drug allergy checking for the following allergen record(s) in the alert function: [allergen from 1.4.2]
+            */
+            var allergyProfile = alertProfileRes.AllergyProfile;
+            IList<string> allergyDrugList = new List<string>();
+            foreach (var algProfile in allergyProfile)
+            {
+                if ((string.IsNullOrEmpty(algProfile.HiclSeqno) || algProfile.HiclSeqno == "0")
+                    &&
+                    (algProfile.HicSeqno.Count == 0 || CheckIfAllergyProfileHicSeqnoNoNeedMDS(algProfile))
+                    &&
+                    !(new string[] { "N", "O", "X", "XP" }.Contains(algProfile.AllergenType))
+                    )
+                {
+                    //no MDS check and show message for AllergyProfile
+                    allergyDrugList.Add(algProfile.Allergen);
+                    //if current allergy no need MDS check, remove it from allergy profrofile list
+                    alertProfileRes.AllergyProfile.Remove(alertProfileRes.AllergyProfile.First(a => a.Allergen == algProfile.Allergen));
+                }
+            }
+            if (allergyDrugList.Count > 0)
+            {
+                mdsResult.Result.drugAllergyCheckingResults = new DrugAllergyCheckingResults();
+                var msg = "System cannot perform drug allergy checking for the following allergen record(s):";
+                msg += string.Join(",", allergyDrugList.ToArray());
+                mdsResult.Result.drugAllergyCheckingResults.drugAllergyAlertMessages.Add(msg);
+            }
+
+        }
+
+        private bool CheckIfAllergyProfileHicSeqnoNoNeedMDS(AllergyProfile allergyProfile)
+        {
+            var result = false;
+            foreach (var hicSeqNo in allergyProfile.HicSeqno)
+            {
+                if (string.IsNullOrEmpty(hicSeqNo) || hicSeqNo == "0")
+                {
+                    result = true;
+                    break;
+                }
+            }
+            return result;
+        }
         private ComplexMDSResult CheckDrugClass(PatientDemoEnquiry patientEnquiry,
             AlertProfileResult alertProfileRes,
             GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes,
