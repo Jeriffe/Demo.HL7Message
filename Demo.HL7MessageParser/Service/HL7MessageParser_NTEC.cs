@@ -156,9 +156,6 @@ namespace Demo.HL7MessageParser
                 Cache_HK.PataientCache[CASE_NUMBER].MedicationProfileRes = orders;
                 Cache_HK.PataientCache[CASE_NUMBER].AlertProfileRes = allergys;
             }
-            if (Cache_HK.PataientCache[CASE_NUMBER] != null)
-            {
-            }
 
 
             return patient.Patient.HKID;
@@ -166,6 +163,8 @@ namespace Demo.HL7MessageParser
 
         public ComplexMDSResult MDSCheck(string drugItemCode, PatientDemoEnquiry patientEnquiry, AlertProfileResult alertProfileRes)
         {
+            ComplexMDSResult mdsResult = new ComplexMDSResult();
+
             if (alertProfileRes == null
                 || alertProfileRes.AdrProfile.Count == 0
                 || alertProfileRes.AlertProfile.Count == 0
@@ -175,13 +174,25 @@ namespace Demo.HL7MessageParser
                 /*ErrorMessage = "System cannot perform Allergy, ADR and G6PD Deficiency Contraindication checking. 
                 Please exercise your professional judgement during the downtime period and contact [vendor contact information].*/
 
-                return new ComplexMDSResult
-                {
-                    IsPerformMDSCheck = false,
-                    ErrorMessage = "System cannot perform Allergy, AlertProfile is empty."
-                };
+                mdsResult.IsPerformMDSCheck = false;
+                mdsResult.ErrorMessage = "System cannot perform Allergy, AlertProfile is empty.";
+
+                return mdsResult;
             }
-            var getDrugMdsPropertyHqReq = new GetDrugMdsPropertyHqRequest
+
+            #region check if need MDS check
+            /*****2.5.3 2: ADR record (1.4.2) if its severity is “Mild”, not perform MDS checking for current ADR profile*****/
+            CheckADRProfileForMDSCheck(ref alertProfileRes);
+            /****2.5.3 3:System should not perform MDS checking on a drug item if its itemCode starts with “PDF”, e.g. “PDF 2Q “, “PDF 48”.*****/
+            if (drugItemCode.ToUpper().StartsWith("PDF"))
+            {
+                //skip MDS checking, and no message
+                mdsResult.IsPerformMDSCheck = false;
+            }
+            CheckAllergyProfileForMDSCheck(ref alertProfileRes, ref mdsResult);
+            #endregion
+
+            var getDrugMdsPropertyHqRes = soapSvc.GetDrugMdsPropertyHq(new GetDrugMdsPropertyHqRequest
             {
                 Arg0 = new Arg { ItemCode = new List<string> { drugItemCode } }
             };
@@ -223,26 +234,34 @@ namespace Demo.HL7MessageParser
                 return new ComplexMDSResult
                 {
                     IsPerformMDSCheck = false,
+                    ErrorMessage = "System cannot perform Allergy, getDrugMdsPropertyHq Response is empty."
+                };
+            }
+
+            if (getPreparationRes == null)
+            {
+                return new ComplexMDSResult
+                {
+                    IsPerformMDSCheck = false,
                     ErrorMessage = "System cannot perform Allergy, getPreparation Response is empty."
                 };
             }
 
-            var caseNumber = patientEnquiry.CaseList[0].Number.Trim().ToUpper();
-
-            if (Cache_HK.DrugMasterCache[caseNumber] != null)
-            {
-                Cache_HK.DrugMasterCache.Register(caseNumber, new DrugMasterCache
-                {
-                    DrugMdsPropertyHqReq = getDrugMdsPropertyHqReq,
-                    DrugMdsPropertyHqRes = getDrugMdsPropertyHqRes,
-                    PreparationReq = getPreparationReq,
-                    PreparationRes = getPreparationRes
-                });
-            }
-
-            return CheckDrugClass(patientEnquiry, alertProfileRes, getDrugMdsPropertyHqRes, getPreparationRes);
         }
 
+        private bool CheckIfAllergyProfileHicSeqnoNoNeedMDS(AllergyProfile allergyProfile)
+        {
+            var result = false;
+            foreach (var hicSeqNo in allergyProfile.HicSeqno)
+            {
+                if (string.IsNullOrEmpty(hicSeqNo) || hicSeqNo == "0")
+                {
+                    result = true;
+                    break;
+                }
+            }
+            return result;
+        }
         private ComplexMDSResult CheckDrugClass(PatientDemoEnquiry patientEnquiry,
             AlertProfileResult alertProfileRes,
             GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes,
