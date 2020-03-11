@@ -181,31 +181,13 @@ namespace Demo.HL7MessageParser
                     ErrorMessage = "System cannot perform Allergy, AlertProfile is empty."
                 };
             }
-
-            var getDrugMdsPropertyHqRes = soapSvc.GetDrugMdsPropertyHq(new GetDrugMdsPropertyHqRequest
+            var getDrugMdsPropertyHqReq = new GetDrugMdsPropertyHqRequest
             {
                 Arg0 = new Arg { ItemCode = new List<string> { drugItemCode } }
-            });
+            };
+            var getDrugMdsPropertyHqRes = soapSvc.GetDrugMdsPropertyHq(getDrugMdsPropertyHqReq);
 
-            var getPreparationRes = soapSvc.GetPreparation(new GetPreparationRequest
-            {
-                Arg0 = new Arg0
-                {
-                    DispHospCode = string.Empty,
-                    DispWorkstore = string.Empty,
-                    ItemCode = drugItemCode,
-                    DrugScope = "I",
-                    SpecialtyType = "I",
-                    PasSpecialty = string.Empty,
-                    PasSubSpecialty = string.Empty,
-                    CostIncluded = true,
-                    HqFlag = true
-                }
-            });
-
-            if (getDrugMdsPropertyHqRes == null
-              || getDrugMdsPropertyHqRes.Return.Count == 0
-              )
+            if (getDrugMdsPropertyHqRes == null || getDrugMdsPropertyHqRes.Return.Count == 0)
             {
                 return new ComplexMDSResult
                 {
@@ -213,14 +195,49 @@ namespace Demo.HL7MessageParser
                     ErrorMessage = "System cannot perform Allergy, getDrugMdsPropertyHq Response is empty."
                 };
             }
+            var drugProperty = getDrugMdsPropertyHqRes.Return[0].DrugProperty;
 
-            if (getPreparationRes == null)
+            var getPreparationReq = new GetPreparationRequest
+            {
+                Arg0 = new Arg0
+                {
+                    DispHospCode = "",
+                    DispWorkstore = "",
+                    ItemCode = drugItemCode,
+                    TrueDisplayname = drugProperty.Displayname,
+                    FormCode = drugProperty.FormCode,
+                    SaltProperty = drugProperty.SaltProperty,
+                    DrugScope = "I",
+                    SpecialtyType = "I",
+                    PasSpecialty = "",
+                    PasSubSpecialty = "",
+                    CostIncluded = true,
+                    HqFlag = true
+                }
+            };
+            var getPreparationRes = soapSvc.GetPreparation(getPreparationReq);
+
+
+            if (getPreparationRes == null || getPreparationRes.Return == null)
             {
                 return new ComplexMDSResult
                 {
                     IsPerformMDSCheck = false,
                     ErrorMessage = "System cannot perform Allergy, getPreparation Response is empty."
                 };
+            }
+
+            var caseNumber = patientEnquiry.CaseList[0].Number.Trim().ToUpper();
+
+            if (Cache_HK.DrugMasterCache[caseNumber] != null)
+            {
+                Cache_HK.DrugMasterCache.Register(caseNumber, new DrugMasterCache
+                {
+                    DrugMdsPropertyHqReq = getDrugMdsPropertyHqReq,
+                    DrugMdsPropertyHqRes = getDrugMdsPropertyHqRes,
+                    PreparationReq = getPreparationReq,
+                    PreparationRes = getPreparationRes
+                });
             }
 
             return CheckDrugClass(patientEnquiry, alertProfileRes, getDrugMdsPropertyHqRes, getPreparationRes);

@@ -10,7 +10,7 @@ using System.Text;
 namespace Demo.HL7MessageParser
 {
 
-   
+
     /// <summary>
     /// RestSharpExtensions.cs
     /// https://gist.github.com/lkaczanowski/febb25cc49f339c5f516
@@ -88,6 +88,8 @@ namespace Demo.HL7MessageParser
 
         public static Cache<MDSCheckCacheResult> MDS_CheckCache { get; set; }
         public static Cache<Patient_AlertProfile> PataientCache { get; set; }
+
+        public static Cache<DrugMasterCache> DrugMasterCache { get; set; }
     }
 
     public class Cache<T>
@@ -96,7 +98,7 @@ namespace Demo.HL7MessageParser
         /// CASENUMBER IS THE KEY
         /// </summary>
         static Dictionary<string, T> cache = new Dictionary<string, T>();
-      
+
         public T this[string caseNumber]
         {
             get
@@ -147,5 +149,14 @@ namespace Demo.HL7MessageParser
 
         public ComplexMDSResult Res { get; internal set; }
         public MDSCheckInputParm Req { get; internal set; }
+    }
+
+    public class DrugMasterCache
+    {
+        public GetDrugMdsPropertyHqRequest DrugMdsPropertyHqReq { get; set; }
+        public GetDrugMdsPropertyHqResponse DrugMdsPropertyHqRes { get; set; }
+
+        public GetPreparationResponse PreparationRes { get; set; }
+        public GetPreparationRequest PreparationReq { get; set; }
     }
 }

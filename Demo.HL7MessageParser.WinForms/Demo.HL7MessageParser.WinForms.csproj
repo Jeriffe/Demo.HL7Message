@@ -90,6 +90,12 @@
     <Compile Include="Controls\AlertProfileParserControl.Designer.cs">
       <DependentUpon>AlertProfileParserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MDDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MDDialogBox.designer.cs">
+      <DependentUpon>MDDialogBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MedicationProfileControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -127,7 +133,7 @@
     <Compile Include="Data\Lexers\LexerStyleHelper.cs" />
     <Compile Include="Data\Lexers\XmlLexerStyle.cs" />
     <Compile Include="Common\DataLoader.cs" />
-    <Compile Include="GrowLabel.cs">
+    <Compile Include="Controls\GrowLabel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Loading.cs">
@@ -153,6 +159,9 @@
     </Compile>
     <EmbeddedResource Include="Controls\AlertProfileParserControl.resx">
       <DependentUpon>AlertProfileParserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MDDialogBox.resx">
+      <DependentUpon>MDDialogBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\MedicationProfileControl.resx">
       <DependentUpon>MedicationProfileControl.cs</DependentUpon>
