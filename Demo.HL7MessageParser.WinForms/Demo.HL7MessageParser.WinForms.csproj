@@ -114,6 +114,12 @@
     <Compile Include="Controls\PatientDemographicControl.Designer.cs">
       <DependentUpon>PatientDemographicControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Data\Lexers\CSharpLexerStyle.cs" />
     <Compile Include="Data\Lexers\ILexerStyle.cs" />
@@ -121,6 +127,9 @@
     <Compile Include="Data\Lexers\LexerStyleHelper.cs" />
     <Compile Include="Data\Lexers\XmlLexerStyle.cs" />
     <Compile Include="Common\DataLoader.cs" />
+    <Compile Include="GrowLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Loading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PatientDemographicControl.resx">
       <DependentUpon>PatientDemographicControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Loading.resx">
       <DependentUpon>Loading.cs</DependentUpon>
