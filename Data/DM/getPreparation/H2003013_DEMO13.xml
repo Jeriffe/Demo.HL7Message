@@ -1,0 +1,61 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Header>
+    <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdqADF3ZWJsb2dpYy5hcHAuUEFTX1BBU19QQVRJRU5UX0VOUVVJUllfV1NTXzJfMF8xMl82AAAA1gAAACN3ZWJsb2dpYy53b3JrYXJlYS5TdHJpbmdXb3JrQ29udGV4dAAIMi4wLjEyLjYAAA==</work:WorkContext>
+  </S:Header>
+  <S:Body>
+    <getPreparationResponse xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+      <return>
+        <averageUnitPrice>14.25</averageUnitPrice>
+        <baseUnit>UNIT</baseUnit>
+        <corpDrugPrice>14.25</corpDrugPrice>
+        <dangerousDrug>N</dangerousDrug>
+        <drugMds>
+          <duplicateFlag>false</duplicateFlag>
+          <gcnSeqno>16491</gcnSeqno>
+          <groupGcnSeqno>0</groupGcnSeqno>
+          <groupMoeCheckFlag>Y</groupMoeCheckFlag>
+          <groupRoutedGeneric>6292938</groupRoutedGeneric>
+          <groupRouteformGeneric>3740</groupRouteformGeneric>
+          <groupSingleIngred>Y</groupSingleIngred>
+          <hiclSeqno>1482</hiclSeqno>
+          <moeCheckFlag>Y</moeCheckFlag>
+          <routedGeneric>6292938</routedGeneric>
+          <routeformGeneric>3740</routeformGeneric>
+        </drugMds>
+        <formCode>MIN</formCode>
+        <formRank>2305</formRank>
+        <groupBaseUnit>UNIT</groupBaseUnit>
+        <isCommonDose>false</isCommonDose>
+        <itemCode>DEMO13</itemCode>
+        <moeDesc>EYE MINIMS</moeDesc>
+        <moeRouteFormDesc>EYE MINIMS</moeRouteFormDesc>
+        <pmsFmStatus>F</pmsFmStatus>
+        <ppmi>N</ppmi>
+        <preparationDesc>1% 0.5 ML</preparationDesc>
+        <privateDrugPatTypeCharge>
+          <addedCharge>0.0</addedCharge>
+          <handleCharge>105.0</handleCharge>
+          <markupFactor>1.01</markupFactor>
+        </privateDrugPatTypeCharge>
+        <publicCdp>14.3925</publicCdp>
+        <publicDrugPatTypeCharge>
+          <addedCharge>0.0</addedCharge>
+          <handleCharge>105.0</handleCharge>
+          <markupFactor>1.01</markupFactor>
+        </publicDrugPatTypeCharge>
+        <routeDesc>EYE</routeDesc>
+        <routeFormSortSeq>999</routeFormSortSeq>
+        <routeSortSeq>999</routeSortSeq>
+        <saltProperty>HCL</saltProperty>
+        <sfiCategory>N</sfiCategory>
+        <specRestrict>*</specRestrict>
+        <strength>1%</strength>
+        <strengthUnit>%</strengthUnit>
+        <strengthValue>1.0</strengthValue>
+        <trueDisplayname>AMETHOCAINE</trueDisplayname>
+        <volumeUnit>ML</volumeUnit>
+        <volumeValue>0.5</volumeValue>
+      </return>
+    </getPreparationResponse>
+  </S:Body>
+</S:Envelope>
