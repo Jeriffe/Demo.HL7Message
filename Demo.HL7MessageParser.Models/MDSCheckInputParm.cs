@@ -86,6 +86,11 @@ namespace Demo.HL7MessageParser.Models
         /// </summary>
         [XmlElement(ElementName = "checkDiscon")]
         public bool CheckDiscon { get; set; }
+        /// <summary>
+        /// default: "false"
+        /// </summary>
+        [XmlElement(ElementName = "checkHepaB")]
+        public bool CheckHepaB { get; set; }
     }
 
     [XmlRoot(ElementName = "patientInfo")]
