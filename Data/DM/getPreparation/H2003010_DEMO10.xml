@@ -3,7 +3,7 @@
     <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdqADF3ZWJsb2dpYy5hcHAuUEFTX1BBU19QQVRJRU5UX0VOUVVJUllfV1NTXzJfMF8xMl82AAAA1gAAACN3ZWJsb2dpYy53b3JrYXJlYS5TdHJpbmdXb3JrQ29udGV4dAAIMi4wLjEyLjYAAA==</work:WorkContext>
   </S:Header>
   <S:Body>
-    <getPreparationResponse xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+    <ns2:getPreparationResponse xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
       <return>
         <averageUnitPrice>14.25</averageUnitPrice>
         <baseUnit>UNIT</baseUnit>
@@ -56,6 +56,6 @@
         <volumeUnit>ML</volumeUnit>
         <volumeValue>0.5</volumeValue>
       </return>
-    </getPreparationResponse>
+    </ns2:getPreparationResponse>
   </S:Body>
 </S:Envelope>

@@ -84,7 +84,7 @@ namespace Demo.HL7MessageParser.WinForms
             var mdsCheckTargetFileName = Path.Combine(baseDir, string.Format(@"Demo\MDS\{0}.json", hkId));
             File.WriteAllText(mdsCheckTargetFileName, mdsCheckTargetStr);
 
-            GenerateDrugMasterResponse<GetDrugMdsPropertyHqResponse>(hkId,itemcode, "getDrugMdsPropertyHqResponse", @"DEMO\DM\getDrugMdsPropertyHq");
+            GenerateDrugMasterResponse<GetDrugMdsPropertyHqResponse>(hkId, itemcode, "getDrugMdsPropertyHqResponse", @"DEMO\DM\getDrugMdsPropertyHq");
 
             GenerateDrugMasterResponse<GetPreparationResponse>(hkId, itemcode, "getPreparationResponse", @"DEMO\DM\GetPreparation");
         }
@@ -113,7 +113,7 @@ namespace Demo.HL7MessageParser.WinForms
     </S:Body>
 </S:Envelope>";
 
-            var patientXmlStr = XmlHelper.XmlSerializeToString(patientOrg);
+            var patientXmlStr = XmlHelper.XmlSerializeToString(patientOrg).Replace(nodeName, string.Format("ns2:{0}", nodeName));
 
             patientFullXmlStr = string.Format(patientFullXmlStr, patientXmlStr.Substring(@"<?xml version=""1.0"" encoding=""utf - 8""?>".Length));
 

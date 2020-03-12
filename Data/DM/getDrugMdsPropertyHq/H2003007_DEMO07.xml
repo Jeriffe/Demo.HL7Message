@@ -3,7 +3,7 @@
     <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdqADF3ZWJsb2dpYy5hcHAuUEFTX1BBU19QQVRJRU5UX0VOUVVJUllfV1NTXzJfMF8xMl82AAAA1gAAACN3ZWJsb2dpYy53b3JrYXJlYS5TdHJpbmdXb3JrQ29udGV4dAAIMi4wLjEyLjYAAA==</work:WorkContext>
   </S:Header>
   <S:Body>
-    <getDrugMdsPropertyHqResponse xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+    <ns2:getDrugMdsPropertyHqResponse xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
       <return>
         <drugKey>181</drugKey>
         <drugMds>
@@ -35,6 +35,6 @@
         </drugProperty>
         <itemCode>DEMO07</itemCode>
       </return>
-    </getDrugMdsPropertyHqResponse>
+    </ns2:getDrugMdsPropertyHqResponse>
   </S:Body>
 </S:Envelope>

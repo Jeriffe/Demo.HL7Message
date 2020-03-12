@@ -34,7 +34,7 @@
           <updateUser>MCW093</updateUser>
           <updateVersion>0</updateVersion>
         </drugProperty>
-        <itemCode>DEMO01</itemCode>
+        <itemCode>AMET02</itemCode>
       </return>
     </ns2:getDrugMdsPropertyHqResponse>
   </S:Body>
