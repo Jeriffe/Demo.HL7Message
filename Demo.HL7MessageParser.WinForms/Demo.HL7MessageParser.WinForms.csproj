@@ -90,6 +90,12 @@
     <Compile Include="Controls\AlertProfileParserControl.Designer.cs">
       <DependentUpon>AlertProfileParserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\MDDialogBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,12 +125,6 @@
     </Compile>
     <Compile Include="Controls\PatientDemographicControl.Designer.cs">
       <DependentUpon>PatientDemographicControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Data\Lexers\CSharpLexerStyle.cs" />
@@ -160,6 +160,9 @@
     <EmbeddedResource Include="Controls\AlertProfileParserControl.resx">
       <DependentUpon>AlertProfileParserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\MDDialogBox.resx">
       <DependentUpon>MDDialogBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,9 +177,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PatientDemographicControl.resx">
       <DependentUpon>PatientDemographicControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Loading.resx">
       <DependentUpon>Loading.cs</DependentUpon>
@@ -198,6 +198,15 @@
       <DependentUpon>SystemConfig.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="Demo\AP\H2003001.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\MDS\H2003001.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Demo\MP\HN202003001.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -241,6 +250,18 @@
       <Project>{be8c3682-2147-4458-b6d7-9ea9c8f22a92}</Project>
       <Name>Demo.HL7MessageParser</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Demo\DM\getDrugMdsPropertyHq\H2003001_DEMO01.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\DM\getPreparation\H2003001_DEMO01.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Demo\PE\HN202003001.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -18,7 +18,14 @@ namespace Demo.HL7MessageParser.WinForms
 
             Global.RefreshConfigValues();
         }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData== Keys.F5)
+            {
 
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
             var soapWSEService = new SoapWSEParserSvc(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
