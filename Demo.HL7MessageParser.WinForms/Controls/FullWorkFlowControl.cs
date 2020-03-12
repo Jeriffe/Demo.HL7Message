@@ -319,7 +319,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void btnMDSCheckResult_Click(object sender, EventArgs e)
         {
-            MDSource source = InitalData();
+            MdsCheckFinalResult source = InitalData();
 
             try
             {
@@ -337,22 +337,23 @@ namespace Demo.HL7MessageParser.WinForms
             }
         }
 
-        private MDSource InitalData()
+        private MdsCheckFinalResult InitalData()
         {
-            var initSource = new MDSource();
+            var initSource = new MdsCheckFinalResult();
+
             initSource.DrugName = "ASPRIN";
-            initSource.AddtionInfo = "NONE";
-            initSource.listC.Add(new Category("Allergy Checking",
+
+            initSource.MdsCheckAlertDetails.Add(new MdsCheckAlert("Allergy Checking",
                 @"ASPRIN - Allergy history reported 
 Clinical Manifestation: Rash: Urticaria 
 Additional information: TEST 1 
 Level of Certainty: Certain 
 Use of ASPIRIN TABLET may result in allergic reaction."));
 
-            initSource.listC.Add(new Category("G6PD Deficiency Contraindication Checking",
+            initSource.MdsCheckAlertDetails.Add(new MdsCheckAlert("G6PD Deficiency Contraindication Checking",
                 @"ASPIRIN TABLET is contraindicated when Hemolytic Anemia from Pyruvate Kinase and G6PD Deficientcies, a condition related to G6PD Deficiency, exists."));
 
-            initSource.listC.Add(new Category("Adverse Drug Reaction Checking",
+            initSource.MdsCheckAlertDetails.Add(new MdsCheckAlert("Adverse Drug Reaction Checking",
                 @"ASPIRIN - Adverse drug reaction hisotry reported 
 Adverse Drug Reaction: Abdomial Pain With Cramps; Heartburn 
 Level of Severity: Severe 
@@ -363,7 +364,7 @@ Use of ASPIRIN TABLET may result in adverse drug reaction."));
             var str = string.Format(@"ASPIRIN - Adverse drug reaction hisotry reported{0}Adverse Drug Reaction: Abdomial Pain With Cramps; Heartburn{0}Level of Severity: Severe", Environment.NewLine);
 
 
-            initSource.listC.Add(new Category("JERIFFE TEST", str));
+            initSource.MdsCheckAlertDetails.Add(new MdsCheckAlert("JERIFFE TEST", str));
 
             return initSource;
         }

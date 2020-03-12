@@ -24,7 +24,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         public enum MessageColor { Red, Blue, Green };
 
-        public MDDialogBox(MDSource mds, string SubTitle, MessageBoxButtons Buttons, MessageBoxIcon Icon, MessageColor bkColor)
+        public MDDialogBox(MdsCheckFinalResult mds, string SubTitle, MessageBoxButtons Buttons, MessageBoxIcon Icon, MessageColor bkColor)
         {
             InitializeComponent();
             lblSubTitle.Text = SubTitle;
@@ -56,20 +56,20 @@ namespace Demo.HL7MessageParser.WinForms
                     break;
             }
 
-            for (int i = mds.listC.Count - 1; i >= 0; i--)
+            for (int i = mds.MdsCheckAlertDetails.Count - 1; i >= 0; i--)
             {
                 var newLine = new Label();
                 newLine.Dock = DockStyle.Top;
                 pnlCheckList.Controls.Add(newLine);
 
                 var Glabel = new GrowLabel();
-                Glabel.Text = mds.listC[i].CateDetail;
+                Glabel.Text = mds.MdsCheckAlertDetails[i].CheckAlertMessage;
                 Glabel.Dock = DockStyle.Top;
                 Glabel.Font = new Font("Segoe UI", 7, FontStyle.Bold);
                 pnlCheckList.Controls.Add(Glabel);
 
                 var lkLabel = new LinkLabel();
-                lkLabel.Text = mds.listC[i].CateName;
+                lkLabel.Text = mds.MdsCheckAlertDetails[i].CategoryName;
                 lkLabel.Dock = DockStyle.Top;
                 lkLabel.Font = new Font("Segoe UI", 7, FontStyle.Bold);
                 pnlCheckList.Controls.Add(lkLabel);
@@ -95,27 +95,31 @@ namespace Demo.HL7MessageParser.WinForms
         }
     }
 
-    public class MDSource
+    public class MdsCheckFinalResult
     {
         public string DrugName = string.Empty;
-        public string AddtionInfo = string.Empty;
-        public List<Category> listC;
 
-        public MDSource()
+        public string SystemErrorMessage { get; set; }
+
+        public bool HasMdsAlert { get; set; }
+
+        public List<MdsCheckAlert> MdsCheckAlertDetails;
+
+        public MdsCheckFinalResult()
         {
-            listC = new List<Category>();
+            MdsCheckAlertDetails = new List<MdsCheckAlert>();
         }
     }
 
-    public class Category
+    public class MdsCheckAlert
     {
-        public string CateName;
-        public string CateDetail;
+        public string CategoryName;
+        public string CheckAlertMessage;
 
-        public Category(string name, string detail)
+        public MdsCheckAlert(string name, string detail)
         {
-            CateName = name;
-            CateDetail = detail;
+            CategoryName = name;
+            CheckAlertMessage = detail;
         }
     }
 }
