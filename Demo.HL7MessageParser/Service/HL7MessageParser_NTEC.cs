@@ -161,9 +161,9 @@ namespace Demo.HL7MessageParser
             return patient.Patient.HKID;
         }
 
-        public ComplexMDSResult MDSCheck(string drugItemCode, PatientDemoEnquiry patientEnquiry, AlertProfileResult alertProfileRes)
+        public MDSCheckResult MDSCheck(string drugItemCode, PatientDemoEnquiry patientEnquiry, AlertProfileResult alertProfileRes)
         {
-            ComplexMDSResult mdsResult = new ComplexMDSResult();
+            MDSCheckResult mdsResult = new MDSCheckResult();
 
             if (alertProfileRes == null
                 || alertProfileRes.AdrProfile.Count == 0
@@ -173,9 +173,9 @@ namespace Demo.HL7MessageParser
             {
                 /*ErrorMessage = "System cannot perform Allergy, ADR and G6PD Deficiency Contraindication checking. 
                 Please exercise your professional judgement during the downtime period and contact [vendor contact information].*/
-
-                mdsResult.IsPerformMDSCheck = false;
-                mdsResult.ErrorMessage = "System cannot perform Allergy, AlertProfile is empty.";
+                mdsResult.errorCode = "8520001001";
+                mdsResult.hasMdsAlert = true;
+                mdsResult.errorDesc = "System cannot perform Allergy, AlertProfile is empty.";
 
                 return mdsResult;
             }
@@ -196,12 +196,16 @@ namespace Demo.HL7MessageParser
             var getDrugMdsPropertyHqRes = soapSvc.GetDrugMdsPropertyHq(getDrugMdsPropertyHqReq);
 
             if (getDrugMdsPropertyHqRes == null || getDrugMdsPropertyHqRes.Return.Count == 0)
-            {                                
-                mdsResult.IsPerformMDSCheck = false;
-                mdsResult.ErrorMessage = "System cannot perform Allergy, Drug Master Response is empty.";
-                
+            {                     
+                mdsResult.hasMdsAlert = true;
+                mdsResult.drugError = new DrugError()
+                {
+                    errorDesc = "System cannot perform Allergy, Drug Master Response is empty.",
+                    hasDrugError = true
+                };
                 return mdsResult;
             }
+                        
             var drugProperty = getDrugMdsPropertyHqRes.Return[0].DrugProperty;
             var getPreparationReq = new GetPreparationRequest
             {
@@ -225,11 +229,15 @@ namespace Demo.HL7MessageParser
 
             if (getPreparationRes == null || getPreparationRes.Return == null)
             {
-                mdsResult.IsPerformMDSCheck = false;
-                mdsResult.ErrorMessage = "System cannot perform Allergy, Drug Preparation Response is empty.";
-
+                mdsResult.hasMdsAlert = false;
+                mdsResult.drugError = new DrugError()
+                {
+                    errorDesc = "System cannot perform Allergy, Drug Preparation Response is empty.",
+                    hasDrugError = true
+                };
                 return mdsResult;
             }
+            
             var caseNumber = patientEnquiry.CaseList[0].Number.Trim().ToUpper();
             if (Cache_HK.DrugMasterCache[caseNumber] == null)
             {
@@ -250,7 +258,7 @@ namespace Demo.HL7MessageParser
         /// Message: System cannot perform adverse drug reaction checking for the following ADR record(s) in the alert function: [drug from 1.4.2]
         /// </summary>
         /// <param name="alertProfileRes"></param>
-        private void CheckADRProfileForMDSCheck(ref AlertProfileResult alertProfileRes, ref ComplexMDSResult mdsResult)
+        private void CheckADRProfileForMDSCheck(ref AlertProfileResult alertProfileRes, ref MDSCheckResult mdsResult)
         {
             var adrProfiles = alertProfileRes.AdrProfile;
             List<string> adrDrugList = new List<string>();
@@ -277,7 +285,8 @@ namespace Demo.HL7MessageParser
             {
                 var msg = "System cannot perform adverse drug reaction checking for the following ADR record(s) in the alert function:";
                 msg += string.Join("; ", adrDrugList.ToArray()).TrimEnd(new char[] { ';', ' ' });
-                mdsResult.Result.adrError = new AdrError() {
+                mdsResult.hasMdsAlert = true;
+                mdsResult.adrError = new AdrError() {
                     errorDesc = msg,
                     hasAdrError = true
                 };
@@ -288,7 +297,7 @@ namespace Demo.HL7MessageParser
         /// </summary>
         /// <param name="allergyProfile"></param>
         /// <param name="mdsResult"></param>
-        private void CheckAllergyProfileForMDSCheck(ref AlertProfileResult alertProfileRes, ref ComplexMDSResult mdsResult)
+        private void CheckAllergyProfileForMDSCheck(ref AlertProfileResult alertProfileRes, ref MDSCheckResult mdsResult)
         {
             /****2.5.3 4-1:System should alert user and not perform MDS checking on allergen, ADR record or drug item for the following conditions:
             •    For allergen (refer to [Only for allergyProfile from 1.4.2]):
@@ -318,19 +327,19 @@ namespace Demo.HL7MessageParser
             {
                 var msg = "System cannot perform drug allergy checking for the following allergen record(s):";
                 msg += string.Join("; ", allergyDrugList.ToArray()).TrimEnd(new char[] { ';', ' ' });
-                mdsResult.Result.allergyError = new AllergyError() { 
+                mdsResult.allergyError = new AllergyError() { 
                     errorDesc = msg,
                     hasAllergyError = true
                 };
             }
 
         }
-        private void CheckDrugCodeForMDSCheck(string drugItemCode, ref ComplexMDSResult mdsResult)
+        private void CheckDrugCodeForMDSCheck(string drugItemCode, ref MDSCheckResult mdsResult)
         {
             if (drugItemCode.ToUpper().StartsWith("PDF"))
             {
                 //skip MDS checking, and no message
-                mdsResult.IsPerformMDSCheck = false;
+                mdsResult.hasMdsAlert = false;
             }
         }
 
@@ -347,7 +356,7 @@ namespace Demo.HL7MessageParser
         ///Else[drugErrorDisplayName]         
          /// </summary>
          /// <param name="drugMds"></param>
-        private bool CheckDrugMasterResultForMDSCheck(DrugMDSObj drugMds,string pmsFmStatus, string drugErrorDisplayName, ref ComplexMDSResult mdsResult)
+        private bool CheckDrugMasterResultForMDSCheck(DrugMDSObj drugMds,string pmsFmStatus, string drugErrorDisplayName, ref MDSCheckResult mdsResult)
         {
             if (drugMds.MoeCheckFlag == "N" && drugMds.GroupMoeCheckFlag == "N")
             {
@@ -367,14 +376,13 @@ namespace Demo.HL7MessageParser
                     msg += Environment.NewLine + drugErrorDisplayName;
                 }
                 msg += "System's drug information mapping is not yet available.  Please exercise your professional judgement while prescribing.";
-                mdsResult.Result.drugError = new DrugError()
+                mdsResult.drugError = new DrugError()
                 {
                     errorDesc = msg,
                     hasDrugError = true
                 };
 
-                mdsResult.IsPerformMDSCheck = false;
-                //mdsResult.ErrorMessage = msg;
+                mdsResult.hasMdsAlert = true;
 
                 return false;
             }
@@ -396,7 +404,7 @@ namespace Demo.HL7MessageParser
             }
             return result;
         }
-        private ComplexMDSResult CheckDrugClass(PatientDemoEnquiry patientEnquiry,
+        private MDSCheckResult CheckDrugClass(PatientDemoEnquiry patientEnquiry,
             AlertProfileResult alertProfileRes,
             GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes,
             GetPreparationResponse getPreparationRes)
@@ -707,16 +715,10 @@ namespace Demo.HL7MessageParser
 
             var medCache = new MDSCheckCacheResult { Req = mdsInput, };
             Cache_HK.MDS_CheckCache.Register(patientEnquiry.CaseList[0].Number.Trim().ToUpper(), medCache);
-            ComplexMDSResult mdsResult = new ComplexMDSResult();
+            MDSCheckResult mdsResult = new MDSCheckResult();
             if (CheckDrugMasterResultForMDSCheck(getDrugMdsPropertyHqRes.Return[0].DrugMds, getPreparationRes.Return.PmsFmStatus, mdsInput.CurrentRxDrugProfile.DrugErrorDisplayName, ref mdsResult))
             {
-                var result = restSvc.CheckMDS(mdsInput);
-
-                var wrapperResult = WrapperMDSResponse(result);
-
-                medCache.Res = wrapperResult;
-
-                mdsResult = wrapperResult;
+                mdsResult = restSvc.CheckMDS(mdsInput);
             }
 
             return mdsResult;
@@ -776,8 +778,7 @@ namespace Demo.HL7MessageParser
 
             return new ComplexMDSResult
             {
-                ErrorMessage = "",
-                IsPerformMDSCheck = true,
+                IsNeedShowMDSCheckMessage = true,
                 Result = result
             };
         }
@@ -790,9 +791,7 @@ namespace Demo.HL7MessageParser
 
     public class ComplexMDSResult
     {
-        public bool IsPerformMDSCheck { get; set; }
-        public string ErrorMessage { get; set; }
-
+        public bool IsNeedShowMDSCheckMessage { get; set; }
         public MDSCheckResult Result { get; set; }
     }
 }
