@@ -29,6 +29,7 @@ namespace Demo.HL7MessageParser.WinForms
         private Loading loadForm;
         private HL7MessageParser_NTEC parser;
         private MainForm mainForm;
+        MDSCheckResult mdsResult;
         public FullWorkFlowControl(MainForm mainForm)
         {
             InitializeComponent();
@@ -195,9 +196,9 @@ namespace Demo.HL7MessageParser.WinForms
 
                 var patientCache = Cache_HK.PataientCache[CASE_NUMBER];
 
-                var result = parser.MDSCheck(itemCode, patientCache.PatientDemoEnquiry, patientCache.AlertProfileRes);
+                mdsResult = parser.MDSCheck(itemCode, patientCache.PatientDemoEnquiry, patientCache.AlertProfileRes);
 
-                var resultJson = JsonHelper.ToJson(result);
+                var resultJson = JsonHelper.ToJson(mdsResult);
 
                 this.BeginInvoke((MethodInvoker)delegate
                 {
@@ -216,17 +217,22 @@ namespace Demo.HL7MessageParser.WinForms
                             scintillaDrugPreparationReq.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugPreparationReq);
                             scintillaDrugPreparationRes.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugPreparationRes);
                         }
-                        if (result.IsPerformMDSCheck)
-                        {
-                            var request = Cache_HK.MDS_CheckCache[CASE_NUMBER].Req;
-                            var requestXml = XmlHelper.XmlSerializeToString(request);
-                            scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
-                            scintillaMdsCheckReq.Text = requestXml;
+                        var request = Cache_HK.MDS_CheckCache[CASE_NUMBER].Req;
+                        var requestXml = XmlHelper.XmlSerializeToString(request);
+                        scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
+                        scintillaMdsCheckReq.Text = requestXml;
 
-                            var resJson = JsonHelper.ToJson(request);
-                            scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
-                            scintillaMdsCheckReq.Text = requestXml;
+                        var resJson = JsonHelper.ToJson(request);
+                        scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
+                        scintillaMdsCheckReq.Text = requestXml;
+                        if (mdsResult.hasMdsAlert)
+                        {
+                            btnMDSCheckResult.Enabled = true;
                         }
+                        else {
+                            btnMDSCheckResult.Enabled = true;
+                        }
+
                     }
                     catch (Exception ex)
                     {

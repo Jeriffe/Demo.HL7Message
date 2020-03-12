@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo.HL7MessageParser.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -92,34 +93,6 @@ namespace Demo.HL7MessageParser.WinForms
         private void cmdYes_Click(object sender, EventArgs e)
         {
             this.DialogResult = System.Windows.Forms.DialogResult.Yes;
-        }
-    }
-
-    public class MdsCheckFinalResult
-    {
-        public string DrugName = string.Empty;
-
-        public string SystemErrorMessage { get; set; }
-
-        public bool HasMdsAlert { get; set; }
-
-        public List<MdsCheckAlert> MdsCheckAlertDetails;
-
-        public MdsCheckFinalResult()
-        {
-            MdsCheckAlertDetails = new List<MdsCheckAlert>();
-        }
-    }
-
-    public class MdsCheckAlert
-    {
-        public string CategoryName;
-        public string CheckAlertMessage;
-
-        public MdsCheckAlert(string name, string detail)
-        {
-            CategoryName = name;
-            CheckAlertMessage = detail;
         }
     }
 }

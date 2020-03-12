@@ -161,7 +161,7 @@ namespace Demo.HL7MessageParser
             return patient.Patient.HKID;
         }
 
-        public MDSCheckResult MDSCheck(string drugItemCode, PatientDemoEnquiry patientEnquiry, AlertProfileResult alertProfileRes)
+        public MdsCheckFinalResult MDSCheck(string drugItemCode, PatientDemoEnquiry patientEnquiry, AlertProfileResult alertProfileRes)
         {
             MDSCheckResult mdsResult = new MDSCheckResult();
 
@@ -174,18 +174,23 @@ namespace Demo.HL7MessageParser
                 /*ErrorMessage = "System cannot perform Allergy, ADR and G6PD Deficiency Contraindication checking. 
                 Please exercise your professional judgement during the downtime period and contact [vendor contact information].*/
                 mdsResult.errorCode = "8520001001";
-                mdsResult.hasMdsAlert = true;
+                //system error, hasMdsAlert = false, only medication alert, hasMdsAlert = true
+                mdsResult.hasMdsAlert = false;
                 mdsResult.errorDesc = "System cannot perform Allergy, AlertProfile is empty.";
 
-                return mdsResult;
+                return GenerateFinalResultByMDSResult(mdsResult);
             }
 
             #region check if need MDS check
+            /****2.5.3 3:System should not perform MDS checking on a drug item if its itemCode starts with “PDF”, e.g. “PDF 2Q “, “PDF 48”.*****/
+            if (!CheckDrugCodeIfNeedMDSCheck(drugItemCode, ref mdsResult))
+            {
+                return GenerateFinalResultByMDSResult(mdsResult);
+            }
             /*****2.5.3 2: ADR record (1.4.2) if its severity is “Mild”, not perform MDS checking for current ADR profile*****/
             CheckADRProfileForMDSCheck(ref alertProfileRes, ref mdsResult);
-            /****2.5.3 3:System should not perform MDS checking on a drug item if its itemCode starts with “PDF”, e.g. “PDF 2Q “, “PDF 48”.*****/
-            CheckDrugCodeForMDSCheck(drugItemCode, ref mdsResult);
 
+            /****2.5.3 4-1:System should alert user and not perform MDS checking ...*******/
             CheckAllergyProfileForMDSCheck(ref alertProfileRes, ref mdsResult);
             #endregion
 
@@ -203,7 +208,7 @@ namespace Demo.HL7MessageParser
                     errorDesc = "System cannot perform Allergy, Drug Master Response is empty.",
                     hasDrugError = true
                 };
-                return mdsResult;
+                return GenerateFinalResultByMDSResult(mdsResult);
             }
                         
             var drugProperty = getDrugMdsPropertyHqRes.Return[0].DrugProperty;
@@ -235,7 +240,7 @@ namespace Demo.HL7MessageParser
                     errorDesc = "System cannot perform Allergy, Drug Preparation Response is empty.",
                     hasDrugError = true
                 };
-                return mdsResult;
+                return GenerateFinalResultByMDSResult(mdsResult);
             }
             
             var caseNumber = patientEnquiry.CaseList[0].Number.Trim().ToUpper();
@@ -250,7 +255,23 @@ namespace Demo.HL7MessageParser
                 });
 
             }
-            return CheckDrugClass(patientEnquiry, alertProfileRes, getDrugMdsPropertyHqRes, getPreparationRes);
+            mdsResult = CheckDrugClass(patientEnquiry, alertProfileRes, getDrugMdsPropertyHqRes, getPreparationRes);
+
+            return GenerateFinalResultByMDSResult(mdsResult);
+        }
+        private MdsCheckFinalResult GenerateFinalResultByMDSResult(MDSCheckResult mdsResult)
+        {
+            MdsCheckFinalResult resultForShow = new MdsCheckFinalResult();
+            if (false == string.IsNullOrEmpty(mdsResult.errorDesc))
+            {
+                resultForShow.SystemErrorMessage += mdsResult.drugError.errorDesc + Environment.NewLine;
+            }
+            if (mdsResult.allergyError != null)
+            { 
+            
+            }
+
+            return resultForShow;
         }
         /// <summary>
         /// 2.5.3 2: ADR record (1.4.2) if its severity is “Mild”, not perform MDS checking for current ADR profile
@@ -334,13 +355,18 @@ namespace Demo.HL7MessageParser
             }
 
         }
-        private void CheckDrugCodeForMDSCheck(string drugItemCode, ref MDSCheckResult mdsResult)
+        private bool CheckDrugCodeIfNeedMDSCheck(string drugItemCode, ref MDSCheckResult mdsResult)
         {
             if (drugItemCode.ToUpper().StartsWith("PDF"))
             {
-                //skip MDS checking, and no message
+                //skip MDS checking, and NO MESSAGE
                 mdsResult.hasMdsAlert = false;
+                //mdsResult.drugError = new DrugError() {
+                //    errorDesc = string.Empty
+                //};
+                return false;
             }
+            return true;
         }
 
         /// <summary>
