@@ -1,0 +1,115 @@
+{
+  "adrError": {
+    "errorAction": null,
+    "errorCause": null,
+    "errorDesc": null,
+    "errorDetails": [],
+    "hasAdrError": false
+  },
+  "allergyError": {
+    "errorAction": null,
+    "errorCause": null,
+    "errorDesc": null,
+    "errorDetails": [],
+    "hasAllergyError": false
+  },
+  "drugError": {
+    "errorAction": null,
+    "errorCause": null,
+    "errorDesc": null,
+    "errorDetails": [],
+    "hasDrugError": false
+  },
+  "ddcmCheckingResults": {
+    "ddcmAlertMessages": [
+      "ASPIRIN TABLET is contraindicated when Hemolytic Anemia from Pyruvate Kinase and G6PD Deficiencies, a condition related to G6PD Deficiency, exists."
+    ],
+    "ddcmAlerts": [
+      {
+        "conditionId": "697",
+        "conditionType": 3,
+        "ddcmAlertMessage": "ASPIRIN TABLET is contraindicated when Hemolytic Anemia from Pyruvate Kinase and G6PD Deficiencies, a condition related to G6PD Deficiency, exists.",
+        "descriptionDisease": "Hemolytic Anemia from Pyruvate Kinase and G6PD Deficiencies",
+        "diseaseType": "G",
+        "drugCustomId": "ASPIRIN TABLET|1||VH |0|1|1050396",
+        "drugName": "ASPIRIN TABLET",
+        "hitConditionDescription": "Hemolytic Anemia from Pyruvate Kinase and G6PD Deficiencies",
+        "hitConditionId": "7034",
+        "indexRow": 1,
+        "severityLevelCode": "1",
+        "suppress": false
+      }
+    ],
+    "errorCode": "0",
+    "errorDesc": "",
+    "hasDdcmAlert": true,
+    "hasG6PdDeficiencyAlert": true,
+    "hasPregnancyAlert": false,
+    "messageCount": 1
+  },
+  "ddimCheckingResults": {
+    "ddimAlertMessages": [],
+    "ddimAlerts": [],
+    "errorCode": null,
+    "errorDesc": null,
+    "hasDdimAlert": false,
+    "messageCount": 0
+  },
+  "disconCheckingResults": null,
+  "dlcmCheckingResults": null,
+  "drcmCheckingResults": null,
+  "drugAdrCheckingResults": {
+    "drugAdrAlertMessages": [
+      "The use of ASPIRIN TABLET may result in an allergic reaction based on a reported history of allergy to ASPIRIN in which ABDOMINAL PAIN WITH CRAMPS; HEARTBURN was experienced."
+    ],
+    "drugAdrAlerts": [
+      {
+        "adr": "ASPIRIN",
+        "adrCustomId": "0000004921",
+        "drugAdrAlertMessage": "The use of ASPIRIN TABLET may result in an allergic reaction based on a reported history of allergy to ASPIRIN in which ABDOMINAL PAIN WITH CRAMPS; HEARTBURN was experienced.",
+        "drugCustomId": "ASPIRIN TABLET|1||VH |0|1|1050396",
+        "drugName": "ASPIRIN TABLET",
+        "indexRow": 1,
+        "matchType": "1",
+        "reaction": "ABDOMINAL PAIN WITH CRAMPS; HEARTBURN",
+        "remark": "TEST 2",
+        "severity": "S"
+      }
+    ],
+    "errorCode": "0",
+    "errorDesc": "",
+    "hasDrugAdrAlert": true,
+    "messageCount": 1
+  },
+  "drugAllergyCheckingResults": {
+    "drugAllergyAlertMessages": [
+      "The use of ASPIRIN TABLET may result in an allergic reaction based on a reported history of allergy to ASPIRIN in which RASH; URTICARIA was experienced."
+    ],
+    "drugAllergyAlerts": [
+      {
+        "allergen": "ASPIRIN",
+        "allergenCustomId": "0000090237",
+        "certainty": "Certain",
+        "drugAllergyAlertMessage": "The use of ASPIRIN TABLET may result in an allergic reaction based on a reported history of allergy to ASPIRIN in which RASH; URTICARIA was experienced.",
+        "drugCustomId": "ASPIRIN TABLET|1||VH |0|1|1050396",
+        "drugName": "ASPIRIN TABLET",
+        "indexRow": 1,
+        "manifestation": "RASH; URTICARIA",
+        "matchType": "1",
+        "remark": "TEST 1",
+        "suppress": false
+      }
+    ],
+    "errorCode": "0",
+    "errorDesc": "",
+    "hasDrugAllergyAlert": true,
+    "messageCount": 1
+  },
+  "dscmCheckingResults": null,
+  "errorCode": null,
+  "errorDesc": null,
+  "hasMdsAlert": true,
+  "hepaBCheckingResults": null,
+  "steroidCheckingResults": null,
+  "tenoCheckingResults": null
+}

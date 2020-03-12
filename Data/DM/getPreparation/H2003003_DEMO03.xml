@@ -29,7 +29,7 @@
         <groupMinDose>1.0</groupMinDose>
         <groupMoDosageUnit>DROP(S)</groupMoDosageUnit>
         <isCommonDose>false</isCommonDose>
-        <itemCode>AMET02</itemCode>
+        <itemCode>DEMO044</itemCode>
         <minDose>1.0</minDose>
         <moDosageUnit>DROP(S)</moDosageUnit>
         <moeDesc>EYE MINIMS</moeDesc>

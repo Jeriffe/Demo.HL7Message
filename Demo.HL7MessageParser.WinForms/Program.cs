@@ -25,7 +25,8 @@ namespace Demo.HL7MessageParser.WinForms
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+           //Application.Run(new MainForm());
+            Application.Run(new Form2());
             //// Application.Run(new HL7MessageParserFormTest());
 
             //var result = new List<string>().CheckIfSelectedItemExists();
