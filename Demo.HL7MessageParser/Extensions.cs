@@ -148,7 +148,7 @@ namespace Demo.HL7MessageParser
 
         public List<string> AdrMdsCheckResults { get; set; }
 
-        public ComplexMDSResult Res { get; internal set; }
+        public MDSCheckResult Res { get; internal set; }
         public MDSCheckInputParm Req { get; internal set; }
     }
 
