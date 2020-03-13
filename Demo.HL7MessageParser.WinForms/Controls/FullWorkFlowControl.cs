@@ -203,7 +203,7 @@ namespace Demo.HL7MessageParser.WinForms
                 {
                     try
                     {
-                        var mdsResponse = Cache_HK.MDS_CheckCache[CASE_NUMBER].Res;
+                        var mdsResponse = FullCacheHK.MDS_CheckCache[CASE_NUMBER].Res;
                         scintillaMdsCheckRes.FormatJsonStyle();
                         var resultJson = JsonHelper.ToJson(mdsResponse);
                         scintillaMdsCheckRes.Text = JsonHelper.FormatJson(resultJson);
