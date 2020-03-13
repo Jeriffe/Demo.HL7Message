@@ -295,7 +295,7 @@ namespace Demo.HL7MessageParser
             #endregion
 
             #region allergy alert message
-            if (mdsResult.drugAllergyCheckingResults.hasDrugAllergyAlert)
+            if (mdsResult.drugAllergyCheckingResults !=null && mdsResult.drugAllergyCheckingResults.hasDrugAllergyAlert)
             {
                 resultForShow.HasMdsAlert = true;
                 foreach (var allergyMsg in mdsResult.drugAllergyCheckingResults.drugAllergyAlerts)
@@ -339,7 +339,7 @@ namespace Demo.HL7MessageParser
             #endregion
 
             #region ddcm alert (G6PD alert)
-            if (mdsResult.ddcmCheckingResults.hasDdcmAlert)
+            if (mdsResult.ddcmCheckingResults != null && mdsResult.ddcmCheckingResults.hasDdcmAlert)
             {
                 foreach (string ddcmAlert in mdsResult.ddcmCheckingResults.ddcmAlertMessages)
                 {
@@ -354,7 +354,7 @@ namespace Demo.HL7MessageParser
             #endregion
 
             #region adr alert
-            if (mdsResult.drugAdrCheckingResults.hasDrugAdrAlert)
+            if (mdsResult.drugAdrCheckingResults != null && mdsResult.drugAdrCheckingResults.hasDrugAdrAlert)
             {
                 foreach (DrugAdrAlert adrAlert in mdsResult.drugAdrCheckingResults.drugAdrAlerts)
                 {
