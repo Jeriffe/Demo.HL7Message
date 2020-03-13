@@ -149,12 +149,12 @@ namespace Demo.HL7MessageParser
 
             if (patient != null && patient.Patient != null && patient.CaseList != null)
             {
-                Cache_HK.PataientCache.Register(CASE_NUMBER, new Patient_AlertProfile { PatientDemoEnquiry = patient });
+                FullCacheHK.PataientCache.Register(CASE_NUMBER, new Patient_AlertProfile { PatientDemoEnquiry = patient });
             }
-            if (Cache_HK.PataientCache[CASE_NUMBER] != null)
+            if (FullCacheHK.PataientCache[CASE_NUMBER] != null)
             {
-                Cache_HK.PataientCache[CASE_NUMBER].MedicationProfileRes = orders;
-                Cache_HK.PataientCache[CASE_NUMBER].AlertProfileRes = allergys;
+                //FullCacheHK.PataientCache[CASE_NUMBER].MedicationProfileRes = orders;
+                FullCacheHK.PataientCache[CASE_NUMBER].AlertProfileRes = allergys;
             }
 
 
@@ -246,9 +246,9 @@ namespace Demo.HL7MessageParser
             }
             
             var caseNumber = patientEnquiry.CaseList[0].Number.Trim().ToUpper();
-            if (Cache_HK.DrugMasterCache[caseNumber] == null)
+            if (FullCacheHK.DrugMasterCache[caseNumber] == null)
             {
-                Cache_HK.DrugMasterCache.Register(caseNumber, new DrugMasterCache
+                FullCacheHK.DrugMasterCache.Register(caseNumber, new DrugMasterCache
                 {
                     DrugMdsPropertyHqReq = getDrugMdsPropertyHqReq,
                     DrugMdsPropertyHqRes = getDrugMdsPropertyHqRes,
@@ -851,7 +851,7 @@ namespace Demo.HL7MessageParser
 
 
             var medCache = new MDSCheckCacheResult { Req = mdsInput, };
-            Cache_HK.MDS_CheckCache.Register(patientEnquiry.CaseList[0].Number.Trim().ToUpper(), medCache);
+            FullCacheHK.MDS_CheckCache.Register(patientEnquiry.CaseList[0].Number.Trim().ToUpper(), medCache);
             MDSCheckResult mdsResult = new MDSCheckResult();
             if (CheckDrugMasterResultForMDSCheck(getDrugMdsPropertyHqRes.Return[0].DrugMds, getPreparationRes.Return.PmsFmStatus, mdsInput.CurrentRxDrugProfile.DrugErrorDisplayName, ref mdsResult))
             {

@@ -104,10 +104,10 @@ namespace Demo.HL7MessageParser.WinForms
             }
 
             CASE_NUMBER = caseNumber.Trim().ToUpper();
-            var patientCache = Cache_HK.PataientCache[caseNumber];
+            var patientCache = FullCacheHK.PataientCache[caseNumber];
 
             result.Patient = patientCache.PatientDemoEnquiry;
-            result.Orders = (patientCache.MedicationProfileRes ?? new MedicationProfileResult());
+            //result.Orders = (patientCache.MedicationProfileRes ?? new MedicationProfileResult());
             result.Allergies = (patientCache.AlertProfileRes ?? new AlertProfileResult());
 
             this.BeginInvoke((MethodInvoker)delegate
@@ -194,7 +194,7 @@ namespace Demo.HL7MessageParser.WinForms
             {
                 var itemCode = e.Argument as string;
 
-                var patientCache = Cache_HK.PataientCache[CASE_NUMBER];
+                var patientCache = FullCacheHK.PataientCache[CASE_NUMBER];
 
                 mdsResultForShow = parser.MDSCheck(itemCode, patientCache.PatientDemoEnquiry, patientCache.AlertProfileRes);
 
@@ -207,9 +207,9 @@ namespace Demo.HL7MessageParser.WinForms
                         scintillaMdsCheckRes.FormatJsonStyle();
                         scintillaMdsCheckRes.Text = JsonHelper.FormatJson(resultJson);
 
-                        if (Cache_HK.DrugMasterCache[CASE_NUMBER]!=null)
+                        if (FullCacheHK.DrugMasterCache[CASE_NUMBER]!=null)
                         {
-                            var drugMasterCache = Cache_HK.DrugMasterCache[CASE_NUMBER];
+                            var drugMasterCache = FullCacheHK.DrugMasterCache[CASE_NUMBER];
 
                             scintillaDrugMdsPropertyHqReq.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugMdsPropertyHqReq);
                             scintillaDrugMdsPropertyHqRes.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugMdsPropertyHqRes);
@@ -217,7 +217,7 @@ namespace Demo.HL7MessageParser.WinForms
                             scintillaDrugPreparationReq.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugPreparationReq);
                             scintillaDrugPreparationRes.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugPreparationRes);
                         }
-                        var request = Cache_HK.MDS_CheckCache[CASE_NUMBER].Req;
+                        var request = FullCacheHK.MDS_CheckCache[CASE_NUMBER].Req;
                         var requestXml = XmlHelper.XmlSerializeToString(request);
                         scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
                         scintillaMdsCheckReq.Text = requestXml;
