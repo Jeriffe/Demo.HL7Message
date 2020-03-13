@@ -186,7 +186,7 @@ namespace Demo.HL7MessageParser
             if (!CheckDrugCodeIfNeedMDSCheck(drugItemCode, ref mdsResult))
             {
                 //here should use drug name, not drugItemCode
-                return GenerateFinalResultByMDSResult(mdsResult,drugItemCode);
+                return GenerateFinalResultByMDSResult(mdsResult, drugItemCode);
             }
             /*****2.5.3 2: ADR record (1.4.2) if its severity is “Mild”, not perform MDS checking for current ADR profile*****/
             CheckADRProfileForMDSCheck(ref alertProfileRes, ref mdsResult);
@@ -202,7 +202,7 @@ namespace Demo.HL7MessageParser
             var getDrugMdsPropertyHqRes = soapSvc.GetDrugMdsPropertyHq(getDrugMdsPropertyHqReq);
 
             if (getDrugMdsPropertyHqRes == null || getDrugMdsPropertyHqRes.Return.Count == 0)
-            {                     
+            {
                 mdsResult.hasMdsAlert = true;
                 mdsResult.drugError = new DrugError()
                 {
@@ -212,7 +212,7 @@ namespace Demo.HL7MessageParser
                 //here should use drug name, not drugItemCode
                 return GenerateFinalResultByMDSResult(mdsResult, drugItemCode);
             }
-                        
+
             var drugProperty = getDrugMdsPropertyHqRes.Return[0].DrugProperty;
             var getPreparationReq = new GetPreparationRequest
             {
@@ -244,7 +244,7 @@ namespace Demo.HL7MessageParser
                 };
                 return GenerateFinalResultByMDSResult(mdsResult, drugProperty.Displayname);
             }
-            
+
             var caseNumber = patientEnquiry.CaseList[0].Number.Trim().ToUpper();
             if (FullCacheHK.DrugMasterCache[caseNumber] == null)
             {
@@ -273,7 +273,7 @@ namespace Demo.HL7MessageParser
             }
             if (mdsResult.allergyError != null)
             {
-                resultForShow.SystemErrorMessage += mdsResult.allergyError.errorDesc + "\r\n" + 
+                resultForShow.SystemErrorMessage += mdsResult.allergyError.errorDesc + "\r\n" +
                     (string.IsNullOrEmpty(mdsResult.allergyError.errorCause) ? string.Empty : mdsResult.allergyError.errorCause + "\r\n") +
                     (string.IsNullOrEmpty(mdsResult.allergyError.errorAction) ? string.Empty : mdsResult.allergyError.errorAction) +
                     Environment.NewLine;
@@ -287,8 +287,8 @@ namespace Demo.HL7MessageParser
             }
             if (mdsResult.drugError != null)
             {
-                resultForShow.SystemErrorMessage += mdsResult.drugError.errorDesc +"\r\n" +
-                    (string.IsNullOrEmpty(mdsResult.drugError.errorCause) ? string.Empty : mdsResult.drugError.errorCause + "\r\n" ) +
+                resultForShow.SystemErrorMessage += mdsResult.drugError.errorDesc + "\r\n" +
+                    (string.IsNullOrEmpty(mdsResult.drugError.errorCause) ? string.Empty : mdsResult.drugError.errorCause + "\r\n") +
                     (string.IsNullOrEmpty(mdsResult.drugError.errorAction) ? string.Empty : mdsResult.drugError.errorAction + "\r\n") +
                     Environment.NewLine;
             }
@@ -325,14 +325,14 @@ namespace Demo.HL7MessageParser
                     {
                         allergyMsg.drugAllergyAlertMessage = drugName + " may result in cross-sensitivity reaction.";
                     }
-                    
-                    if (allergyMsg.manifestation.EndsWith(";")) allergyMsg.manifestation.TrimEnd(new char[]{';'});
 
-                    resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("Allergy Checking", 
+                    if (allergyMsg.manifestation.EndsWith(";")) allergyMsg.manifestation.TrimEnd(new char[] { ';' });
+
+                    resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("Allergy Checking",
                             allergyMsg.allergen + " - Allergy history reported" + "\r\n" +
-                            "Clinical Manifestation: " + allergyMsg.manifestation +"\r\n" +
-                            "Additional Information: " + allergyMsg.remark +"\r\n" +
-                            "Level of Certainty: "+ allergyMsg.certainty + "\r\n" +
+                            "Clinical Manifestation: " + allergyMsg.manifestation + "\r\n" +
+                            "Additional Information: " + allergyMsg.remark + "\r\n" +
+                            "Level of Certainty: " + allergyMsg.certainty + "\r\n" +
                             allergyMsg.drugAllergyAlertMessage));
                 }
             }
@@ -358,7 +358,7 @@ namespace Demo.HL7MessageParser
             {
                 foreach (DrugAdrAlert adrAlert in mdsResult.drugAdrCheckingResults.drugAdrAlerts)
                 {
-                    if (adrAlert.reaction.EndsWith(";")) adrAlert.reaction.TrimEnd(new char[]{';'});
+                    if (adrAlert.reaction.EndsWith(";")) adrAlert.reaction.TrimEnd(new char[] { ';' });
 
                     if (adrAlert.drugAdrAlertMessage.Contains("an allergic/a cross-sensitivity"))
                     {
@@ -407,7 +407,7 @@ namespace Demo.HL7MessageParser
                     alertProfileRes.AdrProfile.Remove(alertProfileRes.AdrProfile.First(a => a.AdrSeqNo == adrProfile.AdrSeqNo));
                 }
                 //2.5.3 4-2 both hiclSeqNo and hicSeqNos is EMPTY or zero; and drugType = “D”, no MDS check and prompt msg
-                if ( (string.IsNullOrEmpty(adrProfile.HiclSeqno.Trim()) || adrProfile.HiclSeqno.Trim() == "0")
+                if ((string.IsNullOrEmpty(adrProfile.HiclSeqno) || adrProfile.HiclSeqno.Trim() == "0")
                      &&
                      CheckIfAllergyProfileHicSeqnoNoNeedMDS(adrProfile.HicSeqno)
                      &&
@@ -423,7 +423,8 @@ namespace Demo.HL7MessageParser
                 var msg = "System cannot perform adverse drug reaction checking for the following ADR record(s) in the alert function:";
                 msg += string.Join("; ", adrDrugList.ToArray()).TrimEnd(new char[] { ';', ' ' });
                 mdsResult.hasMdsAlert = true;
-                mdsResult.adrError = new AdrError() {
+                mdsResult.adrError = new AdrError()
+                {
                     errorDesc = msg,
                     hasAdrError = true
                 };
@@ -464,7 +465,8 @@ namespace Demo.HL7MessageParser
             {
                 var msg = "System cannot perform drug allergy checking for the following allergen record(s):";
                 msg += string.Join("; ", allergyDrugList.ToArray()).TrimEnd(new char[] { ';', ' ' });
-                mdsResult.allergyError = new AllergyError() { 
+                mdsResult.allergyError = new AllergyError()
+                {
                     errorDesc = msg,
                     hasAllergyError = true
                 };
@@ -496,9 +498,9 @@ namespace Demo.HL7MessageParser
         ///     when[pmsFmStatus from 2.4.2.2] = “X” => “Special Drug”
         ///    + “>”
         ///Else[drugErrorDisplayName]         
-         /// </summary>
-         /// <param name="drugMds"></param>
-        private bool CheckDrugMasterResultForMDSCheck(DrugMDSObj drugMds,string pmsFmStatus, string drugErrorDisplayName, ref MDSCheckResult mdsResult)
+        /// </summary>
+        /// <param name="drugMds"></param>
+        private bool CheckDrugMasterResultForMDSCheck(DrugMDSObj drugMds, string pmsFmStatus, string drugErrorDisplayName, ref MDSCheckResult mdsResult)
         {
             if (drugMds.MoeCheckFlag == "N" && drugMds.GroupMoeCheckFlag == "N")
             {
@@ -514,7 +516,8 @@ namespace Demo.HL7MessageParser
 
                     msg += ">" + Environment.NewLine;
                 }
-                else {
+                else
+                {
                     msg += Environment.NewLine + drugErrorDisplayName;
                 }
                 msg += "System's drug information mapping is not yet available.  Please exercise your professional judgement while prescribing.";
@@ -534,7 +537,7 @@ namespace Demo.HL7MessageParser
         {
             var result = false;
             if (HicSeqnos != null)
-            {           
+            {
                 foreach (var hicSeqNo in HicSeqnos)
                 {
                     if (string.IsNullOrEmpty(hicSeqNo) || hicSeqNo == "0")
@@ -819,10 +822,10 @@ namespace Demo.HL7MessageParser
             2.	if(Drug volumeValue from 2.4.2.2) not > 0, then BLANK
             else “ “ + (Drug volumeValue from 2.4.2.2) in format "#######.####" + lowercase(Drug  volumeUnit from 2.4.2.2)
             */
-            currentRxDrugProfile.DrugErrorDisplayName = 
-                        GetDrugErrorDisplayName(currentRxDrugProfile.DrugDdimDisplayName, 
-                                                getPreparationRes.Return.Strength, 
-                                                getPreparationRes.Return.VolumeValue, 
+            currentRxDrugProfile.DrugErrorDisplayName =
+                        GetDrugErrorDisplayName(currentRxDrugProfile.DrugDdimDisplayName,
+                                                getPreparationRes.Return.Strength,
+                                                getPreparationRes.Return.VolumeValue,
                                                 getPreparationRes.Return.VolumeUnit);
 
 
@@ -857,6 +860,15 @@ namespace Demo.HL7MessageParser
             {
                 mdsResult = restSvc.CheckMDS(mdsInput);
             }
+
+            var medCache = new MDSCheckCacheResult
+            {
+                Req = mdsInput,
+                Res = mdsResult
+            };
+
+            Cache_HK.MDS_CheckCache.Register(patientEnquiry.CaseList[0].Number.Trim().ToUpper(), medCache);
+
             FinalCheckForMDSResult(ref mdsResult);
             return mdsResult;
 
@@ -892,6 +904,9 @@ namespace Demo.HL7MessageParser
                     }
                 }
             }
+
+            var deletedObjs = new List<DdcmAlert>();
+
             if (mdsResultForCheck.ddcmCheckingResults.hasDdcmAlert && mdsResultForCheck.ddcmCheckingResults.hasG6PdDeficiencyAlert)
             {
                 foreach (var ddcmAlert in mdsResultForCheck.ddcmCheckingResults.ddcmAlerts)
@@ -900,12 +915,11 @@ namespace Demo.HL7MessageParser
                     //System should ignore the G6PD deficiency contraindication alert when the severityLevelCode is 2 or 3
                     if (ddcmAlert.suppress = true || (new string[] { "2", "3" }.Contains(ddcmAlert.severityLevelCode)))
                     {
-                        mdsResult.ddcmCheckingResults.ddcmAlerts.Remove(
-                                mdsResult.ddcmCheckingResults.ddcmAlerts.First(d => d.hitConditionId == ddcmAlert.hitConditionId)
-                                );
+                        deletedObjs.Add(ddcmAlert);
                     }
                 }
             }
+            mdsResult.ddcmCheckingResults.ddcmAlerts = mdsResult.ddcmCheckingResults.ddcmAlerts.Except(deletedObjs).ToList();
 
         }
         private bool CheckIsG6PD(List<AlertProfile> alertProfiles)

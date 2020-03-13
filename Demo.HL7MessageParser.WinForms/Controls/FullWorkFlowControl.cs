@@ -29,7 +29,7 @@ namespace Demo.HL7MessageParser.WinForms
         private Loading loadForm;
         private HL7MessageParser_NTEC parser;
         private MainForm mainForm;
-        MdsCheckFinalResult mdsResultForShow;
+        MdsCheckFinalResult currentMdsResultForShow;
         public FullWorkFlowControl(MainForm mainForm)
         {
             InitializeComponent();
@@ -59,6 +59,7 @@ namespace Demo.HL7MessageParser.WinForms
                                             .ToList();
 
             btnMDSCheck.Enabled = false;
+            btnMDSCheckResult.Enabled = false;
         }
 
         private void cbxCaseNumber_SelectedIndexChanged(object sender, EventArgs e)
@@ -196,15 +197,15 @@ namespace Demo.HL7MessageParser.WinForms
 
                 var patientCache = FullCacheHK.PataientCache[CASE_NUMBER];
 
-                mdsResultForShow = parser.MDSCheck(itemCode, patientCache.PatientDemoEnquiry, patientCache.AlertProfileRes);
-
-                var resultJson = JsonHelper.ToJson(mdsResultForShow);
+                currentMdsResultForShow = parser.MDSCheck(itemCode, patientCache.PatientDemoEnquiry, patientCache.AlertProfileRes);
 
                 this.BeginInvoke((MethodInvoker)delegate
                 {
                     try
                     {
+                        var mdsResponse = Cache_HK.MDS_CheckCache[CASE_NUMBER].Res;
                         scintillaMdsCheckRes.FormatJsonStyle();
+                        var resultJson = JsonHelper.ToJson(mdsResponse);
                         scintillaMdsCheckRes.Text = JsonHelper.FormatJson(resultJson);
 
                         if (FullCacheHK.DrugMasterCache[CASE_NUMBER]!=null)
@@ -225,12 +226,15 @@ namespace Demo.HL7MessageParser.WinForms
                         var resJson = JsonHelper.ToJson(request);
                         scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
                         scintillaMdsCheckReq.Text = requestXml;
-                        if (mdsResultForShow.HasMdsAlert)
+
+
+                        if (currentMdsResultForShow.HasMdsAlert)
                         {
                             btnMDSCheckResult.Enabled = true;
                         }
-                        else {
-                            btnMDSCheckResult.Enabled = true;
+                        else
+                        {
+                            btnMDSCheckResult.Enabled = false;
                         }
 
                     }
@@ -325,7 +329,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void btnMDSCheckResult_Click(object sender, EventArgs e)
         {
-            MdsCheckFinalResult source = InitalData();
+            MdsCheckFinalResult source = currentMdsResultForShow;
 
             try
             {
