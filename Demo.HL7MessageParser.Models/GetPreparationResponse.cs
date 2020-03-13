@@ -98,7 +98,7 @@ namespace Demo.HL7MessageParser.Models
         [XmlElement(ElementName = "volumeUnit")]
         public string VolumeUnit { get; set; }
         [XmlElement(ElementName = "volumeValue")]
-        public float VolumeValue { get; set; }
+        public string VolumeValue { get; set; }
     }
 
     [XmlRoot(ElementName = "drugMds")]

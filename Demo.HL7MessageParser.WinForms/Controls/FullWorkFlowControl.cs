@@ -29,7 +29,7 @@ namespace Demo.HL7MessageParser.WinForms
         private Loading loadForm;
         private HL7MessageParser_NTEC parser;
         private MainForm mainForm;
-        MDSCheckResult mdsResult;
+        MdsCheckFinalResult mdsResultForShow;
         public FullWorkFlowControl(MainForm mainForm)
         {
             InitializeComponent();
@@ -196,9 +196,9 @@ namespace Demo.HL7MessageParser.WinForms
 
                 var patientCache = Cache_HK.PataientCache[CASE_NUMBER];
 
-                mdsResult = parser.MDSCheck(itemCode, patientCache.PatientDemoEnquiry, patientCache.AlertProfileRes);
+                mdsResultForShow = parser.MDSCheck(itemCode, patientCache.PatientDemoEnquiry, patientCache.AlertProfileRes);
 
-                var resultJson = JsonHelper.ToJson(mdsResult);
+                var resultJson = JsonHelper.ToJson(mdsResultForShow);
 
                 this.BeginInvoke((MethodInvoker)delegate
                 {
@@ -225,7 +225,7 @@ namespace Demo.HL7MessageParser.WinForms
                         var resJson = JsonHelper.ToJson(request);
                         scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
                         scintillaMdsCheckReq.Text = requestXml;
-                        if (mdsResult.hasMdsAlert)
+                        if (mdsResultForShow.HasMdsAlert)
                         {
                             btnMDSCheckResult.Enabled = true;
                         }
