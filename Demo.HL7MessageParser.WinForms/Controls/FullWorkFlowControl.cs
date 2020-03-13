@@ -183,7 +183,9 @@ namespace Demo.HL7MessageParser.WinForms
         private void btnMDSCheck_Click(object sender, EventArgs e)
         {
             ChangeSelectedTabPage(tbpMDSCheck);
-
+            if (FullCacheHK.DrugMasterCache == null) FullCacheHK.DrugMasterCache = new CacheHK<DrugMasterCache>();
+            if (FullCacheHK.MDS_CheckCache == null) FullCacheHK.MDS_CheckCache = new CacheHK<MDSCheckCacheResult>();
+            if (FullCacheHK.PataientCache == null) FullCacheHK.PataientCache = new CacheHK<Patient_AlertProfile>();
             // Start the asynchronous operation.
             bgWorkerMDSCheck.RunWorkerAsync(cbxItemCodes.SelectedItem.ToString());
 

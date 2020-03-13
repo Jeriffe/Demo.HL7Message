@@ -246,6 +246,7 @@ namespace Demo.HL7MessageParser
             }
 
             var caseNumber = patientEnquiry.CaseList[0].Number.Trim().ToUpper();
+            
             if (FullCacheHK.DrugMasterCache[caseNumber] == null)
             {
                 FullCacheHK.DrugMasterCache.Register(caseNumber, new DrugMasterCache
@@ -271,21 +272,21 @@ namespace Demo.HL7MessageParser
             {
                 resultForShow.SystemErrorMessage += mdsResult.errorDesc + Environment.NewLine;
             }
-            if (mdsResult.allergyError != null)
+            if (mdsResult.allergyError != null && mdsResult.allergyError.hasAllergyError)
             {
                 resultForShow.SystemErrorMessage += mdsResult.allergyError.errorDesc + "\r\n" +
                     (string.IsNullOrEmpty(mdsResult.allergyError.errorCause) ? string.Empty : mdsResult.allergyError.errorCause + "\r\n") +
                     (string.IsNullOrEmpty(mdsResult.allergyError.errorAction) ? string.Empty : mdsResult.allergyError.errorAction) +
                     Environment.NewLine;
             }
-            if (mdsResult.adrError != null)
+            if (mdsResult.adrError != null && mdsResult.adrError.hasAdrError)
             {
                 resultForShow.SystemErrorMessage += mdsResult.adrError.errorDesc + "\r\n" +
                     (string.IsNullOrEmpty(mdsResult.adrError.errorCause) ? string.Empty : mdsResult.adrError.errorCause + "\r\n") +
                     (string.IsNullOrEmpty(mdsResult.adrError.errorAction) ? string.Empty : mdsResult.adrError.errorAction + "\r\n") +
                     Environment.NewLine;
             }
-            if (mdsResult.drugError != null)
+            if (mdsResult.drugError != null && mdsResult.drugError.hasDrugError)
             {
                 resultForShow.SystemErrorMessage += mdsResult.drugError.errorDesc + "\r\n" +
                     (string.IsNullOrEmpty(mdsResult.drugError.errorCause) ? string.Empty : mdsResult.drugError.errorCause + "\r\n") +
@@ -895,7 +896,7 @@ namespace Demo.HL7MessageParser
         private void FinalCheckForMDSResult(ref MDSCheckResult mdsResult)
         {
             var mdsResultForCheck = mdsResult;
-            if (mdsResultForCheck.drugAllergyCheckingResults.hasDrugAllergyAlert)
+            if (mdsResultForCheck.drugAllergyCheckingResults != null && mdsResultForCheck.drugAllergyCheckingResults.hasDrugAllergyAlert)
             {
                 for(int a=(mdsResultForCheck.drugAllergyCheckingResults.drugAllergyAlerts.Count() - 1); a >= 0; a--)
                 {
@@ -907,7 +908,7 @@ namespace Demo.HL7MessageParser
                 }
             }
 
-            if (mdsResultForCheck.ddcmCheckingResults.hasDdcmAlert && mdsResultForCheck.ddcmCheckingResults.hasG6PdDeficiencyAlert)
+            if (mdsResultForCheck.ddcmCheckingResults != null && mdsResultForCheck.ddcmCheckingResults.hasDdcmAlert && mdsResultForCheck.ddcmCheckingResults.hasG6PdDeficiencyAlert)
             {
                 for(int d=(mdsResultForCheck.ddcmCheckingResults.ddcmAlerts.Count() - 1);d>=0;d--)
                 {
