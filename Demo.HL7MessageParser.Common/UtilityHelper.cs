@@ -61,7 +61,7 @@ namespace Demo.HL7MessageParser.Common
             ItemCode_HKID_Mapping["DEMO25"] = "H2003025_DEMO25";
 
             HKID_ItemCode_Mapping = new Dictionary<string, string>();
-            HKID_ItemCode_Mapping["H2003001"] = "DEMO01,";
+            HKID_ItemCode_Mapping["H2003001"] = "DEMO01";
             HKID_ItemCode_Mapping["H2003002"] = "DEMO02";
             HKID_ItemCode_Mapping["H2003003"] = "DEMO03";
             HKID_ItemCode_Mapping["H2003004"] = "DEMO04";

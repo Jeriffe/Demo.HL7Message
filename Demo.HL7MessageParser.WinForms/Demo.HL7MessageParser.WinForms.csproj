@@ -96,6 +96,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="SampleDataMgr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleDataMgr.Designer.cs">
+      <DependentUpon>SampleDataMgr.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\MDDialogBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleDataMgr.resx">
+      <DependentUpon>SampleDataMgr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MDDialogBox.resx">
       <DependentUpon>MDDialogBox.cs</DependentUpon>
