@@ -15,10 +15,10 @@ namespace Demo.RESTServcie.Controllers
     public class MDSCheckController : ApiController
     {
 
-        [Route("")]
-        public IEnumerable<string> Get()
+        [Route("{hkId}")]
+        public MDSCheckResult Get(string hkId)
         {
-            return new string[] { "mdsCheck1", "mdsCheck2" };
+            return JsonFromFile(hkId);
         }
 
 
