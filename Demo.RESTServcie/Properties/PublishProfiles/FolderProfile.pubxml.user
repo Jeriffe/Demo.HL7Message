@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.RESTServcie\bin\Publish</_PublishTargetUrl>
+    <_PublishTargetUrl>bin\Publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Data/AP/HN03191100Y.json">
@@ -49,22 +49,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2019 16:35:10</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Common.dll">
-      <publishTime>03/12/2020 10:15:11</publishTime>
+      <publishTime>03/02/2020 10:26:47</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Common.pdb">
-      <publishTime>03/12/2020 10:15:11</publishTime>
+      <publishTime>03/02/2020 10:26:47</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Models.dll">
-      <publishTime>03/12/2020 10:15:10</publishTime>
+      <publishTime>03/02/2020 10:26:47</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Models.pdb">
-      <publishTime>03/12/2020 10:15:10</publishTime>
+      <publishTime>03/02/2020 10:26:47</publishTime>
     </File>
     <File Include="bin/Demo.RESTServcie.dll">
-      <publishTime>03/12/2020 10:15:20</publishTime>
+      <publishTime>03/02/2020 10:27:34</publishTime>
     </File>
     <File Include="bin/Demo.RESTServcie.pdb">
-      <publishTime>03/12/2020 10:15:20</publishTime>
+      <publishTime>03/02/2020 10:27:34</publishTime>
     </File>
     <File Include="bin/FluentValidation.dll">
       <publishTime>05/10/2019 10:53:18</publishTime>
@@ -288,14 +288,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Global.asax">
       <publishTime>09/09/2019 12:09:55</publishTime>
     </File>
-    <File Include="HellowWorld.html">
-      <publishTime>03/02/2020 12:11:28</publishTime>
-    </File>
     <File Include="IIS_start_issue.txt">
       <publishTime>11/12/2019 15:10:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/12/2020 10:18:09</publishTime>
+      <publishTime>11/19/2019 10:21:52</publishTime>
     </File>
   </ItemGroup>
 </Project>

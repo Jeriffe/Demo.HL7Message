@@ -149,12 +149,12 @@ namespace Demo.HL7MessageParser
 
             if (patient != null && patient.Patient != null && patient.CaseList != null)
             {
-                Cache_HK.PataientCache.Register(CASE_NUMBER, new Patient_AlertProfile { PatientDemoEnquiry = patient });
+                FullCacheHK.PataientCache.Register(CASE_NUMBER, new Patient_AlertProfile { PatientDemoEnquiry = patient });
             }
-            if (Cache_HK.PataientCache[CASE_NUMBER] != null)
+            if (FullCacheHK.PataientCache[CASE_NUMBER] != null)
             {
-                Cache_HK.PataientCache[CASE_NUMBER].MedicationProfileRes = orders;
-                Cache_HK.PataientCache[CASE_NUMBER].AlertProfileRes = allergys;
+                //FullCacheHK.PataientCache[CASE_NUMBER].MedicationProfileRes = orders;
+                FullCacheHK.PataientCache[CASE_NUMBER].AlertProfileRes = allergys;
             }
 
 
@@ -246,9 +246,10 @@ namespace Demo.HL7MessageParser
             }
 
             var caseNumber = patientEnquiry.CaseList[0].Number.Trim().ToUpper();
-            if (Cache_HK.DrugMasterCache[caseNumber] == null)
+            
+            if (FullCacheHK.DrugMasterCache[caseNumber] == null)
             {
-                Cache_HK.DrugMasterCache.Register(caseNumber, new DrugMasterCache
+                FullCacheHK.DrugMasterCache.Register(caseNumber, new DrugMasterCache
                 {
                     DrugMdsPropertyHqReq = getDrugMdsPropertyHqReq,
                     DrugMdsPropertyHqRes = getDrugMdsPropertyHqRes,
@@ -271,21 +272,21 @@ namespace Demo.HL7MessageParser
             {
                 resultForShow.SystemErrorMessage += mdsResult.errorDesc + Environment.NewLine;
             }
-            if (mdsResult.allergyError != null)
+            if (mdsResult.allergyError != null && mdsResult.allergyError.hasAllergyError)
             {
                 resultForShow.SystemErrorMessage += mdsResult.allergyError.errorDesc + "\r\n" +
                     (string.IsNullOrEmpty(mdsResult.allergyError.errorCause) ? string.Empty : mdsResult.allergyError.errorCause + "\r\n") +
                     (string.IsNullOrEmpty(mdsResult.allergyError.errorAction) ? string.Empty : mdsResult.allergyError.errorAction) +
                     Environment.NewLine;
             }
-            if (mdsResult.adrError != null)
+            if (mdsResult.adrError != null && mdsResult.adrError.hasAdrError)
             {
                 resultForShow.SystemErrorMessage += mdsResult.adrError.errorDesc + "\r\n" +
                     (string.IsNullOrEmpty(mdsResult.adrError.errorCause) ? string.Empty : mdsResult.adrError.errorCause + "\r\n") +
                     (string.IsNullOrEmpty(mdsResult.adrError.errorAction) ? string.Empty : mdsResult.adrError.errorAction + "\r\n") +
                     Environment.NewLine;
             }
-            if (mdsResult.drugError != null)
+            if (mdsResult.drugError != null && mdsResult.drugError.hasDrugError)
             {
                 resultForShow.SystemErrorMessage += mdsResult.drugError.errorDesc + "\r\n" +
                     (string.IsNullOrEmpty(mdsResult.drugError.errorCause) ? string.Empty : mdsResult.drugError.errorCause + "\r\n") +
@@ -397,37 +398,41 @@ namespace Demo.HL7MessageParser
         /// <param name="alertProfileRes"></param>
         private void CheckADRProfileForMDSCheck(ref AlertProfileResult alertProfileRes, ref MDSCheckResult mdsResult)
         {
-            var adrProfiles = alertProfileRes.AdrProfile;
-            List<string> adrDrugList = new List<string>();
-            foreach (var adrProfile in adrProfiles)
-            {
-                //2.5.3 2 if its severity is “Mild”, not perform MDS checking, no msg
-                if (!string.IsNullOrEmpty(adrProfile.Severity) && adrProfile.Severity.ToUpper() == "MILD")
+            if (alertProfileRes.AdrProfile != null && alertProfileRes.AdrProfile.Count() > 0)
+            {            
+                AdrProfile[] adrProfiles = new AdrProfile[alertProfileRes.AdrProfile.Count()];
+                alertProfileRes.AdrProfile.CopyTo(adrProfiles);
+                List<string> adrDrugList = new List<string>();
+                foreach (var adrProfile in adrProfiles)
                 {
-                    alertProfileRes.AdrProfile.Remove(alertProfileRes.AdrProfile.First(a => a.AdrSeqNo == adrProfile.AdrSeqNo));
+                    //2.5.3 2 if its severity is “Mild”, not perform MDS checking, no msg
+                    if (!string.IsNullOrEmpty(adrProfile.Severity) && adrProfile.Severity.ToUpper() == "MILD")
+                    {
+                        alertProfileRes.AdrProfile.Remove(alertProfileRes.AdrProfile.First(a => a.AdrSeqNo == adrProfile.AdrSeqNo));
+                    }
+                    //2.5.3 4-2 both hiclSeqNo and hicSeqNos is EMPTY or zero; and drugType = “D”, no MDS check and prompt msg
+                    if ((string.IsNullOrEmpty(adrProfile.HiclSeqno) || adrProfile.HiclSeqno.Trim() == "0")
+                         &&
+                         CheckIfAllergyProfileHicSeqnoNoNeedMDS(adrProfile.HicSeqno)
+                         &&
+                         adrProfile.DrugType == "D"
+                       )
+                    {
+                        alertProfileRes.AdrProfile.Remove(alertProfileRes.AdrProfile.First(a => a.AdrSeqNo == adrProfile.AdrSeqNo));
+                        adrDrugList.Add(adrProfile.Drug);
+                    }
                 }
-                //2.5.3 4-2 both hiclSeqNo and hicSeqNos is EMPTY or zero; and drugType = “D”, no MDS check and prompt msg
-                if ((string.IsNullOrEmpty(adrProfile.HiclSeqno) || adrProfile.HiclSeqno.Trim() == "0")
-                     &&
-                     CheckIfAllergyProfileHicSeqnoNoNeedMDS(adrProfile.HicSeqno)
-                     &&
-                     adrProfile.DrugType == "D"
-                   )
+                if (adrDrugList.Count() > 0)
                 {
-                    alertProfileRes.AdrProfile.Remove(alertProfileRes.AdrProfile.First(a => a.AdrSeqNo == adrProfile.AdrSeqNo));
-                    adrDrugList.Add(adrProfile.Drug);
+                    var msg = "System cannot perform adverse drug reaction checking for the following ADR record(s) in the alert function:";
+                    msg += string.Join("; ", adrDrugList.ToArray()).TrimEnd(new char[] { ';', ' ' });
+                    mdsResult.hasMdsAlert = true;
+                    mdsResult.adrError = new AdrError()
+                    {
+                        errorDesc = msg,
+                        hasAdrError = true
+                    };
                 }
-            }
-            if (adrDrugList.Count() > 0)
-            {
-                var msg = "System cannot perform adverse drug reaction checking for the following ADR record(s) in the alert function:";
-                msg += string.Join("; ", adrDrugList.ToArray()).TrimEnd(new char[] { ';', ' ' });
-                mdsResult.hasMdsAlert = true;
-                mdsResult.adrError = new AdrError()
-                {
-                    errorDesc = msg,
-                    hasAdrError = true
-                };
             }
         }
         /// <summary>
@@ -444,34 +449,36 @@ namespace Demo.HL7MessageParser
             Message:
             System cannot perform drug allergy checking for the following allergen record(s) in the alert function: [allergen from 1.4.2]
             */
-            var allergyProfile = alertProfileRes.AllergyProfile;
-            IList<string> allergyDrugList = new List<string>();
-            foreach (var algProfile in allergyProfile)
+            if(alertProfileRes.AllergyProfile != null && alertProfileRes.AllergyProfile.Count() > 0)
             {
-                if ((string.IsNullOrEmpty(algProfile.HiclSeqno) || algProfile.HiclSeqno == "0")
-                    &&
-                    CheckIfAllergyProfileHicSeqnoNoNeedMDS(algProfile.HicSeqno)
-                    &&
-                    !(new string[] { "N", "O", "X", "XP" }.Contains(algProfile.AllergenType))
-                    )
+                var allergyProfile = alertProfileRes.AllergyProfile;
+                IList<string> allergyDrugList = new List<string>();
+                for(int a=(allergyProfile.Count() - 1); a>=0; a--)
                 {
-                    //no MDS check and show message for AllergyProfile
-                    allergyDrugList.Add(algProfile.Allergen);
-                    //if current allergy no need MDS check, remove it from allergy profrofile list
-                    alertProfileRes.AllergyProfile.Remove(alertProfileRes.AllergyProfile.First(a => a.Allergen == algProfile.Allergen));
+                    if ((string.IsNullOrEmpty(allergyProfile[a].HiclSeqno) || allergyProfile[a].HiclSeqno == "0")
+                        &&
+                        CheckIfAllergyProfileHicSeqnoNoNeedMDS(allergyProfile[a].HicSeqno)
+                        &&
+                        !(new string[] { "N", "O", "X", "XP" }.Contains(allergyProfile[a].AllergenType))
+                        )
+                    {
+                        //no MDS check and show message for AllergyProfile
+                        allergyDrugList.Add(allergyProfile[a].Allergen);
+                        //if current allergy no need MDS check, remove it from allergy profrofile list
+                        alertProfileRes.AllergyProfile.Remove(allergyProfile[a]);
+                    }
+                }
+                if (allergyDrugList.Count > 0)
+                {
+                    var msg = "System cannot perform drug allergy checking for the following allergen record(s):";
+                    msg += string.Join("; ", allergyDrugList.ToArray()).TrimEnd(new char[] { ';', ' ' });
+                    mdsResult.allergyError = new AllergyError()
+                    {
+                        errorDesc = msg,
+                        hasAllergyError = true
+                    };
                 }
             }
-            if (allergyDrugList.Count > 0)
-            {
-                var msg = "System cannot perform drug allergy checking for the following allergen record(s):";
-                msg += string.Join("; ", allergyDrugList.ToArray()).TrimEnd(new char[] { ';', ' ' });
-                mdsResult.allergyError = new AllergyError()
-                {
-                    errorDesc = msg,
-                    hasAllergyError = true
-                };
-            }
-
         }
         private bool CheckDrugCodeIfNeedMDSCheck(string drugItemCode, ref MDSCheckResult mdsResult)
         {
@@ -852,20 +859,18 @@ namespace Demo.HL7MessageParser
             mdsInput.CheckHepaB = false;
             mdsInput.CallerSourceSystem = "PMS";
 
-
-            var mdsResult = new MDSCheckResult();
+            MDSCheckResult mdsResult = new MDSCheckResult();
             if (CheckDrugMasterResultForMDSCheck(getDrugMdsPropertyHqRes.Return[0].DrugMds, getPreparationRes.Return.PmsFmStatus, mdsInput.CurrentRxDrugProfile.DrugErrorDisplayName, ref mdsResult))
             {
                 mdsResult = restSvc.CheckMDS(mdsInput);
             }
-
             var medCache = new MDSCheckCacheResult
             {
                 Req = mdsInput,
                 Res = mdsResult
             };
 
-            Cache_HK.MDS_CheckCache.Register(patientEnquiry.CaseList[0].Number.Trim().ToUpper(), medCache);
+            FullCacheHK.MDS_CheckCache.Register(patientEnquiry.CaseList[0].Number.Trim().ToUpper(), medCache);
 
             FinalCheckForMDSResult(ref mdsResult);
             return mdsResult;
@@ -891,34 +896,30 @@ namespace Demo.HL7MessageParser
         private void FinalCheckForMDSResult(ref MDSCheckResult mdsResult)
         {
             var mdsResultForCheck = mdsResult;
-            if (mdsResultForCheck.drugAllergyCheckingResults.hasDrugAllergyAlert)
+            if (mdsResultForCheck.drugAllergyCheckingResults != null && mdsResultForCheck.drugAllergyCheckingResults.hasDrugAllergyAlert)
             {
-                foreach (var allergyAlert in mdsResultForCheck.drugAllergyCheckingResults.drugAllergyAlerts)
+                for(int a=(mdsResultForCheck.drugAllergyCheckingResults.drugAllergyAlerts.Count() - 1); a >= 0; a--)
                 {
                     //System should ignore the allergy alerts when suppress flag is true
-                    if (allergyAlert.suppress == true)
+                    if (mdsResultForCheck.drugAllergyCheckingResults.drugAllergyAlerts[a].suppress == true)
                     {
-                        mdsResult.drugAllergyCheckingResults.drugAllergyAlerts.Remove(mdsResult.drugAllergyCheckingResults.drugAllergyAlerts.First(a => a.allergen == allergyAlert.allergen));
+                        mdsResult.drugAllergyCheckingResults.drugAllergyAlerts.Remove(mdsResultForCheck.drugAllergyCheckingResults.drugAllergyAlerts[a]);
                     }
                 }
             }
 
-            var deletedObjs = new List<DdcmAlert>();
-
-            if (mdsResultForCheck.ddcmCheckingResults.hasDdcmAlert && mdsResultForCheck.ddcmCheckingResults.hasG6PdDeficiencyAlert)
+            if (mdsResultForCheck.ddcmCheckingResults != null && mdsResultForCheck.ddcmCheckingResults.hasDdcmAlert && mdsResultForCheck.ddcmCheckingResults.hasG6PdDeficiencyAlert)
             {
-                foreach (var ddcmAlert in mdsResultForCheck.ddcmCheckingResults.ddcmAlerts)
+                for(int d=(mdsResultForCheck.ddcmCheckingResults.ddcmAlerts.Count() - 1);d>=0;d--)
                 {
                     //System should ignore the G6PD alerts when suppress flag is true
                     //System should ignore the G6PD deficiency contraindication alert when the severityLevelCode is 2 or 3
-                    if (ddcmAlert.suppress = true || (new string[] { "2", "3" }.Contains(ddcmAlert.severityLevelCode)))
+                    if (mdsResultForCheck.ddcmCheckingResults.ddcmAlerts[d].suppress = true || (new string[] { "2", "3" }.Contains(mdsResultForCheck.ddcmCheckingResults.ddcmAlerts[d].severityLevelCode)))
                     {
-                        deletedObjs.Add(ddcmAlert);
+                        mdsResult.ddcmCheckingResults.ddcmAlerts.Remove(mdsResultForCheck.ddcmCheckingResults.ddcmAlerts[d]);
                     }
                 }
             }
-            mdsResult.ddcmCheckingResults.ddcmAlerts = mdsResult.ddcmCheckingResults.ddcmAlerts.Except(deletedObjs).ToList();
-
         }
         private bool CheckIsG6PD(List<AlertProfile> alertProfiles)
         {

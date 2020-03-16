@@ -105,10 +105,10 @@ namespace Demo.HL7MessageParser.WinForms
             }
 
             CASE_NUMBER = caseNumber.Trim().ToUpper();
-            var patientCache = Cache_HK.PataientCache[caseNumber];
+            var patientCache = FullCacheHK.PataientCache[caseNumber];
 
             result.Patient = patientCache.PatientDemoEnquiry;
-            result.Orders = (patientCache.MedicationProfileRes ?? new MedicationProfileResult());
+            //result.Orders = (patientCache.MedicationProfileRes ?? new MedicationProfileResult());
             result.Allergies = (patientCache.AlertProfileRes ?? new AlertProfileResult());
 
             this.BeginInvoke((MethodInvoker)delegate
@@ -183,7 +183,9 @@ namespace Demo.HL7MessageParser.WinForms
         private void btnMDSCheck_Click(object sender, EventArgs e)
         {
             ChangeSelectedTabPage(tbpMDSCheck);
-
+            if (FullCacheHK.DrugMasterCache == null) FullCacheHK.DrugMasterCache = new CacheHK<DrugMasterCache>();
+            if (FullCacheHK.MDS_CheckCache == null) FullCacheHK.MDS_CheckCache = new CacheHK<MDSCheckCacheResult>();
+            if (FullCacheHK.PataientCache == null) FullCacheHK.PataientCache = new CacheHK<Patient_AlertProfile>();
             // Start the asynchronous operation.
             bgWorkerMDSCheck.RunWorkerAsync(cbxItemCodes.SelectedItem.ToString());
 
@@ -195,7 +197,7 @@ namespace Demo.HL7MessageParser.WinForms
             {
                 var itemCode = e.Argument as string;
 
-                var patientCache = Cache_HK.PataientCache[CASE_NUMBER];
+                var patientCache = FullCacheHK.PataientCache[CASE_NUMBER];
 
                 currentMdsResultForShow = parser.MDSCheck(itemCode, patientCache.PatientDemoEnquiry, patientCache.AlertProfileRes);
 
@@ -203,14 +205,14 @@ namespace Demo.HL7MessageParser.WinForms
                 {
                     try
                     {
-                        var mdsResponse = Cache_HK.MDS_CheckCache[CASE_NUMBER].Res;
+                        var mdsResponse = FullCacheHK.MDS_CheckCache[CASE_NUMBER].Res;
                         scintillaMdsCheckRes.FormatJsonStyle();
                         var resultJson = JsonHelper.ToJson(mdsResponse);
                         scintillaMdsCheckRes.Text = JsonHelper.FormatJson(resultJson);
 
-                        if (Cache_HK.DrugMasterCache[CASE_NUMBER] != null)
+                        if (FullCacheHK.DrugMasterCache[CASE_NUMBER]!=null)
                         {
-                            var drugMasterCache = Cache_HK.DrugMasterCache[CASE_NUMBER];
+                            var drugMasterCache = FullCacheHK.DrugMasterCache[CASE_NUMBER];
 
                             scintillaDrugMdsPropertyHqReq.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugMdsPropertyHqReq);
                             scintillaDrugMdsPropertyHqRes.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugMdsPropertyHqRes);
@@ -218,8 +220,7 @@ namespace Demo.HL7MessageParser.WinForms
                             scintillaDrugPreparationReq.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugPreparationReq);
                             scintillaDrugPreparationRes.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugPreparationRes);
                         }
-
-                        var request = Cache_HK.MDS_CheckCache[CASE_NUMBER].Req;
+                        var request = FullCacheHK.MDS_CheckCache[CASE_NUMBER].Req;
                         var requestXml = XmlHelper.XmlSerializeToString(request);
                         scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
                         scintillaMdsCheckReq.Text = requestXml;

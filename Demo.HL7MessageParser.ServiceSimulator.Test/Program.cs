@@ -84,7 +84,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
 
         private static void CacheTest()
         {
-            MDSCheckCacheResult cacheMDSResult = Cache_HK.MDS_CheckCache["DRUG_ITEM_CODE"];
+            MDSCheckCacheResult cacheMDSResult = FullCacheHK.MDS_CheckCache["DRUG_ITEM_CODE"];
 
             if (cacheMDSResult != null)
             {
@@ -95,10 +95,10 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
             // result from HL7 req
             MDSCheckCacheResult mdsResult = new MDSCheckCacheResult { Cautaion = "CAUTAION_DRUG_ITEM_CODE" };
 
-            Cache_HK.MDS_CheckCache.Register("DRUG_ITEM_CODE", mdsResult);
+            FullCacheHK.MDS_CheckCache.Register("DRUG_ITEM_CODE", mdsResult);
 
 
-            var cachePatientResult = Cache_HK.PataientCache["CASENUMBER"];
+            var cachePatientResult = FullCacheHK.PataientCache["CASENUMBER"];
             if (cachePatientResult != null)
             {
                 //return cache result
@@ -112,7 +112,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
                 PatientDemoEnquiry = new Models.PatientDemoEnquiry()
             };
 
-            Cache_HK.PataientCache.Register("CASENUMBER", p_rResult);
+            FullCacheHK.PataientCache.Register("CASENUMBER", p_rResult);
         }
 
         private static void DrugMasterSosapService()

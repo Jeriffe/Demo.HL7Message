@@ -78,22 +78,22 @@ namespace Demo.HL7MessageParser
     }
 
 
-    public static class Cache_HK
+    public static class FullCacheHK
     {
-        static Cache_HK()
+        static FullCacheHK()
         {
-            PataientCache = new Cache<Patient_AlertProfile>();
-            MDS_CheckCache = new Cache<MDSCheckCacheResult>();
-            DrugMasterCache = new Cache<DrugMasterCache>();
+            PataientCache = new CacheHK<Patient_AlertProfile>();
+            MDS_CheckCache = new CacheHK<MDSCheckCacheResult>();
+            //DrugMasterCache = new CacheHK<DrugMasterCache>();
         }
 
-        public static Cache<MDSCheckCacheResult> MDS_CheckCache { get; set; }
-        public static Cache<Patient_AlertProfile> PataientCache { get; set; }
+        public static CacheHK<MDSCheckCacheResult> MDS_CheckCache { get; set; }
+        public static CacheHK<Patient_AlertProfile> PataientCache { get; set; }
 
-        public static Cache<DrugMasterCache> DrugMasterCache { get; set; }
+        public static CacheHK<DrugMasterCache> DrugMasterCache { get; set; }
     }
 
-    public class Cache<T>
+    public class CacheHK<T>
     {
         /// <summary>
         /// CASENUMBER IS THE KEY
@@ -136,7 +136,7 @@ namespace Demo.HL7MessageParser
     public class Patient_AlertProfile
     {
         public PatientDemoEnquiry PatientDemoEnquiry { get; set; }
-        public MedicationProfileResult MedicationProfileRes { get; set; }
+        //public MedicationProfileResult MedicationProfileRes { get; set; }
         public AlertProfileResult AlertProfileRes { get; set; }
     }
 
