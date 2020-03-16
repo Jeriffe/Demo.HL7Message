@@ -77,40 +77,42 @@ namespace Demo.HL7MessageParser.Service
             Message:
             System cannot perform drug allergy checking for the following allergen record(s) in the alert function: [allergen from 1.4.2]
             */
-            if (alertProfileRes.AllergyProfile != null && alertProfileRes.AllergyProfile.Count() > 0)
+            if (alertProfileRes.AllergyProfile == null || alertProfileRes.AllergyProfile.Count() == 0)
             {
-                var allergyProfile = alertProfileRes.AllergyProfile;
-                IList<string> allergyDrugList = new List<string>();
-                for (int a = (allergyProfile.Count() - 1); a >= 0; a--)
+                return;
+            }
+
+            var allergyProfile = alertProfileRes.AllergyProfile;
+            IList<string> allergyDrugList = new List<string>();
+            for (int index = (allergyProfile.Count() - 1); index >= 0; index--)
+            {
+                if ((string.IsNullOrEmpty(allergyProfile[index].HiclSeqno) || allergyProfile[index].HiclSeqno == "0")
+                    &&
+                    CheckIfAllergyProfileHicSeqnoNoNeedMDS(allergyProfile[index].HicSeqno)
+                    &&
+                    !(new string[] { "N", "O", "X", "XP" }.Contains(allergyProfile[index].AllergenType))
+                    )
                 {
-                    if ((string.IsNullOrEmpty(allergyProfile[a].HiclSeqno) || allergyProfile[a].HiclSeqno == "0")
-                        &&
-                        CheckIfAllergyProfileHicSeqnoNoNeedMDS(allergyProfile[a].HicSeqno)
-                        &&
-                        !(new string[] { "N", "O", "X", "XP" }.Contains(allergyProfile[a].AllergenType))
-                        )
-                    {
-                        //no MDS check and show message for AllergyProfile
-                        allergyDrugList.Add(allergyProfile[a].Allergen);
-                        //if current allergy no need MDS check, remove it from allergy profrofile list
-                        alertProfileRes.AllergyProfile.Remove(allergyProfile[a]);
-                    }
+                    //no MDS check and show message for AllergyProfile
+                    allergyDrugList.Add(allergyProfile[index].Allergen);
+                    //if current allergy no need MDS check, remove it from allergy profrofile list
+                    alertProfileRes.AllergyProfile.Remove(allergyProfile[index]);
                 }
-                if (allergyDrugList.Count > 0)
+            }
+            if (allergyDrugList.Count > 0)
+            {
+                var msg = "System cannot perform drug allergy checking for the following allergen record(s):";
+                msg += string.Join("; ", allergyDrugList.ToArray()).TrimEnd(new char[] { ';', ' ' });
+                mdsResult.allergyError = new AllergyError()
                 {
-                    var msg = "System cannot perform drug allergy checking for the following allergen record(s):";
-                    msg += string.Join("; ", allergyDrugList.ToArray()).TrimEnd(new char[] { ';', ' ' });
-                    mdsResult.allergyError = new AllergyError()
-                    {
-                        errorDesc = msg,
-                        hasAllergyError = true
-                    };
-                }
+                    errorDesc = msg,
+                    hasAllergyError = true
+                };
             }
         }
         public bool CheckDrugCodeIfNeedMDSCheck(string drugItemCode)
         {
-            return !string.IsNullOrEmpty(drugItemCode)&&!drugItemCode.ToUpper().StartsWith("PDF");
+            return !string.IsNullOrEmpty(drugItemCode) && !drugItemCode.ToUpper().StartsWith("PDF");
         }
 
         /// <summary>
@@ -128,39 +130,50 @@ namespace Demo.HL7MessageParser.Service
         /// <param name="drugMds"></param>
         public bool CheckDrugMasterResultForMDSCheck(DrugMDSObj drugMds, string pmsFmStatus, string drugErrorDisplayName, ref MDSCheckResult mdsResult)
         {
-            if (drugMds.MoeCheckFlag == "N" && drugMds.GroupMoeCheckFlag == "N")
+            if (drugMds.MoeCheckFlag != "N" || drugMds.GroupMoeCheckFlag != "N")
             {
-                string msg = ERROR_SYSTEM_CANNOT_PERFORM;
-
-                if (FORM_STATUS.Contains(pmsFmStatus))
-                {
-                    msg += Environment.NewLine + drugErrorDisplayName + " <";
-                    if (pmsFmStatus == "C" || pmsFmStatus == "D") { msg += "Self-financed item"; }
-                    else if (pmsFmStatus == "M") { msg += "Self-financed item with Safety Net"; }
-                    else if (pmsFmStatus == "N") { msg += "Unregistered Drug:Named Pat Only"; }
-                    else if (pmsFmStatus == "S") { msg += "Sample"; }
-                    else if (pmsFmStatus == "X") { msg += "Special Drug"; }
-
-                    msg += ">" + Environment.NewLine;
-                }
-                else
-                {
-                    msg += Environment.NewLine + drugErrorDisplayName;
-                }
-
-                msg += ERROR_DRUG_INFORMATION_MAPPING_IS_NOT_AVAILABLE;
-
-                mdsResult.drugError = new DrugError()
-                {
-                    errorDesc = msg,
-                    hasDrugError = true
-                };
-
                 return false;
             }
-            return true;
-        }
 
+            string msg = string.Format("{0}{1}{2}", ERROR_SYSTEM_CANNOT_PERFORM, Environment.NewLine, drugErrorDisplayName);
+
+            if (FORM_STATUS.Contains(pmsFmStatus.ToUpper()))
+            {
+                var temp = string.Empty;
+
+                switch (pmsFmStatus.ToUpper())
+                {
+                    case "C":
+                    case "D":
+                        temp = "Self-financed item";
+                        break;
+                    case "M":
+                        temp = "Self-financed item with Safety Net";
+                        break;
+                    case "N":
+                        temp = "Unregistered Drug:Named Pat Only";
+                        break;
+                    case "S":
+                        temp = "Sample";
+                        break;
+                    case "X":
+                        temp = "Special Drug";
+                        break;
+                }
+
+                msg += string.Format(" <{0}>", temp);
+            }
+
+            msg += ERROR_DRUG_INFORMATION_MAPPING_IS_NOT_AVAILABLE;
+
+            mdsResult.drugError = new DrugError()
+            {
+                errorDesc = msg,
+                hasDrugError = true
+            };
+
+            return false;
+        }
 
         public bool CheckIfAllergyProfileHicSeqnoNoNeedMDS(List<string> HicSeqnos)
         {
@@ -176,6 +189,5 @@ namespace Demo.HL7MessageParser.Service
         {
             return alertProfiles.Any(item => item.AlertCode == "A0001");
         }
-
     }
 }
