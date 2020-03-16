@@ -860,9 +860,16 @@ namespace Demo.HL7MessageParser
             mdsInput.CallerSourceSystem = "PMS";
 
             MDSCheckResult mdsResult = new MDSCheckResult();
-            if (CheckDrugMasterResultForMDSCheck(getDrugMdsPropertyHqRes.Return[0].DrugMds, getPreparationRes.Return.PmsFmStatus, mdsInput.CurrentRxDrugProfile.DrugErrorDisplayName, ref mdsResult))
+            if (false == mdsInput.CheckDdcm && false == mdsInput.CheckDam && false == mdsInput.CheckAdr)
             {
-                mdsResult = restSvc.CheckMDS(mdsInput);
+                mdsResult.hasMdsAlert = false;
+            }
+            else
+            {
+                if (CheckDrugMasterResultForMDSCheck(getDrugMdsPropertyHqRes.Return[0].DrugMds, getPreparationRes.Return.PmsFmStatus, mdsInput.CurrentRxDrugProfile.DrugErrorDisplayName, ref mdsResult))
+                {
+                    mdsResult = restSvc.CheckMDS(mdsInput);
+                }
             }
             var medCache = new MDSCheckCacheResult
             {
@@ -879,7 +886,7 @@ namespace Demo.HL7MessageParser
         private string GetDrugErrorDisplayName(string ddimDisplayName, string strength, string volumeValue, string volumeunit)
         {
             string drugErrorDisplayName = ddimDisplayName;
-            drugErrorDisplayName += string.IsNullOrEmpty(strength) ? string.Empty : strength.ToLower();
+            drugErrorDisplayName += string.IsNullOrEmpty(strength) ? string.Empty : " " + strength.ToLower();
             if (!string.IsNullOrEmpty(volumeValue))
             {
                 decimal volumeValueDecimal = 0;

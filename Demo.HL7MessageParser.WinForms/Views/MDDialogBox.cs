@@ -29,7 +29,7 @@ namespace Demo.HL7MessageParser.WinForms
         {
             InitializeComponent();
             lblSubTitle.Text = SubTitle;
-
+            lblCaution.Text = "CAUTION for " + mds.DrugName;
             switch ((MessageBoxButtons)Buttons)
             {
                 case MessageBoxButtons.YesNo:
