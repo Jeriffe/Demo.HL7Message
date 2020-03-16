@@ -4,3 +4,9 @@ D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.HL7MessageParser.DTOs\obj\Debug\
 D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.HL7MessageParser.DTOs\obj\Debug\MedDispense.Common.dll
 D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.HL7MessageParser.DTOs\obj\Debug\MedDispense.Common.pdb
 D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.HL7MessageParser.DTOs\obj\Debug\Demo.HL7MessageParser.DTOs.csprojAssemblyReference.cache
+D:\Projects\Github\Demo.HL7Message\Demo.HL7MessageParser.DTOs\bin\Debug\MedDispense.Common.dll
+D:\Projects\Github\Demo.HL7Message\Demo.HL7MessageParser.DTOs\bin\Debug\MedDispense.Common.pdb
+D:\Projects\Github\Demo.HL7Message\Demo.HL7MessageParser.DTOs\obj\Debug\Demo.HL7MessageParser.DTOs.csproj.CopyComplete
+D:\Projects\Github\Demo.HL7Message\Demo.HL7MessageParser.DTOs\obj\Debug\MedDispense.Common.dll
+D:\Projects\Github\Demo.HL7Message\Demo.HL7MessageParser.DTOs\obj\Debug\MedDispense.Common.pdb
+D:\Projects\Github\Demo.HL7Message\Demo.HL7MessageParser.DTOs\obj\Debug\Demo.HL7MessageParser.DTOs.csprojAssemblyReference.cache

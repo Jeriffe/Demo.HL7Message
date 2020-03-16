@@ -566,7 +566,7 @@ namespace Demo.HL7MessageParser
 
             var mdsInput = new MDSCheckInputParm { };
 
-            mdsInput.HasG6pdDeficiency = true;
+            mdsInput.HasG6pdDeficiency = false;
 
             mdsInput.PatientInfo = new MDSCheck_PatientInfo
             {
