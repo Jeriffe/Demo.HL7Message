@@ -460,12 +460,9 @@ namespace Demo.HL7MessageParser
                 //if no ddcm, no allergy, no adr, then no need do MDS check
                 mdsResult.hasMdsAlert = false;
             }
-            else
+            else if(checkMDS.CheckDrugMasterResultForMDSCheck(getDrugMdsPropertyHqRes.Return[0].DrugMds, getPreparationRes.Return.PmsFmStatus, mdsInput.CurrentRxDrugProfile.DrugErrorDisplayName, ref mdsResult))
             {
-                if (checkMDS.CheckDrugMasterResultForMDSCheck(getDrugMdsPropertyHqRes.Return[0].DrugMds, getPreparationRes.Return.PmsFmStatus, mdsInput.CurrentRxDrugProfile.DrugErrorDisplayName, ref mdsResult))
-                {
-                    mdsResult = restSvc.CheckMDS(mdsInput);
-                }
+                mdsResult = restSvc.CheckMDS(mdsInput);
             }
             medResultCache = new MDSCheckCacheResult
             {

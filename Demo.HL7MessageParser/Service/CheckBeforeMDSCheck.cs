@@ -154,8 +154,6 @@ namespace Demo.HL7MessageParser.Service
                     hasDrugError = true
                 };
 
-                mdsResult.hasMdsAlert = true;
-
                 return false;
             }
             return true;
