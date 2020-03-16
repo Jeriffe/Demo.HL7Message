@@ -10,15 +10,3 @@ D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.EnterpriseLibrarySamples\obj\Deb
 D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.EnterpriseLibrarySamples\obj\Debug\Demo.EnterpriseLibrarySamples.csproj.CopyComplete
 D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.EnterpriseLibrarySamples\obj\Debug\Demo.EnterpriseLibrarySamples.exe
 D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.EnterpriseLibrarySamples\obj\Debug\Demo.EnterpriseLibrarySamples.pdb
-D:\Projects\Github\Demo.HL7Message\Demo.EnterpriseLibrarySamples\bin\Debug\Demo.EnterpriseLibrarySamples.exe.config
-D:\Projects\Github\Demo.HL7Message\Demo.EnterpriseLibrarySamples\bin\Debug\Demo.EnterpriseLibrarySamples.exe
-D:\Projects\Github\Demo.HL7Message\Demo.EnterpriseLibrarySamples\bin\Debug\Demo.EnterpriseLibrarySamples.pdb
-D:\Projects\Github\Demo.HL7Message\Demo.EnterpriseLibrarySamples\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
-D:\Projects\Github\Demo.HL7Message\Demo.EnterpriseLibrarySamples\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Configuration.dll
-D:\Projects\Github\Demo.HL7Message\Demo.EnterpriseLibrarySamples\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
-D:\Projects\Github\Demo.HL7Message\Demo.EnterpriseLibrarySamples\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
-D:\Projects\Github\Demo.HL7Message\Demo.EnterpriseLibrarySamples\bin\Debug\Microsoft.Practices.Unity.dll
-D:\Projects\Github\Demo.HL7Message\Demo.EnterpriseLibrarySamples\obj\Debug\Demo.EnterpriseLibrarySamples.csprojAssemblyReference.cache
-D:\Projects\Github\Demo.HL7Message\Demo.EnterpriseLibrarySamples\obj\Debug\Demo.EnterpriseLibrarySamples.csproj.CopyComplete
-D:\Projects\Github\Demo.HL7Message\Demo.EnterpriseLibrarySamples\obj\Debug\Demo.EnterpriseLibrarySamples.exe
-D:\Projects\Github\Demo.HL7Message\Demo.EnterpriseLibrarySamples\obj\Debug\Demo.EnterpriseLibrarySamples.pdb

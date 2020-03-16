@@ -11,16 +11,3 @@ D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demp.SimpleSoapService\obj\Debug\Demp
 D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demp.SimpleSoapService\obj\Debug\Demp.SimpleSoapService.csproj.CopyComplete
 D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demp.SimpleSoapService\obj\Debug\Demp.SimpleSoapService.dll
 D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demp.SimpleSoapService\obj\Debug\Demp.SimpleSoapService.pdb
-D:\Projects\Github\Demo.HL7Message\Demp.SimpleSoapService\bin\Demp.SimpleSoapService.dll.config
-D:\Projects\Github\Demo.HL7Message\Demp.SimpleSoapService\bin\Demp.SimpleSoapService.dll
-D:\Projects\Github\Demo.HL7Message\Demp.SimpleSoapService\bin\Demp.SimpleSoapService.pdb
-D:\Projects\Github\Demo.HL7Message\Demp.SimpleSoapService\bin\Demo.HL7MessageParser.Common.dll
-D:\Projects\Github\Demo.HL7Message\Demp.SimpleSoapService\bin\Demo.HL7MessageParser.Models.dll
-D:\Projects\Github\Demo.HL7Message\Demp.SimpleSoapService\bin\Newtonsoft.Json.dll
-D:\Projects\Github\Demo.HL7Message\Demp.SimpleSoapService\bin\Demo.HL7MessageParser.Common.pdb
-D:\Projects\Github\Demo.HL7Message\Demp.SimpleSoapService\bin\Demo.HL7MessageParser.Models.pdb
-D:\Projects\Github\Demo.HL7Message\Demp.SimpleSoapService\bin\Newtonsoft.Json.xml
-D:\Projects\Github\Demo.HL7Message\Demp.SimpleSoapService\obj\Debug\Demp.SimpleSoapService.csprojAssemblyReference.cache
-D:\Projects\Github\Demo.HL7Message\Demp.SimpleSoapService\obj\Debug\Demp.SimpleSoapService.csproj.CopyComplete
-D:\Projects\Github\Demo.HL7Message\Demp.SimpleSoapService\obj\Debug\Demp.SimpleSoapService.dll
-D:\Projects\Github\Demo.HL7Message\Demp.SimpleSoapService\obj\Debug\Demp.SimpleSoapService.pdb
