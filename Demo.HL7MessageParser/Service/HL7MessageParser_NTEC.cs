@@ -245,7 +245,7 @@ namespace Demo.HL7MessageParser
                 };
                 return mdsResult.ToConvert(drugProperty.Displayname);
             }
-            
+
             if (FullCacheHK.DrugMasterCache[drugItemCode] == null)
             {
                 FullCacheHK.DrugMasterCache.Register(drugItemCode, new DrugMasterCache
@@ -262,7 +262,7 @@ namespace Demo.HL7MessageParser
 
             return mdsResult.ToConvert(drugName);
         }
-        
+
         private MDSCheckResult CheckDrugClass(PatientDemoEnquiry patientEnquiry,
             AlertProfileResult alertProfileRes,
             GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes,
@@ -271,12 +271,11 @@ namespace Demo.HL7MessageParser
         {
             var patientCache = FullCacheHK.PataientCache[patientEnquiry.CaseList[0].Number.Trim().ToUpper()];
 
-            MDSCheckCacheResult medResultCache;
-
             MDSCheckResult mdsResult = new MDSCheckResult();
             bool skipMDS = false;
 
-            var mdsInput = new MDSCheckInputParm {
+            var mdsInput = new MDSCheckInputParm
+            {
 
                 HasG6pdDeficiency = false,
 
@@ -288,66 +287,75 @@ namespace Demo.HL7MessageParser
 
                 PatientAdrProfile = CreateMDSAdr(alertProfileRes),
 
-                CurrentRxDrugProfile  = CreateMDSRxDrugProfileIfSkipMDS(getDrugMdsPropertyHqRes, getPreparationRes, ref skipMDS)
+                CurrentRxDrugProfile = CreateMDSRxDrugProfileIfSkipMDS(getDrugMdsPropertyHqRes, getPreparationRes, ref skipMDS),
+
+                CheckDscm = false,
+                CheckDrcm = false,
+                CheckDlcm = false,
+                CheckSteroid = false,
+                CheckDiscon = false,
+                CheckHepaB = false,
+                HasPregnancy = false,
+                CheckDdim = false,
+                CallerSourceSystem = "PMS",
             };
 
-            if(skipMDS)
+            //show at msg title: CAUTION for + uppercase[drugDdimDisplayName from 2.5.1]
+            drugName = mdsInput.CurrentRxDrugProfile.DrugDdimDisplayName.ToUpper();
+
+            if (skipMDS)
             {
-                //in some condition, this
                 mdsResult.hasMdsAlert = false;
-                drugName = mdsInput.CurrentRxDrugProfile.DrugDdimDisplayName.ToUpper();
-                medResultCache = new MDSCheckCacheResult
+                patientCache.MDSCheck = new MDSCheckCacheResult
                 {
                     Req = mdsInput,
                     Res = mdsResult
                 };
-                patientCache.MDSCheck = medResultCache;
+
                 return mdsResult;
             }
-            //show at msg title: CAUTION for + uppercase[drugDdimDisplayName from 2.5.1]
-            drugName = mdsInput.CurrentRxDrugProfile.DrugDdimDisplayName.ToUpper();
 
             /*if alertProfile from 1.4.2 = G6PD, then “true”, 
               else “false”
             */
             mdsInput.HasG6pdDeficiency = checkMDS.CheckIsG6PD(alertProfileRes.AlertProfile);
-            mdsInput.HasPregnancy = false;
 
-            mdsInput.CheckDdim = false;
             /*if  hasG6pdDeficiency is true or  hasPregnancy is true, then “true”, else “false”*/
             mdsInput.CheckDdcm = mdsInput.HasG6pdDeficiency;//|| mdsInput.HasPregnancy;
             //“true” for Allergy checking
             mdsInput.CheckDam = alertProfileRes.AllergyProfile.Count() > 0;
-            //“true” for ADR checking
             mdsInput.CheckAdr = alertProfileRes.AdrProfile.Count() > 0;
-            mdsInput.CheckDscm = false;
-            mdsInput.CheckDrcm = false;
-            mdsInput.CheckDlcm = false;
-            mdsInput.CheckSteroid = false;
-            mdsInput.CheckDiscon = false;
-            mdsInput.CheckHepaB = false;
-            mdsInput.CallerSourceSystem = "PMS";
 
-            if (false == mdsInput.CheckDdcm && false == mdsInput.CheckDam && false == mdsInput.CheckAdr)
+            //if no ddcm, no allergy, no adr, then no need do MDS check
+            if (!mdsInput.CheckDdcm && !mdsInput.CheckDam && !mdsInput.CheckAdr)
             {
-                //if no ddcm, no allergy, no adr, then no need do MDS check
                 mdsResult.hasMdsAlert = false;
+
+                patientCache.MDSCheck = new MDSCheckCacheResult
+                {
+                    Req = mdsInput,
+                    Res = mdsResult
+                };
+
+                return mdsResult;
             }
-            else if(checkMDS.CheckDrugMasterResultForMDSCheck(getDrugMdsPropertyHqRes.Return[0].DrugMds, getPreparationRes.Return.PmsFmStatus, mdsInput.CurrentRxDrugProfile.DrugErrorDisplayName, ref mdsResult))
+
+            if (checkMDS.CheckDrugMasterResultForMDSCheck(getDrugMdsPropertyHqRes.Return[0].DrugMds, getPreparationRes.Return.PmsFmStatus, mdsInput.CurrentRxDrugProfile.DrugErrorDisplayName, ref mdsResult))
             {
                 mdsResult = restSvc.CheckMDS(mdsInput);
             }
-            medResultCache = new MDSCheckCacheResult
+
+            patientCache.MDSCheck = new MDSCheckCacheResult
             {
                 Req = mdsInput,
                 Res = mdsResult
             };
-            patientCache.MDSCheck = medResultCache;
 
-            FinalCheckForMDSResult(ref mdsResult);
+            FilterCheckForMDSResult(ref mdsResult);
+
             return mdsResult;
-
         }
+
         /// <summary>
         /// if moeCheckFlag =="N" && GroupMoeCheckFlag =="N", skip MDS check
         /// </summary>
@@ -355,7 +363,7 @@ namespace Demo.HL7MessageParser
         /// <param name="getPreparationRes"></param>
         /// <param name="mdsInput"></param>
         /// <returns></returns>
-        private CurrentRxDrugProfile CreateMDSRxDrugProfileIfSkipMDS(GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes, GetPreparationResponse getPreparationRes,ref bool skipMDS)
+        private CurrentRxDrugProfile CreateMDSRxDrugProfileIfSkipMDS(GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes, GetPreparationResponse getPreparationRes, ref bool skipMDS)
         {
             skipMDS = false;
             var currentRxDrugProfile = new CurrentRxDrugProfile
@@ -651,7 +659,7 @@ namespace Demo.HL7MessageParser
             if (!string.IsNullOrEmpty(volumeValue))
             {
                 decimal volumeValueDecimal = 0;
-                decimal.TryParse(volumeValue,out volumeValueDecimal);
+                decimal.TryParse(volumeValue, out volumeValueDecimal);
                 if (volumeValueDecimal > 0)
                 {
                     drugErrorDisplayName += " " + FormatVolumeValue(volumeValueDecimal) + volumeunit.ToLower();
@@ -666,12 +674,12 @@ namespace Demo.HL7MessageParser
         ///ignore the G6PD deficiency contraindication alert when the severityLevelCode  is 2 or 3
         /// </summary>
         /// <param name="mdsResult"></param>
-        private void FinalCheckForMDSResult(ref MDSCheckResult mdsResult)
+        private void FilterCheckForMDSResult(ref MDSCheckResult mdsResult)
         {
             var mdsResultForCheck = mdsResult;
             if (mdsResultForCheck.drugAllergyCheckingResults != null && mdsResultForCheck.drugAllergyCheckingResults.hasDrugAllergyAlert)
             {
-                for(int a=(mdsResultForCheck.drugAllergyCheckingResults.drugAllergyAlerts.Count() - 1); a >= 0; a--)
+                for (int a = (mdsResultForCheck.drugAllergyCheckingResults.drugAllergyAlerts.Count() - 1); a >= 0; a--)
                 {
                     //System should ignore the allergy alerts when suppress flag is true
                     if (mdsResultForCheck.drugAllergyCheckingResults.drugAllergyAlerts[a].suppress == true)
@@ -683,7 +691,7 @@ namespace Demo.HL7MessageParser
 
             if (mdsResultForCheck.ddcmCheckingResults != null && mdsResultForCheck.ddcmCheckingResults.hasDdcmAlert && mdsResultForCheck.ddcmCheckingResults.hasG6PdDeficiencyAlert)
             {
-                for(int d=(mdsResultForCheck.ddcmCheckingResults.ddcmAlerts.Count() - 1);d>=0;d--)
+                for (int d = (mdsResultForCheck.ddcmCheckingResults.ddcmAlerts.Count() - 1); d >= 0; d--)
                 {
                     //System should ignore the G6PD alerts when suppress flag is true
                     //System should ignore the G6PD deficiency contraindication alert when the severityLevelCode is 2 or 3

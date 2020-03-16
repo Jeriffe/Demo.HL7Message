@@ -1,0 +1,10 @@
+﻿<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:biz="http://biz.dms.pms.model.ha.org.hk/">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <biz:getDrugMdsPropertyHq>
+      <arg0>
+        <itemCode>DEMO04</itemCode>
+      </arg0>
+    </biz:getDrugMdsPropertyHq>
+  </soapenv:Body>
+</soapenv:Envelope>
