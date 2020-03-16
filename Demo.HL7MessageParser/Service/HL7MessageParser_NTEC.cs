@@ -33,7 +33,7 @@ namespace Demo.HL7MessageParser
         private ISoapParserSvc soapSvc;
         private ISoapWSEService soapWSESvc;
         private IRestParserSvc restSvc;
-        private CheckBeforeMDSCheck checkMDS = new CheckBeforeMDSCheck();
+        private CheckBeforeMDSChecker checkMDS = new CheckBeforeMDSChecker();
         public HL7MessageParser_NTEC()
         {
             Initialize();
@@ -165,6 +165,8 @@ namespace Demo.HL7MessageParser
         public MdsCheckFinalResult MDSCheck(string drugItemCode, PatientDemoEnquiry patientEnquiry, AlertProfileResult alertProfileRes)
         {
             MDSCheckResult mdsResult = new MDSCheckResult();
+            mdsResult.hasMdsAlert = false;
+
 
             if (alertProfileRes == null
                 || alertProfileRes.AdrProfile.Count == 0
@@ -176,7 +178,7 @@ namespace Demo.HL7MessageParser
                 Please exercise your professional judgement during the downtime period and contact [vendor contact information].*/
                 mdsResult.errorCode = "8520001001";
                 //system error, hasMdsAlert = false, only medication alert, hasMdsAlert = true
-                mdsResult.hasMdsAlert = false;
+              
                 mdsResult.errorDesc = "System cannot perform Allergy, AlertProfile is empty.";
                 //here should use drug name, not drugItemCode
                 return mdsResult.ToConvert(drugItemCode);
@@ -184,7 +186,7 @@ namespace Demo.HL7MessageParser
 
             #region check if need MDS check
             /****2.5.3 3:System should not perform MDS checking on a drug item if its itemCode starts with “PDF”, e.g. “PDF 2Q “, “PDF 48”.*****/
-            if (!checkMDS.CheckDrugCodeIfNeedMDSCheck(drugItemCode, ref mdsResult))
+            if (checkMDS.CheckDrugCodeIfNeedMDSCheck(drugItemCode))
             {
                 //here should use drug name, not drugItemCode
                 return mdsResult.ToConvert(drugItemCode);
@@ -204,7 +206,6 @@ namespace Demo.HL7MessageParser
 
             if (getDrugMdsPropertyHqRes == null || getDrugMdsPropertyHqRes.Return.Count == 0)
             {
-                mdsResult.hasMdsAlert = true;
                 mdsResult.drugError = new DrugError()
                 {
                     errorDesc = "System cannot perform Allergy, Drug Master Response is empty.",
@@ -237,7 +238,6 @@ namespace Demo.HL7MessageParser
 
             if (getPreparationRes == null || getPreparationRes.Return == null)
             {
-                mdsResult.hasMdsAlert = false;
                 mdsResult.drugError = new DrugError()
                 {
                     errorDesc = "System cannot perform Allergy, Drug Preparation Response is empty.",

@@ -29,7 +29,6 @@ namespace Demo.SoapServcie
             Token_Username = ConfigurationManager.AppSettings["Token_Username"];
 
             Token_Password = ConfigurationManager.AppSettings["Token_Password"];
-
         }
 
         public ServiceUsernameTokenManager()

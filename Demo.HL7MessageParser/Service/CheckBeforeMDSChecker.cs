@@ -6,9 +6,17 @@ using System.Text;
 
 namespace Demo.HL7MessageParser.Service
 {
-    public class CheckBeforeMDSCheck
+    public class CheckBeforeMDSChecker
     {
-        public CheckBeforeMDSCheck() { }
+        const string ERROR_SYSTEM_CANNOT_PERFORM = "System cannot perform clinical intelligence checking for the following drug(s):";
+        const string ERROR_DRUG_INFORMATION_MAPPING_IS_NOT_AVAILABLE = "System's drug information mapping is not yet available.  Please exercise your professional judgement while prescribing.";
+
+        static string[] FORM_STATUS = new string[] { "C", "D", "M", "N", "S", "X" };
+
+        public CheckBeforeMDSChecker() { }
+
+        static CheckBeforeMDSChecker() { }
+
         /// <summary>
         /// 2.5.3 2: ADR record (1.4.2) if its severity is “Mild”, not perform MDS checking for current ADR profile
         /// 2.5.3 4-2 ADR record,o	both hiclSeqNo and hicSeqNos is EMPTY or zero; and drugType = “D”
@@ -100,18 +108,9 @@ namespace Demo.HL7MessageParser.Service
                 }
             }
         }
-        public bool CheckDrugCodeIfNeedMDSCheck(string drugItemCode, ref MDSCheckResult mdsResult)
+        public bool CheckDrugCodeIfNeedMDSCheck(string drugItemCode)
         {
-            if (drugItemCode.ToUpper().StartsWith("PDF"))
-            {
-                //skip MDS checking, and NO MESSAGE
-                mdsResult.hasMdsAlert = false;
-                //mdsResult.drugError = new DrugError() {
-                //    errorDesc = string.Empty
-                //};
-                return false;
-            }
-            return true;
+            return !string.IsNullOrEmpty(drugItemCode)&&!drugItemCode.ToUpper().StartsWith("PDF");
         }
 
         /// <summary>
@@ -131,8 +130,9 @@ namespace Demo.HL7MessageParser.Service
         {
             if (drugMds.MoeCheckFlag == "N" && drugMds.GroupMoeCheckFlag == "N")
             {
-                string msg = "System cannot perform clinical intelligence checking for the following drug(s):";
-                if (new string[] { "C", "D", "M", "N", "S", "X" }.Contains(pmsFmStatus))
+                string msg = ERROR_SYSTEM_CANNOT_PERFORM;
+
+                if (FORM_STATUS.Contains(pmsFmStatus))
                 {
                     msg += Environment.NewLine + drugErrorDisplayName + " <";
                     if (pmsFmStatus == "C" || pmsFmStatus == "D") { msg += "Self-financed item"; }
@@ -147,7 +147,9 @@ namespace Demo.HL7MessageParser.Service
                 {
                     msg += Environment.NewLine + drugErrorDisplayName;
                 }
-                msg += "System's drug information mapping is not yet available.  Please exercise your professional judgement while prescribing.";
+
+                msg += ERROR_DRUG_INFORMATION_MAPPING_IS_NOT_AVAILABLE;
+
                 mdsResult.drugError = new DrugError()
                 {
                     errorDesc = msg,
@@ -162,31 +164,17 @@ namespace Demo.HL7MessageParser.Service
 
         public bool CheckIfAllergyProfileHicSeqnoNoNeedMDS(List<string> HicSeqnos)
         {
-            var result = false;
-            if (HicSeqnos != null)
+            if (HicSeqnos == null)
             {
-                foreach (var hicSeqNo in HicSeqnos)
-                {
-                    if (string.IsNullOrEmpty(hicSeqNo) || hicSeqNo == "0")
-                    {
-                        result = true;
-                        break;
-                    }
-                }
+                return false;
             }
-            return result;
+
+            return HicSeqnos.Any(item => string.IsNullOrEmpty(item) || item == "0");
         }
 
         public bool CheckIsG6PD(List<AlertProfile> alertProfiles)
         {
-            foreach (var alertProfile in alertProfiles)
-            {
-                if (!string.IsNullOrEmpty(alertProfile.AlertCode) && alertProfile.AlertCode == "A0001")
-                {
-                    return true;
-                }
-            }
-            return false;
+            return alertProfiles.Any(item => item.AlertCode == "A0001");
         }
 
     }

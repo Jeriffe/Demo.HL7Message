@@ -64,7 +64,7 @@
     <Compile Include="DrugMasterServiceProxy.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Interface\ISoapWSEService.cs" />
-    <Compile Include="Service\CheckBeforeMDSCheck.cs" />
+    <Compile Include="Service\CheckBeforeMDSChecker.cs" />
     <Compile Include="Service\HL7MessageParser_NTEC.cs" />
     <Compile Include="Interface\IHL7MessageParser.cs" />
     <Compile Include="Interface\ISoapParserSvc.cs" />
