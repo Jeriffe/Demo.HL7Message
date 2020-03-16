@@ -396,23 +396,29 @@ namespace Demo.HL7MessageParser
             GetPreparationResponse getPreparationRes,
             ref string drugName)
         {
+            var patientCache = FullCacheHK.PataientCache[patientEnquiry.CaseList[0].Number.Trim().ToUpper()];
+
             MDSCheckCacheResult medResultCache;
 
             MDSCheckResult mdsResult = new MDSCheckResult();
+            bool skipMDS = false;
 
-            var mdsInput = new MDSCheckInputParm { };
+            var mdsInput = new MDSCheckInputParm {
 
-            mdsInput.HasG6pdDeficiency = false;
+                HasG6pdDeficiency = false,
 
-            CreateMDSPatientInfo(patientEnquiry, ref mdsInput);
+                PatientInfo = CreateMDSPatientInfo(patientEnquiry),
 
-            CreateMDSUserInfo(patientEnquiry, ref mdsInput);
+                UserInfo = CreateMDSUserInfo(patientEnquiry),
 
-            CreateMDSAllergy(alertProfileRes, ref mdsInput);
+                PatientAllergyProfile = CreateMDSAllergy(alertProfileRes),
 
-            CreateMDSAdr(alertProfileRes, ref mdsInput);
+                PatientAdrProfile = CreateMDSAdr(alertProfileRes),
 
-            if (CreateMDSRxDrugProfileIfSkipMDS(getDrugMdsPropertyHqRes, getPreparationRes, ref mdsInput))
+                CurrentRxDrugProfile  = CreateMDSRxDrugProfileIfSkipMDS(getDrugMdsPropertyHqRes, getPreparationRes, ref skipMDS)
+            };
+
+            if(skipMDS)
             {
                 //in some condition, this
                 mdsResult.hasMdsAlert = false;
@@ -422,7 +428,7 @@ namespace Demo.HL7MessageParser
                     Req = mdsInput,
                     Res = mdsResult
                 };
-                FullCacheHK.MDS_CheckCache.Register(patientEnquiry.CaseList[0].Number.Trim().ToUpper(), medResultCache);
+                patientCache.MDSCheck = medResultCache;
                 return mdsResult;
             }
             //show at msg title: CAUTION for + uppercase[drugDdimDisplayName from 2.5.1]
@@ -466,7 +472,7 @@ namespace Demo.HL7MessageParser
                 Req = mdsInput,
                 Res = mdsResult
             };
-            FullCacheHK.MDS_CheckCache.Register(patientEnquiry.CaseList[0].Number.Trim().ToUpper(), medResultCache);
+            patientCache.MDSCheck = medResultCache;
 
             FinalCheckForMDSResult(ref mdsResult);
             return mdsResult;
@@ -479,9 +485,9 @@ namespace Demo.HL7MessageParser
         /// <param name="getPreparationRes"></param>
         /// <param name="mdsInput"></param>
         /// <returns></returns>
-        private bool CreateMDSRxDrugProfileIfSkipMDS(GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes, GetPreparationResponse getPreparationRes,ref MDSCheckInputParm mdsInput)
+        private CurrentRxDrugProfile CreateMDSRxDrugProfileIfSkipMDS(GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes, GetPreparationResponse getPreparationRes,ref bool skipMDS)
         {
-            bool skipMDSCheck = false;
+            skipMDS = false;
             var currentRxDrugProfile = new CurrentRxDrugProfile
             {
                 IsCapdItem = "false",
@@ -558,7 +564,7 @@ namespace Demo.HL7MessageParser
             }
             else
             {
-                skipMDSCheck = true;
+                skipMDS = true;
             }
 
             /*Type
@@ -603,13 +609,12 @@ namespace Demo.HL7MessageParser
                                                 getPreparationRes.Return.VolumeUnit);
 
 
-            mdsInput.CurrentRxDrugProfile = currentRxDrugProfile;
-
-            return skipMDSCheck;
+            return currentRxDrugProfile;
         }
 
-        private void CreateMDSAdr(AlertProfileResult alertProfileRes,ref MDSCheckInputParm mdsInput)
+        private List<PatientAdrProfile> CreateMDSAdr(AlertProfileResult alertProfileRes)
         {
+            List<PatientAdrProfile> patientAdrProfiles = new List<PatientAdrProfile>();
             foreach (var adrProfile in alertProfileRes.AdrProfile)
             {
                 var patientAdrProfile = new PatientAdrProfile
@@ -665,13 +670,16 @@ namespace Demo.HL7MessageParser
                     });
                 }
 
-                mdsInput.PatientAdrProfile.Add(patientAdrProfile);
+                patientAdrProfiles.Add(patientAdrProfile);
 
             }
+
+            return patientAdrProfiles;
         }
 
-        private void CreateMDSAllergy(AlertProfileResult alertProfileRes,ref MDSCheckInputParm mdsInput)
+        private List<PatientAllergyProfile> CreateMDSAllergy(AlertProfileResult alertProfileRes)
         {
+            List<PatientAllergyProfile> patientAllergyProfiles = new List<PatientAllergyProfile>();
             foreach (var profile in alertProfileRes.AllergyProfile)
             {
                 var patientAllergyProfile = new PatientAllergyProfile
@@ -733,13 +741,14 @@ namespace Demo.HL7MessageParser
                     });
                 }
 
-                mdsInput.PatientAllergyProfile.Add(patientAllergyProfile);
+                patientAllergyProfiles.Add(patientAllergyProfile);
             }
+            return patientAllergyProfiles;
         }
 
-        private void CreateMDSUserInfo(PatientDemoEnquiry patientEnquiry,ref MDSCheckInputParm mdsInput)
+        private MDSCheck_UserInfo CreateMDSUserInfo(PatientDemoEnquiry patientEnquiry)
         {
-            mdsInput.UserInfo = new MDSCheck_UserInfo
+            return new MDSCheck_UserInfo
             {
                 HospCode = HospitalCode,
                 PharSpec = patientEnquiry.CaseList[0].Specialty,
@@ -748,9 +757,9 @@ namespace Demo.HL7MessageParser
             };
         }
 
-        private void CreateMDSPatientInfo(PatientDemoEnquiry patientEnquiry,ref MDSCheckInputParm mdsInput)
+        private MDSCheck_PatientInfo CreateMDSPatientInfo(PatientDemoEnquiry patientEnquiry)
         {
-            mdsInput.PatientInfo = new MDSCheck_PatientInfo
+            return new MDSCheck_PatientInfo
             {
                 HKID = patientEnquiry.Patient.HKID,
                 PatientKey = patientEnquiry.Patient.Key,

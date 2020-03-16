@@ -100,13 +100,13 @@ namespace Demo.HL7MessageParser
         /// </summary>
         static Dictionary<string, T> cache = new Dictionary<string, T>();
 
-        public T this[string caseNumber]
+        public T this[string cacheKey]
         {
             get
             {
-                if (cache.ContainsKey(caseNumber))
+                if (cache.ContainsKey(cacheKey))
                 {
-                    return cache[caseNumber];
+                    return cache[cacheKey];
                 }
 
                 return default(T);
@@ -138,6 +138,8 @@ namespace Demo.HL7MessageParser
         public PatientDemoEnquiry PatientDemoEnquiry { get; set; }
         //public MedicationProfileResult MedicationProfileRes { get; set; }
         public AlertProfileResult AlertProfileRes { get; set; }
+
+        public MDSCheckCacheResult MDSCheck { get; set; }
     }
 
     public class MDSCheckCacheResult
