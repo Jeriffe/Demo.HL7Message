@@ -127,31 +127,18 @@ namespace Demo.HL7MessageParser
                     3	an allergic	Use of uppercase[drugDdimDisplayName from 2.5.1] may result in allergic reaction.
                     4	a cross-sensitivity	Use of uppercase[drugDdimDisplayName from 2.5.1] may result in cross-sensitivity reaction.                     
                      */
-                    if (allergyMsg.drugAllergyAlertMessage.Contains("an allergic/a cross-sensitivity"))
-                    {
-                        allergyMsg.drugAllergyAlertMessage = drugName + " may result in allergic/cross-sensitivity reaction.";
-                    }
-                    else if (allergyMsg.drugAllergyAlertMessage.Contains("an idiosyncratic"))
-                    {
-                        allergyMsg.drugAllergyAlertMessage = drugName + " may result in idiosyncratic reaction.";
-                    }
-                    else if (allergyMsg.drugAllergyAlertMessage.Contains("an allergic"))
-                    {
-                        allergyMsg.drugAllergyAlertMessage = drugName + " may result in allergic reaction.";
-                    }
-                    else if (allergyMsg.drugAllergyAlertMessage.Contains("a cross-sensitivity"))
-                    {
-                        allergyMsg.drugAllergyAlertMessage = drugName + " may result in cross-sensitivity reaction.";
-                    }
+
+                    allergyMsg.drugAllergyAlertMessage = AllergyMsg(drugName, allergyMsg.drugAllergyAlertMessage);
 
                     if (allergyMsg.manifestation.EndsWith(";")) allergyMsg.manifestation.TrimEnd(new char[] { ';' });
 
+                    string line1 = string.Format(allergyMsg.allergen + " - Allergy history reported{0}", Environment.NewLine);
+                    string line2 = string.Format("Clinical Manifestation: " + allergyMsg.manifestation + "{0}", Environment.NewLine);
+                    string line3 = string.Format("Additional Information: " + allergyMsg.remark + "{0}", Environment.NewLine);
+                    string line4 = string.Format("Level of Certainty: " + allergyMsg.certainty + "{0}", Environment.NewLine);
+
                     resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("Allergy Checking",
-                            allergyMsg.allergen + " - Allergy history reported" + "\r\n" +
-                            "Clinical Manifestation: " + allergyMsg.manifestation + "\r\n" +
-                            "Additional Information: " + allergyMsg.remark + "\r\n" +
-                            "Level of Certainty: " + allergyMsg.certainty + "\r\n" +
-                            allergyMsg.drugAllergyAlertMessage));
+                                    line1 + line2 + line3 + line4 + allergyMsg.drugAllergyAlertMessage));
                 }
             }
             #endregion
@@ -162,10 +149,7 @@ namespace Demo.HL7MessageParser
                 foreach (string ddcmAlert in mdsResult.ddcmCheckingResults.ddcmAlertMessages)
                 {
                     resultForShow.MdsCheckAlertDetails.Add(
-                        new MdsCheckAlert(
-                                            "G6PD Deficiency Contraindication Checking",
-                                            ddcmAlert
-                                         )
+                        new MdsCheckAlert("G6PD Deficiency Contraindication Checking", ddcmAlert)
                         );
                 }
             }
@@ -178,34 +162,65 @@ namespace Demo.HL7MessageParser
                 {
                     if (adrAlert.reaction.EndsWith(";")) adrAlert.reaction.TrimEnd(new char[] { ';' });
 
-                    if (adrAlert.drugAdrAlertMessage.Contains("an allergic/a cross-sensitivity"))
-                    {
-                        adrAlert.drugAdrAlertMessage = drugName + " may result in adverse drug/cross-sensitivity reaction.";
-                    }
-                    else if (adrAlert.drugAdrAlertMessage.Contains("an idiosyncratic"))
-                    {
-                        adrAlert.drugAdrAlertMessage = drugName + " may result in idiosyncratic reaction.";
-                    }
-                    else if (adrAlert.drugAdrAlertMessage.Contains("an allergic"))
-                    {
-                        adrAlert.drugAdrAlertMessage = drugName + " may result in adverse drug reaction.";
-                    }
-                    else if (adrAlert.drugAdrAlertMessage.Contains("a cross-sensitivity"))
-                    {
-                        adrAlert.drugAdrAlertMessage = drugName + " may result in cross-sensitivity reaction.";
-                    }
+                    adrAlert.drugAdrAlertMessage = AdrAlertMessage(drugName, adrAlert.drugAdrAlertMessage);
+
+                    string line1 = string.Format(drugName + " - Adverse drug reaction history reported{0}", Environment.NewLine);
+                    string line2 = string.Format("Adverse Drug Reaction: " + adrAlert.reaction + "{0}", Environment.NewLine);
+                    string line3 = string.Format("Additional Information: " + adrAlert.remark + "{0}", Environment.NewLine);
+                    string line4 = string.Format("Level of Severity: " + adrAlert.severity + "{0}", Environment.NewLine);
+
                     resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("Adverse Drug Reaction Checking",
-                        drugName + " - Adverse drug reaction history reported" + "\r\n" +
-                        "Adverse Drug Reaction: " + adrAlert.reaction + "\r\n" +
-                        "Additional Information: " + adrAlert.remark + "\r\n" +
-                        "Level of Severity: " + adrAlert.severity + "\r\n" +
-                        adrAlert.drugAdrAlertMessage
+                        line1 + line2 + line3 + line4 + adrAlert.drugAdrAlertMessage
                         ));
                 }
             }
             #endregion
 
             return resultForShow;
+        }
+
+        public static string AllergyMsg(string drugName, string targetMessage)
+        {
+            if (targetMessage.Contains("an allergic/a cross-sensitivity"))
+            {
+                return drugName + " may result in allergic/cross-sensitivity reaction.";
+            }
+            else if (targetMessage.Contains("an idiosyncratic"))
+            {
+                return drugName + " may result in idiosyncratic reaction.";
+            }
+            else if (targetMessage.Contains("an allergic"))
+            {
+                return drugName + " may result in allergic reaction.";
+            }
+            else if (targetMessage.Contains("a cross-sensitivity"))
+            {
+                return drugName + " may result in cross-sensitivity reaction.";
+            }
+
+            return targetMessage;
+        }
+
+        public static string AdrAlertMessage(string drugName, string targetMessage)
+        {
+            if (targetMessage.Contains("an allergic/a cross-sensitivity"))
+            {
+                return drugName + " may result in adverse drug/cross-sensitivity reaction.";
+            }
+            else if (targetMessage.Contains("an idiosyncratic"))
+            {
+                return drugName + " may result in idiosyncratic reaction.";
+            }
+            else if (targetMessage.Contains("an allergic"))
+            {
+                return drugName + " may result in adverse drug reaction.";
+            }
+            else if (targetMessage.Contains("a cross-sensitivity"))
+            {
+                return drugName + " may result in cross-sensitivity reaction.";
+            }
+
+            return targetMessage;
         }
 
     }
