@@ -210,9 +210,9 @@ namespace Demo.HL7MessageParser.WinForms
                         var resultJson = JsonHelper.ToJson(mdsResponse);
                         scintillaMdsCheckRes.Text = JsonHelper.FormatJson(resultJson);
 
-                        if (FullCacheHK.DrugMasterCache[CASE_NUMBER]!=null)
+                        if (FullCacheHK.DrugMasterCache[itemCode] !=null)
                         {
-                            var drugMasterCache = FullCacheHK.DrugMasterCache[CASE_NUMBER];
+                            var drugMasterCache = FullCacheHK.DrugMasterCache[itemCode];
 
                             scintillaDrugMdsPropertyHqReq.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugMdsPropertyHqReq);
                             scintillaDrugMdsPropertyHqRes.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugMdsPropertyHqRes);
