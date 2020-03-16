@@ -882,7 +882,12 @@ namespace Demo.HL7MessageParser
             drugErrorDisplayName += string.IsNullOrEmpty(strength) ? string.Empty : strength.ToLower();
             if (!string.IsNullOrEmpty(volumeValue))
             {
-                //....need .......to do
+                decimal volumeValueDecimal = 0;
+                decimal.TryParse(volumeValue,out volumeValueDecimal);
+                if (volumeValueDecimal > 0)
+                {
+                    drugErrorDisplayName += " " + volumeValueDecimal.ToString("#######.####") + volumeunit.ToLower();
+                }
             }
             return drugErrorDisplayName;
         }
