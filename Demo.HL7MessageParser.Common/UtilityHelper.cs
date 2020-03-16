@@ -79,13 +79,13 @@ namespace Demo.HL7MessageParser.Common
             HKID_ItemCode_Mapping["H2003016"] = "DEMO16";
             HKID_ItemCode_Mapping["H2003017"] = "DEMO17";
             HKID_ItemCode_Mapping["H2003018"] = "DEMO18";
-            ItemCode_HKID_Mapping["H2003019"] = "DEMO19";
-            ItemCode_HKID_Mapping["H2003020"] = "DEMO20";
-            ItemCode_HKID_Mapping["H2003021"] = "DEMO21";
-            ItemCode_HKID_Mapping["H2003022"] = "DEMO22";
-            ItemCode_HKID_Mapping["H2003023"] = "DEMO23";
-            ItemCode_HKID_Mapping["H2003024"] = "DEMO24";
-            ItemCode_HKID_Mapping["H2003025"] = "DEMO25";
+            HKID_ItemCode_Mapping["H2003019"] = "DEMO19";
+            HKID_ItemCode_Mapping["H2003020"] = "DEMO20";
+            HKID_ItemCode_Mapping["H2003021"] = "DEMO21";
+            HKID_ItemCode_Mapping["H2003022"] = "DEMO22";
+            HKID_ItemCode_Mapping["H2003023"] = "DEMO23";
+            HKID_ItemCode_Mapping["H2003024"] = "DEMO24";
+            HKID_ItemCode_Mapping["H2003025"] = "DEMO25";
         }
 
         public static Dictionary<string, string> ItemCode_HKID_Mapping { get; private set; }
