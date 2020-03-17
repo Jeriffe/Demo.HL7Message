@@ -39,6 +39,9 @@ namespace Demo.HL7MessageParser.WinForms
             GetDrugMdsPropertyHqResponseSeed = Path.Combine(baseDir, @"Demo\DM\getDrugMdsPropertyHq\H2003001_DEMO01.xml");
 
             GetPreparationResponseSeed = Path.Combine(baseDir, @"Demo\DM\getPreparation\H2003001_DEMO01.xml");
+
+
+            txtCaseNumber.Text = "HN202003021";
         }
 
         string baseDir = AppDomain.CurrentDomain.BaseDirectory;
@@ -62,7 +65,7 @@ namespace Demo.HL7MessageParser.WinForms
             var caseNumberCount = int.Parse(caseNumberOriginal);
 
             var itemcodeCount = int.Parse(caseNumberOriginal.Substring(caseNumberOriginal.Length - 2, 2));
-            for (int index = 0; index < 16; index++)
+            for (int index = 0; index < 10; index++)
             {
                 var casenumber = string.Format("HN20{0}", caseNumberCount + index);
                 var hkid = string.Format("H{0}", caseNumberCount + index);

@@ -1,0 +1,138 @@
+{
+    "AdrProfile": [
+        {
+            "AdrSeqNo": "0000004921",
+            "AliasName": "",
+            "DisplayName": "ASPIRIN",
+            "Drug": "ASPIRIN",
+            "DrugType": "D",
+            "HicSeqno": [
+                
+            ],
+            "HiclSeqno": "1820",
+            "NameType": "D",
+            "Reaction": "Abdominal Pain with Cramps; Heartburn",
+            "Remark": "TEST 2",
+            "Salt": "",
+            "Severity": "Severe",
+            "SeverityCode": "S",
+            "SourceSystem": "CMS3",
+            "TextColor": "#000000",
+            "UpdateBy": "Y2KMED",
+            "UpdateDtm": "29-08-2019 16:43:06",
+            "UpdateHospital": "VH",
+            "UpdateRankDesc": "Department Manager (Pharmacy)",
+            "UpdateUser": "AA, FORMAT in IP",
+            "UpdateUserRank": "Department Manager (Pharmacy)"
+        },
+        {
+            "AdrSeqNo": "0000004920",
+            "AliasName": "",
+            "DisplayName": "DEXTROSE 5% + LACTATED RINGER`S",
+            "Drug": "DEXTROSE 5% + LACTATED RINGER`S",
+            "DrugType": "D",
+            "HicSeqno": [
+                
+            ],
+            "HiclSeqno": null,
+            "NameType": "D",
+            "Reaction": "Administration Site Infection",
+            "Remark": "",
+            "Salt": "",
+            "Severity": "Severe",
+            "SeverityCode": "S",
+            "SourceSystem": "CMS3",
+            "TextColor": "#000000",
+            "UpdateBy": "Y2KMED",
+            "UpdateDtm": "21-08-2019 17:06:13",
+            "UpdateHospital": "VH",
+            "UpdateRankDesc": "Department Manager (Pharmacy)",
+            "UpdateUser": "AA, FORMAT in IP",
+            "UpdateUserRank": "Department Manager (Pharmacy)"
+        }
+    ],
+    "AlertProfile": [
+        {
+            "AlertCode": "A0001",
+            "AlertDesc": "G6PD Deficiency",
+            "AlertSeqNo": "0000043647",
+            "ClassifiedIndicator": "N",
+            "Remark": "TEST 3",
+            "TextColor": "#000000",
+            "UpdateDtm": "28-08-2019 14:33:28",
+            "UpdateHospital": "VH",
+            "UpdateUser": "AA, FORMAT in IP",
+            "UpdateUserRank": "Department Manager (Pharmacy)",
+            "ValidFrom": "",
+            "ValidPeriod": "",
+            "ValidTo": ""
+        }
+    ],
+    "AllergyProfile": [
+        {
+            "AliasName": "KEPPRA",
+            "Allergen": "KEPPRA [LEVETIRACETAM]",
+            "AllergenType": "D",
+            "AllergySeqNo": "0000090222",
+            "Certainty": "Certain",
+            "CertaintyCode": "C",
+            "DisplayName": "LEVETIRACETAM",
+            "HicSeqno": [
+                
+            ],
+            "HiclSeqno": "20952",
+            "Manifestation": "Asthma; Rash",
+            "NameType": "T",
+            "Remark": "Rash",
+            "Salt": "",
+            "SourceSystem": "CMS3",
+            "TextColor": "#000000",
+            "UpdateBy": "Y2KMED",
+            "UpdateDtm": "29-08-2019 16:43:39",
+            "UpdateHospital": "VH",
+            "UpdateRankDesc": "Department Manager (Pharmacy)",
+            "UpdateUser": "AA, FORMAT in IP",
+            "UpdateUserRank": "Department Manager (Pharmacy)",
+            "CreateDtm": null,
+            "AllergyCode": null
+        },
+        {
+            "AliasName": "",
+            "Allergen": "ASPIRIN",
+            "AllergenType": "D",
+            "AllergySeqNo": "0000090237",
+            "Certainty": "Certain",
+            "CertaintyCode": "C",
+            "DisplayName": "ASPIRIN",
+            "HicSeqno": [
+                
+            ],
+            "HiclSeqno": "1820",
+            "Manifestation": "Rash; Urticaria",
+            "NameType": "D",
+            "Remark": "TEST 1",
+            "Salt": "",
+            "SourceSystem": "CMS3",
+            "TextColor": "#000000",
+            "UpdateBy": "Y2KMED",
+            "UpdateDtm": "28-08-2019 14:47:34",
+            "UpdateHospital": "VH",
+            "UpdateRankDesc": "Department Manager (Pharmacy)",
+            "UpdateUser": "AA, FORMAT in IP",
+            "UpdateUserRank": "Department Manager (Pharmacy)",
+            "CreateDtm": null,
+            "AllergyCode": null
+        }
+    ],
+    "ErrorMessage": [
+        
+    ],
+    "MoePatientSteroidTag": null,
+    "SimpleDisplayFormat": [
+        {
+            "AdrRecord": "1. ASPIRIN; 2. DEXTROSE 5% + LACTATED RINGER`S; 3. RIDAURA [AURANOFIN]",
+            "AlertRecord": "1. G6PD Deficiency",
+            "AllergyRecord": "1. KEPPRA [LEVETIRACETAM]; 2. ASPIRIN; 3. DEXTROSE 5% + LACTATED RINGER`S; 4. ANTI-D IMMUNOGLOBULIN (HUMAN)"
+        }
+    ]
+}
