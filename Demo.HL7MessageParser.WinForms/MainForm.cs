@@ -22,7 +22,7 @@ namespace Demo.HL7MessageParser.WinForms
         {
             if (keyData== Keys.F5)
             {
-
+                new SampleDataMgr().ShowDialog();
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
