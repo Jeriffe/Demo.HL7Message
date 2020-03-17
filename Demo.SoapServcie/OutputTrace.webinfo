@@ -37329,4 +37329,820 @@ File name: 'D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.SoapServcie\Data\Soa
       </soap:Envelope>
     </processingStep>
   </outputMessage>
+  <outputMessage utc="2020/3/17 上午 03:11:27" messageId="urn:uuid:32490075-d823-477b-bdf5-04740bcbcc31">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:32490075-d823-477b-bdf5-04740bcbcc31</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:496d16f5-1531-4790-a3c2-bce430a4fd30</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-d0ffb6f8-4d9a-4e2c-855e-c8c653a92f30">
+              <wsu:Created>2020-03-17T03:11:27Z</wsu:Created>
+              <wsu:Expires>2020-03-17T03:16:27Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="2020/3/17 上午 03:20:21" messageId="urn:uuid:adab9228-903f-417a-a27e-53eee81506ad">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:adab9228-903f-417a-a27e-53eee81506ad</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:701b0c44-f8de-4c72-9bf3-bc25c334fab1</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-97a330fe-ec38-425b-8b42-e9d3c5853fa6">
+              <wsu:Created>2020-03-17T03:20:21Z</wsu:Created>
+              <wsu:Expires>2020-03-17T03:25:21Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="2020/3/17 上午 03:29:02" messageId="urn:uuid:6df8414f-c51f-48b0-b564-599f217c4f3c">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003003</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>王钢蛋</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003003</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:6df8414f-c51f-48b0-b564-599f217c4f3c</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:965d4b01-be64-419f-8f6a-a89733dcd1e5</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-56327ef2-e9d3-49a9-9a41-368dee013b4f">
+              <wsu:Created>2020-03-17T03:29:02Z</wsu:Created>
+              <wsu:Expires>2020-03-17T03:34:02Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003003</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>王钢蛋</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003003</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="2020/3/17 上午 03:29:09" messageId="urn:uuid:4ede7c94-cf7d-4e26-987a-53744eb1a99c">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getDrugMdsPropertyHqResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:4ede7c94-cf7d-4e26-987a-53744eb1a99c</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:6b3be60b-a153-403b-ac52-c0acb264009e</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-862b1c32-f102-4cc4-b38a-40bab7aa4234">
+              <wsu:Created>2020-03-17T03:29:09Z</wsu:Created>
+              <wsu:Expires>2020-03-17T03:34:09Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>AMET02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="2020/3/17 上午 03:29:12" messageId="urn:uuid:962bfe71-f96e-4765-a25b-8ac16349c881">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>DEMO02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getDrugMdsPropertyHqResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:962bfe71-f96e-4765-a25b-8ac16349c881</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:5e842ab0-b2a3-4ff5-b345-11a3da01846a</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-85b30923-4d45-4352-942c-f50aa6f7b031">
+              <wsu:Created>2020-03-17T03:29:12Z</wsu:Created>
+              <wsu:Expires>2020-03-17T03:34:12Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>DEMO02</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="2020/3/17 上午 03:29:15" messageId="urn:uuid:e471868d-fc72-418a-a261-c1cf071b1c29">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>DEMO03</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getDrugMdsPropertyHqResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:e471868d-fc72-418a-a261-c1cf071b1c29</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:6d70cfa0-bfb9-457f-997d-86b7d0fd544e</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-435f12a4-cc1b-4c6e-ad96-87fa07aa456a">
+              <wsu:Created>2020-03-17T03:29:15Z</wsu:Created>
+              <wsu:Expires>2020-03-17T03:34:15Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/">
+            <ns2:return>
+              <ns2:drugKey>181</ns2:drugKey>
+              <ns2:drugMds>
+                <ns2:duplicateFlag>false</ns2:duplicateFlag>
+                <ns2:gcnSeqno>16491</ns2:gcnSeqno>
+                <ns2:groupGcnSeqno>0</ns2:groupGcnSeqno>
+                <ns2:groupMoeCheckFlag>Y</ns2:groupMoeCheckFlag>
+                <ns2:groupRoutedGeneric>6292938</ns2:groupRoutedGeneric>
+                <ns2:groupRouteformGeneric>3740</ns2:groupRouteformGeneric>
+                <ns2:groupSingleIngred>Y</ns2:groupSingleIngred>
+                <ns2:hiclSeqno>1482</ns2:hiclSeqno>
+                <ns2:moeCheckFlag>Y</ns2:moeCheckFlag>
+                <ns2:routedGeneric>6292938</ns2:routedGeneric>
+                <ns2:routeformGeneric>3740</ns2:routeformGeneric>
+              </ns2:drugMds>
+              <ns2:drugProperty>
+                <ns2:displayname>AMETHOCAINE</ns2:displayname>
+                <ns2:dosageCompul>Y</ns2:dosageCompul>
+                <ns2:drugKey>181</ns2:drugKey>
+                <ns2:fixedPeriod>N</ns2:fixedPeriod>
+                <ns2:formCode>MIN</ns2:formCode>
+                <ns2:saltProperty>HCL</ns2:saltProperty>
+                <ns2:screenDisplayname>AMETHOCAINE</ns2:screenDisplayname>
+                <ns2:screenSalt>HCL</ns2:screenSalt>
+                <ns2:strengthCompul>Y</ns2:strengthCompul>
+                <ns2:updateDate>2008-04-30T17:37:49+08:00</ns2:updateDate>
+                <ns2:updateUser>MCW093</ns2:updateUser>
+                <ns2:updateVersion>0</ns2:updateVersion>
+              </ns2:drugProperty>
+              <ns2:itemCode>DEMO03</ns2:itemCode>
+            </ns2:return>
+          </ns2:getDrugMdsPropertyHqResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="2020/3/17 上午 03:29:18" messageId="urn:uuid:39ea07ad-e2fd-436f-a5c3-1b63d00d9985">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/" />
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Security.Wse2PipelinePolicy+LegacyFilterWrapper" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://biz.dms.pms.model.ha.org.hk/getDrugMdsPropertyHqResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:39ea07ad-e2fd-436f-a5c3-1b63d00d9985</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:1c5b6b00-3c73-4219-a2ca-ff83b808d55f</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-a9a15810-6818-4424-91bb-66dc643a4eba">
+              <wsu:Created>2020-03-17T03:29:18Z</wsu:Created>
+              <wsu:Expires>2020-03-17T03:34:18Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:getDrugMdsPropertyHqResponse xmlns:ns2="http://biz.dms.pms.model.ha.org.hk/" />
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="2020/3/17 上午 03:29:25" messageId="urn:uuid:a6ca1193-4623-41f8-b054-f82ef7d90644">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:a6ca1193-4623-41f8-b054-f82ef7d90644</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:c54fae97-a70e-4d3a-ad3f-4219a9c9fc4a</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-21a349be-832f-4bc4-996e-9ebef88dfec8">
+              <wsu:Created>2020-03-17T03:29:25Z</wsu:Created>
+              <wsu:Expires>2020-03-17T03:34:25Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20200302 16:06</admissionDatetime>
+                  <bedNo>01</bedNo>
+                  <hospitalCode>TPH</hospitalCode>
+                  <number> HN202003001</number>
+                  <patientType>PA</patientType>
+                  <sourceCode>AHN</sourceCode>
+                  <sourceIndicator>5</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>4CL</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</building>
+                  <districtCode>TP</districtCode>
+                  <fullEnglishAddress>Rm A,B 1/F.  SHOP A &amp; B OF G/F AND 1/F, CINNAMON COURT, PHASE II, FULLER GARDENS, 23 KAU HUI CHIK STREET TAI PO NEW TERRITORIES BEAUTIFUL LIFE (TAI PO) AGED HOME</fullEnglishAddress>
+                  <record_id>5000667</record_id>
+                  <room>A,B</room>
+                </address>
+                <CCCode1>78061</CCCode1>
+                <CCCode2>08571</CCCode2>
+                <CCCode3>35551</CCCode3>
+                <chineseName>邵逸夫</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19670223</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>H2003001</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <homePhone>26656100</homePhone>
+                <key>02271254</key>
+                <lastPayCode>PA</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>WONG, KA WAI</name>
+                <race>CH</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
 </log>

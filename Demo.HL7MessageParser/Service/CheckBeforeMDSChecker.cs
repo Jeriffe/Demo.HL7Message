@@ -110,12 +110,13 @@ namespace Demo.HL7MessageParser.Service
                 };
             }
         }
-        public bool CheckDrugCodeIfNeedMDSCheck(string drugItemCode)
+        public bool CheckDrugCodeIfNoNeedMDSCheck(string drugItemCode)
         {
-            return !string.IsNullOrEmpty(drugItemCode) && !drugItemCode.ToUpper().StartsWith("PDF");
+            return string.IsNullOrEmpty(drugItemCode) && drugItemCode.ToUpper().StartsWith("PDF");
         }
 
         /// <summary>
+        /// both [moeCheckFlag from 2.4.1.2] and [GroupMoeCheckFlag from 2.4.1.2] is “N”, no need to execute MDS
         /// System cannot perform clinical intelligence checking for the following drug(s) :
         /// If[pmsFmStatus from 2.4.2.2] = “C”, “D”, “M”, “N”, “S” or “X”,
         ///    then[drugErrorDisplayName] + “ <” +
@@ -132,7 +133,7 @@ namespace Demo.HL7MessageParser.Service
         {
             if (drugMds.MoeCheckFlag != "N" || drugMds.GroupMoeCheckFlag != "N")
             {
-                return false;
+                return true;
             }
 
             string msg = string.Format("{0}{1}{2}", ERROR_SYSTEM_CANNOT_PERFORM, Environment.NewLine, drugErrorDisplayName);
