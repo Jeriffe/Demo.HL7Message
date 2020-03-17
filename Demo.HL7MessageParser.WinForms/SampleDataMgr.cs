@@ -254,6 +254,8 @@ namespace Demo.HL7MessageParser.WinForms
                     }
 
                 }
+
+                MessageBox.Show("Verify successfully......");
             }
             catch (Exception ex)
             {

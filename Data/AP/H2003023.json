@@ -6,7 +6,7 @@
             "DisplayName": "ASPIRIN",
             "Drug": "ASPIRIN",
             "DrugType": "D",
-            "HicSeqno": "10000",
+            "HicSeqno": ["10000"],
             "HiclSeqno": "200001",
             "NameType": "D",
             "Reaction": "Abdominal Pain with Cramps; Heartburn",
