@@ -74,12 +74,11 @@
             "Allergen": "KEPPRA [LEVETIRACETAM]",
             "AllergenType": "D",
             "AllergySeqNo": "0000090222",
+			"allergyCode":"",
             "Certainty": "Certain",
             "CertaintyCode": "C",
             "DisplayName": "LEVETIRACETAM",
-            "HicSeqno": [
-                
-            ],
+            "HicSeqno":"",
             "HiclSeqno": "20952",
             "Manifestation": "Asthma; Rash",
             "NameType": "T",

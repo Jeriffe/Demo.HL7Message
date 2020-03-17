@@ -63,6 +63,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.scintillaMdsCheckRes = new ScintillaNET.Scintilla();
             this.btnDeploy = new System.Windows.Forms.Button();
+            this.btnVerifyAll = new System.Windows.Forms.Button();
             this.gbxSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -109,6 +110,7 @@
             // 
             // gbxSearch
             // 
+            this.gbxSearch.Controls.Add(this.btnVerifyAll);
             this.gbxSearch.Controls.Add(this.btnDeploy);
             this.gbxSearch.Controls.Add(this.btnSave);
             this.gbxSearch.Controls.Add(this.btnVerify);
@@ -522,7 +524,7 @@
             // 
             // btnDeploy
             // 
-            this.btnDeploy.Location = new System.Drawing.Point(548, 38);
+            this.btnDeploy.Location = new System.Drawing.Point(958, 36);
             this.btnDeploy.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeploy.Name = "btnDeploy";
             this.btnDeploy.Size = new System.Drawing.Size(173, 26);
@@ -530,6 +532,17 @@
             this.btnDeploy.Text = "DeploySampletoTargert";
             this.btnDeploy.UseVisualStyleBackColor = true;
             this.btnDeploy.Click += new System.EventHandler(this.btnDeploy_Click);
+            // 
+            // btnVerifyAll
+            // 
+            this.btnVerifyAll.Location = new System.Drawing.Point(825, 36);
+            this.btnVerifyAll.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVerifyAll.Name = "btnVerifyAll";
+            this.btnVerifyAll.Size = new System.Drawing.Size(100, 26);
+            this.btnVerifyAll.TabIndex = 13;
+            this.btnVerifyAll.Text = "VerifyAll";
+            this.btnVerifyAll.UseVisualStyleBackColor = true;
+            this.btnVerifyAll.Click += new System.EventHandler(this.btnVerifyAll_Click);
             // 
             // SampleDataMgr
             // 
@@ -624,5 +637,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private ScintillaNET.Scintilla scintillaMdsCheckRes;
         private System.Windows.Forms.Button btnDeploy;
+        private System.Windows.Forms.Button btnVerifyAll;
     }
 }

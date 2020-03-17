@@ -1,0 +1,25 @@
+﻿<alertInputParm>
+	<patientInfo>
+		<hkid>H2003013</hkid>
+		<name>PATIENT, 0013</name>
+		<dob>20030113</dob>
+		<sex>M</sex>
+		<cccode1></cccode1>
+		<cccode2></cccode2>
+		<cccode3></cccode3>
+		<cccode4></cccode4>
+		<cccode5></cccode5>
+		<cccode6></cccode6>
+	</patientInfo>
+	<userInfo>
+		<hospCode>VH</hospCode>
+		<loginId>itdadmin</loginId>
+	</userInfo>
+	<sysInfo>
+		<wsId>160.68.34.60</wsId>
+		<sourceSystem>PMS</sourceSystem>
+	</sysInfo>
+	<credentials>
+		<accessCode>YAYRoZAJoaYD5qYZbwjQsTGI</accessCode>
+	</credentials>
+</alertInputParm>
