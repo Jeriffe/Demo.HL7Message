@@ -25,41 +25,43 @@ namespace Demo.HL7MessageParser.Service
         /// <param name="alertProfileRes"></param>
         public void CheckADRProfileForMDSCheck(ref AlertProfileResult alertProfileRes, ref MDSCheckResult mdsResult)
         {
-            if (alertProfileRes.AdrProfile != null && alertProfileRes.AdrProfile.Count() > 0)
+            if (alertProfileRes.AdrProfile == null || alertProfileRes.AdrProfile.Count() == 0)
             {
-                AdrProfile[] adrProfiles = new AdrProfile[alertProfileRes.AdrProfile.Count()];
-                alertProfileRes.AdrProfile.CopyTo(adrProfiles);
-                List<string> adrDrugList = new List<string>();
-                foreach (var adrProfile in adrProfiles)
+                return;
+            }
+
+            AdrProfile[] adrProfiles = new AdrProfile[alertProfileRes.AdrProfile.Count()];
+            alertProfileRes.AdrProfile.CopyTo(adrProfiles);
+            List<string> adrDrugList = new List<string>();
+            foreach (var adrProfile in adrProfiles)
+            {
+                //2.5.3 2 if its severity is “Mild”, not perform MDS checking, no msg
+                if ("MILD".Equals(adrProfile.Severity, StringComparison.OrdinalIgnoreCase))
                 {
-                    //2.5.3 2 if its severity is “Mild”, not perform MDS checking, no msg
-                    if (!string.IsNullOrEmpty(adrProfile.Severity) && adrProfile.Severity.ToUpper() == "MILD")
+                    alertProfileRes.AdrProfile.Remove(alertProfileRes.AdrProfile.First(a => a.AdrSeqNo == adrProfile.AdrSeqNo));
+                }
+                //2.5.3 4-2 both hiclSeqNo and hicSeqNos is EMPTY or zero; and drugType = “D”, no MDS check and prompt msg
+                if (adrProfile.HiclSeqno == "0" && adrProfile.DrugType == "D")
+                {
+                    if (CheckIfAllergyProfileHicSeqnoNoNeedMDS(adrProfile.HicSeqno))
                     {
-                        alertProfileRes.AdrProfile.Remove(alertProfileRes.AdrProfile.First(a => a.AdrSeqNo == adrProfile.AdrSeqNo));
-                    }
-                    //2.5.3 4-2 both hiclSeqNo and hicSeqNos is EMPTY or zero; and drugType = “D”, no MDS check and prompt msg
-                    if ((string.IsNullOrEmpty(adrProfile.HiclSeqno) || adrProfile.HiclSeqno.Trim() == "0")
-                         &&
-                         CheckIfAllergyProfileHicSeqnoNoNeedMDS(adrProfile.HicSeqno)
-                         &&
-                         adrProfile.DrugType == "D"
-                       )
-                    {
-                        alertProfileRes.AdrProfile.Remove(alertProfileRes.AdrProfile.First(a => a.AdrSeqNo == adrProfile.AdrSeqNo));
+                        alertProfileRes.AdrProfile.RemoveAll(a => a.AdrSeqNo == adrProfile.AdrSeqNo);
+
                         adrDrugList.Add(adrProfile.Drug);
                     }
                 }
-                if (adrDrugList.Count() > 0)
+            }
+
+            if (adrDrugList.Count() > 0)
+            {
+                var msg = "System cannot perform adverse drug reaction checking for the following ADR record(s) in the alert function:";
+                msg += string.Join("; ", adrDrugList.ToArray()).TrimEnd(new char[] { ';', ' ' });
+
+                mdsResult.adrError = new AdrError
                 {
-                    var msg = "System cannot perform adverse drug reaction checking for the following ADR record(s) in the alert function:";
-                    msg += string.Join("; ", adrDrugList.ToArray()).TrimEnd(new char[] { ';', ' ' });
-                    mdsResult.hasMdsAlert = true;
-                    mdsResult.adrError = new AdrError()
-                    {
-                        errorDesc = msg,
-                        hasAdrError = true
-                    };
-                }
+                    errorDesc = msg,
+                    hasAdrError = true
+                };
             }
         }
 
