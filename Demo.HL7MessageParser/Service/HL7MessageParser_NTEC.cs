@@ -33,7 +33,7 @@ namespace Demo.HL7MessageParser
         private ISoapParserSvc soapSvc;
         private ISoapWSEService soapWSESvc;
         private IRestParserSvc restSvc;
-        private CheckBeforeMDSChecker checkMDS = new CheckBeforeMDSChecker();
+        private CheckBeforeMDSChecker mdsChecker = new CheckBeforeMDSChecker();
         public HL7MessageParser_NTEC()
         {
             Initialize();
@@ -186,16 +186,16 @@ namespace Demo.HL7MessageParser
 
             #region check if need MDS check
             /****2.5.3 3:System should not perform MDS checking on a drug item if its itemCode starts with “PDF”, e.g. “PDF 2Q “, “PDF 48”.*****/
-            if (checkMDS.CheckDrugCodeIfNeedMDSCheck(drugItemCode))
+            if (mdsChecker.CheckDrugCodeIfNeedMDSCheck(drugItemCode))
             {
                 //here should use drug name, not drugItemCode
                 return mdsResult.ToConvert(drugItemCode);
             }
             /*****2.5.3 2: ADR record (1.4.2) if its severity is “Mild”, not perform MDS checking for current ADR profile*****/
-            checkMDS.CheckADRProfileForMDSCheck(ref alertProfileRes, ref mdsResult);
+            mdsChecker.CheckADRProfileForMDSCheck(ref alertProfileRes, ref mdsResult);
 
             /****2.5.3 4-1:System should alert user and not perform MDS checking ...*******/
-            checkMDS.CheckAllergyProfileForMDSCheck(ref alertProfileRes, ref mdsResult);
+            mdsChecker.CheckAllergyProfileForMDSCheck(ref alertProfileRes, ref mdsResult);
             #endregion
 
             var getDrugMdsPropertyHqReq = new GetDrugMdsPropertyHqRequest
@@ -318,7 +318,7 @@ namespace Demo.HL7MessageParser
             /*if alertProfile from 1.4.2 = G6PD, then “true”, 
               else “false”
             */
-            mdsInput.HasG6pdDeficiency = checkMDS.CheckIsG6PD(alertProfileRes.AlertProfile);
+            mdsInput.HasG6pdDeficiency = mdsChecker.CheckIsG6PD(alertProfileRes.AlertProfile);
 
             /*if  hasG6pdDeficiency is true or  hasPregnancy is true, then “true”, else “false”*/
             mdsInput.CheckDdcm = mdsInput.HasG6pdDeficiency;//|| mdsInput.HasPregnancy;
@@ -340,7 +340,7 @@ namespace Demo.HL7MessageParser
                 return mdsResult;
             }
 
-            if (checkMDS.CheckDrugMasterResultForMDSCheck(getDrugMdsPropertyHqRes.Return[0].DrugMds, getPreparationRes.Return.PmsFmStatus, mdsInput.CurrentRxDrugProfile.DrugErrorDisplayName, ref mdsResult))
+            if (mdsChecker.CheckDrugMasterResultForMDSCheck(getDrugMdsPropertyHqRes.Return[0].DrugMds, getPreparationRes.Return.PmsFmStatus, mdsInput.CurrentRxDrugProfile.DrugErrorDisplayName, ref mdsResult))
             {
                 mdsResult = restSvc.CheckMDS(mdsInput);
             }

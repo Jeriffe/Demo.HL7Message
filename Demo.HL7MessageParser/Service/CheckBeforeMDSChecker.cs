@@ -15,8 +15,6 @@ namespace Demo.HL7MessageParser.Service
 
         public CheckBeforeMDSChecker() { }
 
-        static CheckBeforeMDSChecker() { }
-
         /// <summary>
         /// 2.5.3 2: ADR record (1.4.2) if its severity is “Mild”, not perform MDS checking for current ADR profile
         /// 2.5.3 4-2 ADR record,o	both hiclSeqNo and hicSeqNos is EMPTY or zero; and drugType = “D”
@@ -89,18 +87,18 @@ namespace Demo.HL7MessageParser.Service
             for (int index = (allergyProfile.Count() - 1); index >= 0; index--)
             {
                 if ((string.IsNullOrEmpty(allergyProfile[index].HiclSeqno) || allergyProfile[index].HiclSeqno == "0")
-                    &&
-                    CheckIfAllergyProfileHicSeqnoNoNeedMDS(allergyProfile[index].HicSeqno)
-                    &&
-                    !(new string[] { "N", "O", "X", "XP" }.Contains(allergyProfile[index].AllergenType))
-                    )
+                    && !(new string[] { "N", "O", "X", "XP" }.Contains(allergyProfile[index].AllergenType)))
                 {
-                    //no MDS check and show message for AllergyProfile
-                    allergyDrugList.Add(allergyProfile[index].Allergen);
-                    //if current allergy no need MDS check, remove it from allergy profrofile list
-                    alertProfileRes.AllergyProfile.Remove(allergyProfile[index]);
+                    if (CheckIfAllergyProfileHicSeqnoNoNeedMDS(allergyProfile[index].HicSeqno))
+                    {
+                        //no MDS check and show message for AllergyProfile
+                        allergyDrugList.Add(allergyProfile[index].Allergen);
+                        //if current allergy no need MDS check, remove it from allergy profrofile list
+                        alertProfileRes.AllergyProfile.Remove(allergyProfile[index]);
+                    }
                 }
             }
+
             if (allergyDrugList.Count > 0)
             {
                 var msg = "System cannot perform drug allergy checking for the following allergen record(s):";

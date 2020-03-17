@@ -12,6 +12,9 @@ namespace Demo.HL7MessageParser
 {
     public static class ObjectAutoMapping
     {
+        static Dictionary<string, string> AdrDict;
+        static Dictionary<string, string> AllergyDict;
+
         static ObjectAutoMapping()
         {
             Mapper.CreateMap<PatientDemoEnquiry, PatientObj>()
@@ -39,9 +42,24 @@ namespace Demo.HL7MessageParser
                   .ForMember(dest => dest.Room, opt => opt.Ignore())
                   .ForMember(dest => dest.Bed, opt => opt.MapFrom(o => o.BedNo))
                   .ForMember(dest => dest.AccountNumber, opt => opt.Ignore())
-                  .ForMember(dest => dest.Barcode, opt => opt.Ignore())
-                 // .ForMember(dest => dest.HospitalService, opt => opt.MapFrom(o => o.Number));
-                 ;
+                  .ForMember(dest => dest.Barcode, opt => opt.Ignore());
+
+
+            AdrDict = new Dictionary<string, string>
+            {
+                {"an allergic/a cross-sensitivity",  " may result in adverse drug/cross-sensitivity reaction."},
+                {"an idiosyncratic", " may result in idiosyncratic reaction."},
+                {"an allergic", " may result in adverse drug reaction."},
+                {"a cross-sensitivity", " may result in cross-sensitivity reaction."},
+            };
+
+            AllergyDict = new Dictionary<string, string>
+            {
+                {"an allergic/a cross-sensitivity",  " may result in allergic/cross-sensitivity reaction."},
+                {"an idiosyncratic", " may result in idiosyncratic reaction."},
+                {"an allergic", " may result in allergic reaction."},
+                {"a cross-sensitivity", " may result in cross-sensitivity reaction."},
+             };
         }
         public static Order ToConvert(this MedProfileMoItem mp)
         {
@@ -119,9 +137,9 @@ namespace Demo.HL7MessageParser
                     4	a cross-sensitivity	Use of uppercase[drugDdimDisplayName from 2.5.1] may result in cross-sensitivity reaction.                     
                      */
 
-                    allergyMsg.drugAllergyAlertMessage = AllergyMsg(drugName, allergyMsg.drugAllergyAlertMessage);
+                    allergyMsg.drugAllergyAlertMessage = WrapperAllergyCheckResultMessage(drugName, allergyMsg.drugAllergyAlertMessage);
 
-                    if (allergyMsg.manifestation.EndsWith(";")) allergyMsg.manifestation.TrimEnd(new char[] { ';' });
+                    allergyMsg.manifestation.TrimEnd(new char[] { ';' });
 
                     StringBuilder sbuilder = new StringBuilder();
                     sbuilder.AppendLine(string.Format("{0} - Allergy history reported", allergyMsg.allergen));
@@ -140,9 +158,7 @@ namespace Demo.HL7MessageParser
             {
                 foreach (string ddcmAlert in mdsResult.ddcmCheckingResults.ddcmAlertMessages)
                 {
-                    resultForShow.MdsCheckAlertDetails.Add(
-                        new MdsCheckAlert("G6PD Deficiency Contraindication Checking", ddcmAlert)
-                        );
+                    resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("G6PD Deficiency Contraindication Checking", ddcmAlert));
                 }
             }
             #endregion
@@ -152,9 +168,9 @@ namespace Demo.HL7MessageParser
             {
                 foreach (DrugAdrAlert adrAlert in mdsResult.drugAdrCheckingResults.drugAdrAlerts)
                 {
-                    if (adrAlert.reaction.EndsWith(";")) adrAlert.reaction.TrimEnd(new char[] { ';' });
+                    adrAlert.reaction.TrimEnd(new char[] { ';' });
 
-                    adrAlert.drugAdrAlertMessage = AdrAlertMessage(drugName, adrAlert.drugAdrAlertMessage);
+                    adrAlert.drugAdrAlertMessage = WrapperAdrCheckResultAlertMessage(drugName, adrAlert.drugAdrAlertMessage);
 
                     StringBuilder sbuilder = new StringBuilder();
                     sbuilder.AppendLine(string.Format("{0} - Adverse drug reaction history reported", drugName));
@@ -183,62 +199,31 @@ namespace Demo.HL7MessageParser
             return sBuilder.ToString();
         }
 
-        public static string AllergyMsg(string drugName, string targetMessage)
+        public static string WrapperAllergyCheckResultMessage(string drugName, string sourceMessage)
         {
-            foreach (var item in MessDic.AllergyDict)
+            foreach (var item in AllergyDict)
             {
-                if (targetMessage.Contains(item.Key))
+                if (sourceMessage.Contains(item.Key))
                 {
                     return drugName + item.Value;
                 }
             }
 
-            return targetMessage;
+            return sourceMessage;
         }
-
-        public static string AdrAlertMessage(string drugName, string targetMessage)
+        public static string WrapperAdrCheckResultAlertMessage(string drugName, string sourceMessage)
         {
-            foreach (var item in MessDic.AdrDict)
+            foreach (var item in AdrDict)
             {
-                if (targetMessage.Contains(item.Key))
+                if (sourceMessage.Contains(item.Key))
                 {
                     return drugName + item.Value;
                 }
             }
 
-            return targetMessage;
+            return sourceMessage;
         }
 
-        public static bool IsNullOrWhiteSpace(this string inputstring)
-        {
-            if (inputstring == null)
-            {
-                return true;
-            }
 
-            if (inputstring.Trim().Length == 0)
-            {
-                return true;
-            }
-
-            return false;
-        }
-    }
-
-    public static class MessDic
-    {
-        public static Dictionary<string, string> AdrDict = new Dictionary<string, string> {
-            {"an allergic/a cross-sensitivity",  " may result in adverse drug/cross-sensitivity reaction."},
-            {"an idiosyncratic", " may result in idiosyncratic reaction."},
-            {"an allergic", " may result in adverse drug reaction."},
-            {"a cross-sensitivity", " may result in cross-sensitivity reaction."},
-        };
-
-        public static Dictionary<string, string> AllergyDict = new Dictionary<string, string> {
-            {"an allergic/a cross-sensitivity",  " may result in allergic/cross-sensitivity reaction."},
-            {"an idiosyncratic", " may result in idiosyncratic reaction."},
-            {"an allergic", " may result in allergic reaction."},
-            {"a cross-sensitivity", " may result in cross-sensitivity reaction."},
-        };
     }
 }
