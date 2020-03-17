@@ -187,17 +187,17 @@ namespace Demo.HL7MessageParser
             #region check if need MDS check
             /****2.5.3 3:System should not perform MDS checking on a drug item if its itemCode starts with “PDF”, 
              * e.g. “PDF 2Q “, “PDF 48”. no prompt message *****/
-            if (checkMDS.CheckDrugCodeIfNoNeedMDSCheck(drugItemCode))
+            if (mdsChecker.CheckDrugCodeIfNoNeedMDSCheck(drugItemCode))
             {
                 logger.Log(LogLevel.Trace, string.Format("medication code:{0} start with PDF, skip MDS Check.",drugItemCode));
                 //here should use drug name, not drugItemCode
                 return resultBeforeMDS.ToConvert(drugItemCode);
             }
             /*****2.5.3 2: ADR record (1.4.2) if its severity is “Mild”, not perform MDS checking for current ADR profile*****/
-            checkMDS.CheckADRProfileForMDSCheck(ref alertProfileRes, ref resultBeforeMDS);
+            mdsChecker.CheckADRProfileForMDSCheck(ref alertProfileRes, ref resultBeforeMDS);
 
             /****2.5.3 4-1:System should alert user and not perform MDS checking ...*******/
-            checkMDS.CheckAllergyProfileForMDSCheck(ref alertProfileRes, ref resultBeforeMDS);
+            mdsChecker.CheckAllergyProfileForMDSCheck(ref alertProfileRes, ref resultBeforeMDS);
             #endregion
 
             var getDrugMdsPropertyHqReq = new GetDrugMdsPropertyHqRequest
@@ -352,7 +352,7 @@ namespace Demo.HL7MessageParser
             {
                 //both[moeCheckFlag from 2.4.1.2] and[GroupMoeCheckFlag from 2.4.1.2] is “N”, 
                 //no need to execute MDS, and show msg
-                if (!checkMDS.CheckDrugMasterResultForMDSCheck(getDrugMdsPropertyHqRes.Return[0].DrugMds, getPreparationRes.Return.PmsFmStatus, mdsInput.CurrentRxDrugProfile.DrugErrorDisplayName, ref mdsResult))
+                if (!mdsChecker.CheckDrugMasterResultForMDSCheck(getDrugMdsPropertyHqRes.Return[0].DrugMds, getPreparationRes.Return.PmsFmStatus, mdsInput.CurrentRxDrugProfile.DrugErrorDisplayName, ref mdsResult))
                 {
                     skipMDS = true;
                 }
