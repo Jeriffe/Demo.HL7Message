@@ -52,24 +52,30 @@ namespace Demo.HL7MessageParser.Models
         public object steroidCheckingResults { get; set; }
         public object tenoCheckingResults { get; set; }
     }
-    public class AdrError
+    public class AdrError : ErrorBase
     {
-        public string errorAction { get; set; }
-        public string errorCause { get; set; }
-        public string errorDesc { get; set; }
-        public List<ErrorDetail> errorDetails { get; set; }
         public bool hasAdrError { get; set; }
     }
 
-    public class AllergyError
+    public class AllergyError: ErrorBase
+    {
+        public bool hasAllergyError { get; set; }
+    }
+
+
+    public class DrugError: ErrorBase
+    {
+        public bool hasDrugError { get; set; }
+    }
+
+    public class ErrorBase
     {
         public string errorAction { get; set; }
         public string errorCause { get; set; }
         public string errorDesc { get; set; }
         public List<ErrorDetail> errorDetails { get; set; }
-        public bool hasAllergyError { get; set; }
     }
-   
+
     public class DdcmCheckingResults
     {
  
@@ -159,14 +165,6 @@ namespace Demo.HL7MessageParser.Models
         public bool suppress { get; set; }
     }
 
-    public class DrugError
-    {
-        public string errorAction { get; set; }
-        public string errorCause { get; set; }
-        public string errorDesc { get; set; }
-        public List<ErrorDetail> errorDetails { get; set; }
-        public bool hasDrugError { get; set; }
-    }
 
     public class ErrorDetail
     {
