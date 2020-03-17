@@ -205,11 +205,13 @@ namespace Demo.HL7MessageParser.WinForms
                 {
                     try
                     {
-                        var mdsResponse = FullCacheHK.MDS_CheckCache[CASE_NUMBER].Res;
-                        scintillaMdsCheckRes.FormatJsonStyle();
-                        var resultJson = JsonHelper.ToJson(mdsResponse);
-                        scintillaMdsCheckRes.Text = JsonHelper.FormatJson(resultJson);
-
+                        if (FullCacheHK.MDS_CheckCache[CASE_NUMBER] != null)
+                        {
+                            var mdsResponse = FullCacheHK.MDS_CheckCache[CASE_NUMBER].Res;
+                            scintillaMdsCheckRes.FormatJsonStyle();
+                            var resultJson = JsonHelper.ToJson(mdsResponse);
+                            scintillaMdsCheckRes.Text = JsonHelper.FormatJson(resultJson);
+                        }
                         if (FullCacheHK.DrugMasterCache[itemCode] !=null)
                         {
                             var drugMasterCache = FullCacheHK.DrugMasterCache[itemCode];
@@ -220,25 +222,27 @@ namespace Demo.HL7MessageParser.WinForms
                             scintillaDrugPreparationReq.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugPreparationReq);
                             scintillaDrugPreparationRes.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugPreparationRes);
                         }
-                        var request = FullCacheHK.MDS_CheckCache[CASE_NUMBER].Req;
-                        var requestXml = XmlHelper.XmlSerializeToString(request);
-                        scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
-                        scintillaMdsCheckReq.Text = requestXml;
-
-                        var resJson = JsonHelper.ToJson(request);
-                        scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
-                        scintillaMdsCheckReq.Text = requestXml;
-
-
-                        if (currentMdsResultForShow.HasMdsAlert)
+                        if (FullCacheHK.MDS_CheckCache[CASE_NUMBER] != null)
                         {
-                            btnMDSCheckResult.Enabled = true;
-                        }
-                        else
-                        {
-                            btnMDSCheckResult.Enabled = false;
-                        }
+                            var request = FullCacheHK.MDS_CheckCache[CASE_NUMBER].Req;
+                            var requestXml = XmlHelper.XmlSerializeToString(request);
+                            scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
+                            scintillaMdsCheckReq.Text = requestXml;
 
+                            var resJson = JsonHelper.ToJson(request);
+                            scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
+                            scintillaMdsCheckReq.Text = requestXml;
+
+
+                            if (currentMdsResultForShow.HasMdsAlert)
+                            {
+                                btnMDSCheckResult.Enabled = true;
+                            }
+                            else
+                            {
+                                btnMDSCheckResult.Enabled = false;
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {

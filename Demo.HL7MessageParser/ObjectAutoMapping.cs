@@ -91,23 +91,23 @@ namespace Demo.HL7MessageParser
             }
             if (mdsResult.allergyError != null && mdsResult.allergyError.hasAllergyError)
             {
-                resultForShow.SystemErrorMessage += mdsResult.allergyError.errorDesc + "\r\n" +
-                    (string.IsNullOrEmpty(mdsResult.allergyError.errorCause) ? string.Empty : mdsResult.allergyError.errorCause + "\r\n") +
+                resultForShow.SystemErrorMessage += mdsResult.allergyError.errorDesc + Environment.NewLine +
+                    (string.IsNullOrEmpty(mdsResult.allergyError.errorCause) ? string.Empty : mdsResult.allergyError.errorCause + Environment.NewLine) +
                     (string.IsNullOrEmpty(mdsResult.allergyError.errorAction) ? string.Empty : mdsResult.allergyError.errorAction) +
                     Environment.NewLine;
             }
             if (mdsResult.adrError != null && mdsResult.adrError.hasAdrError)
             {
-                resultForShow.SystemErrorMessage += mdsResult.adrError.errorDesc + "\r\n" +
-                    (string.IsNullOrEmpty(mdsResult.adrError.errorCause) ? string.Empty : mdsResult.adrError.errorCause + "\r\n") +
-                    (string.IsNullOrEmpty(mdsResult.adrError.errorAction) ? string.Empty : mdsResult.adrError.errorAction + "\r\n") +
+                resultForShow.SystemErrorMessage += mdsResult.adrError.errorDesc + Environment.NewLine +
+                    (string.IsNullOrEmpty(mdsResult.adrError.errorCause) ? string.Empty : mdsResult.adrError.errorCause + Environment.NewLine) +
+                    (string.IsNullOrEmpty(mdsResult.adrError.errorAction) ? string.Empty : mdsResult.adrError.errorAction + Environment.NewLine) +
                     Environment.NewLine;
             }
             if (mdsResult.drugError != null && mdsResult.drugError.hasDrugError)
             {
-                resultForShow.SystemErrorMessage += mdsResult.drugError.errorDesc + "\r\n" +
-                    (string.IsNullOrEmpty(mdsResult.drugError.errorCause) ? string.Empty : mdsResult.drugError.errorCause + "\r\n") +
-                    (string.IsNullOrEmpty(mdsResult.drugError.errorAction) ? string.Empty : mdsResult.drugError.errorAction + "\r\n") +
+                resultForShow.SystemErrorMessage += mdsResult.drugError.errorDesc + Environment.NewLine +
+                    (string.IsNullOrEmpty(mdsResult.drugError.errorCause) ? string.Empty : mdsResult.drugError.errorCause + Environment.NewLine) +
+                    (string.IsNullOrEmpty(mdsResult.drugError.errorAction) ? string.Empty : mdsResult.drugError.errorAction + Environment.NewLine) +
                     Environment.NewLine;
             }
             #endregion
