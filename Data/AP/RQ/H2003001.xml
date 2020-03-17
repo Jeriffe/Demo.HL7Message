@@ -1,8 +1,8 @@
 ﻿<alertInputParm>
 	<patientInfo>
 		<hkid>H2003001</hkid>
-		<name>PATIENT, 1362</name>
-		<dob>20030113</dob>
+		<name>PATIENT, 0001</name>
+		<dob>19900101</dob>
 		<sex>M</sex>
 		<cccode1></cccode1>
 		<cccode2></cccode2>

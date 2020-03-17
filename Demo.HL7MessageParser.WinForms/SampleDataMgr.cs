@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace Demo.HL7MessageParser.WinForms
@@ -26,17 +27,13 @@ namespace Demo.HL7MessageParser.WinForms
         {
             try
             {
+                ClearCache();
+
                 var caseNumber = cbxCaseNumber.SelectedItem.ToString();
 
-                var file = Path.Combine(BASE_DIR, string.Format(@"PE\{0}.xml", caseNumber));
+                LoadPatient(caseNumber);
 
-                var doc = XElement.Load(file);
-
-                scintillaPatient.Text = doc.ToString();
-
-                scintillaPatient.Text = XmlHelper.FormatXML(doc.ToString());
-
-                var patientOrg = SoapParserHelper.LoadSamplePatientDemoEnquiry("HN202003001", @"Data\PE");
+                var patientOrg = SoapParserHelper.LoadSamplePatientDemoEnquiry(caseNumber, @"Data\PE");
 
                 var hkId = patientOrg.Patient.HKID;
 
@@ -63,6 +60,8 @@ namespace Demo.HL7MessageParser.WinForms
             }
 
         }
+
+
 
         private void LoadMDSCheckResult(string hkId)
         {
@@ -98,6 +97,8 @@ namespace Demo.HL7MessageParser.WinForms
             var alertProfile = JsonHelper.JsonToObjectFromFile<AlertProfileResult>(file);
 
             scintillaAlerts.Text = JsonHelper.FormatJson(JsonHelper.ToJson(alertProfile));
+
+            currentUIData["scintillaAlerts"] = file;
         }
 
         private void LoadMedicationProfile(string hkId)
@@ -107,6 +108,22 @@ namespace Demo.HL7MessageParser.WinForms
             var medicationProfile = JsonHelper.JsonToObjectFromFile<MedicationProfileResult>(file);
 
             scintillaProfiles.Text = JsonHelper.FormatJson(JsonHelper.ToJson(medicationProfile));
+
+            currentUIData["scintillaProfiles"] = file;
+
+        }
+        private void LoadPatient(string caseNumber)
+        {
+            var file = Path.Combine(BASE_DIR, string.Format(@"PE\{0}.xml", caseNumber));
+
+            var doc = XElement.Load(file);
+
+            scintillaPatient.Text = doc.ToString();
+
+            scintillaPatient.Text = XmlHelper.FormatXML(doc.ToString());
+
+            currentUIData["scintillaPatient"] = file;
+
         }
 
         string BASE_DIR = null;
@@ -138,9 +155,23 @@ namespace Demo.HL7MessageParser.WinForms
 
             scintillaMdsCheckRes.FormatJsonStyle();
 
+            scintillaAlerts.Text = string.Empty;
+            scintillaProfiles.Text = string.Empty;
+            scintillaPatient.Text = string.Empty;
+            scintillaDrugMdsPropertyHqRes.Text = string.Empty;
+            scintillaDrugPreparationRes.Text = string.Empty;
+            scintillaMdsCheckRes.Text = string.Empty;
+
             btnSave.Enabled = false;
 
             Initialize();
+        }
+
+        private void ClearCache()
+        {
+            currentUIData["scintillaPatient"] = null;
+            currentUIData["scintillaProfiles"] = null;
+            currentUIData["scintillaAlerts"] = null;
         }
 
         private void btnVerify_Click(object sender, EventArgs e)
@@ -148,14 +179,86 @@ namespace Demo.HL7MessageParser.WinForms
             btnSave.Enabled = true;
         }
 
+        Dictionary<string, string> currentUIData = new Dictionary<string, string>();
+
         private void btnSave_Click(object sender, EventArgs e)
         {
+            string file = currentUIData["scintillaPatient"];
+            if (file != null)
+            {
+                var patientFullXmlStr = XmlHelper.FormatXML(scintillaPatient.Text);
+
+                File.WriteAllText(file, patientFullXmlStr);
+
+                //var mdsCheckTargetStr = JsonHelper.FormatJson(JsonHelper.ToJson(mdsCheckOrg));
+
+                //var mdsCheckTargetFileName = Path.Combine(baseDir, string.Format(@"Demo\MDS\{0}.json", hkId));
+                //File.WriteAllText(mdsCheckTargetFileName, mdsCheckTargetStr);
+            }
             btnSave.Enabled = false;
         }
 
         private void btnDeploy_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnVerifyAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var files = Directory.GetFiles(Path.Combine(BASE_DIR, @"PE\"), "*.xml");
+
+               var caseNumbers= files.Select(o => new FileInfo(o).Name)
+                                                .Select(o => o.Substring(0, o.Length - ".xml".Length))
+                                                .ToList();
+
+                foreach (var item in caseNumbers)
+                {
+                    var caseNumber = item.ToString();
+
+                    if (!caseNumber.StartsWith("HN2020"))
+                    {
+                        continue;
+                    }
+                    var file = Path.Combine(BASE_DIR, string.Format(@"PE\{0}.xml", caseNumber));
+                    var doc = XElement.Load(file);
+
+                    var patientOrg = SoapParserHelper.LoadSamplePatientDemoEnquiry(caseNumber, @"Data\PE");
+
+                    var hkId = patientOrg.Patient.HKID;
+
+                    System.Diagnostics.Debug.WriteLine(string.Format("CASENUMBER:{0}", caseNumber));
+
+                    System.Diagnostics.Debug.WriteLine(string.Format("HKID:{0}",hkId));
+
+                    var medicationFile = Path.Combine(BASE_DIR, string.Format(@"MP\{0}.json", caseNumber));
+                    var medicationProfile = JsonHelper.JsonToObjectFromFile<MedicationProfileResult>(medicationFile);
+
+                    var alertFile = Path.Combine(BASE_DIR, string.Format(@"AP\{0}.json", hkId));
+                    var alertProfile = JsonHelper.JsonToObjectFromFile<AlertProfileResult>(alertFile);
+
+                    if (RuleMappingHelper.HKID_ItemCode_Mapping.ContainsKey(hkId))
+                    {
+                        var drugItemCode = RuleMappingHelper.HKID_ItemCode_Mapping[hkId];
+                        var fileName = string.Format("{0}_{1}.xml", hkId, drugItemCode);
+
+                        var drugMasterFile = Path.Combine(BASE_DIR, string.Format(@"DM\getDrugMdsPropertyHq\{0}", fileName));
+                        var drugMasterRes = XElement.Load(drugMasterFile);
+
+                        var paprationFile = Path.Combine(BASE_DIR, string.Format(@"DM\getPreparation\{0}", fileName));
+                        var paprationRes = XElement.Load(paprationFile);
+
+                        var mdsFile = Path.Combine(BASE_DIR, string.Format(@"MDS\{0}.json", hkId));
+                        var mdsCheckRes = JsonHelper.JsonToObjectFromFile<MDSCheckResult>(mdsFile);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -1,15 +1,13 @@
 {
     "AdrProfile": [
-        {
-            "AdrSeqNo": "0000004921",
+        {  
+		    "AdrSeqNo": "0000004921",
             "AliasName": "",
             "DisplayName": "ASPIRIN",
             "Drug": "ASPIRIN",
-            "DrugType": "D",
-            "HicSeqno": [
-                
-            ],
-            "HiclSeqno": "1820",
+            "DrugType": "N",
+            "HicSeqno": "",
+            "HiclSeqno": "1001",
             "NameType": "D",
             "Reaction": "Abdominal Pain with Cramps; Heartburn",
             "Remark": "TEST 2",

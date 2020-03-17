@@ -95,6 +95,8 @@ namespace Demo.HL7MessageParser.Models
         public string UpdateRankDesc { get; set; }
         public string UpdateUser { get; set; }
         public string UpdateUserRank { get; set; }
+        public string CreateDtm { get; set; }
+        public string AllergyCode { get; set; }
     }
 
     public class SimpleDisplayFormat
