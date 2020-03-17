@@ -144,7 +144,7 @@ namespace Demo.HL7MessageParser
                     StringBuilder sbuilder = new StringBuilder();
                     sbuilder.AppendLine(string.Format("{0} - Allergy history reported", allergyMsg.allergen));
                     sbuilder.AppendLine(string.Format("Clinical Manifestation: {0}", allergyMsg.manifestation));
-                    sbuilder.AppendLine(string.Format("Additional Information: {0}" + allergyMsg.remark));
+                    sbuilder.AppendLine(string.Format("Additional Information: {0}", allergyMsg.remark));
                     sbuilder.AppendLine(string.Format("Level of Certainty: {0}", allergyMsg.certainty));
                     sbuilder.AppendLine(allergyMsg.drugAllergyAlertMessage);
 
@@ -175,7 +175,7 @@ namespace Demo.HL7MessageParser
                     StringBuilder sbuilder = new StringBuilder();
                     sbuilder.AppendLine(string.Format("{0} - Adverse drug reaction history reported", drugName));
                     sbuilder.AppendLine(string.Format("Adverse Drug Reaction: {0}", adrAlert.reaction));
-                    sbuilder.AppendLine(string.Format("Additional Information: {0}" + adrAlert.remark));
+                    sbuilder.AppendLine(string.Format("Additional Information: {0}" , adrAlert.remark));
                     sbuilder.AppendLine(string.Format("Level of Certainty: {0}", adrAlert.severity));
                     sbuilder.AppendLine(adrAlert.drugAdrAlertMessage);
 

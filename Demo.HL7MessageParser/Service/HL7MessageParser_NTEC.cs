@@ -283,6 +283,11 @@ namespace Demo.HL7MessageParser
             {
                 //do Final MDS Check
                 MDSCheckResult mdsCheckResult = restSvc.CheckMDS(mdsRequest);
+                var patientCache = FullCacheHK.PataientCache[patientEnquiry.CaseList[0].Number.Trim().ToUpper()];
+                if (patientCache != null)
+                {
+                    patientCache.MDSCheck.Res = mdsCheckResult;
+                }
                 //filter final MDS check result
                 FilterCheckForMDSResult(ref mdsCheckResult);
                 //convert mds result to message object to show
@@ -637,7 +642,7 @@ namespace Demo.HL7MessageParser
         {
             return new MDSCheck_UserInfo
             {
-                HospCode = HospitalCode,
+                HospCode = patientEnquiry.CaseList[0].HospitalCode,
                 PharSpec = patientEnquiry.CaseList[0].Specialty,
                 WrkStnID = UtilityHelper.GetLoalIPAddress(),
                 WrkStnType = "I"

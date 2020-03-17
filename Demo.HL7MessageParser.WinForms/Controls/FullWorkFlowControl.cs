@@ -205,12 +205,18 @@ namespace Demo.HL7MessageParser.WinForms
                 {
                     try
                     {
-                        if (FullCacheHK.MDS_CheckCache[CASE_NUMBER] != null)
+                        if (FullCacheHK.PataientCache[CASE_NUMBER] != null)
                         {
-                            var mdsResponse = FullCacheHK.MDS_CheckCache[CASE_NUMBER].Res;
-                            scintillaMdsCheckRes.FormatJsonStyle();
-                            var resultJson = JsonHelper.ToJson(mdsResponse);
-                            scintillaMdsCheckRes.Text = JsonHelper.FormatJson(resultJson);
+                            if (FullCacheHK.PataientCache[CASE_NUMBER].MDSCheck != null)
+                            {
+                                var mdsResponse = FullCacheHK.PataientCache[CASE_NUMBER].MDSCheck.Res;
+                                scintillaMdsCheckRes.FormatJsonStyle();
+                                var resultJson = JsonHelper.ToJson(mdsResponse);
+                                scintillaMdsCheckRes.Text = JsonHelper.FormatJson(resultJson);
+                            }
+                            else {
+                                scintillaMdsCheckRes.Text = "no response";
+                            }
                         }
                         if (FullCacheHK.DrugMasterCache[itemCode] !=null)
                         {
@@ -222,16 +228,23 @@ namespace Demo.HL7MessageParser.WinForms
                             scintillaDrugPreparationReq.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugPreparationReq);
                             scintillaDrugPreparationRes.Text = XmlHelper.XmlSerializeToString(drugMasterCache.DrugPreparationRes);
                         }
-                        if (FullCacheHK.MDS_CheckCache[CASE_NUMBER] != null)
+                        if (FullCacheHK.PataientCache[CASE_NUMBER] != null)
                         {
-                            var request = FullCacheHK.MDS_CheckCache[CASE_NUMBER].Req;
-                            var requestXml = XmlHelper.XmlSerializeToString(request);
-                            scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
-                            scintillaMdsCheckReq.Text = requestXml;
+                            if (FullCacheHK.PataientCache[CASE_NUMBER].MDSCheck != null)
+                            {
+                                var request = FullCacheHK.PataientCache[CASE_NUMBER].MDSCheck.Req;
+                                var requestXml = XmlHelper.XmlSerializeToString(request);
+                                scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
+                                scintillaMdsCheckReq.Text = requestXml;
 
-                            var resJson = JsonHelper.ToJson(request);
-                            scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
-                            scintillaMdsCheckReq.Text = requestXml;
+                                var resJson = JsonHelper.ToJson(request);
+                                scintillaMdsCheckReq.FormatStyle(StyleType.Xml);
+                                scintillaMdsCheckReq.Text = requestXml;
+                            }
+                            else {
+                                scintillaMdsCheckReq.Text = "no request";
+                            }
+
 
 
                             if (currentMdsResultForShow.HasMdsAlert)
