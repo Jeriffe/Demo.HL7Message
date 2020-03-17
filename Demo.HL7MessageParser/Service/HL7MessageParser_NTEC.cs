@@ -33,7 +33,7 @@ namespace Demo.HL7MessageParser
         private ISoapParserSvc soapSvc;
         private ISoapWSEService soapWSESvc;
         private IRestParserSvc restSvc;
-        private CheckBeforeMDSChecker checkMDS = new CheckBeforeMDSChecker();
+        private CheckBeforeMDSChecker mdsChecker = new CheckBeforeMDSChecker();
         public HL7MessageParser_NTEC()
         {
             Initialize();
@@ -332,7 +332,7 @@ namespace Demo.HL7MessageParser
             /*if alertProfile from 1.4.2 = G6PD, then “true”, 
               else “false”
             */
-            mdsInput.HasG6pdDeficiency = checkMDS.CheckIsG6PD(alertProfileRes.AlertProfile);
+            mdsInput.HasG6pdDeficiency = mdsChecker.CheckIsG6PD(alertProfileRes.AlertProfile);
 
             /*if  hasG6pdDeficiency is true or  hasPregnancy is true, then “true”, else “false”*/
             mdsInput.CheckDdcm = mdsInput.HasG6pdDeficiency;//|| mdsInput.HasPregnancy;

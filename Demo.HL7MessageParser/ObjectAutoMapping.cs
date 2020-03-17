@@ -12,6 +12,9 @@ namespace Demo.HL7MessageParser
 {
     public static class ObjectAutoMapping
     {
+        static Dictionary<string, string> AdrDict;
+        static Dictionary<string, string> AllergyDict;
+
         static ObjectAutoMapping()
         {
             Mapper.CreateMap<PatientDemoEnquiry, PatientObj>()
@@ -39,9 +42,24 @@ namespace Demo.HL7MessageParser
                   .ForMember(dest => dest.Room, opt => opt.Ignore())
                   .ForMember(dest => dest.Bed, opt => opt.MapFrom(o => o.BedNo))
                   .ForMember(dest => dest.AccountNumber, opt => opt.Ignore())
-                  .ForMember(dest => dest.Barcode, opt => opt.Ignore())
-                 // .ForMember(dest => dest.HospitalService, opt => opt.MapFrom(o => o.Number));
-                 ;
+                  .ForMember(dest => dest.Barcode, opt => opt.Ignore());
+
+
+            AdrDict = new Dictionary<string, string>
+            {
+                {"an allergic/a cross-sensitivity",  " may result in adverse drug/cross-sensitivity reaction."},
+                {"an idiosyncratic", " may result in idiosyncratic reaction."},
+                {"an allergic", " may result in adverse drug reaction."},
+                {"a cross-sensitivity", " may result in cross-sensitivity reaction."},
+            };
+
+            AllergyDict = new Dictionary<string, string>
+            {
+                {"an allergic/a cross-sensitivity",  " may result in allergic/cross-sensitivity reaction."},
+                {"an idiosyncratic", " may result in idiosyncratic reaction."},
+                {"an allergic", " may result in allergic reaction."},
+                {"a cross-sensitivity", " may result in cross-sensitivity reaction."},
+             };
         }
         public static Order ToConvert(this MedProfileMoItem mp)
         {
@@ -91,24 +109,15 @@ namespace Demo.HL7MessageParser
             }
             if (mdsResult.allergyError != null && mdsResult.allergyError.hasAllergyError)
             {
-                resultForShow.SystemErrorMessage += mdsResult.allergyError.errorDesc + Environment.NewLine +
-                    (string.IsNullOrEmpty(mdsResult.allergyError.errorCause) ? string.Empty : mdsResult.allergyError.errorCause + Environment.NewLine) +
-                    (string.IsNullOrEmpty(mdsResult.allergyError.errorAction) ? string.Empty : mdsResult.allergyError.errorAction) +
-                    Environment.NewLine;
+                resultForShow.SystemErrorMessage += ResultBuilder(resultForShow, mdsResult.allergyError);
             }
             if (mdsResult.adrError != null && mdsResult.adrError.hasAdrError)
             {
-                resultForShow.SystemErrorMessage += mdsResult.adrError.errorDesc + Environment.NewLine +
-                    (string.IsNullOrEmpty(mdsResult.adrError.errorCause) ? string.Empty : mdsResult.adrError.errorCause + Environment.NewLine) +
-                    (string.IsNullOrEmpty(mdsResult.adrError.errorAction) ? string.Empty : mdsResult.adrError.errorAction + Environment.NewLine) +
-                    Environment.NewLine;
+                resultForShow.SystemErrorMessage += ResultBuilder(resultForShow, mdsResult.adrError);
             }
             if (mdsResult.drugError != null && mdsResult.drugError.hasDrugError)
             {
-                resultForShow.SystemErrorMessage += mdsResult.drugError.errorDesc + Environment.NewLine +
-                    (string.IsNullOrEmpty(mdsResult.drugError.errorCause) ? string.Empty : mdsResult.drugError.errorCause + Environment.NewLine) +
-                    (string.IsNullOrEmpty(mdsResult.drugError.errorAction) ? string.Empty : mdsResult.drugError.errorAction + Environment.NewLine) +
-                    Environment.NewLine;
+                resultForShow.SystemErrorMessage += ResultBuilder(resultForShow, mdsResult.drugError);
             }
             #endregion
 
@@ -128,17 +137,18 @@ namespace Demo.HL7MessageParser
                     4	a cross-sensitivity	Use of uppercase[drugDdimDisplayName from 2.5.1] may result in cross-sensitivity reaction.                     
                      */
 
-                    allergyMsg.drugAllergyAlertMessage = AllergyMsg(drugName, allergyMsg.drugAllergyAlertMessage);
+                    allergyMsg.drugAllergyAlertMessage = WrapperAllergyCheckResultMessage(drugName, allergyMsg.drugAllergyAlertMessage);
 
-                    if (allergyMsg.manifestation.EndsWith(";")) allergyMsg.manifestation.TrimEnd(new char[] { ';' });
+                    allergyMsg.manifestation.TrimEnd(new char[] { ';' });
 
-                    string line1 = string.Format(allergyMsg.allergen + " - Allergy history reported{0}", Environment.NewLine);
-                    string line2 = string.Format("Clinical Manifestation: " + allergyMsg.manifestation + "{0}", Environment.NewLine);
-                    string line3 = string.Format("Additional Information: " + allergyMsg.remark + "{0}", Environment.NewLine);
-                    string line4 = string.Format("Level of Certainty: " + allergyMsg.certainty + "{0}", Environment.NewLine);
+                    StringBuilder sbuilder = new StringBuilder();
+                    sbuilder.AppendLine(string.Format("{0} - Allergy history reported", allergyMsg.allergen));
+                    sbuilder.AppendLine(string.Format("Clinical Manifestation: {0}", allergyMsg.manifestation));
+                    sbuilder.AppendLine(string.Format("Additional Information: {0}" + allergyMsg.remark));
+                    sbuilder.AppendLine(string.Format("Level of Certainty: {0}", allergyMsg.certainty));
+                    sbuilder.AppendLine(allergyMsg.drugAllergyAlertMessage);
 
-                    resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("Allergy Checking",
-                                    line1 + line2 + line3 + line4 + allergyMsg.drugAllergyAlertMessage));
+                    resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("Allergy Checking", sbuilder.ToString()));
                 }
             }
             #endregion
@@ -148,9 +158,7 @@ namespace Demo.HL7MessageParser
             {
                 foreach (string ddcmAlert in mdsResult.ddcmCheckingResults.ddcmAlertMessages)
                 {
-                    resultForShow.MdsCheckAlertDetails.Add(
-                        new MdsCheckAlert("G6PD Deficiency Contraindication Checking", ddcmAlert)
-                        );
+                    resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("G6PD Deficiency Contraindication Checking", ddcmAlert));
                 }
             }
             #endregion
@@ -160,18 +168,18 @@ namespace Demo.HL7MessageParser
             {
                 foreach (DrugAdrAlert adrAlert in mdsResult.drugAdrCheckingResults.drugAdrAlerts)
                 {
-                    if (adrAlert.reaction.EndsWith(";")) adrAlert.reaction.TrimEnd(new char[] { ';' });
+                    adrAlert.reaction.TrimEnd(new char[] { ';' });
 
-                    adrAlert.drugAdrAlertMessage = AdrAlertMessage(drugName, adrAlert.drugAdrAlertMessage);
+                    adrAlert.drugAdrAlertMessage = WrapperAdrCheckResultAlertMessage(drugName, adrAlert.drugAdrAlertMessage);
 
-                    string line1 = string.Format(drugName + " - Adverse drug reaction history reported{0}", Environment.NewLine);
-                    string line2 = string.Format("Adverse Drug Reaction: " + adrAlert.reaction + "{0}", Environment.NewLine);
-                    string line3 = string.Format("Additional Information: " + adrAlert.remark + "{0}", Environment.NewLine);
-                    string line4 = string.Format("Level of Severity: " + adrAlert.severity + "{0}", Environment.NewLine);
+                    StringBuilder sbuilder = new StringBuilder();
+                    sbuilder.AppendLine(string.Format("{0} - Adverse drug reaction history reported", drugName));
+                    sbuilder.AppendLine(string.Format("Adverse Drug Reaction: {0}", adrAlert.reaction));
+                    sbuilder.AppendLine(string.Format("Additional Information: {0}" + adrAlert.remark));
+                    sbuilder.AppendLine(string.Format("Level of Certainty: {0}", adrAlert.severity));
+                    sbuilder.AppendLine(adrAlert.drugAdrAlertMessage);
 
-                    resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("Adverse Drug Reaction Checking",
-                        line1 + line2 + line3 + line4 + adrAlert.drugAdrAlertMessage
-                        ));
+                    resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("Adverse Drug Reaction Checking", sbuilder.ToString()));
                 }
             }
             #endregion
@@ -179,49 +187,43 @@ namespace Demo.HL7MessageParser
             return resultForShow;
         }
 
-        public static string AllergyMsg(string drugName, string targetMessage)
+        public static string ResultBuilder(MdsCheckFinalResult result, ErrorBase error)
         {
-            if (targetMessage.Contains("an allergic/a cross-sensitivity"))
-            {
-                return drugName + " may result in allergic/cross-sensitivity reaction.";
-            }
-            else if (targetMessage.Contains("an idiosyncratic"))
-            {
-                return drugName + " may result in idiosyncratic reaction.";
-            }
-            else if (targetMessage.Contains("an allergic"))
-            {
-                return drugName + " may result in allergic reaction.";
-            }
-            else if (targetMessage.Contains("a cross-sensitivity"))
-            {
-                return drugName + " may result in cross-sensitivity reaction.";
-            }
+            StringBuilder sBuilder = new StringBuilder();
 
-            return targetMessage;
+            sBuilder.AppendLine(error.errorDesc);
+            sBuilder.AppendLine(error.errorCause.IsNullOrWhiteSpace() ? string.Empty : error.errorCause);
+            sBuilder.AppendLine(error.errorAction.IsNullOrWhiteSpace() ? string.Empty : error.errorAction);
+            sBuilder.AppendLine();
+
+            return sBuilder.ToString();
         }
 
-        public static string AdrAlertMessage(string drugName, string targetMessage)
+        public static string WrapperAllergyCheckResultMessage(string drugName, string sourceMessage)
         {
-            if (targetMessage.Contains("an allergic/a cross-sensitivity"))
+            foreach (var item in AllergyDict)
             {
-                return drugName + " may result in adverse drug/cross-sensitivity reaction.";
-            }
-            else if (targetMessage.Contains("an idiosyncratic"))
-            {
-                return drugName + " may result in idiosyncratic reaction.";
-            }
-            else if (targetMessage.Contains("an allergic"))
-            {
-                return drugName + " may result in adverse drug reaction.";
-            }
-            else if (targetMessage.Contains("a cross-sensitivity"))
-            {
-                return drugName + " may result in cross-sensitivity reaction.";
+                if (sourceMessage.Contains(item.Key))
+                {
+                    return drugName + item.Value;
+                }
             }
 
-            return targetMessage;
+            return sourceMessage;
         }
+        public static string WrapperAdrCheckResultAlertMessage(string drugName, string sourceMessage)
+        {
+            foreach (var item in AdrDict)
+            {
+                if (sourceMessage.Contains(item.Key))
+                {
+                    return drugName + item.Value;
+                }
+            }
+
+            return sourceMessage;
+        }
+
 
     }
 }

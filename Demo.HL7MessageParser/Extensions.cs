@@ -162,4 +162,23 @@ namespace Demo.HL7MessageParser
         public GetPreparationResponse DrugPreparationRes { get; set; }
         public GetPreparationRequest DrugPreparationReq { get; set; }
     }
+
+
+    public static class ExtensionMethods
+    {
+        public static bool IsNullOrWhiteSpace(this string inputstring)
+        {
+            if (inputstring == null)
+            {
+                return true;
+            }
+
+            if (inputstring.Trim().Length == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+    }
 }
