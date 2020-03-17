@@ -112,12 +112,12 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pnlContent.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABB4AAAJPCAYAAADbpBdbAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAX
@@ -189,7 +189,7 @@
         zMzMzMzMzt9cnrfkGrI+7S6uAAAAAElFTkSuQmCC
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pnlContent.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
@@ -200,12 +200,12 @@
     <value>Segoe UI, 9pt, style=Bold</value>
   </data>
   <data name="lblCaution.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 23</value>
+    <value>3, 0</value>
   </data>
   <data name="lblCaution.Size" type="System.Drawing.Size, System.Drawing">
     <value>686, 23</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblCaution.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
@@ -219,7 +219,7 @@
     <value>lblCaution</value>
   </data>
   <data name="&gt;&gt;lblCaution.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblCaution.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -234,7 +234,7 @@
     <value>Segoe UI, 8pt, style=Bold</value>
   </data>
   <data name="lblPSCC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 55</value>
+    <value>6, 25</value>
   </data>
   <data name="lblPSCC.Size" type="System.Drawing.Size, System.Drawing">
     <value>671, 23</value>
@@ -252,46 +252,13 @@
     <value>lblPSCC</value>
   </data>
   <data name="&gt;&gt;lblPSCC.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblPSCC.Parent" xml:space="preserve">
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;lblPSCC.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="lblMDSTitle.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="lblMDSTitle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8pt, style=Bold</value>
-  </data>
-  <data name="lblMDSTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="lblMDSTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>686, 23</value>
-  </data>
-  <data name="lblMDSTitle.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="lblMDSTitle.Text" xml:space="preserve">
-    <value>CLINICAL intervation</value>
-  </data>
-  <data name="lblMDSTitle.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;lblMDSTitle.Name" xml:space="preserve">
-    <value>lblMDSTitle</value>
-  </data>
-  <data name="&gt;&gt;lblMDSTitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblMDSTitle.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;lblMDSTitle.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="pnlCheckList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -300,10 +267,10 @@
     <value>True</value>
   </data>
   <data name="pnlCheckList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 77</value>
+    <value>6, 47</value>
   </data>
   <data name="pnlCheckList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>671, 288</value>
+    <value>671, 318</value>
   </data>
   <data name="pnlCheckList.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -312,13 +279,13 @@
     <value>pnlCheckList</value>
   </data>
   <data name="&gt;&gt;pnlCheckList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pnlCheckList.Parent" xml:space="preserve">
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;pnlCheckList.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 12</value>
@@ -333,7 +300,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
     <value>pnlContent</value>
@@ -366,7 +333,7 @@
     <value>cmdNo</value>
   </data>
   <data name="&gt;&gt;cmdNo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cmdNo.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -390,13 +357,13 @@
     <value>2</value>
   </data>
   <data name="lblSubTitle.Text" xml:space="preserve">
-    <value>Cancel Transaction</value>
+    <value>Clinical Intervention</value>
   </data>
   <data name="&gt;&gt;lblSubTitle.Name" xml:space="preserve">
     <value>lblSubTitle</value>
   </data>
   <data name="&gt;&gt;lblSubTitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblSubTitle.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -429,7 +396,7 @@
     <value>cmdYes</value>
   </data>
   <data name="&gt;&gt;cmdYes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cmdYes.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -450,7 +417,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>pnlContent</value>
@@ -471,7 +438,7 @@
     <value>pnlContent</value>
   </data>
   <data name="&gt;&gt;pnlContent.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pnlContent.Parent" xml:space="preserve">
     <value>$this</value>
@@ -479,7 +446,7 @@
   <data name="&gt;&gt;pnlContent.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
@@ -801,9 +768,9 @@
     <value>CenterParent</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MDDialogBox</value>
+    <value>MDDCheckDialogBox</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

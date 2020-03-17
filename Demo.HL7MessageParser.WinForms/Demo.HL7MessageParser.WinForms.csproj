@@ -102,12 +102,6 @@
     <Compile Include="SampleDataMgr.Designer.cs">
       <DependentUpon>SampleDataMgr.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\MDDialogBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\MDDialogBox.designer.cs">
-      <DependentUpon>MDDialogBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\MedicationProfileControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -163,6 +157,12 @@
     <Compile Include="SystemConfig.Designer.cs">
       <DependentUpon>SystemConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MDSCheckDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MDSCheckDialogBox.designer.cs">
+      <DependentUpon>MDSCheckDialogBox.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Controls\AlertProfileParserControl.resx">
       <DependentUpon>AlertProfileParserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,9 +171,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SampleDataMgr.resx">
       <DependentUpon>SampleDataMgr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\MDDialogBox.resx">
-      <DependentUpon>MDDialogBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\MedicationProfileControl.resx">
       <DependentUpon>MedicationProfileControl.cs</DependentUpon>
@@ -205,6 +202,9 @@
     </Compile>
     <EmbeddedResource Include="SystemConfig.resx">
       <DependentUpon>SystemConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MDSCheckDialogBox.resx">
+      <DependentUpon>MDSCheckDialogBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Demo\AP\H2003001.json">

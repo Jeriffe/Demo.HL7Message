@@ -1,6 +1,6 @@
 ﻿namespace Demo.HL7MessageParser.WinForms
 {
-    partial class MDDialogBox
+    partial class MDDCheckDialogBox
     {
         /// <summary>
         /// Required designer variable.
@@ -31,12 +31,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDDialogBox));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDDCheckDialogBox));
             this.pnlContent = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblCaution = new System.Windows.Forms.Label();
             this.lblPSCC = new System.Windows.Forms.Label();
-            this.lblMDSTitle = new System.Windows.Forms.Label();
             this.pnlCheckList = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmdNo = new System.Windows.Forms.Button();
@@ -59,7 +58,6 @@
             // 
             this.panel2.Controls.Add(this.lblCaution);
             this.panel2.Controls.Add(this.lblPSCC);
-            this.panel2.Controls.Add(this.lblMDSTitle);
             this.panel2.Controls.Add(this.pnlCheckList);
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
@@ -78,14 +76,6 @@
             this.lblPSCC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblPSCC.ForeColor = System.Drawing.Color.Black;
             this.lblPSCC.Name = "lblPSCC";
-            // 
-            // lblMDSTitle
-            // 
-            this.lblMDSTitle.BackColor = System.Drawing.Color.LightBlue;
-            this.lblMDSTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.lblMDSTitle, "lblMDSTitle");
-            this.lblMDSTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblMDSTitle.Name = "lblMDSTitle";
             // 
             // pnlCheckList
             // 
@@ -126,7 +116,7 @@
             this.cmdYes.UseVisualStyleBackColor = true;
             this.cmdYes.Click += new System.EventHandler(this.cmdYes_Click);
             // 
-            // MDDialogBox
+            // MDDCheckDialogBox
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -135,7 +125,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "MDDialogBox";
+            this.Name = "MDDCheckDialogBox";
             this.pnlContent.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -153,7 +143,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblCaution;
         private System.Windows.Forms.Label lblPSCC;
-        private System.Windows.Forms.Label lblMDSTitle;
         private System.Windows.Forms.Panel pnlCheckList;
     }
 }

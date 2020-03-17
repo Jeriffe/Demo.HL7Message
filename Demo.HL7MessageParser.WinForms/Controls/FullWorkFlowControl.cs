@@ -352,10 +352,7 @@ namespace Demo.HL7MessageParser.WinForms
 
             try
             {
-                var dialog = new MDDialogBox(source, "MDSCheck",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information,
-                MDDialogBox.MessageColor.Red);
+                var dialog = new MDDCheckDialogBox(source, "Clinical Intervention");
 
                 dialog.ShowDialog(this);
                 //new MDSDialog(source).ShowDialog();
