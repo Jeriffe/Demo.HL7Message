@@ -281,6 +281,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.EnterpriseLibrarySampl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{11B10188-7E26-4CAB-B4F9-DC0E9B24A38F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.WinFormTest", "Demo.WinFormTest\Demo.WinFormTest.csproj", "{D2C03A08-79F7-4A68-AD89-2C62B00E9FED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -331,6 +333,10 @@ Global
 		{DE8903DE-725C-4DEB-AC3D-0E2B5E56354E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE8903DE-725C-4DEB-AC3D-0E2B5E56354E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE8903DE-725C-4DEB-AC3D-0E2B5E56354E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2C03A08-79F7-4A68-AD89-2C62B00E9FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2C03A08-79F7-4A68-AD89-2C62B00E9FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2C03A08-79F7-4A68-AD89-2C62B00E9FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2C03A08-79F7-4A68-AD89-2C62B00E9FED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -350,6 +356,7 @@ Global
 		{87C1AAA2-1497-4301-A2DE-BFE4B9BEAE2D} = {F721A3DF-9D67-440C-95E6-72BA3E6B1840}
 		{8EB05B79-87EF-423A-B0A5-9093A89A8939} = {785EB32E-E008-4BAD-9B8A-967D819FB593}
 		{DE8903DE-725C-4DEB-AC3D-0E2B5E56354E} = {11B10188-7E26-4CAB-B4F9-DC0E9B24A38F}
+		{D2C03A08-79F7-4A68-AD89-2C62B00E9FED} = {037346C3-82F2-421A-A92F-B37F2B9A1555}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {64A04E52-286E-4C99-9020-002615A1B03E}

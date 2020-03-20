@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Demo.HL7MessageParser.WinForms
+namespace Demo.WinFormTest
 {
     //https://stackoverflow.com/questions/9509147/label-word-wrapping
     public partial class GrowLabel : Label
@@ -18,7 +18,12 @@ namespace Demo.HL7MessageParser.WinForms
         {
             this.AutoSize = false;
         }
-    
+
+        public override bool AutoSize
+        {
+            get; set;
+        }
+
         private void ResizeLabel()
         {
             if (mGrowing) return;
@@ -34,11 +39,25 @@ namespace Demo.HL7MessageParser.WinForms
                 mGrowing = false;
             }
         }
+        protected override void OnTextChanged(EventArgs e)
+        {
+            base.OnTextChanged(e);
+            ResizeLabel();
+        }
+        protected override void OnFontChanged(EventArgs e)
+        {
+            base.OnFontChanged(e);
+            ResizeLabel();
+        }
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+            ResizeLabel();
+        }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-
             ResizeLabel();
         }
     }

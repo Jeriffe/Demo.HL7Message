@@ -90,11 +90,11 @@
     <Compile Include="Controls\AlertProfileParserControl.Designer.cs">
       <DependentUpon>AlertProfileParserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\GrowLabelControl.cs">
+    <Compile Include="Controls\StringMasterDetailControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\GrowLabelControl.Designer.cs">
-      <DependentUpon>GrowLabelControl.cs</DependentUpon>
+    <Compile Include="Controls\StringMasterDetailControl.Designer.cs">
+      <DependentUpon>StringMasterDetailControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
@@ -133,6 +133,12 @@
       <DependentUpon>PatientDemographicControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Controls\StringMasterDetailCollectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\StringMasterDetailCollectionControl.Designer.cs">
+      <DependentUpon>StringMasterDetailCollectionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,8 +184,8 @@
     <EmbeddedResource Include="Controls\AlertProfileParserControl.resx">
       <DependentUpon>AlertProfileParserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\GrowLabelControl.resx">
-      <DependentUpon>GrowLabelControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\StringMasterDetailControl.resx">
+      <DependentUpon>StringMasterDetailControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
@@ -215,6 +221,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Controls\StringMasterDetailCollectionControl.resx">
+      <DependentUpon>StringMasterDetailCollectionControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SystemConfig.resx">
       <DependentUpon>SystemConfig.cs</DependentUpon>
     </EmbeddedResource>

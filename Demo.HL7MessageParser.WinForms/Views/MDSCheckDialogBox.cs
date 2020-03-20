@@ -1,5 +1,4 @@
 ﻿using Demo.HL7MessageParser.Models;
-using Demo.HL7MessageParser.WinForms.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,20 +27,12 @@ namespace Demo.HL7MessageParser.WinForms
 
             for (int i = mds.MdsCheckAlertDetails.Count - 1; i >= 0; i--)
             {
-                var Glabel = new Label();
+                var Glabel = new GrowLabel();
                 Glabel.Text = mds.MdsCheckAlertDetails[i].CheckAlertMessage;
                 Glabel.Dock = DockStyle.Top;
                 Glabel.Font = new Font("Segoe UI", 7, FontStyle.Bold);
                 Glabel.TextAlign = ContentAlignment.BottomLeft;
                 pnlCheckList.Controls.Add(Glabel);
-
-                var GlabelControl = new GrowLabelControl();
-                GlabelControl.lblMessage.Text = mds.MdsCheckAlertDetails[i].CheckAlertMessage;
-                GlabelControl.Dock = DockStyle.Top;
-                GlabelControl.lblMessage.Font = new Font("Segoe UI", 7, FontStyle.Bold);
-                GlabelControl.lblMessage.TextAlign = ContentAlignment.BottomLeft;
-                GlabelControl.Height = GlabelControl.lblMessage.Height;
-                pnlCheckList.Controls.Add(GlabelControl);
 
                 var lkLabel = new LinkLabel();
                 lkLabel.Text = mds.MdsCheckAlertDetails[i].CategoryName;
