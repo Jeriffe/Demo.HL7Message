@@ -35,6 +35,7 @@
             this.lblHKID = new System.Windows.Forms.Label();
             this.txtItemCode = new System.Windows.Forms.TextBox();
             this.lblItemCode = new System.Windows.Forms.Label();
+            this.growLabel1 = new Demo.HL7MessageParser.WinForms.GrowLabel();
             this.SuspendLayout();
             // 
             // btnGenerate
@@ -95,11 +96,21 @@
             this.lblItemCode.TabIndex = 5;
             this.lblItemCode.Text = "ItemCode";
             // 
+            // growLabel1
+            // 
+            this.growLabel1.AutoSize = true;
+            this.growLabel1.Location = new System.Drawing.Point(255, 233);
+            this.growLabel1.Name = "growLabel1";
+            this.growLabel1.Size = new System.Drawing.Size(270, 13);
+            this.growLabel1.TabIndex = 7;
+            this.growLabel1.Text = "sdfsadfdsafsadfasfasdfasddddddddddddddddddd\\nsdfs";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.growLabel1);
             this.Controls.Add(this.txtItemCode);
             this.Controls.Add(this.lblItemCode);
             this.Controls.Add(this.txtHKID);
@@ -124,5 +135,6 @@
         private System.Windows.Forms.Label lblHKID;
         private System.Windows.Forms.TextBox txtItemCode;
         private System.Windows.Forms.Label lblItemCode;
+        private GrowLabel growLabel1;
     }
 }

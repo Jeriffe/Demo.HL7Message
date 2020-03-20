@@ -146,7 +146,7 @@ namespace Demo.HL7MessageParser
                     sbuilder.AppendLine(string.Format("Clinical Manifestation: {0}", allergyMsg.manifestation));
                     sbuilder.AppendLine(string.Format("Additional Information: {0}", allergyMsg.remark));
                     sbuilder.AppendLine(string.Format("Level of Certainty: {0}", allergyMsg.certainty));
-                    sbuilder.Append(allergyMsg.drugAllergyAlertMessage);
+                    sbuilder.AppendLine(allergyMsg.drugAllergyAlertMessage);
 
                     resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("Allergy Checking", sbuilder.ToString()));
                 }
@@ -175,9 +175,9 @@ namespace Demo.HL7MessageParser
                     StringBuilder sbuilder = new StringBuilder();
                     sbuilder.AppendLine(string.Format("{0} - Adverse drug reaction history reported", drugName));
                     sbuilder.AppendLine(string.Format("Adverse Drug Reaction: {0}", adrAlert.reaction));
-                    sbuilder.AppendLine(string.Format("Additional Information: {0}" , adrAlert.remark));
+                    sbuilder.AppendLine(string.Format("Additional Information: {0}", adrAlert.remark));
                     sbuilder.AppendLine(string.Format("Level of Certainty: {0}", adrAlert.severity));
-                    sbuilder.Append(adrAlert.drugAdrAlertMessage);
+                    sbuilder.AppendLine(adrAlert.drugAdrAlertMessage);
 
                     resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("Adverse Drug Reaction Checking", sbuilder.ToString()));
                 }
@@ -186,8 +186,43 @@ namespace Demo.HL7MessageParser
 
             return resultForShow;
         }
+        /// <summary>
+        /// 2.5.3 5 System should ignore the following MDS alerts when suppress flag is true:
+        ///Drug allergy alert
+        ///G6PD deficiency contraindication alert
+        ///ignore the G6PD deficiency contraindication alert when the severityLevelCode  is 2 or 3
+        /// </summary>
+        /// <param name="mdsResult"></param>
+        public static void FilterMdsResult(this MDSCheckResult mdsResult)
+        {
+            var mdsResultForCheck = mdsResult;
+            if (mdsResultForCheck.drugAllergyCheckingResults != null && mdsResultForCheck.drugAllergyCheckingResults.hasDrugAllergyAlert)
+            {
+                for (int a = (mdsResultForCheck.drugAllergyCheckingResults.drugAllergyAlerts.Count() - 1); a >= 0; a--)
+                {
+                    //System should ignore the allergy alerts when suppress flag is true
+                    if (mdsResultForCheck.drugAllergyCheckingResults.drugAllergyAlerts[a].suppress == true)
+                    {
+                        mdsResult.drugAllergyCheckingResults.drugAllergyAlerts.Remove(mdsResultForCheck.drugAllergyCheckingResults.drugAllergyAlerts[a]);
+                    }
+                }
+            }
 
-        public static string ResultBuilder(MdsCheckFinalResult result, ErrorBase error)
+            if (mdsResultForCheck.ddcmCheckingResults != null && mdsResultForCheck.ddcmCheckingResults.hasDdcmAlert && mdsResultForCheck.ddcmCheckingResults.hasG6PdDeficiencyAlert)
+            {
+                for (int d = (mdsResultForCheck.ddcmCheckingResults.ddcmAlerts.Count() - 1); d >= 0; d--)
+                {
+                    //System should ignore the G6PD alerts when suppress flag is true
+                    //System should ignore the G6PD deficiency contraindication alert when the severityLevelCode is 2 or 3
+                    if (mdsResultForCheck.ddcmCheckingResults.ddcmAlerts[d].suppress = true || (new string[] { "2", "3" }.Contains(mdsResultForCheck.ddcmCheckingResults.ddcmAlerts[d].severityLevelCode)))
+                    {
+                        mdsResult.ddcmCheckingResults.ddcmAlerts.Remove(mdsResultForCheck.ddcmCheckingResults.ddcmAlerts[d]);
+                    }
+                }
+            }
+        }
+     
+        private static string ResultBuilder(MdsCheckFinalResult result, ErrorBase error)
         {
             StringBuilder sBuilder = new StringBuilder();
 
@@ -198,20 +233,7 @@ namespace Demo.HL7MessageParser
 
             return sBuilder.ToString();
         }
-
-        public static string WrapperAllergyCheckResultMessage(string drugName, string sourceMessage)
-        {
-            foreach (var item in AllergyDict)
-            {
-                if (sourceMessage.Contains(item.Key))
-                {
-                    return drugName + item.Value;
-                }
-            }
-
-            return sourceMessage;
-        }
-        public static string WrapperAdrCheckResultAlertMessage(string drugName, string sourceMessage)
+        private static string WrapperAdrCheckResultAlertMessage(string drugName, string sourceMessage)
         {
             foreach (var item in AdrDict)
             {
@@ -223,7 +245,17 @@ namespace Demo.HL7MessageParser
 
             return sourceMessage;
         }
+        private static string WrapperAllergyCheckResultMessage(string drugName, string sourceMessage)
+        {
+            foreach (var item in AllergyDict)
+            {
+                if (sourceMessage.Contains(item.Key))
+                {
+                    return drugName + item.Value;
+                }
+            }
 
-
+            return sourceMessage;
+        }
     }
 }

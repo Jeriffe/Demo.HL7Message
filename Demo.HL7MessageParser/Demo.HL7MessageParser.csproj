@@ -72,6 +72,8 @@
     <Compile Include="Model\Patient.cs" />
     <Compile Include="ObjectAutoMapping.cs" />
     <Compile Include="PatientServiceProxy.cs" />
+    <Compile Include="Service\InventoryObj.cs" />
+    <Compile Include="Service\MDSCreater.cs" />
     <Compile Include="Service\RestParserSvc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\SoapWSEParserSvc.cs" />

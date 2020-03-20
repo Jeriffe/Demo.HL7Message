@@ -84,7 +84,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
 
         private static void CacheTest()
         {
-            MDSCheckCacheResult cacheMDSResult = FullCacheHK.MDS_CheckCache["DRUG_ITEM_CODE"];
+            MDSCheckResultCache cacheMDSResult = FullCacheHK.MDS_CheckCache["DRUG_ITEM_CODE"];
 
             if (cacheMDSResult != null)
             {
@@ -93,7 +93,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
             }
 
             // result from HL7 req
-            MDSCheckCacheResult mdsResult = new MDSCheckCacheResult { Cautaion = "CAUTAION_DRUG_ITEM_CODE" };
+            MDSCheckResultCache mdsResult = new MDSCheckResultCache { Cautaion = "CAUTAION_DRUG_ITEM_CODE" };
 
             FullCacheHK.MDS_CheckCache.Register("DRUG_ITEM_CODE", mdsResult);
 

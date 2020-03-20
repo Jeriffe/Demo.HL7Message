@@ -127,11 +127,17 @@
       <DependentUpon>PatientDemographicControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
-    <Compile Include="Data\Lexers\CSharpLexerStyle.cs" />
-    <Compile Include="Data\Lexers\ILexerStyle.cs" />
-    <Compile Include="Data\Lexers\JsonLexerStyle.cs" />
-    <Compile Include="Data\Lexers\LexerStyleHelper.cs" />
-    <Compile Include="Data\Lexers\XmlLexerStyle.cs" />
+    <Compile Include="TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Lexers\CSharpLexerStyle.cs" />
+    <Compile Include="Views\Lexers\ILexerStyle.cs" />
+    <Compile Include="Views\Lexers\JsonLexerStyle.cs" />
+    <Compile Include="Views\Lexers\LexerStyleHelper.cs" />
+    <Compile Include="Views\Lexers\XmlLexerStyle.cs" />
     <Compile Include="Common\DataLoader.cs" />
     <Compile Include="Controls\GrowLabel.cs">
       <SubType>Component</SubType>
@@ -203,6 +209,9 @@
     <EmbeddedResource Include="SystemConfig.resx">
       <DependentUpon>SystemConfig.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\MDSCheckDialogBox.resx">
       <DependentUpon>MDSCheckDialogBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,7 +269,9 @@
       <Name>Demo.HL7MessageParser</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Demo\DM\getDrugMdsPropertyHq\H2003001_DEMO01.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

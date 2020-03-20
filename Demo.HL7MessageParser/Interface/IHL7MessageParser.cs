@@ -11,6 +11,6 @@ namespace Demo.HL7MessageParser
     public interface IHL7MessageParser
     {
         string SearchRemotePatient(string caseNumber, ref string errorMessage);
-        MdsCheckFinalResult MDSCheck(string drugItemCode, PatientDemoEnquiry patientEnquiry, AlertProfileResult alertProfileRes);
+        MdsCheckFinalResult MDSCheck(InventoryObj drugItem, string caseNumber, PatientDemoEnquiry patientEnquiry, AlertProfileResult alertProfileRes);
     }
 }

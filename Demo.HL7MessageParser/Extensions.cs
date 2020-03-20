@@ -83,11 +83,11 @@ namespace Demo.HL7MessageParser
         static FullCacheHK()
         {
             PataientCache = new CacheHK<Patient_AlertProfile>();
-            MDS_CheckCache = new CacheHK<MDSCheckCacheResult>();
-            //DrugMasterCache = new CacheHK<DrugMasterCache>();
+
+
         }
 
-        public static CacheHK<MDSCheckCacheResult> MDS_CheckCache { get; set; }
+        public static CacheHK<MDSCheckResultCache> MDS_CheckCache { get; set; }
         public static CacheHK<Patient_AlertProfile> PataientCache { get; set; }
 
         public static CacheHK<DrugMasterCache> DrugMasterCache { get; set; }
@@ -135,14 +135,22 @@ namespace Demo.HL7MessageParser
 
     public class Patient_AlertProfile
     {
+        public Patient_AlertProfile()
+        {
+            DrugMasterCache = new DrugMasterCache();
+
+            MDSCheck = new MDSCheckResultCache();
+        }
         public PatientDemoEnquiry PatientDemoEnquiry { get; set; }
-        //public MedicationProfileResult MedicationProfileRes { get; set; }
         public AlertProfileResult AlertProfileRes { get; set; }
 
-        public MDSCheckCacheResult MDSCheck { get; set; }
+        public MedicationProfileResult MedicationProfileRes { get; set; }
+
+        public DrugMasterCache DrugMasterCache { get; set; }
+        public MDSCheckResultCache MDSCheck { get; set; }
     }
 
-    public class MDSCheckCacheResult
+    public class MDSCheckResultCache
     {
         public string Cautaion { get; set; }
 
@@ -159,8 +167,8 @@ namespace Demo.HL7MessageParser
         public GetDrugMdsPropertyHqRequest DrugMdsPropertyHqReq { get; set; }
         public GetDrugMdsPropertyHqResponse DrugMdsPropertyHqRes { get; set; }
 
-        public GetPreparationResponse DrugPreparationRes { get; set; }
-        public GetPreparationRequest DrugPreparationReq { get; set; }
+        public GetPreparationResponse PreparationRes { get; set; }
+        public GetPreparationRequest PreparationReq { get; set; }
     }
 
 

@@ -162,11 +162,9 @@ namespace Demo.HL7MessageParser
             return patient.Patient.HKID;
         }
 
-        public MdsCheckFinalResult MDSCheck(string drugItemCode, PatientDemoEnquiry patientEnquiry, AlertProfileResult alertProfileRes)
+        public MdsCheckFinalResult MDSCheck(InventoryObj drugItem, string caseNumber, PatientDemoEnquiry patientEnquiry, AlertProfileResult alertProfileRes)
         {
-            MDSCheckResult resultBeforeMDS = new MDSCheckResult();
-            resultBeforeMDS.hasMdsAlert = false;
-
+            MDSCheckResult resultBeforeMDS = new MDSCheckResult() { hasMdsAlert = false };
 
             if (alertProfileRes == null
                 || alertProfileRes.AdrProfile.Count == 0
@@ -178,43 +176,37 @@ namespace Demo.HL7MessageParser
                 Please exercise your professional judgement during the downtime period and contact [vendor contact information].*/
                 resultBeforeMDS.errorCode = "8520001001";
                 //system error, hasMdsAlert = false, only medication alert, hasMdsAlert = true
-              
+
                 resultBeforeMDS.errorDesc = "System cannot perform Allergy, AlertProfile is empty.";
                 //here should use drug name, not drugItemCode
-                return resultBeforeMDS.ToConvert(drugItemCode);
+                return resultBeforeMDS.ToConvert(drugItem.CommonName);
             }
 
             #region check if need MDS check
             /****2.5.3 3:System should not perform MDS checking on a drug item if its itemCode starts with “PDF”, 
              * e.g. “PDF 2Q “, “PDF 48”. no prompt message *****/
-            if (mdsChecker.CheckDrugCodeIfNoNeedMDSCheck(drugItemCode))
+            if (mdsChecker.CheckDrugCodeIfNoNeedMDSCheck(drugItem.Billnum))
             {
-                logger.Log(LogLevel.Trace, string.Format("medication code:{0} start with PDF, skip MDS Check.",drugItemCode));
                 //here should use drug name, not drugItemCode
-                return resultBeforeMDS.ToConvert(drugItemCode);
+                return resultBeforeMDS.ToConvert(drugItem.CommonName);
             }
             /*****2.5.3 2: ADR record (1.4.2) if its severity is “Mild”, not perform MDS checking for current ADR profile*****/
-            mdsChecker.CheckADRProfileForMDSCheck(ref alertProfileRes, ref resultBeforeMDS);
+            mdsChecker.CheckADRProfileForMDSCheck(ref alertProfileRes, caseNumber);
 
-            /****2.5.3 4-1:System should alert user and not perform MDS checking ...*******/
-            mdsChecker.CheckAllergyProfileForMDSCheck(ref alertProfileRes, ref resultBeforeMDS);
             #endregion
 
             var getDrugMdsPropertyHqReq = new GetDrugMdsPropertyHqRequest
             {
-                Arg0 = new Arg { ItemCode = new List<string> { drugItemCode } }
+                Arg0 = new Arg { ItemCode = new List<string> { drugItem.Billnum } }
             };
             var getDrugMdsPropertyHqRes = soapSvc.GetDrugMdsPropertyHq(getDrugMdsPropertyHqReq);
 
             if (getDrugMdsPropertyHqRes == null || getDrugMdsPropertyHqRes.Return.Count == 0)
             {
-                resultBeforeMDS.drugError = new DrugError()
-                {
-                    errorDesc = "System cannot perform Allergy, Drug Master Response is empty.",
-                    hasDrugError = true
-                };
-                //here should use drug name, not drugItemCode
-                return resultBeforeMDS.ToConvert(drugItemCode);
+                resultBeforeMDS.errorCode = "8520001002";
+                resultBeforeMDS.errorDesc = "System cannot perform Allergy, Drug Master Response is empty.";
+
+                return resultBeforeMDS.ToConvert(drugItem.CommonName);
             }
 
             var drugProperty = getDrugMdsPropertyHqRes.Return[0].DrugProperty;
@@ -224,7 +216,7 @@ namespace Demo.HL7MessageParser
                 {
                     DispHospCode = "",
                     DispWorkstore = "",
-                    ItemCode = drugItemCode,
+                    ItemCode = drugItem.Billnum,
                     TrueDisplayname = drugProperty.Displayname,
                     FormCode = drugProperty.FormCode,
                     SaltProperty = drugProperty.SaltProperty,
@@ -240,492 +232,71 @@ namespace Demo.HL7MessageParser
 
             if (getPreparationRes == null || getPreparationRes.Return == null)
             {
-                resultBeforeMDS.drugError = new DrugError()
-                {
-                    errorDesc = "System cannot perform Allergy, Drug Preparation Response is empty.",
-                    hasDrugError = true
-                };
-                return resultBeforeMDS.ToConvert(drugProperty.Displayname);
+                resultBeforeMDS.errorCode = "8520001003";
+                resultBeforeMDS.errorDesc = "System cannot perform Allergy, Drug Preparation Response is empty.";
+
+                return resultBeforeMDS.ToConvert(drugItem.CommonName);
             }
 
-            if (FullCacheHK.DrugMasterCache[drugItemCode] == null)
-            {
-                FullCacheHK.DrugMasterCache.Register(drugItemCode, new DrugMasterCache
-                {
-                    DrugMdsPropertyHqReq = getDrugMdsPropertyHqReq,
-                    DrugMdsPropertyHqRes = getDrugMdsPropertyHqRes,
-                    DrugPreparationReq = getPreparationReq,
-                    DrugPreparationRes = getPreparationRes
-                });
-
-            }
-            string drugName = drugProperty.Displayname;
-            
-            bool skipMDS = false;
-            
-            MDSCheckInputParm mdsRequest = CreateMDSRequest(patientEnquiry, 
-                alertProfileRes, 
-                getDrugMdsPropertyHqRes, 
-                getPreparationRes, 
-                ref drugName,
-                ref skipMDS,
-                ref resultBeforeMDS);
-
-            //before MDS check, if contain Allergy Error/Adr Error/Drug Error, show dialog before MDS check
-            //
-            MdsCheckFinalResult resultMsgBeforeMDS = resultBeforeMDS.ToConvert(drugName);
-            if (!string.IsNullOrEmpty(resultMsgBeforeMDS.SystemErrorMessage))
-            {
-                //if found Allergy Error/Adr Error/Drug Error, skip MDS check directly
-                return resultMsgBeforeMDS;
-            }
-            if (!skipMDS)
-            {
-                //do Final MDS Check
-                MDSCheckResult mdsCheckResult = restSvc.CheckMDS(mdsRequest);
-                var patientCache = FullCacheHK.PataientCache[patientEnquiry.CaseList[0].Number.Trim().ToUpper()];
-                if (patientCache != null)
-                {
-                    patientCache.MDSCheck.Res = mdsCheckResult;
-                }
-                //filter final MDS check result
-                FilterCheckForMDSResult(ref mdsCheckResult);
-                //convert mds result to message object to show
-                return mdsCheckResult.ToConvert(drugName);
-            }
-
-            return new MdsCheckFinalResult();
-        }
-
-        private MDSCheckInputParm CreateMDSRequest(PatientDemoEnquiry patientEnquiry,
-            AlertProfileResult alertProfileRes,
-            GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes,
-            GetPreparationResponse getPreparationRes,
-            ref string drugName,ref bool skipMDS,ref MDSCheckResult mdsResult)
-        {
+            #region JUST FOR SIMULATOR
             var patientCache = FullCacheHK.PataientCache[patientEnquiry.CaseList[0].Number.Trim().ToUpper()];
-
-            var mdsInput = new MDSCheckInputParm
+            if (patientCache != null)
             {
+                patientCache.DrugMasterCache.DrugMdsPropertyHqReq = getDrugMdsPropertyHqReq;
+                patientCache.DrugMasterCache.DrugMdsPropertyHqRes = getDrugMdsPropertyHqRes; ;
 
-                HasG6pdDeficiency = false,
 
-                PatientInfo = CreateMDSPatientInfo(patientEnquiry),
+                patientCache.DrugMasterCache.PreparationReq = getPreparationReq; ;
+                patientCache.DrugMasterCache.PreparationRes = getPreparationRes; ;
 
-                UserInfo = CreateMDSUserInfo(patientEnquiry),
+            }
+            #endregion
 
-                PatientAllergyProfile = CreateMDSAllergy(alertProfileRes),
-
-                PatientAdrProfile = CreateMDSAdr(alertProfileRes),
-
-                CurrentRxDrugProfile = CreateMDSRxDrugProfileIfSkipMDS(getDrugMdsPropertyHqRes, getPreparationRes, ref skipMDS),
-
-                CheckDscm = false,
-                CheckDrcm = false,
-                CheckDlcm = false,
-                CheckSteroid = false,
-                CheckDiscon = false,
-                CheckHepaB = false,
-                HasPregnancy = false,
-                CheckDdim = false,
-                CallerSourceSystem = "PMS",
-            };
-
-            //show at msg title: CAUTION for + uppercase[drugDdimDisplayName from 2.5.1]
-            drugName = mdsInput.CurrentRxDrugProfile.DrugDdimDisplayName.ToUpper();
-
-            /*if alertProfile from 1.4.2 = G6PD, then “true”, 
-              else “false”
-            */
-            mdsInput.HasG6pdDeficiency = mdsChecker.CheckIsG6PD(alertProfileRes.AlertProfile);
+            string drugName = drugProperty.Displayname;
 
             /*if  hasG6pdDeficiency is true or  hasPregnancy is true, then “true”, else “false”*/
-            mdsInput.CheckDdcm = mdsInput.HasG6pdDeficiency;//|| mdsInput.HasPregnancy;
-            //“true” for Allergy checking
-            mdsInput.CheckDam = alertProfileRes.AllergyProfile.Count() > 0;
-            mdsInput.CheckAdr = alertProfileRes.AdrProfile.Count() > 0;
+            bool hasG6pdDeficiency = mdsChecker.CheckIsG6PD(alertProfileRes.AlertProfile);
+
+            bool checkDdcm = hasG6pdDeficiency;
+            bool checkDam = alertProfileRes.AllergyProfile.Count() > 0;
+            bool checkAdr = alertProfileRes.AdrProfile.Count() > 0;
 
             //if no ddcm, no allergy, no adr, then no need do MDS check
-            if (!skipMDS)
+            if (!checkDdcm && !checkDam && !checkAdr)
             {
-                if (!mdsInput.CheckDdcm && !mdsInput.CheckDam && !mdsInput.CheckAdr)
-                {
-                    skipMDS = true;
-                }
+                return new MdsCheckFinalResult();
             }
-            if (!skipMDS)
-            {
-                //both[moeCheckFlag from 2.4.1.2] and[GroupMoeCheckFlag from 2.4.1.2] is “N”, 
-                //no need to execute MDS, and show msg
-                if (!mdsChecker.CheckDrugMasterResultForMDSCheck(getDrugMdsPropertyHqRes.Return[0].DrugMds, getPreparationRes.Return.PmsFmStatus, mdsInput.CurrentRxDrugProfile.DrugErrorDisplayName, ref mdsResult))
-                {
-                    skipMDS = true;
-                }
-            }
-            patientCache.MDSCheck = new MDSCheckCacheResult
-            {
-                Req = mdsInput
-            };
 
-            return mdsInput;
+            MDSCheckInputParm mdsRequest = new MDSCreater().CreateMDSRequest(patientEnquiry,
+                alertProfileRes,
+                getDrugMdsPropertyHqRes,
+                getPreparationRes,
+                checkDdcm,
+                checkDam,
+                checkAdr,
+                ref drugName
+                );
+
+            /************do Final MDS Check*********************/
+            MDSCheckResult mdsCheckResult = restSvc.CheckMDS(mdsRequest);
+
+            //filter final MDS check result
+            mdsCheckResult.FilterMdsResult();
+
+            #region JUST FOR SIMULATOR
+            if (patientCache != null)
+            {
+                patientCache.MDSCheck = new MDSCheckResultCache { Req = mdsRequest, Res = mdsCheckResult };
+            }
+            #endregion
+
+            //convert mds result to message object to show
+            return mdsCheckResult.ToConvert(drugName);
         }
-
-        /// <summary>
-        /// if moeCheckFlag =="N" && GroupMoeCheckFlag =="N", skip MDS check
-        /// </summary>
-        /// <param name="getDrugMdsPropertyHqRes"></param>
-        /// <param name="getPreparationRes"></param>
-        /// <param name="mdsInput"></param>
-        /// <returns></returns>
-        private CurrentRxDrugProfile CreateMDSRxDrugProfileIfSkipMDS(GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes, GetPreparationResponse getPreparationRes, ref bool skipMDS)
-        {
-            skipMDS = false;
-            var currentRxDrugProfile = new CurrentRxDrugProfile
-            {
-                IsCapdItem = "false",
-                //Initialize in the comming 
-                GcnSeqNo = 0,
-                RDfGenId = 0,
-                RGenId = 0,
-                Type = "",
-
-                TrueDisplayName = getPreparationRes.Return.TrueDisplayname,
-                //Initialize in the comming
-                DrugDisplayName = getPreparationRes.Return.TrueDisplayname + " " + getPreparationRes.Return.SaltProperty,
-                DrugDdimDisplayName = "",
-                DrugErrorDisplayName = "",
-
-                ArrayPos = "0",
-                IndRow = "0",
-                OrdNo = "0",
-                HospCode = HospitalCode,
-                Delete = "false",
-
-                Salt = getDrugMdsPropertyHqRes.Return[0].DrugProperty.SaltProperty,
-                Strength = getPreparationRes.Return.Strength,
-                FormCode = getDrugMdsPropertyHqRes.Return[0].DrugProperty.FormCode,
-                ItemCode = getDrugMdsPropertyHqRes.Return[0].ItemCode,
-
-                SpecRestrict = "",
-                SpecInstruct = "",
-                PharSpec = "",
-                DataUpdate = "N",
-                DdimDosRelatedCheck = "N",
-            };
-            /*GcnSeqNo
-             * if  (moeCheckFlag from 2.4.1.2) = “Y”
-                     if (gcnSeqno from 2.4.1.2) > 0, then gcnSeqno from 2.4.1.2
-                     else “0”
-              else if (GroupMoeCheckFlag from 2.4.1.2) = “Y”
-                 if (groupGcnSeqno from2.4.1.2) > 0, then groupGcnSeqno from2.4.1.2
-                 else “0”
-             else skip MDS checking
-
-
-            *RDfGenId
-            *if  (moeCheckFlag from 2.4.1.2) = “Y”
-                if (routeformGeneric from 2.4.1.2) > 0, then routeformGeneric from 2.4.1.2 
-                else “0”
-            else if (GroupMoeCheckFlag from 2.4.1.2) = “Y”
-                if (groupRouteformGeneric from2.4.1.2) > 0, then groupRouteformGeneric from2.4.1.2
-                else “0”
-            else skip MDS checking
-
-            *RGenId
-            *if  (moeCheckFlag from 2.4.1.2) = “Y”
-                  if (routedGeneric from 2.4.1.2) > 0, then routedGeneric from 2.4.1.2
-                  else “0”
-              else if (GroupMoeCheckFlag from 2.4.1.2) = “Y”
-                  if (groupRoutedGeneric from2.4.1.2) > 0, then groupRoutedGeneric from2.4.1.2
-                  else “0”
-              else skip MDS checking
-            */
-            var drugMds = getDrugMdsPropertyHqRes.Return[0].DrugMds;
-            var drugProperty = getDrugMdsPropertyHqRes.Return[0].DrugProperty;
-            if (drugMds.MoeCheckFlag == "Y")
-            {
-                currentRxDrugProfile.GcnSeqNo = drugMds.GcnSeqno > 0 ? drugMds.GcnSeqno : 0;
-                currentRxDrugProfile.RGenId = drugMds.RoutedGeneric > 0 ? drugMds.RoutedGeneric : 0;
-                currentRxDrugProfile.RDfGenId = drugMds.RouteformGeneric > 0 ? drugMds.RouteformGeneric : 0;
-            }
-            else if (drugMds.GroupMoeCheckFlag == "Y")
-            {
-                currentRxDrugProfile.GcnSeqNo = drugMds.GroupGcnSeqno > 0 ? drugMds.GroupGcnSeqno : 0;
-                currentRxDrugProfile.RGenId = drugMds.GroupRoutedGeneric > 0 ? drugMds.GroupRoutedGeneric : 0;
-                currentRxDrugProfile.RDfGenId = drugMds.GroupRouteformGeneric > 0 ? drugMds.GroupRouteformGeneric : 0;
-            }
-            else
-            {
-                skipMDS = true;
-            }
-
-            /*Type
-             if (gcnSeqNum > 0), then "S"
-             else if (gcnSeqNum <= 0 && (rdfgenId > 0 || rgenId > 0)), then "R"
-             else "X"
-            */
-            if (currentRxDrugProfile.GcnSeqNo > 0)
-            {
-                currentRxDrugProfile.Type = "S";
-            }
-            else if (currentRxDrugProfile.RDfGenId > 0 || currentRxDrugProfile.RGenId > 0)
-            {
-                currentRxDrugProfile.Type = "R";
-            }
-            else
-            {
-                currentRxDrugProfile.Type = "X";
-            }
-
-            /*DrugDdimDisplayName
-             drugDisplayName +
-             if (Drug moeDesc from 2.4.2.2) is BLANK, then BLANK
-             else “ “ + lowercase(Drug moeDesc from 2.4.2.2)
-            */
-            currentRxDrugProfile.DrugDdimDisplayName = drugProperty.Displayname;
-            if (!string.IsNullOrEmpty(getPreparationRes.Return.MoeDesc))
-            {
-                currentRxDrugProfile.DrugDdimDisplayName += " " + getPreparationRes.Return.MoeDesc.ToLower();
-            }
-            /*DrugErrorDisplayName
-            drugDdimDisplayName +
-            1.	if(Drug strength from 2.4.2.2) is BLANK, then BLANK
-            else “ “ + lowercase(Drug strength from 2.4.2.2)
-            2.	if(Drug volumeValue from 2.4.2.2) not > 0, then BLANK
-            else “ “ + (Drug volumeValue from 2.4.2.2) in format "#######.####" + lowercase(Drug  volumeUnit from 2.4.2.2)
-            */
-            currentRxDrugProfile.DrugErrorDisplayName =
-                        GetDrugErrorDisplayName(currentRxDrugProfile.DrugDdimDisplayName,
-                                                getPreparationRes.Return.Strength,
-                                                getPreparationRes.Return.VolumeValue,
-                                                getPreparationRes.Return.VolumeUnit);
-
-
-            return currentRxDrugProfile;
-        }
-
-        private List<PatientAdrProfile> CreateMDSAdr(AlertProfileResult alertProfileRes)
-        {
-            List<PatientAdrProfile> patientAdrProfiles = new List<PatientAdrProfile>();
-            foreach (var adrProfile in alertProfileRes.AdrProfile)
-            {
-                var patientAdrProfile = new PatientAdrProfile
-                {
-                    AdrSeqNo = adrProfile.AdrSeqNo,
-                    AllergenCode = "",
-                    Displayname = adrProfile.DisplayName,
-                    Aliasname = adrProfile.AliasName,
-                    Salt = adrProfile.Salt,
-                    NameType = adrProfile.NameType,
-                    Adr = adrProfile.Drug,
-                    AdrType = adrProfile.DrugType,
-                    Severity = adrProfile.Severity,
-                    Remark = adrProfile.Remark,
-                    SourceSystem = "PMS",
-                    CreateBy = "",
-                    CreateUserName = "",
-                    CreateHosp = "",
-                    CreateRank = "",
-                    CreateRankDesc = "",
-                    CreateDtm = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.0"),
-                    UpdateBy = adrProfile.UpdateBy,
-                    UpdateUserName = adrProfile.UpdateUser,
-                    UpdateHosp = adrProfile.UpdateHospital,
-                    UpdateRank = adrProfile.UpdateUserRank,
-                    UpdateRankDesc = adrProfile.UpdateRankDesc,
-                    //TODO: MAYE NEED TO CHECK profile.UpdateDtm IS NULL
-                    UpdateDtm = adrProfile.UpdateDtm,
-                    Reactions = null,
-                    HiclSeqNo = adrProfile.HiclSeqno,
-                    HicSeqNos = new HiclSeqNos { HicSeqNo = adrProfile.HicSeqno }
-                };
-
-                /*<updateDtm>2020-02-24 10:02:15.0</updateDtm>
-                  <reactions>
-                      <seqNo></seqNo>
-                      <rDesc>Bronchospasm</rDesc>
-                      <severCode>0</severCode>
-                      <freqCode>0</freqCode>
-                  </reactions>
-                  <hiclSeqNo>13446</hiclSeqNo>
-                  <hicSeqNos/>
-                */
-                patientAdrProfile.Reactions = new List<Reactions>();
-                foreach (var item in adrProfile.Reaction.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    patientAdrProfile.Reactions.Add(new Reactions
-                    {
-                        SeqNo = "",
-                        RDesc = item,
-                        SeverCode = "0",
-                        FreqCode = "0",
-                    });
-                }
-
-                patientAdrProfiles.Add(patientAdrProfile);
-
-            }
-
-            return patientAdrProfiles;
-        }
-
-        private List<PatientAllergyProfile> CreateMDSAllergy(AlertProfileResult alertProfileRes)
-        {
-            List<PatientAllergyProfile> patientAllergyProfiles = new List<PatientAllergyProfile>();
-            foreach (var profile in alertProfileRes.AllergyProfile)
-            {
-                var patientAllergyProfile = new PatientAllergyProfile
-                {
-                    AllergySeqNo = profile.AllergySeqNo,
-                    AllergenCode = "",
-                    Displayname = profile.DisplayName,
-                    Aliasname = profile.AliasName,
-                    Salt = profile.Salt,
-                    NameType = profile.NameType,
-                    Allergen = profile.Allergen,
-                    AllergenType = profile.AllergenType,
-                    Certainty = profile.Certainty,
-                    Remark = profile.Remark,
-                    SourceSystem = "PMS",
-                    CreateBy = "",
-                    CreateUserName = "",
-                    CreateHosp = "",
-                    CreateRank = "",
-                    CreateRankDesc = "",
-                    CreateDtm = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.0"),
-                    UpdateBy = profile.UpdateBy,
-                    UpdateUserName = profile.UpdateUser,
-                    UpdateHosp = profile.UpdateHospital,
-                    UpdateRank = profile.UpdateUserRank,
-                    UpdateRankDesc = profile.UpdateRankDesc,
-                    //TODO: MAYE NEED TO CHECK profile.UpdateDtm IS NULL
-                    UpdateDtm = profile.UpdateDtm,
-                    Manifestations = null,
-                    EhrLocalDesc = string.Empty,
-                    HiclSeqNo = profile.HiclSeqno,
-                    HicSeqNos = new HiclSeqNos { HicSeqNo = profile.HicSeqno }
-                };
-
-                /* 
-                 * <updateDtm>2019-08-16 17:27:01.0</updateDtm>
-                    <manifestations>
-                        <seqNo>0</seqNo>
-                        <mDesc>Allergic rhinitis</mDesc>
-                    </manifestations>
-                    <manifestations>
-                        <seqNo>0</seqNo>
-                        <mDesc>Asthma</mDesc>
-                    </manifestations>
-                    <hiclSeqNo>12057</hiclSeqNo>
-                    <hicSeqNos>
-                        <hicSeqNo>1117</hicSeqNo>
-                        <hicSeqNo>1121</hicSeqNo>
-                    </hicSeqNos>
-                  */
-                patientAllergyProfile.Manifestations = new List<Manifestations>();
-                foreach (var item in profile.Manifestation.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    patientAllergyProfile.Manifestations.Add(
-                    new Manifestations
-                    {
-                        SeqNo = "0",
-                        MDesc = item,
-                    });
-                }
-
-                patientAllergyProfiles.Add(patientAllergyProfile);
-            }
-            return patientAllergyProfiles;
-        }
-
-        private MDSCheck_UserInfo CreateMDSUserInfo(PatientDemoEnquiry patientEnquiry)
-        {
-            return new MDSCheck_UserInfo
-            {
-                HospCode = patientEnquiry.CaseList[0].HospitalCode,
-                PharSpec = patientEnquiry.CaseList[0].Specialty,
-                WrkStnID = UtilityHelper.GetLoalIPAddress(),
-                WrkStnType = "I"
-            };
-        }
-
-        private MDSCheck_PatientInfo CreateMDSPatientInfo(PatientDemoEnquiry patientEnquiry)
-        {
-            return new MDSCheck_PatientInfo
-            {
-                HKID = patientEnquiry.Patient.HKID,
-                PatientKey = patientEnquiry.Patient.Key,
-                Sex = patientEnquiry.Patient.Sex,
-                //Number of days between Current Date and Patient DOB  \\TODO-JERIFFE: CONFIRM THE AgeInDats Type
-                AgeInDays = (DateTime.Now - patientEnquiry.Patient.DOB.ToDateTime()).TotalDays.ToString(),
-                HeightInCM = "0",
-                BSAInM2 = "0",
-                WeightInKG = "0",
-                DataUpdated = "N",
-                DataWithinValidPeriod = "N"
-            };
-        }
-
-        private string GetDrugErrorDisplayName(string ddimDisplayName, string strength, string volumeValue, string volumeunit)
-        {
-            string drugErrorDisplayName = ddimDisplayName;
-            drugErrorDisplayName += string.IsNullOrEmpty(strength) ? string.Empty : " " + strength.ToLower();
-            if (!string.IsNullOrEmpty(volumeValue))
-            {
-                decimal volumeValueDecimal = 0;
-                decimal.TryParse(volumeValue, out volumeValueDecimal);
-                if (volumeValueDecimal > 0)
-                {
-                    drugErrorDisplayName += " " + FormatVolumeValue(volumeValueDecimal) + volumeunit.ToLower();
-                }
-            }
-            return drugErrorDisplayName;
-        }
-        /// <summary>
-        /// System should ignore the following MDS alerts when suppress flag is true:
-        ///Drug allergy alert
-        ///G6PD deficiency contraindication alert
-        ///ignore the G6PD deficiency contraindication alert when the severityLevelCode  is 2 or 3
-        /// </summary>
-        /// <param name="mdsResult"></param>
-        private void FilterCheckForMDSResult(ref MDSCheckResult mdsResult)
-        {
-            var mdsResultForCheck = mdsResult;
-            if (mdsResultForCheck.drugAllergyCheckingResults != null && mdsResultForCheck.drugAllergyCheckingResults.hasDrugAllergyAlert)
-            {
-                for (int a = (mdsResultForCheck.drugAllergyCheckingResults.drugAllergyAlerts.Count() - 1); a >= 0; a--)
-                {
-                    //System should ignore the allergy alerts when suppress flag is true
-                    if (mdsResultForCheck.drugAllergyCheckingResults.drugAllergyAlerts[a].suppress == true)
-                    {
-                        mdsResult.drugAllergyCheckingResults.drugAllergyAlerts.Remove(mdsResultForCheck.drugAllergyCheckingResults.drugAllergyAlerts[a]);
-                    }
-                }
-            }
-
-            if (mdsResultForCheck.ddcmCheckingResults != null && mdsResultForCheck.ddcmCheckingResults.hasDdcmAlert && mdsResultForCheck.ddcmCheckingResults.hasG6PdDeficiencyAlert)
-            {
-                for (int d = (mdsResultForCheck.ddcmCheckingResults.ddcmAlerts.Count() - 1); d >= 0; d--)
-                {
-                    //System should ignore the G6PD alerts when suppress flag is true
-                    //System should ignore the G6PD deficiency contraindication alert when the severityLevelCode is 2 or 3
-                    if (mdsResultForCheck.ddcmCheckingResults.ddcmAlerts[d].suppress = true || (new string[] { "2", "3" }.Contains(mdsResultForCheck.ddcmCheckingResults.ddcmAlerts[d].severityLevelCode)))
-                    {
-                        mdsResult.ddcmCheckingResults.ddcmAlerts.Remove(mdsResultForCheck.ddcmCheckingResults.ddcmAlerts[d]);
-                    }
-                }
-            }
-        }
-
 
         private void CheckItemCodeofMedicationProfile(MedicationProfileResult orders, ref string errorMessage)
         {
             //CHECK ITEM CODES
-        }
-
-        private static bool IsInvalidAccessCode(AlertProfileResult actualProfile)
-        {
-            return actualProfile.ErrorMessage.Count > 0 && "20083".Equals(actualProfile.ErrorMessage[0].MsgCode);
         }
 
         static int Max_Retry_Count = 3;

@@ -18,7 +18,13 @@ namespace Demo.HL7MessageParser.WinForms
         {
             this.AutoSize = false;
         }
-        private void resizeLabel()
+
+        public override bool AutoSize
+        {
+            get; set;
+        }
+
+        private void ResizeLabel()
         {
             if (mGrowing) return;
             try
@@ -36,17 +42,23 @@ namespace Demo.HL7MessageParser.WinForms
         protected override void OnTextChanged(EventArgs e)
         {
             base.OnTextChanged(e);
-            resizeLabel();
+            ResizeLabel();
         }
         protected override void OnFontChanged(EventArgs e)
         {
             base.OnFontChanged(e);
-            resizeLabel();
+            ResizeLabel();
         }
         protected override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
-            resizeLabel();
+            ResizeLabel();
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            ResizeLabel();
         }
     }
 }
