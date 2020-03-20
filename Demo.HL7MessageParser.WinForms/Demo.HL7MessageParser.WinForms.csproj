@@ -90,6 +90,12 @@
     <Compile Include="Controls\AlertProfileParserControl.Designer.cs">
       <DependentUpon>AlertProfileParserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\GrowLabelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\GrowLabelControl.Designer.cs">
+      <DependentUpon>GrowLabelControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </Compile>
     <EmbeddedResource Include="Controls\AlertProfileParserControl.resx">
       <DependentUpon>AlertProfileParserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GrowLabelControl.resx">
+      <DependentUpon>GrowLabelControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
