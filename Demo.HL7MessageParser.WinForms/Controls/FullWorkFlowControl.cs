@@ -108,7 +108,7 @@ namespace Demo.HL7MessageParser.WinForms
 
             result.Patient = patientCache.PatientDemoEnquiry;
             result.Allergies = (patientCache.AlertProfileRes ?? new AlertProfileResult());
-
+            result.Orders= patientCache.MedicationProfileRes;
             this.BeginInvoke((MethodInvoker)delegate
             {
                 var HK_ID = result.Patient.Patient.HKID;

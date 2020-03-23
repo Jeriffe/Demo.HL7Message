@@ -70,8 +70,8 @@ namespace Demo.HL7MessageParser.Common
             ItemCode_HKID_Mapping["DEMO34"] = "H2003034_DEMO34";
             ItemCode_HKID_Mapping["DEMO35"] = "H2003035_DEMO35";
             ItemCode_HKID_Mapping["DEMO36"] = "H2003036_DEMO36";
-            ItemCode_HKID_Mapping["DEMO37"] = "H2003037_DEMO37";
-            ItemCode_HKID_Mapping["DEMO38"] = "H2003038_DEMO38";
+            ItemCode_HKID_Mapping["DEMO36A"] = "H2003036_DEMO36A";
+            ItemCode_HKID_Mapping["DEMO36B"] = "H2003036_DEMO36B";
 
 
 
@@ -112,8 +112,6 @@ namespace Demo.HL7MessageParser.Common
             HKID_ItemCode_Mapping["H2003034"] = "DEMO34";
             HKID_ItemCode_Mapping["H2003035"] = "DEMO35";
             HKID_ItemCode_Mapping["H2003036"] = "DEMO36";
-            HKID_ItemCode_Mapping["H2003037"] = "DEMO37";
-            HKID_ItemCode_Mapping["H2003038"] = "DEMO38";
         }
 
         public static Dictionary<string, string> ItemCode_HKID_Mapping { get; private set; }

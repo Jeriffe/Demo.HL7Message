@@ -150,11 +150,16 @@ namespace Demo.HL7MessageParser
 
             if (patient != null && patient.Patient != null && patient.CaseList != null)
             {
-                FullCacheHK.PataientCache.Register(CASE_NUMBER, new Patient_AlertProfile { PatientDemoEnquiry = patient });
+                FullCacheHK.PataientCache.Register(CASE_NUMBER, new Patient_AlertProfile
+                {
+                    PatientDemoEnquiry = patient
+                });
             }
+
             if (FullCacheHK.PataientCache[CASE_NUMBER] != null)
             {
-                //FullCacheHK.PataientCache[CASE_NUMBER].MedicationProfileRes = orders;
+                FullCacheHK.PataientCache[CASE_NUMBER].MedicationProfileRes = orders;
+
                 FullCacheHK.PataientCache[CASE_NUMBER].AlertProfileRes = allergys;
             }
 
