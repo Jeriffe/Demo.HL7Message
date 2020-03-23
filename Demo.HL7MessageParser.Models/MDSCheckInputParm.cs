@@ -192,6 +192,10 @@ namespace Demo.HL7MessageParser.Models
     [XmlRoot(ElementName = "patientAllergyProfile")]
     public class PatientAllergyProfile
     {
+        public PatientAllergyProfile()
+        {
+            Manifestations = new List<Manifestations>();
+        }
         /// <summary>
         /// AllergyProfile.AllergySeqNo
         /// </summary>
@@ -334,6 +338,10 @@ namespace Demo.HL7MessageParser.Models
     [XmlRoot(ElementName = "hicSeqNos")]
     public class HiclSeqNos
     {
+        public HiclSeqNos()
+        {
+            HicSeqNo = new List<string>();
+        }
         [XmlElement(ElementName = "hicSeqNo")]
         public List<string> HicSeqNo { get; set; }
     }
@@ -369,6 +377,10 @@ namespace Demo.HL7MessageParser.Models
     [XmlRoot(ElementName = "patientAdrProfile")]
     public class PatientAdrProfile
     {
+        public PatientAdrProfile()
+        {
+            Reactions = new List<Reactions>();
+        }
         /// <summary>
         ///AdrProfile.AdrSeqNo
         /// </summary>

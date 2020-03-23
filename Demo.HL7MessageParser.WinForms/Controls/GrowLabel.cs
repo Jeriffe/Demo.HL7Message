@@ -18,7 +18,7 @@ namespace Demo.HL7MessageParser.WinForms
         {
             this.AutoSize = false;
         }
-    
+
         private void ResizeLabel()
         {
             if (mGrowing) return;

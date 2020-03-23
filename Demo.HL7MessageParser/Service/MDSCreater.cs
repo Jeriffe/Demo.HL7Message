@@ -236,6 +236,12 @@ namespace Demo.HL7MessageParser
                         <hicSeqNo>1121</hicSeqNo>
                     </hicSeqNos>
                   */
+
+                if (profile.Manifestation.IsNullOrWhiteSpace())
+                {
+                    continue;
+                }
+
                 patientAllergyProfile.Manifestations = new List<Manifestations>();
                 foreach (var item in profile.Manifestation.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
                 {
@@ -299,6 +305,12 @@ namespace Demo.HL7MessageParser
                   <hicSeqNos/>
                 */
                 patientAdrProfile.Reactions = new List<Reactions>();
+
+                if (adrProfile.Reaction.IsNullOrWhiteSpace())
+                {
+                    continue;
+                }
+
                 foreach (var item in adrProfile.Reaction.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
                 {
                     patientAdrProfile.Reactions.Add(new Reactions

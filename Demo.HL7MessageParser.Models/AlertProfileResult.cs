@@ -13,6 +13,7 @@ namespace Demo.HL7MessageParser.Models
             AdrProfile = new List<AdrProfile>();
             AlertProfile = new List<AlertProfile>();
             AllergyProfile = new List<AllergyProfile>();
+            SimpleDisplayFormat = new List<SimpleDisplayFormat>();
         }
         public List<AdrProfile> AdrProfile { get; set; }
         public List<AlertProfile> AlertProfile { get; set; }

@@ -25,6 +25,10 @@ namespace Demo.HL7MessageParser.Models
     [XmlRoot(ElementName = "arg0")]
     public class Arg
     {
+        public Arg()
+        {
+            ItemCode = new List<string>();
+        }
         [XmlElement(ElementName = "itemCode")]
         public List<string> ItemCode { get; set; }
     }

@@ -78,7 +78,12 @@ namespace Demo.HL7MessageParser.Models
 
     public class DdcmCheckingResults
     {
- 
+        public DdcmCheckingResults()
+        {
+            ddcmAlerts = new List<DdcmAlert>();
+
+            ddcmAlertMessages = new List<string>();
+        }
         public List<string> ddcmAlertMessages { get; set; }
         public List<DdcmAlert> ddcmAlerts { get; set; }
         public string errorCode { get; set; }
@@ -117,6 +122,12 @@ namespace Demo.HL7MessageParser.Models
 
     public class DrugAdrCheckingResults
     {
+        public DrugAdrCheckingResults()
+        {
+            drugAdrAlerts = new List<DrugAdrAlert>();
+            drugAdrAlertMessages = new List<string>();
+        }
+
         public List<string> drugAdrAlertMessages { get; set; }
         public List<DrugAdrAlert> drugAdrAlerts { get; set; }
         public string errorCode { get; set; }
@@ -143,6 +154,12 @@ namespace Demo.HL7MessageParser.Models
 
     public class DrugAllergyCheckingResults
     {
+        public DrugAllergyCheckingResults()
+        {
+            drugAllergyAlertMessages = new List<string>();
+
+            drugAllergyAlerts = new List<DrugAllergyAlert>();
+        }
         public List<string> drugAllergyAlertMessages { get; set; }
         public List<DrugAllergyAlert> drugAllergyAlerts { get; set; }
         public string errorCode { get; set; }

@@ -13,6 +13,10 @@ namespace Demo.HL7MessageParser.Models
     {
         private XmlSerializerNamespaces xmlns;
 
+        public GetDrugMdsPropertyHqResponse()
+        {
+            Return = new List<ReturnObj>();
+        }
         [XmlNamespaceDeclarations]
         public XmlSerializerNamespaces Xmlns
         {
