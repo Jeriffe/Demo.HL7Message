@@ -1,22 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Demo.HL7MessageParser.WinForms.Lexers;
-using Demo.HL7MessageParser.Common;
-
-using Microsoft.Web.Services3.Security.Tokens;
-using System.Net;
-using System.IO;
-using Demo.HL7MessageParser.WebProxy;
-using NLog;
-using System.Configuration;
+﻿using Demo.HL7MessageParser.Common;
 using Demo.HL7MessageParser.Models;
+using Demo.HL7MessageParser.WinForms.Lexers;
+using NLog;
+using System;
+using System.ComponentModel;
+using System.Data;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Demo.HL7MessageParser.WinForms
 {
@@ -66,7 +57,7 @@ namespace Demo.HL7MessageParser.WinForms
         {
             RefreshMDSControlseState(false);
         }
-        private void btnRequest_Click(object sender, EventArgs e)
+        private void btnSearchPatient_Click(object sender, EventArgs e)
         {
             if (Global.IsDirty)
             {
@@ -87,6 +78,7 @@ namespace Demo.HL7MessageParser.WinForms
 
             loadForm.ShowDialog();
         }
+       
         private void bgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             string errorStr = null;
@@ -191,6 +183,23 @@ namespace Demo.HL7MessageParser.WinForms
 
             loadForm.ShowDialog();
         }
+        private void btnMDSCheckResult_Click(object sender, EventArgs e)
+        {
+            MdsCheckFinalResult source = currentMdsResultForShow;
+
+            try
+            {
+                var dialog = new MDDCheckDialogBox(source, "Clinical Intervention");
+
+                dialog.ShowDialog(this);
+                //new MDSDialog(source).ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void bgWorkerMDSCheck_DoWork(object sender, DoWorkEventArgs e)
         {
             try
@@ -282,7 +291,6 @@ namespace Demo.HL7MessageParser.WinForms
             }
 
         }
-
         private void bgWorkerMDSCheck_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (loadForm != null)
@@ -331,7 +339,6 @@ namespace Demo.HL7MessageParser.WinForms
             scintillaDrugPreparationReq.FormatStyle(StyleType.Xml);
             scintillaDrugPreparationRes.FormatStyle(StyleType.Xml);
         }
-
         private void ChangeSelectedTabPage(TabPage tabPage)
         {
             if (tabControl.SelectedTab != tabPage)
@@ -339,7 +346,6 @@ namespace Demo.HL7MessageParser.WinForms
                 tabControl.SelectedTab = tabPage;
             }
         }
-
         private void RefreshMDSControlseState(bool enable)
         {
             btnMDSCheck.Enabled = enable;
@@ -356,24 +362,6 @@ namespace Demo.HL7MessageParser.WinForms
             public MedicationProfileResult Orders { get; set; }
             public AlertProfileResult Allergies { get; set; }
         }
-
-        private void btnMDSCheckResult_Click(object sender, EventArgs e)
-        {
-            MdsCheckFinalResult source = currentMdsResultForShow;
-
-            try
-            {
-                var dialog = new MDDCheckDialogBox(source, "Clinical Intervention");
-
-                dialog.ShowDialog(this);
-                //new MDSDialog(source).ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private MdsCheckFinalResult InitalData()
         {
             var initSource = new MdsCheckFinalResult();
@@ -405,8 +393,5 @@ Use of ASPIRIN TABLET may result in adverse drug reaction."));
 
             return initSource;
         }
-
-
-
     }
 }

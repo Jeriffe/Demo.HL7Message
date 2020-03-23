@@ -44,6 +44,26 @@ namespace Demo.HL7MessageParser.WinForms
         {
             Initialize();
         }
+       
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            scintillaRes.Text = string.Empty;
+            try
+            {
+                if (Global.IsDirty)
+                {
+                    InitializeService();
+                }
+
+                var inputParam = XmlHelper.XmlDeserialize<AlertInputParm>(scintillaReq.Text.Trim());
+
+                dataLoader.LoadDataAsync(restService.GetAlertProfile, inputParam);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         private void cbxHKId_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -92,19 +112,6 @@ namespace Demo.HL7MessageParser.WinForms
 
                     scintillaReq.Text = string.Format(str, hkId, Global.AccessCode);
                 }
-            }
-        }
-        private void btnSend_Click(object sender, EventArgs e)
-        {
-            scintillaRes.Text = string.Empty;
-            try
-            {
-                var inputParam = XmlHelper.XmlDeserialize<AlertInputParm>(scintillaReq.Text.Trim());
-                dataLoader.LoadDataAsync(restService.GetAlertProfile,inputParam);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
 

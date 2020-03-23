@@ -36,6 +36,11 @@ namespace Demo.HL7MessageParser.WinForms
         }
         private void btnSendMedicationProfile_Click(object sender, EventArgs e)
         {
+            if (Global.IsDirty)
+            {
+                InitializeService();
+            }
+
             scintillaRes.Text = string.Empty;
 
             var caseNumber = cbxCaseNumber.SelectedItem.ToString();
