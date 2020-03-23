@@ -167,9 +167,9 @@ namespace Demo.HL7MessageParser
             MDSCheckResult resultBeforeMDS = new MDSCheckResult() { hasMdsAlert = false };
 
             if (alertProfileRes == null
-                || alertProfileRes.AdrProfile.Count == 0
-                || alertProfileRes.AlertProfile.Count == 0
-                || alertProfileRes.AllergyProfile.Count == 0
+                || (alertProfileRes.AdrProfile.Count == 0
+                && alertProfileRes.AlertProfile.Count == 0
+                && alertProfileRes.AllergyProfile.Count == 0)
                 )
             {
                 /*ErrorMessage = "System cannot perform Allergy, ADR and G6PD Deficiency Contraindication checking. 
@@ -195,11 +195,26 @@ namespace Demo.HL7MessageParser
 
             #endregion
 
+            var CASE_NUMBER = patientEnquiry.CaseList[0].Number.Trim().ToUpper();
+            var patientCache = FullCacheHK.PataientCache[CASE_NUMBER];
+
             var getDrugMdsPropertyHqReq = new GetDrugMdsPropertyHqRequest
             {
                 Arg0 = new Arg { ItemCode = new List<string> { drugItem.Billnum } }
             };
             var getDrugMdsPropertyHqRes = soapSvc.GetDrugMdsPropertyHq(getDrugMdsPropertyHqReq);
+
+            #region JUST FOR SIMULATOR
+
+            if (patientCache != null)
+            {
+                patientCache.MDSCache.Register(drugItem.Billnum, new MDSCheckResultCache
+                {
+                    DrugMdsPropertyHqReq = getDrugMdsPropertyHqReq,
+                    DrugMdsPropertyHqRes = getDrugMdsPropertyHqRes
+                });
+            }
+            #endregion
 
             if (getDrugMdsPropertyHqRes == null || getDrugMdsPropertyHqRes.Return.Count == 0)
             {
@@ -239,16 +254,10 @@ namespace Demo.HL7MessageParser
             }
 
             #region JUST FOR SIMULATOR
-            var patientCache = FullCacheHK.PataientCache[patientEnquiry.CaseList[0].Number.Trim().ToUpper()];
             if (patientCache != null)
             {
-                patientCache.DrugMasterCache.DrugMdsPropertyHqReq = getDrugMdsPropertyHqReq;
-                patientCache.DrugMasterCache.DrugMdsPropertyHqRes = getDrugMdsPropertyHqRes; ;
-
-
-                patientCache.DrugMasterCache.PreparationReq = getPreparationReq; ;
-                patientCache.DrugMasterCache.PreparationRes = getPreparationRes; ;
-
+                patientCache.MDSCache[drugItem.Billnum].PreparationReq = getPreparationReq;
+                patientCache.MDSCache[drugItem.Billnum].PreparationRes = getPreparationRes;
             }
             #endregion
 
@@ -271,9 +280,6 @@ namespace Demo.HL7MessageParser
                 alertProfileRes,
                 getDrugMdsPropertyHqRes,
                 getPreparationRes,
-                checkDdcm,
-                checkDam,
-                checkAdr,
                 ref drugName
                 );
 
@@ -286,7 +292,8 @@ namespace Demo.HL7MessageParser
             #region JUST FOR SIMULATOR
             if (patientCache != null)
             {
-                patientCache.MDSCheck = new MDSCheckResultCache { Req = mdsRequest, Res = mdsCheckResult };
+                patientCache.MDSCache[drugItem.Billnum].Req = mdsRequest;
+                patientCache.MDSCache[drugItem.Billnum].Res = mdsCheckResult;
             }
             #endregion
 

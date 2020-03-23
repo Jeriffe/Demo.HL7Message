@@ -82,39 +82,6 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
             var xmlStr = XmlHelper.XmlSerializeToString(input);
         }
 
-        private static void CacheTest()
-        {
-            MDSCheckResultCache cacheMDSResult = FullCacheHK.MDS_CheckCache["DRUG_ITEM_CODE"];
-
-            if (cacheMDSResult != null)
-            {
-                //return cache result
-                return;
-            }
-
-            // result from HL7 req
-            MDSCheckResultCache mdsResult = new MDSCheckResultCache { Cautaion = "CAUTAION_DRUG_ITEM_CODE" };
-
-            FullCacheHK.MDS_CheckCache.Register("DRUG_ITEM_CODE", mdsResult);
-
-
-            var cachePatientResult = FullCacheHK.PataientCache["CASENUMBER"];
-            if (cachePatientResult != null)
-            {
-                //return cache result
-                return;
-            }
-
-            // result from HL7 req
-            Patient_AlertProfile p_rResult = new Patient_AlertProfile
-            {
-                AlertProfileRes = new AlertProfileResult(),
-                PatientDemoEnquiry = new Models.PatientDemoEnquiry()
-            };
-
-            FullCacheHK.PataientCache.Register("CASENUMBER", p_rResult);
-        }
-
         private static void DrugMasterSosapService()
         {
             try

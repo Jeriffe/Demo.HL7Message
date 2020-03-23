@@ -12,9 +12,19 @@ namespace Demo.HL7MessageParser.WinForms
 {
     public partial class Loading : Form
     {
-        public Loading()
+        private MainForm mainForm;
+
+        public Loading(MainForm mainForm)
         {
             InitializeComponent();
+
+            this.mainForm = mainForm;
+        }
+
+        internal void ResizeView()
+        {
+            this.Width = mainForm.Width;
+            this.Height = mainForm.Height;
         }
     }
 }

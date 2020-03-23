@@ -333,9 +333,6 @@ namespace Demo.HL7MessageParser
                             AlertProfileResult alertProfileRes,
                             GetDrugMdsPropertyHqResponse getDrugMdsPropertyHqRes,
                             GetPreparationResponse getPreparationRes,
-                            bool checkDdcm,
-                            bool checkDam,
-                            bool checkAdr,
                             ref string drugName
                             )
         {
@@ -343,9 +340,6 @@ namespace Demo.HL7MessageParser
 
             var mdsInput = new MDSCheckInputParm
             {
-
-                HasG6pdDeficiency = false,
-
                 PatientInfo = CreateMDSPatientInfo(patientEnquiry),
 
                 UserInfo = CreateMDSUserInfo(patientEnquiry),
@@ -364,15 +358,16 @@ namespace Demo.HL7MessageParser
                 CheckHepaB = false,
                 HasPregnancy = false,
                 CheckDdim = false,
+
+                HasG6pdDeficiency = true,
+                CheckDdcm = true,
+                CheckDam = true,
+                CheckAdr = true,
                 CallerSourceSystem = "PMS",
             };
 
             //show at msg title: CAUTION for + uppercase[drugDdimDisplayName from 2.5.1]
             drugName = mdsInput.CurrentRxDrugProfile.DrugDdimDisplayName.ToUpper();
-
-            mdsInput.CheckDdcm = checkDdcm;
-            mdsInput.CheckDam = checkDam;
-            mdsInput.CheckAdr = checkAdr;
 
             return mdsInput;
         }

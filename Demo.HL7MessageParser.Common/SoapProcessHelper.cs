@@ -14,55 +14,28 @@ namespace Demo.HL7MessageParser.Common
         private const string CONST_XNAME_BODY = "Body";
         private const string CONST_XNAME_RESPONSE = "searchHKPMIPatientByCaseNoResponse";
         private const string CONST_XNAME_PatientDemoEnquiryResult = "PatientDemoEnquiryResult";
-        static List<string> cases;
-
-        //static List<string> cases = new List<string>
-        //{
-        //    "HN03191100Y",
-        //    "HN17000256S",
-        //    "HN18001140Y",
-        //    "HN170002512",
-        //    "HN170002520",
-        //};
-        static SoapParserHelper()
-        {
-            //var patientDemoEnquiryXmlDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"bin/Data/PE/");
-            //try
-            //{
-            //    var files = Directory.GetFiles(patientDemoEnquiryXmlDir, "*.xml");
-
-            //    cases = files.Select(o => new FileInfo(o).Name)
-            //                 .Select(o => o.Substring(0, o.Length - ".xml".Length))
-            //                 .ToList();
-            //}
-            //catch (Exception)
-            //{
-
-            //    throw;
-            //}
-
-            cases = new List<string> { "INVALID_CASENUMBER" };
-        }
+        
         public static PatientDemoEnquiry LoadSamplePatientDemoEnquiry(string caseNumber, string relativePath = null)
         {
             if (null == caseNumber || string.IsNullOrEmpty(caseNumber))
             {
-                return null;
-            }
-
-            if (cases.Contains(caseNumber.ToUpper()))
-            {
                 return new PatientDemoEnquiry();
             }
+
 
             if (string.IsNullOrEmpty(relativePath))
             {
                 relativePath = @"bin/Data/PE";
             }
+
+            var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("{1}/{0}.xml", caseNumber, relativePath));
+            if (!File.Exists(file))
+            {
+                return new PatientDemoEnquiry();
+            }
+
             try
             {
-                var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("{1}/{0}.xml", caseNumber, relativePath));
-
                 var doc = XElement.Load(file);
 
                 var patientResultXmlElement = ParserPatientDemoEnquiryElement(doc);
@@ -75,6 +48,7 @@ namespace Demo.HL7MessageParser.Common
             {
 
             }
+
             return null;
         }
 
@@ -101,7 +75,5 @@ namespace Demo.HL7MessageParser.Common
 
             return patientResultXmlElement.ToString();
         }
-
-
     }
 }

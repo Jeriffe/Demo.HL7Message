@@ -63,6 +63,11 @@ namespace Demo.RESTServcie.Controllers
             {
                 var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/MDS/{0}.json", hkId));
 
+                if (!File.Exists(fileName))
+                {
+                    return new MDSCheckResult();
+                }
+
                 var result = JsonHelper.JsonToObjectFromFile<MDSCheckResult>(fileName);
                 return result;
             }
