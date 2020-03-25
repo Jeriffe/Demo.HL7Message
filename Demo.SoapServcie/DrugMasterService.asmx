@@ -1,1 +1,1 @@
-﻿<%@ WebService Language="C#" CodeBehind="DrugMasterService.asmx.cs" Class="Demp.SimpleSoapService.DrugMasterService" %>
+﻿<%@ WebService Language="C#" CodeBehind="DrugMasterService.asmx.cs" Class="Demo.SoapServcie.DrugMasterService" %>
