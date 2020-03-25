@@ -2,7 +2,7 @@
 
 namespace Demo.HL7MessageParser.Models
 {
-    [XmlRoot(ElementName = "getPreparation")]
+    [XmlRoot(ElementName = "getPreparation", Namespace = "")]
     public class GetPreparationRequest
     {
         [XmlElement(ElementName = "arg0", Namespace = "")]

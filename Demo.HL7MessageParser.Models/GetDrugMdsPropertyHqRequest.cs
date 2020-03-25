@@ -7,7 +7,7 @@ namespace Demo.HL7MessageParser.Models
     [XmlRoot(ElementName = "getDrugMdsPropertyHq")]
     public class GetDrugMdsPropertyHqRequest
     {
-        [XmlElement(ElementName = "arg0")]
+        [XmlElement(ElementName = "arg0", Namespace = "")]
         public Arg Arg0 { get; set; }
 
         private XmlSerializerNamespaces xmlns;
@@ -39,8 +39,8 @@ namespace Demo.HL7MessageParser.Models
 
         [XmlElementAttribute(Namespace = "http://test.com/2010/test")]
     */
-    // [XmlRoot(ElementName = "arg0", Namespace = "")]
-    [XmlRoot(ElementName = "arg0")]
+     [XmlRoot(ElementName = "arg0", Namespace = "")]
+   // [XmlRoot(ElementName = "arg0")]
     public class Arg
     {
         public Arg()

@@ -11,7 +11,7 @@ using System.Web.Services.Protocols;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
-namespace Demp.SimpleSoapService
+namespace Demo.SoapServcie
 {
     /// <summary>
     /// Summary description for PreparationService
@@ -25,16 +25,21 @@ namespace Demp.SimpleSoapService
     {
         public WorkContextSoapHeader WorkContext { get; set; }
 
+        public DrugMasterService()
+        {
+            WorkContext = null;
+        }
+
         [WebMethod]
-        [SoapHeader("WorkContext", Direction = SoapHeaderDirection.InOut)]
+        [SoapHeader("WorkContext", Direction = SoapHeaderDirection.Out)]
         [SoapDocumentMethod(ParameterStyle = SoapParameterStyle.Bare)]
         public GetPreparationResponse getPreparation(GetPreparationRequest request)
         {
-            WorkContext = new WorkContextSoapHeader();
-
             HttpContext.Current.Request.InputStream.Position = 0;
             var requestStr = new StreamReader(HttpContext.Current.Request.InputStream, Encoding.UTF8).ReadToEnd();
 
+
+            WorkContext = new WorkContextSoapHeader();
             try
             {
                 var relativeItemCode = request.Arg0.ItemCode;
@@ -81,7 +86,7 @@ namespace Demp.SimpleSoapService
 
 
         [WebMethod]
-        [SoapHeader("WorkContext", Direction = SoapHeaderDirection.InOut)]
+        [SoapHeader("WorkContext", Direction = SoapHeaderDirection.Out)]
         [SoapDocumentMethod(ParameterStyle = SoapParameterStyle.Bare)]
         public GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(GetDrugMdsPropertyHqRequest request)
         {
@@ -158,26 +163,4 @@ namespace Demp.SimpleSoapService
             return result;
         }
     }
-
-    [XmlRoot(ElementName = "WorkContext", Namespace = "http://oracle.com/weblogic/soap/workarea/")]
-    public class WorkContextSoapHeader : SoapHeader
-    {
-        private XmlSerializerNamespaces xmlns;
-
-        [XmlNamespaceDeclarations]
-        public XmlSerializerNamespaces Xmlns
-        {
-            get
-            {
-                if (xmlns == null)
-                {
-                    xmlns = new XmlSerializerNamespaces();
-                    xmlns.Add("work", "http://oracle.com/weblogic/soap/workarea/");
-                }
-                return xmlns;
-            }
-            set { xmlns = value; }
-        }
-    }
-
 }

@@ -59,7 +59,7 @@ namespace Demo.HL7MessageParser.WebProxy
         public event getDrugMdsPropertyHqCompletedEventHandler getDrugMdsPropertyHqCompleted;
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("WorkContext", Direction = System.Web.Services.Protocols.SoapHeaderDirection.InOut)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("WorkContext", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://biz.dms.pms.model.ha.org.hk/getPreparation", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("getPreparationResponse", Namespace = "http://biz.dms.pms.model.ha.org.hk/", IsNullable = true)]
         public Demo.HL7MessageParser.Models.GetPreparationResponse getPreparation([System.Xml.Serialization.XmlElementAttribute("getPreparation", Namespace = "http://biz.dms.pms.model.ha.org.hk/", IsNullable = true)] Demo.HL7MessageParser.Models.GetPreparationRequest getPreparation1)
@@ -106,7 +106,7 @@ namespace Demo.HL7MessageParser.WebProxy
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("WorkContext", Direction = System.Web.Services.Protocols.SoapHeaderDirection.InOut)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("WorkContext", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://biz.dms.pms.model.ha.org.hk/getDrugMdsPropertyHq", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlArrayAttribute("getDrugMdsPropertyHqResponse", Namespace = "http://biz.dms.pms.model.ha.org.hk/", IsNullable = true)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute("return", IsNullable = false)]

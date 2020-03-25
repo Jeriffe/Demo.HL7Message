@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
@@ -39,7 +40,13 @@ namespace Demp.SimpleSoapService
 
             try
             {
-                var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/DM/getPreparation/{0}.xml", request.Arg0.ItemCode));
+                var relativeItemCode = request.Arg0.ItemCode;
+                if (RuleMappingHelper.ItemCode_HKID_Mapping.ContainsKey(relativeItemCode))
+                {
+                    relativeItemCode = RuleMappingHelper.ItemCode_HKID_Mapping[relativeItemCode];
+                }
+
+                var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/DM/getPreparation/{0}.xml", relativeItemCode));
 
                 var doc = XDocument.Load(file);
 
@@ -81,6 +88,11 @@ namespace Demp.SimpleSoapService
         [SoapDocumentMethod(ParameterStyle = SoapParameterStyle.Bare)]
         public GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(GetDrugMdsPropertyHqRequest request)
         {
+
+            HttpContext.Current.Request.InputStream.Position = 0;
+
+            var requestStr = new StreamReader(HttpContext.Current.Request.InputStream, Encoding.UTF8).ReadToEnd();
+
             WorkContext = new WorkContextSoapHeader();
 
             /*
@@ -93,6 +105,15 @@ namespace Demp.SimpleSoapService
             try
             {
                 var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/DM/getDrugMdsPropertyHq/{0}.xml", 1));
+
+                var relativeItemCode = request.Arg0.ItemCode[0];
+
+                if (RuleMappingHelper.ItemCode_HKID_Mapping.ContainsKey(relativeItemCode))
+                {
+                    relativeItemCode = RuleMappingHelper.ItemCode_HKID_Mapping[relativeItemCode];
+                }
+
+                file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/DM/getDrugMdsPropertyHq/{0}.xml", relativeItemCode));
 
                 var doc = XDocument.Load(file);
 
