@@ -41,8 +41,6 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
             var r5 = string.Format("{0:#######.####}", 195474.039675); //结果为：194
 
 
-            CacheTest();
-
             MDSCheckInputTest();
 
             //SoapClientProxy();

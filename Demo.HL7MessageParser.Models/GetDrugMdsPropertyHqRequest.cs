@@ -4,11 +4,29 @@ using System.Collections.Generic;
 
 namespace Demo.HL7MessageParser.Models
 {
-    [XmlRoot(ElementName = "getDrugMdsPropertyHq", Namespace = "http://biz.dms.pms.model.ha.org.hk/")]
+    [XmlRoot(ElementName = "getDrugMdsPropertyHq")]
     public class GetDrugMdsPropertyHqRequest
     {
         [XmlElement(ElementName = "arg0")]
         public Arg Arg0 { get; set; }
+
+        private XmlSerializerNamespaces xmlns;
+
+        [XmlNamespaceDeclarations]
+        public XmlSerializerNamespaces Xmlns
+        {
+            get
+            {
+                if (xmlns == null)
+                {
+                    xmlns = new XmlSerializerNamespaces();
+                    xmlns.Add("biz", "http://biz.dms.pms.model.ha.org.hk/");
+                }
+                return xmlns;
+            }
+            set { xmlns = value; }
+        }
+
     }
     //https://stackoverflow.com/questions/10532271/the-xml-element-named-name-from-namespace-references-distinct-types
     /*The problem is that the same element name (namespace="", name="Name") with two different types of content (string type and localstrings type), 

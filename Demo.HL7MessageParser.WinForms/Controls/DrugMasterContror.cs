@@ -53,7 +53,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void Initialize()
         {
-            
+
 
             chxCustomDrugMdsReq.Checked = false;
             chxCustomPreparationReq.Checked = false;
@@ -171,9 +171,11 @@ namespace Demo.HL7MessageParser.WinForms
 
                 using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(str)))
                 {
-                    var argElement = XDocument.Load(ms);
+                    var argElement = XDocument.Load(ms).Descendants("arg0").First();
 
-                    request = XmlHelper.XmlDeserialize<GetPreparationRequest>(argElement.ToString());
+                    var arg0 = XmlHelper.XmlDeserialize<Arg0>(argElement.ToString());
+
+                    request = new GetPreparationRequest { Arg0 = arg0 };
                 }
 
                 var res = soapService.GetPreparation(request);
