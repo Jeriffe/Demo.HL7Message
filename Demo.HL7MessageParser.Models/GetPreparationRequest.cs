@@ -2,11 +2,28 @@
 
 namespace Demo.HL7MessageParser.Models
 {
-    [XmlRoot(ElementName = "getPreparation",Namespace = "http://biz.dms.pms.model.ha.org.hk/")]
+    [XmlRoot(ElementName = "getPreparation")]
     public class GetPreparationRequest
     {
         [XmlElement(ElementName = "arg0", Namespace = "")]
         public Arg0 Arg0 { get; set; }
+
+        private XmlSerializerNamespaces xmlns;
+
+        [XmlNamespaceDeclarations]
+        public XmlSerializerNamespaces Xmlns
+        {
+            get
+            {
+                if (xmlns == null)
+                {
+                    xmlns = new XmlSerializerNamespaces();
+                    xmlns.Add("biz", "http://biz.dms.pms.model.ha.org.hk/");
+                }
+                return xmlns;
+            }
+            set { xmlns = value; }
+        }
     }
 
     [XmlRoot(ElementName = "arg0")]

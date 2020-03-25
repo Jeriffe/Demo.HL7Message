@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
@@ -31,11 +32,8 @@ namespace Demp.SimpleSoapService
         {
             WorkContext = new WorkContextSoapHeader();
 
-            /*
             HttpContext.Current.Request.InputStream.Position = 0;
-
-            var jsonString = new StreamReader(HttpContext.Current.Request.InputStream, Encoding.UTF8).ReadToEnd();
-            */
+            var requestStr = new StreamReader(HttpContext.Current.Request.InputStream, Encoding.UTF8).ReadToEnd();
 
             try
             {
@@ -87,6 +85,11 @@ namespace Demp.SimpleSoapService
         [SoapDocumentMethod(ParameterStyle = SoapParameterStyle.Bare)]
         public GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(GetDrugMdsPropertyHqRequest request)
         {
+
+            HttpContext.Current.Request.InputStream.Position = 0;
+
+            var requestStr = new StreamReader(HttpContext.Current.Request.InputStream, Encoding.UTF8).ReadToEnd();
+
             WorkContext = new WorkContextSoapHeader();
 
             /*

@@ -34,11 +34,9 @@ namespace Demo.SoapServcie
         {
             WorkContext = new WorkContextSoapHeader();
 
-            /*
             HttpContext.Current.Request.InputStream.Position = 0;
+            var requestStr = new StreamReader(HttpContext.Current.Request.InputStream, Encoding.UTF8).ReadToEnd();
 
-            var jsonString = new StreamReader(HttpContext.Current.Request.InputStream, Encoding.UTF8).ReadToEnd();
-            */
             var patHospCode = ConfigurationManager.AppSettings["patHospCode"];
             if (false == searchHKPMIPatientByCaseNo.HospitalCode.Equals(patHospCode, StringComparison.OrdinalIgnoreCase))
             {
