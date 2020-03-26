@@ -1,5 +1,6 @@
 ﻿using Demo.HL7MessageParser.Common;
 using Demo.HL7MessageParser.Models;
+using NLog;
 using RestSharp;
 using RestSharp.Serializers;
 using System;
@@ -16,7 +17,7 @@ namespace Demo.HL7MessageParser
         private string client_secret;
         private string client_id;
         private string pathospcode;
-
+        private Logger logger = LogManager.GetCurrentClassLogger();
         public RestParserSvc()
         {
             restUri = "http://localhost:3181/pms-asa/1/";
@@ -76,8 +77,8 @@ namespace Demo.HL7MessageParser
             var xmlRequestBody = XmlHelper.XmlSerializeToString(alertinput);
             request.AddParameter("application/json", xmlRequestBody, ParameterType.RequestBody);
 
+            logger.Info(string.Format("allergy request:{0}{1}",Environment.NewLine,XmlHelper.XmlSerializeToString(alertinput)));
             var response = client.Execute<AlertProfileResult>(request);
-
             if (!response.IsSuccessful())
             {
                 response.ThrowException();
@@ -85,6 +86,8 @@ namespace Demo.HL7MessageParser
 
             var result = response.Data;
 
+            logger.Info(string.Format("allergy response:{0}{1}", Environment.NewLine,JsonHelper.ToJson(result)));
+            
             if (IsInvalidResponseResult(result))
             {
                 var errorMsg = string.Format("Invalid Request:{0}-{1}", result.ErrorMessage[0].MsgCode, result.ErrorMessage[0].MsgText);
@@ -109,15 +112,15 @@ namespace Demo.HL7MessageParser
             var xmlRequestBody = XmlHelper.XmlSerializeToString(inputParam);
             request.AddParameter("application/json", xmlRequestBody, ParameterType.RequestBody);
 
+            logger.Info(string.Format("MDS request:{0}{1}",Environment.NewLine,XmlHelper.XmlSerializeToString(inputParam)));
             var response = client.Execute<MDSCheckResult>(request);
-
             if (!response.IsSuccessful())
             {
                 response.ThrowException();
             }
 
             var result = response.Data;
-
+            logger.Info(string.Format("MDS response:{0}{1}", Environment.NewLine, JsonHelper.ToJson(result)));
             return result;
         }
 

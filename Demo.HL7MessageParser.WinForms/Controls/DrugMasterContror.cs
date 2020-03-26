@@ -104,11 +104,11 @@ namespace Demo.HL7MessageParser.WinForms
 
                     request = new GetDrugMdsPropertyHqRequest { Arg0 = arg0 };
                 }
-
+                
                 var res = soapService.GetDrugMdsPropertyHq(request);
 
                 var resStr = XmlHelper.XmlSerializeToString(res);
-
+                logger.Info("DrugMaster response: " + Environment.NewLine + resStr);
                 scintillaRes.Text = XmlHelper.FormatXML(resStr);
                 scintillaRes.FormatStyle(StyleType.Xml);
                 scintillaRes.Focus();
@@ -177,11 +177,10 @@ namespace Demo.HL7MessageParser.WinForms
 
                     request = new GetPreparationRequest { Arg0 = arg0 };
                 }
-
                 var res = soapService.GetPreparation(request);
 
                 var resStr = XmlHelper.XmlSerializeToString(res);
-
+                logger.Info("DrugPreparation response: " + Environment.NewLine + XmlHelper.XmlSerializeToString(res));
                 scintillaResPreparation.Focus();
 
                 scintillaResPreparation.Text = XmlHelper.FormatXML(resStr);

@@ -35,11 +35,8 @@ namespace Demo.SoapServcie
         [SoapDocumentMethod(ParameterStyle = SoapParameterStyle.Bare)]
         public GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(GetDrugMdsPropertyHqRequest request)
         {
-
             HttpContext.Current.Request.InputStream.Position = 0;
-
             var requestStr = new StreamReader(HttpContext.Current.Request.InputStream, Encoding.UTF8).ReadToEnd();
-
             WorkContext = new WorkContextSoapHeader();
 
             /*

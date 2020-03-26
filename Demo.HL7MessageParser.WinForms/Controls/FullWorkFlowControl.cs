@@ -13,7 +13,6 @@ namespace Demo.HL7MessageParser.WinForms
 {
     public partial class FullWorkFlowControl : UserControl
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
         private string HK_ID = string.Empty;
         private string CASE_NUMBER = string.Empty;
 

@@ -138,15 +138,10 @@ namespace Demo.HL7MessageParser
                     AccessCode = AccessCode
                 }
             };
-
-            logger.Info(Common.XmlHelper.XmlSerializeToString(alertRequest));
-
+            
             var allergys = CallFuncWithRetry<AlertProfileResult>(() =>
             {
                 var apr = restSvc.GetAlertProfile(alertRequest);
-
-
-                logger.Info(JsonHelper.ToJson(apr));
 
                 return apr;
             });
@@ -212,7 +207,6 @@ namespace Demo.HL7MessageParser
                 Arg0 = new Arg { ItemCode = new List<string> { drugItem.Billnum } }
             };
             var getDrugMdsPropertyHqRes = soapSvc.GetDrugMdsPropertyHq(getDrugMdsPropertyHqReq);
-
             #region JUST FOR SIMULATOR
 
             if (patientCache != null)
@@ -232,7 +226,7 @@ namespace Demo.HL7MessageParser
 
                 return resultBeforeMDS.ToConvert(drugItem.CommonName);
             }
-
+            logger.Info(string.Format("DrugMaster response:{0}{1}",Environment.NewLine,XmlHelper.XmlSerializeToString(getDrugMdsPropertyHqRes)));
             var drugProperty = getDrugMdsPropertyHqRes.Return[0].DrugProperty;
             var getPreparationReq = new GetPreparationRequest
             {
@@ -253,7 +247,6 @@ namespace Demo.HL7MessageParser
                 }
             };
             var getPreparationRes = soapSvc.GetPreparation(getPreparationReq);
-
             if (getPreparationRes == null || getPreparationRes.Return == null)
             {
                 resultBeforeMDS.errorCode = "8520001003";
@@ -263,6 +256,7 @@ namespace Demo.HL7MessageParser
             }
 
             #region JUST FOR SIMULATOR
+            logger.Info(string.Format("DrugPreaaration response:{0}{1}", Environment.NewLine, XmlHelper.XmlSerializeToString(getPreparationRes)));
             if (patientCache != null)
             {
                 patientCache.MDSCache[drugItem.Billnum].PreparationReq = getPreparationReq;
@@ -291,10 +285,8 @@ namespace Demo.HL7MessageParser
                 getPreparationRes,
                 ref drugName
                 );
-
             /************do Final MDS Check*********************/
             MDSCheckResult mdsCheckResult = restSvc.CheckMDS(mdsRequest);
-
             //filter final MDS check result
             mdsCheckResult.FilterMdsResult();
 
