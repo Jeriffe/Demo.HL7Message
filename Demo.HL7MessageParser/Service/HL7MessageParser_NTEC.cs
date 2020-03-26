@@ -19,6 +19,7 @@ namespace Demo.HL7MessageParser
 
         private string RestUrl;
         private string DrugMasterSoapUrl;
+        private string PreparationSoapUrl;
         private string SoapUrl;
 
         private string UserName;
@@ -56,10 +57,11 @@ namespace Demo.HL7MessageParser
             HospitalCode = "VH";
 
             DrugMasterSoapUrl = "http://localhost:8096/DrugMasterService.asmx";
+            PreparationSoapUrl = "http://localhost:8096/PreparationService.asmx";
 
             soapWSESvc = new SoapWSEParserSvc(SoapUrl, UserName, Password, HospitalCode);
 
-            soapSvc = new SoapParserSvc(DrugMasterSoapUrl, HospitalCode);
+            soapSvc = new SoapParserSvc(DrugMasterSoapUrl, PreparationSoapUrl, HospitalCode);
 
             restSvc = new RestParserSvc(RestUrl, ClientSecret, ClientId, HospitalCode);
         }

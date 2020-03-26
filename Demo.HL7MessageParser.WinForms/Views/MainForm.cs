@@ -20,7 +20,7 @@ namespace Demo.HL7MessageParser.WinForms
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData== Keys.F5)
+            if (keyData == Keys.F5)
             {
                 new SampleDataMgr().ShowDialog();
             }
@@ -30,7 +30,7 @@ namespace Demo.HL7MessageParser.WinForms
         {
             var soapWSEService = new SoapWSEParserSvc(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
 
-            var soapService = new SoapParserSvc(Global.DrugMasterSoapUrl, Global.HospitalCode);
+            var soapService = new SoapParserSvc(Global.DrugMasterSoapUrl, Global.PreParationSoapUrl, Global.HospitalCode);
 
 
             var restService = new RestParserSvc(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);

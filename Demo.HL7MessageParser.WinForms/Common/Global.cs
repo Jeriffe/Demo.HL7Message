@@ -28,10 +28,12 @@ namespace Demo.HL7MessageParser.WinForms
         public static string DrugMasterSoapUrl { get; internal set; }
         public static string MDSCheckRestUrl { get; internal set; }
         public static bool IsDirty { get; internal set; }
+        public static string PreParationSoapUrl { get; internal set; }
 
         public const string CONFIG_KEY_PROFILERESTURI = "ProfileRestUri";
         public const string CONFIG_KEY_PATIENTENQUIRYSOAPURI = "PatientEnquirySoapUri";
         public const string CONFIG_KEY_DRUGMASTERSOAPURL = "DrugMasterSoapUrl";
+        public const string CONFIG_KEY_PREPARATIONSOAPURL = "PreParationSoapUrl";
         public const string CONFIG_KEY_MDSCHECKRESTURL = "MDSCheckRestUrl";
         public const string CONFIG_KEY_TOKEN_USERNAME = "Token_Username";
         public const string CONFIG_KEY_TOKEN_PASSWORD = "Token_Password";
@@ -64,6 +66,8 @@ namespace Demo.HL7MessageParser.WinForms
 
             DrugMasterSoapUrl = Utility.GetConfigValue(CONFIG_KEY_DRUGMASTERSOAPURL);
 
+            PreParationSoapUrl = Utility.GetConfigValue(CONFIG_KEY_PREPARATIONSOAPURL);
+
             MDSCheckRestUrl = Utility.GetConfigValue(CONFIG_KEY_MDSCHECKRESTURL);
 
             ClientId = "AccessCenter";
@@ -72,20 +76,5 @@ namespace Demo.HL7MessageParser.WinForms
 
 
         }
-
-        //public static void UpdateConfigValues()
-        //{
-        //    Utility.SetConfigValue(Global.CONFIG_KEY_PROFILERESTURI, txtPatientDemographicUrl.Text.Trim());
-        //    Utility.SetConfigValue(Global.CONFIG_KEY_PATIENTENQUIRYSOAPURI, txtPatientDemographicUrl.Text.Trim());
-        //    Utility.SetConfigValue(Global.CONFIG_KEY_TOKEN_USERNAME, txtPatientDemographicUrl.Text.Trim());
-        //    Utility.SetConfigValue(Global.CONFIG_KEY_TOKEN_PASSWORD, txtPatientDemographicUrl.Text.Trim());
-        //    Utility.SetConfigValue(Global.CONFIG_KEY_CLIENT_SECRET, txtPatientDemographicUrl.Text.Trim());
-        //    Utility.SetConfigValue(Global.CONFIG_KEY_PATHOSPCODE, txtPatientDemographicUrl.Text.Trim());
-        //    Utility.SetConfigValue(Global.CONFIG_KEY_ACCESSCODE, txtPatientDemographicUrl.Text.Trim());
-        //    Utility.SetConfigValue(Global.CONFIG_KEY_LOGINID, txtPatientDemographicUrl.Text.Trim());
-        //    Utility.SetConfigValue(Global.CONFIG_KEY_SOURCESYSTEM, txtPatientDemographicUrl.Text.Trim());
-        //    Utility.SetConfigValue(Global.CONFIG_KEY_DRUGMASTERSOAPURL, txtPatientDemographicUrl.Text.Trim());
-        //    Utility.SetConfigValue(Global.CONFIG_KEY_MDSCHECKRESTURL, txtPatientDemographicUrl.Text.Trim());
-        //}
     }
 }

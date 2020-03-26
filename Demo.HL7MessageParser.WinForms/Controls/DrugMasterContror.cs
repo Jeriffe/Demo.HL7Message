@@ -48,7 +48,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void InitializeService()
         {
-            soapService = new SoapParserSvc(Global.DrugMasterSoapUrl, Global.HospitalCode);
+            soapService = new SoapParserSvc(Global.DrugMasterSoapUrl,Global.PreParationSoapUrl,  Global.HospitalCode);
         }
 
         private void Initialize()

@@ -306,7 +306,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void Initialize()
         {
-            var soapService = new SoapParserSvc(Global.DrugMasterSoapUrl, Global.HospitalCode);
+            var soapService = new SoapParserSvc(Global.DrugMasterSoapUrl,Global.PreParationSoapUrl, Global.HospitalCode);
             var soapWSEService = new SoapWSEParserSvc(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
             var restService = new RestParserSvc(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
 

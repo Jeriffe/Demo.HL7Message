@@ -8,7 +8,7 @@ namespace Demo.HL7MessageParser
 {
     public interface ISoapParserSvc
     {
-        void Initialize(string restUri, string pathospcode);
+        void Initialize(string drugMasterSoapUrl, string preParationSoapUrl, string pathospcode);
 
         GetPreparationResponse GetPreparation(GetPreparationRequest request);
 

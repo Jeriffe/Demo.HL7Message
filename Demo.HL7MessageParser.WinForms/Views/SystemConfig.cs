@@ -23,6 +23,7 @@ namespace Demo.HL7MessageParser.WinForms
             txtProfileRestUrl.Text = Global.ProfileRestUrl;
             txtDrugMasterUrl.Text = Global.DrugMasterSoapUrl;
             txtMDSCheckRestUrl.Text = Global.MDSCheckRestUrl;
+            txtPreParationSoapUrl.Text = Global.PreParationSoapUrl;
 
             txtUserName.Text = Global.UserName;
             txtPassword.Text = Global.Password;
@@ -44,8 +45,10 @@ namespace Demo.HL7MessageParser.WinForms
             Utility.SetConfigValue(Global.CONFIG_KEY_PROFILERESTURI, txtProfileRestUrl.Text.Trim());
             Utility.SetConfigValue(Global.CONFIG_KEY_PATIENTENQUIRYSOAPURI, txtPatientEnquirySoapUrl.Text.Trim());
             Utility.SetConfigValue(Global.CONFIG_KEY_DRUGMASTERSOAPURL, txtDrugMasterUrl.Text.Trim());
-            Utility.SetConfigValue(Global.CONFIG_KEY_MDSCHECKRESTURL, txtMDSCheckRestUrl.Text.Trim()); 
-            
+            Utility.SetConfigValue(Global.CONFIG_KEY_PREPARATIONSOAPURL, txtPreParationSoapUrl.Text.Trim());
+
+            Utility.SetConfigValue(Global.CONFIG_KEY_MDSCHECKRESTURL, txtMDSCheckRestUrl.Text.Trim());
+
             Utility.SetConfigValue(Global.CONFIG_KEY_TOKEN_USERNAME, txtUserName.Text.Trim());
             Utility.SetConfigValue(Global.CONFIG_KEY_TOKEN_PASSWORD, txtPassword.Text.Trim());
             Utility.SetConfigValue(Global.CONFIG_KEY_CLIENT_SECRET, txtClientSecret.Text.Trim());

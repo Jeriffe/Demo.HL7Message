@@ -16,10 +16,11 @@ namespace Demo.HL7MessageParser.Test
     {
         ISoapParserSvc parser;
         string restUri = "http://localhost:44368/DrugMasterService.asmx";
+        string preparationUrl = "http://localhost:44368/PreparationService.asmx";
         [TestInitialize]
         public void Initialize()
         {
-            parser = new SoapParserSvc(restUri,"HOSPITALCODE");
+            parser = new SoapParserSvc(restUri, preparationUrl, "HOSPITALCODE");
         }
         [TestMethod]
         public void Test_GetDrugMdsPropertyHqResponse_Successful()

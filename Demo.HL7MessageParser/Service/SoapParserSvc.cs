@@ -14,7 +14,8 @@ namespace Demo.HL7MessageParser
 {
     public class SoapParserSvc : ISoapParserSvc
     {
-        private string Url;
+        private string DrugMasterSoapUrl;
+        private string PreParationSoapUrl;
         private string pathospcode;
 
         DrugMasterServiceProxy drugMasterSoapSvcProxy;
@@ -22,26 +23,23 @@ namespace Demo.HL7MessageParser
 
         public SoapParserSvc()
         {
-            Url = "http://localhost:8096/DrugMasterService.asmx";
+            DrugMasterSoapUrl = "http://localhost:8096/DrugMasterService.asmx";
+            PreParationSoapUrl = "http://localhost:8096/PreparationService.asmx";
         }
-        public SoapParserSvc(string uri, string pathospcode)
+        public SoapParserSvc(string drugMasterSoapUrl, string preParationSoapUrl, string pathospcode)
         {
-            Initialize(uri, pathospcode);
+            Initialize(drugMasterSoapUrl, preParationSoapUrl, pathospcode);
         }
 
-        public void Initialize(string restUri, string pathospcode)
+        public void Initialize(string drugMasterSoapUrl, string preParationSoapUrl, string pathospcode)
         {
-            this.Url = restUri;
+            this.DrugMasterSoapUrl = drugMasterSoapUrl;
+            this.PreParationSoapUrl = preParationSoapUrl;
+
             this.pathospcode = pathospcode;
 
-            drugMasterSoapSvcProxy = new DrugMasterServiceProxy(Url);
-
-#if DEBUG
-            var newUrl = Url.Substring(0, Url.LastIndexOf('/') + 1) + "PreparationService.asmx?op=getPreparation";
-            preparationServicerProxy = new PreparationServicerProxy(newUrl);
-#else
-             preparationServicerProxy = new PreparationServicerProxy(Url);
-#endif
+            drugMasterSoapSvcProxy = new DrugMasterServiceProxy(DrugMasterSoapUrl);
+            preparationServicerProxy = new PreparationServicerProxy(PreParationSoapUrl);
         }
 
         public GetDrugMdsPropertyHqResponse GetDrugMdsPropertyHq(Models.GetDrugMdsPropertyHqRequest request)

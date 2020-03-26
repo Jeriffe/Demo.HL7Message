@@ -48,6 +48,8 @@
             this.txtClientSecret = new System.Windows.Forms.TextBox();
             this.txtAccessCode = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtPreParationSoapUrl = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtPatientEnquirySoapUrl
@@ -174,7 +176,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 205);
+            this.label3.Location = new System.Drawing.Point(20, 229);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 15);
@@ -184,7 +186,7 @@
             // 
             // txtProfileRestUrl
             // 
-            this.txtProfileRestUrl.Location = new System.Drawing.Point(24, 226);
+            this.txtProfileRestUrl.Location = new System.Drawing.Point(24, 250);
             this.txtProfileRestUrl.Margin = new System.Windows.Forms.Padding(5);
             this.txtProfileRestUrl.Name = "txtProfileRestUrl";
             this.txtProfileRestUrl.Size = new System.Drawing.Size(397, 21);
@@ -193,7 +195,7 @@
             // 
             // txtMDSCheckRestUrl
             // 
-            this.txtMDSCheckRestUrl.Location = new System.Drawing.Point(24, 163);
+            this.txtMDSCheckRestUrl.Location = new System.Drawing.Point(24, 192);
             this.txtMDSCheckRestUrl.Margin = new System.Windows.Forms.Padding(5);
             this.txtMDSCheckRestUrl.Name = "txtMDSCheckRestUrl";
             this.txtMDSCheckRestUrl.Size = new System.Drawing.Size(397, 21);
@@ -202,7 +204,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 142);
+            this.label5.Location = new System.Drawing.Point(20, 171);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 15);
@@ -213,7 +215,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 267);
+            this.label6.Location = new System.Drawing.Point(21, 291);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 15);
@@ -223,7 +225,7 @@
             // 
             // txtClientSecret
             // 
-            this.txtClientSecret.Location = new System.Drawing.Point(24, 287);
+            this.txtClientSecret.Location = new System.Drawing.Point(24, 311);
             this.txtClientSecret.Margin = new System.Windows.Forms.Padding(5);
             this.txtClientSecret.Name = "txtClientSecret";
             this.txtClientSecret.Size = new System.Drawing.Size(397, 21);
@@ -248,6 +250,25 @@
             this.label7.Text = "AccessCode";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // txtPreParationSoapUrl
+            // 
+            this.txtPreParationSoapUrl.Location = new System.Drawing.Point(24, 145);
+            this.txtPreParationSoapUrl.Margin = new System.Windows.Forms.Padding(5);
+            this.txtPreParationSoapUrl.Name = "txtPreParationSoapUrl";
+            this.txtPreParationSoapUrl.Size = new System.Drawing.Size(397, 21);
+            this.txtPreParationSoapUrl.TabIndex = 32;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(20, 124);
+            this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(135, 15);
+            this.label8.TabIndex = 31;
+            this.label8.Text = "PreParationSoapUrl";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // SystemConfig
             // 
             this.AcceptButton = this.btnSave;
@@ -255,6 +276,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(707, 384);
+            this.Controls.Add(this.txtPreParationSoapUrl);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtAccessCode);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -311,5 +334,7 @@
         private System.Windows.Forms.TextBox txtClientSecret;
         private System.Windows.Forms.TextBox txtAccessCode;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtPreParationSoapUrl;
+        private System.Windows.Forms.Label label8;
     }
 }
