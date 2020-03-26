@@ -84,6 +84,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Utility.cs" />
+    <Compile Include="Controls\MDSCheckControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MDSCheckControl.Designer.cs">
+      <DependentUpon>MDSCheckControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\AlertProfileParserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     <Compile Include="Views\MDSCheckDialogBox.designer.cs">
       <DependentUpon>MDSCheckDialogBox.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controls\MDSCheckControl.resx">
+      <DependentUpon>MDSCheckControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\AlertProfileParserControl.resx">
       <DependentUpon>AlertProfileParserControl.cs</DependentUpon>
     </EmbeddedResource>

@@ -137,6 +137,8 @@ namespace Demo.HL7MessageParser
                 }
             };
 
+            logger.Info(Common.XmlHelper.XmlSerializeToString(alertRequest));
+
             var allergys = CallFuncWithRetry<AlertProfileResult>(() =>
             {
                 var apr = restSvc.GetAlertProfile(alertRequest);
