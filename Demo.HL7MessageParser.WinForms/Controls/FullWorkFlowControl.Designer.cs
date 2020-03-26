@@ -64,7 +64,6 @@
             this.scintillaMdsCheckRes = new ScintillaNET.Scintilla();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.bgWorkerMDSCheck = new System.ComponentModel.BackgroundWorker();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -140,7 +139,6 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.btnMDSCheckResult);
             this.splitContainer1.Panel1.Controls.Add(this.btnMDSCheck);
             this.splitContainer1.Panel1.Controls.Add(this.cbxItemCodes);
@@ -545,17 +543,6 @@
             // 
             this.bgWorkerMDSCheck.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorkerMDSCheck_DoWork);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(833, 14);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(179, 26);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Show MDS-Check Result";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FullWorkFlowControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -651,6 +638,5 @@
         private ScintillaNET.Scintilla scintillaDrugPreparationReq;
         private System.Windows.Forms.GroupBox gbxDrugPreparationRes;
         private ScintillaNET.Scintilla scintillaDrugPreparationRes;
-        private System.Windows.Forms.Button button1;
     }
 }
