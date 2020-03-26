@@ -2,10 +2,11 @@
 
 namespace Demo.HL7MessageParser.Models
 {
-    [XmlRoot(ElementName = "getPreparation", Namespace = "")]
+    [XmlRoot(ElementName = "getPreparation")]
     public class GetPreparationRequest
     {
         [XmlElement(ElementName = "arg0", Namespace = "")]
+        // [XmlElement(ElementName = "arg0")]
         public Arg0 Arg0 { get; set; }
 
         private XmlSerializerNamespaces xmlns;

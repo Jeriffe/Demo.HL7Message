@@ -65,20 +65,26 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HelloWorldWebService.asmx" />
     <Content Include="DrugMasterService.asmx" />
+    <Content Include="HelloWorldWebService.asmx" />
+    <Content Include="PreparationService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HelloWorldWebService.asmx.cs">
-      <DependentUpon>HelloWorldWebService.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="DrugMasterService.asmx.cs">
       <DependentUpon>DrugMasterService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="HelloWorldWebService.asmx.cs">
+      <DependentUpon>HelloWorldWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PreparationService.asmx.cs">
+      <DependentUpon>PreparationService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkContextSoapHeader.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Demo.HL7MessageParser.Common\Demo.HL7MessageParser.Common.csproj">

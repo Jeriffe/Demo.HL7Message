@@ -9,7 +9,6 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.Xml.Linq;
-using System.Xml.Serialization;
 
 namespace Demp.SimpleSoapService
 {
@@ -21,11 +20,12 @@ namespace Demp.SimpleSoapService
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
-    public class DrugMasterService : System.Web.Services.WebService
+    public class PreparationService : System.Web.Services.WebService
     {
+
         public WorkContextSoapHeader WorkContext { get; set; }
 
-        public DrugMasterService()
+        public PreparationService()
         {
             WorkContext = null;
         }
@@ -33,34 +33,22 @@ namespace Demp.SimpleSoapService
         [WebMethod]
         [SoapHeader("WorkContext", Direction = SoapHeaderDirection.Out)]
         [SoapDocumentMethod(ParameterStyle = SoapParameterStyle.Bare)]
-        public GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(GetDrugMdsPropertyHqRequest request)
+        public GetPreparationResponse getPreparation(GetPreparationRequest request)
         {
-
             HttpContext.Current.Request.InputStream.Position = 0;
-
             var requestStr = new StreamReader(HttpContext.Current.Request.InputStream, Encoding.UTF8).ReadToEnd();
 
+
             WorkContext = new WorkContextSoapHeader();
-
-            /*
-            HttpContext.Current.Request.InputStream.Position = 0;
-
-            var jsonString = new StreamReader(HttpContext.Current.Request.InputStream, Encoding.UTF8).ReadToEnd();
-            */
-
-
             try
             {
-                var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/DM/getDrugMdsPropertyHq/{0}.xml", 1));
-
-                var relativeItemCode = request.Arg0.ItemCode[0];
-
+                var relativeItemCode = request.Arg0.ItemCode;
                 if (RuleMappingHelper.ItemCode_HKID_Mapping.ContainsKey(relativeItemCode))
                 {
                     relativeItemCode = RuleMappingHelper.ItemCode_HKID_Mapping[relativeItemCode];
                 }
 
-                file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/DM/getDrugMdsPropertyHq/{0}.xml", relativeItemCode));
+                var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/DM/getPreparation/{0}.xml", relativeItemCode));
 
                 var doc = XDocument.Load(file);
 
@@ -70,10 +58,10 @@ namespace Demp.SimpleSoapService
 
 
                 var element = doc.Descendants(x + "Body")
-                             .Descendants(x2 + "getDrugMdsPropertyHqResponse").First();
+                             .Descendants(x2 + "getPreparationResponse").First();
 
-                var str = element.ToString().Replace("ns2:getDrugMdsPropertyHqRespons", "getDrugMdsPropertyHqRespons");
-                var response = XmlHelper.XmlDeserialize<GetDrugMdsPropertyHqResponse>(str);
+                var str = element.ToString().Replace("ns2:getPreparationResponse", "getPreparationResponse");
+                var response = XmlHelper.XmlDeserialize<GetPreparationResponse>(str);
 
 
                 /*
@@ -92,20 +80,10 @@ namespace Demp.SimpleSoapService
                 ex = ex;
                 //Logger ex
 
-                return new GetDrugMdsPropertyHqResponse();
+                return new GetPreparationResponse { };
             }
-
         }
 
-        private T ParserElement<T>(XDocument doc)
-        {
-            XNamespace x = "http://biz.dms.pms.model.ha.org.hk/";
 
-            var elements = doc.Descendants(x + "RegisterForComInterop").Where(o => o.Name == "getDrugMdsPropertyHqResponse");
-
-            var result = XmlHelper.XmlDeserialize<T>(doc.ToString());
-
-            return result;
-        }
     }
 }

@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PreparationServicerProxy.cs" />
     <Compile Include="DrugMasterServiceProxy.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Interface\ISoapWSEService.cs" />

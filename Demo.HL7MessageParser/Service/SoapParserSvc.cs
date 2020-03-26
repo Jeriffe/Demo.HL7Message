@@ -18,6 +18,8 @@ namespace Demo.HL7MessageParser
         private string pathospcode;
 
         DrugMasterServiceProxy drugMasterSoapSvcProxy;
+        PreparationServicerProxy preparationServicerProxy;
+
         public SoapParserSvc()
         {
             Url = "http://localhost:8096/DrugMasterService.asmx";
@@ -33,6 +35,13 @@ namespace Demo.HL7MessageParser
             this.pathospcode = pathospcode;
 
             drugMasterSoapSvcProxy = new DrugMasterServiceProxy(Url);
+
+#if DEBUG
+            var newUrl = Url.Substring(0, Url.LastIndexOf('/') + 1) + "PreparationService.asmx?op=getPreparation";
+            preparationServicerProxy = new PreparationServicerProxy(newUrl);
+#else
+             preparationServicerProxy = new PreparationServicerProxy(Url);
+#endif
         }
 
         public GetDrugMdsPropertyHqResponse GetDrugMdsPropertyHq(Models.GetDrugMdsPropertyHqRequest request)
@@ -44,7 +53,7 @@ namespace Demo.HL7MessageParser
 
         public Models.GetPreparationResponse GetPreparation(Models.GetPreparationRequest request)
         {
-            var returnResponse = drugMasterSoapSvcProxy.getPreparation(request);
+            var returnResponse = preparationServicerProxy.getPreparation(request);
 
             return returnResponse;
         }

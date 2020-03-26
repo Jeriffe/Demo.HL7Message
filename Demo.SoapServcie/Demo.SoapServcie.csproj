@@ -65,6 +65,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="DrugMasterService.asmx" />
+    <Content Include="PreparationService.asmx" />
     <Content Include="wse3policyCache.config" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +81,10 @@
     </Compile>
     <Compile Include="PatientService.asmx.cs">
       <DependentUpon>PatientService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PreparationService.asmx.cs">
+      <DependentUpon>PreparationService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

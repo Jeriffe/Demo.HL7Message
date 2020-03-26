@@ -33,61 +33,6 @@ namespace Demo.SoapServcie
         [WebMethod]
         [SoapHeader("WorkContext", Direction = SoapHeaderDirection.Out)]
         [SoapDocumentMethod(ParameterStyle = SoapParameterStyle.Bare)]
-        public GetPreparationResponse getPreparation(GetPreparationRequest request)
-        {
-            HttpContext.Current.Request.InputStream.Position = 0;
-            var requestStr = new StreamReader(HttpContext.Current.Request.InputStream, Encoding.UTF8).ReadToEnd();
-
-
-            WorkContext = new WorkContextSoapHeader();
-            try
-            {
-                var relativeItemCode = request.Arg0.ItemCode;
-                if (RuleMappingHelper.ItemCode_HKID_Mapping.ContainsKey(relativeItemCode))
-                {
-                    relativeItemCode = RuleMappingHelper.ItemCode_HKID_Mapping[relativeItemCode];
-                }
-
-                var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/DM/getPreparation/{0}.xml", relativeItemCode));
-
-                var doc = XDocument.Load(file);
-
-
-                XNamespace x = "http://schemas.xmlsoap.org/soap/envelope/";
-                XNamespace x2 = "http://biz.dms.pms.model.ha.org.hk/";
-
-
-                var element = doc.Descendants(x + "Body")
-                             .Descendants(x2 + "getPreparationResponse").First();
-
-                var str = element.ToString().Replace("ns2:getPreparationResponse", "getPreparationResponse");
-                var response = XmlHelper.XmlDeserialize<GetPreparationResponse>(str);
-
-
-                /*
-                var element1 = doc.Descendants(x + "Body")
-                            .Descendants(x2 + "getDrugMdsPropertyHqResponse")
-                            .Descendants("return");
-                var returnStrs = string.Format(@"<getDrugMdsPropertyHqResponse>{0}</getDrugMdsPropertyHqResponse>", string.Join("", element1.Select(item => item.ToString()).ToArray()));
-                var response = XmlHelper.XmlDeserialize<GetDrugMdsPropertyHqResponse>(returnStrs);
-                */
-
-                return response;
-
-            }
-            catch (Exception ex)
-            {
-                ex = ex;
-                //Logger ex
-
-                return new GetPreparationResponse { };
-            }
-        }
-
-
-        [WebMethod]
-        [SoapHeader("WorkContext", Direction = SoapHeaderDirection.Out)]
-        [SoapDocumentMethod(ParameterStyle = SoapParameterStyle.Bare)]
         public GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(GetDrugMdsPropertyHqRequest request)
         {
 

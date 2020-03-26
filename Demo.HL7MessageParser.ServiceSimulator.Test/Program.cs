@@ -88,7 +88,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
 
                 var r1 = soapservice.getDrugMdsPropertyHq(new GetDrugMdsPropertyHqRequest());
 
-                var r2 = soapservice.getPreparation(new GetPreparationRequest { Arg0 = new Arg0 { ItemCode = "AMET02" } });
+               // var r2 = soapservice.getPreparation(new GetPreparationRequest { Arg0 = new Arg0 { ItemCode = "AMET02" } });
             }
             catch (Exception ex)
             {
