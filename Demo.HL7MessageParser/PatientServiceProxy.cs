@@ -57,7 +57,7 @@ namespace Demo.HL7MessageParser.WebProxy
         /// <remarks/>
         public event searchHKPMIPatientByCaseNoCompletedEventHandler searchHKPMIPatientByCaseNoCompleted;
 
-        /// <remarks/>
+        [WebServiceSOAPExtension]
         [System.Web.Services.Protocols.SoapHeaderAttribute("WorkContext", Direction = System.Web.Services.Protocols.SoapHeaderDirection.InOut)]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("searchHKPMIPatientByCaseNoResponse", Namespace = "http://webservice.pas.ha.org.hk/", IsNullable = true)]

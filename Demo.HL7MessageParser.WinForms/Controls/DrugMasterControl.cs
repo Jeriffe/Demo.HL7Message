@@ -180,7 +180,6 @@ namespace Demo.HL7MessageParser.WinForms
                 var res = soapService.GetPreparation(request);
 
                 var resStr = XmlHelper.XmlSerializeToString(res);
-                logger.Info("DrugPreparation response: " + Environment.NewLine + XmlHelper.XmlSerializeToString(res));
                 scintillaResPreparation.Focus();
 
                 scintillaResPreparation.Text = XmlHelper.FormatXML(resStr);

@@ -79,6 +79,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\SoapWSEParserSvc.cs" />
     <Compile Include="Service\SoapParserSvc.cs" />
+    <Compile Include="Service\WebServiceSOAPExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Demo.HL7MessageParser.ClassDiagram.cd" />

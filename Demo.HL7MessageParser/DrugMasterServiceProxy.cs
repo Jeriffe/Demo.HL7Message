@@ -30,8 +30,6 @@ namespace Demo.HL7MessageParser.WebProxy
     {
         private WorkContextSoapHeader workContextField;
 
-        private System.Threading.SendOrPostCallback getPreparationOperationCompleted;
-
         private System.Threading.SendOrPostCallback getDrugMdsPropertyHqOperationCompleted;
 
         /// <remarks/>
@@ -55,19 +53,19 @@ namespace Demo.HL7MessageParser.WebProxy
         /// <remarks/>
         public event getDrugMdsPropertyHqCompletedEventHandler getDrugMdsPropertyHqCompleted;
 
-        /// <remarks/>
+        [WebServiceSOAPExtension]
         [System.Web.Services.Protocols.SoapHeaderAttribute("WorkContext", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://biz.dms.pms.model.ha.org.hk/getDrugMdsPropertyHq", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlArrayAttribute("getDrugMdsPropertyHqResponse", Namespace = "http://biz.dms.pms.model.ha.org.hk/", IsNullable = true)]
-        [return: System.Xml.Serialization.XmlArrayItemAttribute("return", IsNullable = false)]
-        public ReturnObj[] getDrugMdsPropertyHq([System.Xml.Serialization.XmlElementAttribute("getDrugMdsPropertyHq", Namespace = "http://biz.dms.pms.model.ha.org.hk/", IsNullable = true)] Demo.HL7MessageParser.Models.GetDrugMdsPropertyHqRequest getDrugMdsPropertyHq1)
+        [return: System.Xml.Serialization.XmlArrayItemAttribute("return", Namespace = "", IsNullable = false)]
+        public ReturnObj[] getDrugMdsPropertyHq([System.Xml.Serialization.XmlElementAttribute("getDrugMdsPropertyHq", Namespace = "http://biz.dms.pms.model.ha.org.hk/", IsNullable = true)] GetDrugMdsPropertyHqRequest getDrugMdsPropertyHq1)
         {
             object[] results = this.Invoke("getDrugMdsPropertyHq", new object[] {
                     getDrugMdsPropertyHq1});
             return ((ReturnObj[])(results[0]));
         }
         /// <remarks/>
-        public System.IAsyncResult BegingetDrugMdsPropertyHq(Demo.HL7MessageParser.Models.GetDrugMdsPropertyHqRequest getDrugMdsPropertyHq1, System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BegingetDrugMdsPropertyHq(GetDrugMdsPropertyHqRequest getDrugMdsPropertyHq1, System.AsyncCallback callback, object asyncState)
         {
             return this.BeginInvoke("getDrugMdsPropertyHq", new object[] {
                     getDrugMdsPropertyHq1}, callback, asyncState);
@@ -79,12 +77,12 @@ namespace Demo.HL7MessageParser.WebProxy
             return ((ReturnObj[])(results[0]));
         }
         /// <remarks/>
-        public void getDrugMdsPropertyHqAsync(Demo.HL7MessageParser.Models.GetDrugMdsPropertyHqRequest getDrugMdsPropertyHq1)
+        public void getDrugMdsPropertyHqAsync(GetDrugMdsPropertyHqRequest getDrugMdsPropertyHq1)
         {
             this.getDrugMdsPropertyHqAsync(getDrugMdsPropertyHq1, null);
         }
         /// <remarks/>
-        public void getDrugMdsPropertyHqAsync(Demo.HL7MessageParser.Models.GetDrugMdsPropertyHqRequest getDrugMdsPropertyHq1, object userState)
+        public void getDrugMdsPropertyHqAsync(GetDrugMdsPropertyHqRequest getDrugMdsPropertyHq1, object userState)
         {
             if ((this.getDrugMdsPropertyHqOperationCompleted == null))
             {

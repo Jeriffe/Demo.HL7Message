@@ -53,7 +53,7 @@ namespace Demo.HL7MessageParser.WebProxy
         /// <remarks/>
         public event getPreparationCompletedEventHandler getPreparationCompleted;
 
-        /// <remarks/>
+        [WebServiceSOAPExtension]
         [System.Web.Services.Protocols.SoapHeaderAttribute("WorkContext", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://biz.dms.pms.model.ha.org.hk/getPreparation", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("getPreparationResponse", Namespace = "http://biz.dms.pms.model.ha.org.hk/", IsNullable = true)]

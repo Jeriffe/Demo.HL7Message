@@ -33,12 +33,10 @@ namespace Demo.HL7MessageParser.Models
             set { xmlns = value; }
         }
 
-        [XmlElement(ElementName = "return")]
+        [XmlElement(ElementName = "return", Namespace = "")]
         public List<ReturnObj> Return { get; set; }
     }
 
-
-    [XmlRoot(ElementName = "return")]
     public class ReturnObj
     {
         [XmlElement(ElementName = "drugKey")]

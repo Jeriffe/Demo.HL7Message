@@ -83,9 +83,6 @@ namespace Demo.HL7MessageParser
                 var pr = soapWSESvc.GetPatientResult(caseNumber);
 
 
-                logger.Info(XmlHelper.XmlSerializeToString(pr));
-
-
                 return pr;
             });
 
@@ -207,8 +204,8 @@ namespace Demo.HL7MessageParser
                 Arg0 = new Arg { ItemCode = new List<string> { drugItem.Billnum } }
             };
             var getDrugMdsPropertyHqRes = soapSvc.GetDrugMdsPropertyHq(getDrugMdsPropertyHqReq);
+           
             #region JUST FOR SIMULATOR
-
             if (patientCache != null)
             {
                 patientCache.MDSCache.Register(drugItem.Billnum, new MDSCheckResultCache
@@ -226,7 +223,7 @@ namespace Demo.HL7MessageParser
 
                 return resultBeforeMDS.ToConvert(drugItem.CommonName);
             }
-            logger.Info(string.Format("DrugMaster response:{0}{1}",Environment.NewLine,XmlHelper.XmlSerializeToString(getDrugMdsPropertyHqRes)));
+
             var drugProperty = getDrugMdsPropertyHqRes.Return[0].DrugProperty;
             var getPreparationReq = new GetPreparationRequest
             {
@@ -256,7 +253,6 @@ namespace Demo.HL7MessageParser
             }
 
             #region JUST FOR SIMULATOR
-            logger.Info(string.Format("DrugPreaaration response:{0}{1}", Environment.NewLine, XmlHelper.XmlSerializeToString(getPreparationRes)));
             if (patientCache != null)
             {
                 patientCache.MDSCache[drugItem.Billnum].PreparationReq = getPreparationReq;

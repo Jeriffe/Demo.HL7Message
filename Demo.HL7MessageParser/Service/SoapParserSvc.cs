@@ -45,7 +45,6 @@ namespace Demo.HL7MessageParser
 
         public GetDrugMdsPropertyHqResponse GetDrugMdsPropertyHq(Models.GetDrugMdsPropertyHqRequest request)
         {
-            logger.Info(string.Format("DrugMaster request:{0}{1}", Environment.NewLine, XmlHelper.XmlSerializeToString(request)));
             var response = drugMasterSoapSvcProxy.getDrugMdsPropertyHq(request);
 
             return new GetDrugMdsPropertyHqResponse { Return = response.ToList() };
@@ -53,8 +52,6 @@ namespace Demo.HL7MessageParser
 
         public Models.GetPreparationResponse GetPreparation(Models.GetPreparationRequest request)
         {
-            logger.Info(string.Format("DrugPreparation request:{0}{1}", Environment.NewLine, XmlHelper.XmlSerializeToString(request)));
-
             var returnResponse = preparationServicerProxy.getPreparation(request);
 
             return returnResponse;
