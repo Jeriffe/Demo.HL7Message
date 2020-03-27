@@ -1,4 +1,5 @@
-﻿using NLog;
+﻿using Demo.HL7MessageParser.Common;
+using NLog;
 using System;
 using System.Configuration;
 using System.IO;
@@ -7,14 +8,12 @@ using System.Web.Services.Protocols;
 
 namespace Demo.HL7MessageParser
 {
-    public class WebServiceSOAPExtension : SoapExtension
+    public sealed class WebServiceSOAPExtension : SoapExtension
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-
-        Stream oldStream;
-        Stream newStream;
-        string filename;
+        private Stream oldStream;
+        private Stream newStream;
 
         // Save the Stream representing the SOAP request or SOAP response into a local memory buffer.
         public override Stream ChainStream(Stream stream)
@@ -51,10 +50,10 @@ namespace Demo.HL7MessageParser
                 case SoapMessageStage.BeforeSerialize:
                     break;
                 case SoapMessageStage.AfterSerialize:
-                    WriteRequestAfterSerialize((SoapClientMessage)message);
+                    LogSoapRequestAfterSerialize((SoapClientMessage)message);
                     break;
                 case SoapMessageStage.BeforeDeserialize:
-                    WriteResponseBeforeDeserialize((SoapClientMessage)message);
+                    LogSoapResponseBeforeDeserialize((SoapClientMessage)message);
                     break;
                 case SoapMessageStage.AfterDeserialize:
 
@@ -64,31 +63,42 @@ namespace Demo.HL7MessageParser
             }
         }
 
-        // Write the contents of the outgoing SOAP message to the log file.
-        public void WriteRequestAfterSerialize(SoapClientMessage message)
+        public void LogSoapRequestAfterSerialize(SoapClientMessage message)
         {
             newStream.Position = 0;
 
             var requestStr = new StreamReader(newStream, Encoding.UTF8).ReadToEnd();
-            logger.Info(string.Format("Request Soap of the {2}:{1}{0}", requestStr, Environment.NewLine, message.MethodInfo.Name));
+            try
+            {
+                requestStr = XmlHelper.FormatXML(requestStr);
+            }
+            catch { }
+            
+            logger.Info(string.Format("SoapRequestAfterSerialize of the {2}:{1}{0}", requestStr, Environment.NewLine, message.MethodInfo.Name));
 
             newStream.Position = 0;
             Copy(newStream, oldStream);
         }
 
-        public void WriteResponseBeforeDeserialize(SoapMessage message)
+        public void LogSoapResponseBeforeDeserialize(SoapMessage message)
         {
             Copy(oldStream, newStream);
 
             newStream.Position = 0;
 
-            var requestStr = new StreamReader(newStream, Encoding.UTF8).ReadToEnd();
-            logger.Info(string.Format("Response Soap of {2}:{1}{0}", requestStr, Environment.NewLine, message.MethodInfo.Name));
+            var responseStr = new StreamReader(newStream, Encoding.UTF8).ReadToEnd();
+            try
+            {
+                responseStr = XmlHelper.FormatXML(responseStr);
+            }
+            catch { }
+
+            logger.Info(string.Format("SoapResponseBeforeDeserialize of {2}:{1}{0}", responseStr, Environment.NewLine, message.MethodInfo.Name));
 
             newStream.Position = 0;
         }
 
-        void Copy(Stream from, Stream to)
+        private void Copy(Stream from, Stream to)
         {
             TextReader reader = new StreamReader(from);
             TextWriter writer = new StreamWriter(to);
@@ -113,5 +123,4 @@ namespace Demo.HL7MessageParser
             set { priority = value; }
         }
     }
-
 }

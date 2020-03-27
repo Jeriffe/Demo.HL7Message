@@ -108,7 +108,6 @@ namespace Demo.HL7MessageParser.WinForms
                 var res = soapService.GetDrugMdsPropertyHq(request);
 
                 var resStr = XmlHelper.XmlSerializeToString(res);
-                logger.Info("DrugMaster response: " + Environment.NewLine + resStr);
                 scintillaRes.Text = XmlHelper.FormatXML(resStr);
                 scintillaRes.FormatStyle(StyleType.Xml);
                 scintillaRes.Focus();
