@@ -361,3 +361,7 @@
 /Demo.HL7MessageParser.Test/bin/Release/Data/MDS
 /Demo.HL7MessageParser.Test/bin/Release/Data/MP
 /Demo.WinFormTest/bin/Release
+/Demo.HL7MessageParser.DTOs/obj/Debug
+/Demo.EnterpriseLibrarySamples/obj
+/Demo.WinFormTest/obj/Debug
+/Demo.WinFormTest/obj/Release

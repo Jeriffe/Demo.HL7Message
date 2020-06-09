@@ -38,6 +38,7 @@
             this.gbxReq = new System.Windows.Forms.GroupBox();
             this.gbxRes = new System.Windows.Forms.GroupBox();
             this.gbxSearch = new System.Windows.Forms.GroupBox();
+            this.btnShowAllergyInfo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerReqRes)).BeginInit();
             this.splitContainerReqRes.Panel1.SuspendLayout();
             this.splitContainerReqRes.Panel2.SuspendLayout();
@@ -153,6 +154,7 @@
             // 
             // gbxSearch
             // 
+            this.gbxSearch.Controls.Add(this.btnShowAllergyInfo);
             this.gbxSearch.Controls.Add(this.cbxHKId);
             this.gbxSearch.Controls.Add(this.label3);
             this.gbxSearch.Controls.Add(this.btnSend);
@@ -164,6 +166,17 @@
             this.gbxSearch.TabIndex = 21;
             this.gbxSearch.TabStop = false;
             this.gbxSearch.Text = "Search";
+            // 
+            // btnShowAllergyInfo
+            // 
+            this.btnShowAllergyInfo.Location = new System.Drawing.Point(466, 31);
+            this.btnShowAllergyInfo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowAllergyInfo.Name = "btnShowAllergyInfo";
+            this.btnShowAllergyInfo.Size = new System.Drawing.Size(179, 29);
+            this.btnShowAllergyInfo.TabIndex = 20;
+            this.btnShowAllergyInfo.Text = "Show AllergyInfo";
+            this.btnShowAllergyInfo.UseVisualStyleBackColor = true;
+            this.btnShowAllergyInfo.Click += new System.EventHandler(this.btnShowAllergyInfo_Click);
             // 
             // AlertProfileParserControl
             // 
@@ -198,5 +211,6 @@
         private System.Windows.Forms.GroupBox gbxReq;
         private System.Windows.Forms.GroupBox gbxRes;
         private System.Windows.Forms.GroupBox gbxSearch;
+        private System.Windows.Forms.Button btnShowAllergyInfo;
     }
 }

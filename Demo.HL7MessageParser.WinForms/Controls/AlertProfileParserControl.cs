@@ -188,5 +188,10 @@ namespace Demo.HL7MessageParser.WinForms
                 return string.Empty;
             }
         }
+
+        private void btnShowAllergyInfo_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

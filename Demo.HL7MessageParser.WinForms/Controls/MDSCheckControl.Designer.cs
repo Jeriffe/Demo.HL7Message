@@ -63,7 +63,7 @@
             this.scintillaReq.Location = new System.Drawing.Point(3, 17);
             this.scintillaReq.Margin = new System.Windows.Forms.Padding(5);
             this.scintillaReq.Name = "scintillaReq";
-            this.scintillaReq.Size = new System.Drawing.Size(420, 290);
+            this.scintillaReq.Size = new System.Drawing.Size(425, 290);
             this.scintillaReq.TabIndex = 10;
             this.scintillaReq.Text = "scintilla3";
             // 
@@ -73,7 +73,7 @@
             this.scintillaRes.Location = new System.Drawing.Point(3, 17);
             this.scintillaRes.Margin = new System.Windows.Forms.Padding(5);
             this.scintillaRes.Name = "scintillaRes";
-            this.scintillaRes.Size = new System.Drawing.Size(440, 290);
+            this.scintillaRes.Size = new System.Drawing.Size(447, 290);
             this.scintillaRes.TabIndex = 1;
             this.scintillaRes.Text = "scintilla2";
             // 
@@ -101,8 +101,8 @@
             // splitContainerReqRes.Panel2
             // 
             this.splitContainerReqRes.Panel2.Controls.Add(this.gbxRes);
-            this.splitContainerReqRes.Size = new System.Drawing.Size(877, 310);
-            this.splitContainerReqRes.SplitterDistance = 426;
+            this.splitContainerReqRes.Size = new System.Drawing.Size(889, 310);
+            this.splitContainerReqRes.SplitterDistance = 431;
             this.splitContainerReqRes.SplitterWidth = 5;
             this.splitContainerReqRes.TabIndex = 20;
             // 
@@ -112,7 +112,7 @@
             this.gbxReq.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxReq.Location = new System.Drawing.Point(0, 0);
             this.gbxReq.Name = "gbxReq";
-            this.gbxReq.Size = new System.Drawing.Size(426, 310);
+            this.gbxReq.Size = new System.Drawing.Size(431, 310);
             this.gbxReq.TabIndex = 0;
             this.gbxReq.TabStop = false;
             this.gbxReq.Text = "Request";
@@ -123,7 +123,7 @@
             this.gbxRes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxRes.Location = new System.Drawing.Point(0, 0);
             this.gbxRes.Name = "gbxRes";
-            this.gbxRes.Size = new System.Drawing.Size(446, 310);
+            this.gbxRes.Size = new System.Drawing.Size(453, 310);
             this.gbxRes.TabIndex = 0;
             this.gbxRes.TabStop = false;
             this.gbxRes.Text = "Response";
@@ -135,7 +135,7 @@
             this.gbxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxSearch.Location = new System.Drawing.Point(0, 0);
             this.gbxSearch.Name = "gbxSearch";
-            this.gbxSearch.Size = new System.Drawing.Size(877, 85);
+            this.gbxSearch.Size = new System.Drawing.Size(889, 85);
             this.gbxSearch.TabIndex = 21;
             this.gbxSearch.TabStop = false;
             this.gbxSearch.Text = "Search";
@@ -148,7 +148,7 @@
             this.Controls.Add(this.gbxSearch);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MDSCheckControl";
-            this.Size = new System.Drawing.Size(877, 395);
+            this.Size = new System.Drawing.Size(889, 395);
             this.Load += new System.EventHandler(this.MDSCheckControl_Load);
             this.splitContainerReqRes.Panel1.ResumeLayout(false);
             this.splitContainerReqRes.Panel2.ResumeLayout(false);

@@ -64,6 +64,7 @@
             this.scintillaMdsCheckRes = new ScintillaNET.Scintilla();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.bgWorkerMDSCheck = new System.ComponentModel.BackgroundWorker();
+            this.btnShowAllergyInfo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -139,6 +140,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnShowAllergyInfo);
             this.splitContainer1.Panel1.Controls.Add(this.btnMDSCheckResult);
             this.splitContainer1.Panel1.Controls.Add(this.btnMDSCheck);
             this.splitContainer1.Panel1.Controls.Add(this.cbxItemCodes);
@@ -543,6 +545,17 @@
             // 
             this.bgWorkerMDSCheck.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorkerMDSCheck_DoWork);
             // 
+            // btnShowAllergyInfo
+            // 
+            this.btnShowAllergyInfo.Location = new System.Drawing.Point(854, 15);
+            this.btnShowAllergyInfo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowAllergyInfo.Name = "btnShowAllergyInfo";
+            this.btnShowAllergyInfo.Size = new System.Drawing.Size(179, 29);
+            this.btnShowAllergyInfo.TabIndex = 21;
+            this.btnShowAllergyInfo.Text = "Show AllergyInfo";
+            this.btnShowAllergyInfo.UseVisualStyleBackColor = true;
+            this.btnShowAllergyInfo.Click += new System.EventHandler(this.btnShowAllergyInfo_Click);
+            // 
             // FullWorkFlowControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -638,5 +651,6 @@
         private ScintillaNET.Scintilla scintillaDrugPreparationReq;
         private System.Windows.Forms.GroupBox gbxDrugPreparationRes;
         private ScintillaNET.Scintilla scintillaDrugPreparationRes;
+        private System.Windows.Forms.Button btnShowAllergyInfo;
     }
 }

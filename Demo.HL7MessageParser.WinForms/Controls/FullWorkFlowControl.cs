@@ -107,7 +107,7 @@ namespace Demo.HL7MessageParser.WinForms
 
             result.Patient = patientCache.PatientDemoEnquiry;
             result.Allergies = (patientCache.AlertProfileRes ?? new AlertProfileResult());
-            result.Orders= patientCache.MedicationProfileRes;
+            result.Orders = patientCache.MedicationProfileRes;
             this.BeginInvoke((MethodInvoker)delegate
             {
                 var HK_ID = result.Patient.Patient.HKID;
@@ -305,7 +305,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void Initialize()
         {
-            var soapService = new SoapParserSvc(Global.DrugMasterSoapUrl,Global.PreParationSoapUrl, Global.HospitalCode);
+            var soapService = new SoapParserSvc(Global.DrugMasterSoapUrl, Global.PreParationSoapUrl, Global.HospitalCode);
             var soapWSEService = new SoapWSEParserSvc(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
             var restService = new RestParserSvc(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
 
@@ -397,6 +397,13 @@ Use of ASPIRIN TABLET may result in adverse drug reaction."));
             initSource.MdsCheckAlertDetails.Add(new MdsCheckAlert("JERIFFE TEST", str));
 
             return initSource;
+        }
+
+        private void btnShowAllergyInfo_Click(object sender, EventArgs e)
+        {
+            var alertProfileResult = FullCacheHK.PataientCache[CASE_NUMBER].AlertProfileRes;
+
+            new AllergyListDialog(alertProfileResult).ShowDialog();
         }
     }
 }
