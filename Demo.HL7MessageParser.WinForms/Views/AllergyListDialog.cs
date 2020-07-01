@@ -32,6 +32,13 @@ namespace Demo.HL7MessageParser.WinForms
             dataGridView1.DataSource = AlertProfile.AllergyProfile;
             dataGridView2.DataSource = AlertProfile.AdrProfile;
             dataGridView3.DataSource = AlertProfile.AlertProfile;
+
+            dataGridView1.ClearSelection();
+            dataGridView1.CurrentCell = null;
+            dataGridView2.ClearSelection();
+            dataGridView2.CurrentCell = null;
+            dataGridView3.ClearSelection();
+            dataGridView3.CurrentCell = null;
         }
 
         private void InitializeData()
@@ -126,6 +133,11 @@ namespace Demo.HL7MessageParser.WinForms
             {
                 e.CellStyle.ForeColor = Color.Red;
             }*/
+        }
+
+        private void ckbNoAllergy_CheckedChanged(object sender, EventArgs e)
+        {
+            this.lblLastVerified.Visible = this.ckbNoAllergy.Checked;
         }
     }
 
