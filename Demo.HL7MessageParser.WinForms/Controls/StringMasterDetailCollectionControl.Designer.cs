@@ -28,18 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.stringMasterDetailControl1 = new Demo.HL7MessageParser.WinForms.Controls.StringMasterDetailControl();
+            this.stringMasterDetailControl1 = new Demo.HL7MessageParser.WinForms.Controls.RichTextBoxEx();
             this.SuspendLayout();
             // 
             // stringMasterDetailControl1
             // 
-            this.stringMasterDetailControl1.Content_Text = "\r\nDetails Content String";
             this.stringMasterDetailControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.stringMasterDetailControl1.Location = new System.Drawing.Point(0, 0);
             this.stringMasterDetailControl1.Name = "stringMasterDetailControl1";
             this.stringMasterDetailControl1.Size = new System.Drawing.Size(111, 40);
             this.stringMasterDetailControl1.TabIndex = 0;
-            this.stringMasterDetailControl1.Title_Text = "Master String";
             // 
             // StringMasterDetailCollectionControl
             // 
@@ -54,6 +52,6 @@
 
         #endregion
 
-        private Controls.StringMasterDetailControl stringMasterDetailControl1;
+        private Controls.RichTextBoxEx stringMasterDetailControl1;
     }
 }

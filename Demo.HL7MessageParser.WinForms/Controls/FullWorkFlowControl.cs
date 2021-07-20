@@ -3,6 +3,7 @@ using Demo.HL7MessageParser.Models;
 using Demo.HL7MessageParser.WinForms.Lexers;
 using NLog;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.IO;
@@ -107,7 +108,7 @@ namespace Demo.HL7MessageParser.WinForms
 
             result.Patient = patientCache.PatientDemoEnquiry;
             result.Allergies = (patientCache.AlertProfileRes ?? new AlertProfileResult());
-            result.Orders= patientCache.MedicationProfileRes;
+            result.Orders = patientCache.MedicationProfileRes;
             this.BeginInvoke((MethodInvoker)delegate
             {
                 var HK_ID = result.Patient.Patient.HKID;
@@ -305,7 +306,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void Initialize()
         {
-            var soapService = new SoapParserSvc(Global.DrugMasterSoapUrl,Global.PreParationSoapUrl, Global.HospitalCode);
+            var soapService = new SoapParserSvc(Global.DrugMasterSoapUrl, Global.PreParationSoapUrl, Global.HospitalCode);
             var soapWSEService = new SoapWSEParserSvc(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
             var restService = new RestParserSvc(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
 
@@ -374,29 +375,77 @@ namespace Demo.HL7MessageParser.WinForms
             initSource.DrugName = "ASPRIN";
 
             initSource.MdsCheckAlertDetails.Add(new MdsCheckAlert("Allergy Checking",
-                @"ASPRIN - Allergy history reported 
-Clinical Manifestation: Rash: Urticaria 
-Additional information: TEST 1 
-Level of Certainty: Certain 
-Use of ASPIRIN TABLET may result in allergic reaction."));
+                new List<MdsCheckAlertContent>{
+                    new MdsCheckAlertContent
+                    {
+                        CheckingDrugName ="ASPRIN",
+                        CheckingDrugSuffix=" - Allergy history reported",
+                        CheckAlertMessage= @"    Clinical Manifestation: Rash: Urticaria 
+    Additional information: TEST 1 
+    Level of Certainty: Certain 
+    Use of ASPIRIN TABLET may result in allergic reaction." +Environment.NewLine }
 
+                }
+                ));
             initSource.MdsCheckAlertDetails.Add(new MdsCheckAlert("G6PD Deficiency Contraindication Checking",
-                @"ASPIRIN TABLET is contraindicated when Hemolytic Anemia from Pyruvate Kinase and G6PD Deficientcies, a condition related to G6PD Deficiency, exists."));
+                            new List<MdsCheckAlertContent>{
+                    new MdsCheckAlertContent
+                    {
+                        CheckingDrugName ="ASPIRIN TABLET",
+                        CheckingDrugSuffix=@" is contraindicated when Hemolytic Anemia from Pyruvate Kinase and G6PD Deficientcies, a condition related to G6PD Deficiency, exists.",
+                     CheckAlertMessage =  " "},
+                        
 
+                            }
+                            ));
             initSource.MdsCheckAlertDetails.Add(new MdsCheckAlert("Adverse Drug Reaction Checking",
-                @"ASPIRIN - Adverse drug reaction hisotry reported 
-Adverse Drug Reaction: Abdomial Pain With Cramps; Heartburn 
-Level of Severity: Severe 
-Use of ASPIRIN TABLET may result in adverse drug reaction."));
+                            new List<MdsCheckAlertContent>{
+                    new MdsCheckAlertContent
+                    {
+                        CheckingDrugName ="CIPROFLOXACIN",
+                        CheckingDrugSuffix=" - Adverse Drug Reaction history reported",
+                        CheckAlertMessage= @"    Adverse Drug Reaction: Bronchospasm 
+    Additional information: TEST 1 
+    Level of Certainty: Certain 
+    Use of ASPIRIN TABLET may result in allergic reaction." +  Environment.NewLine }
+
+                            }
+                            ));
+            /*
+                        initSource.MdsCheckAlertDetails.Add(new MdsCheckAlert("G6PD Deficiency Contraindication Checking",
+                            @"ASPIRIN TABLET is contraindicated when Hemolytic Anemia from Pyruvate Kinase and G6PD Deficientcies, a condition related to G6PD Deficiency, exists."));
+
+                        initSource.MdsCheckAlertDetails.Add(new MdsCheckAlert("Adverse Drug Reaction Checking",
+                            @"ASPIRIN - Adverse drug reaction hisotry reported 
+            Adverse Drug Reaction: Abdomial Pain With Cramps; Heartburn 
+            Level of Severity: Severe 
+            Use of ASPIRIN TABLET may result in adverse drug reaction."));
+            */
 
 
+            //  var str = string.Format(@"ASPIRIN - Adverse drug reaction hisotry reported{0}Adverse Drug Reaction: Abdomial Pain With Cramps; Heartburn{0}Level of Severity: Severe", Environment.NewLine);
 
-            var str = string.Format(@"ASPIRIN - Adverse drug reaction hisotry reported{0}Adverse Drug Reaction: Abdomial Pain With Cramps; Heartburn{0}Level of Severity: Severe", Environment.NewLine);
 
-
-            initSource.MdsCheckAlertDetails.Add(new MdsCheckAlert("JERIFFE TEST", str));
+            //   initSource.MdsCheckAlertDetails.Add(new MdsCheckAlert("JERIFFE TEST", str));
 
             return initSource;
+        }
+
+        private void btnMDSResultDemo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var source = InitalData();
+
+                var dialog = new MDDCheckDialogBox(source, "Clinical Intervention");
+
+                dialog.ShowDialog(this);
+                //new MDSDialog(source).ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

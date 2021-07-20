@@ -1,38 +1,53 @@
 {
     "adrError": {
+        "hasAdrError": false,
         "errorAction": null,
         "errorCause": null,
         "errorDesc": null,
         "errorDetails": [
             
-        ],
-        "hasAdrError": false
+        ]
     },
     "allergyError": {
+        "hasAllergyError": false,
         "errorAction": null,
         "errorCause": null,
         "errorDesc": null,
         "errorDetails": [
             
-        ],
-        "hasAllergyError": false
+        ]
     },
     "ddcmCheckingResults": {
         "ddcmAlertMessages": [
-            "ASPIRIN TABLET is contraindicated when Hemolytic Anemia from Pyruvate Kinase and G6PD Deficiencies, a condition related to G6PD Deficiency, exists."
+            "SULPHASALAZINE ENTERIC COATED TABLET is contraindicated when G6PD Deficiency exists.",
+            "SULPHASALAZINE ENTERIC COATED TABLET is contraindicated when hemolytic anemia from pyruvate kinase and G6PD deficiencies, a condition related to G6PD Deficiency, exists."
         ],
         "ddcmAlerts": [
             {
                 "conditionId": "697",
                 "conditionType": 3,
-                "ddcmAlertMessage": "ASPIRIN TABLET is contraindicated when Hemolytic Anemia from Pyruvate Kinase and G6PD Deficiencies, a condition related to G6PD Deficiency, exists.",
-                "descriptionDisease": "Hemolytic Anemia from Pyruvate Kinase and G6PD Deficiencies",
+                "ddcmAlertMessage": "SULPHASALAZINE ENTERIC COATED TABLET is contraindicated when G6PD Deficiency exists.",
+                "descriptionDisease": "glucose-6-phosphate dehydrogenase (G6PD) deficiency",
                 "diseaseType": "G",
-                "drugCustomId": "ASPIRIN TABLET|1||VH |0|1|1050396",
-                "drugName": "ASPIRIN TABLET",
-                "hitConditionDescription": "Hemolytic Anemia from Pyruvate Kinase and G6PD Deficiencies",
+                "drugCustomId": "SULPHASALAZINE ENTERIC COATED TABLET|0||VH|0|0|1052650",
+                "drugName": "SULPHASALAZINE ENTERIC COATED TABLET",
+                "hitConditionDescription": "glucose-6-phosphate dehydrogenase (G6PD) deficiency",
+                "hitConditionId": "697",
+                "indexRow": 0,
+                "severityLevelCode": "1",
+                "suppress": false
+            },
+            {
+                "conditionId": "697",
+                "conditionType": 3,
+                "ddcmAlertMessage": "SULPHASALAZINE ENTERIC COATED TABLET is contraindicated when hemolytic anemia from pyruvate kinase and G6PD deficiencies, a condition related to G6PD Deficiency, exists.",
+                "descriptionDisease": "hemolytic anemia from pyruvate kinase and G6PD deficiencies",
+                "diseaseType": "G",
+                "drugCustomId": "SULPHASALAZINE ENTERIC COATED TABLET|0||VH|0|0|1052650",
+                "drugName": "SULPHASALAZINE ENTERIC COATED TABLET",
+                "hitConditionDescription": "hemolytic anemia from pyruvate kinase and G6PD deficiencies",
                 "hitConditionId": "7034",
-                "indexRow": 1,
+                "indexRow": 0,
                 "severityLevelCode": "1",
                 "suppress": false
             }
@@ -42,7 +57,7 @@
         "hasDdcmAlert": true,
         "hasG6PdDeficiencyAlert": true,
         "hasPregnancyAlert": false,
-        "messageCount": 1
+        "messageCount": 2
     },
     "ddimCheckingResults": {
         "ddimAlertMessages": [
@@ -61,43 +76,32 @@
     "drcmCheckingResults": null,
     "drugAdrCheckingResults": {
         "drugAdrAlertMessages": [
-            "The use of ASPIRIN TABLET may result in an allergic reaction based on a reported history of allergy to ASPIRIN in which ABDOMINAL PAIN WITH CRAMPS; HEARTBURN was experienced."
+            
         ],
         "drugAdrAlerts": [
-            {
-                "adr": "ASPIRIN",
-                "adrCustomId": "0000004921",
-                "drugAdrAlertMessage": "The use of ASPIRIN TABLET may result in an allergic reaction based on a reported history of allergy to ASPIRIN in which ABDOMINAL PAIN WITH CRAMPS; HEARTBURN was experienced.",
-                "drugCustomId": "ASPIRIN TABLET|1||VH |0|1|1050396",
-                "drugName": "ASPIRIN TABLET",
-                "indexRow": 1,
-                "matchType": "1",
-                "reaction": "ABDOMINAL PAIN WITH CRAMPS; HEARTBURN",
-                "remark": "TEST 2",
-                "severity": "S"
-            }
+            
         ],
         "errorCode": "0",
         "errorDesc": "",
-        "hasDrugAdrAlert": true,
-        "messageCount": 1
+        "hasDrugAdrAlert": false,
+        "messageCount": 0
     },
     "drugAllergyCheckingResults": {
         "drugAllergyAlertMessages": [
-            "The use of ASPIRIN TABLET may result in an allergic reaction based on a reported history of allergy to ASPIRIN in which RASH; URTICARIA was experienced."
+            "The use of SULPHASALAZINE ENTERIC COATED TABLET may result in an allergic reaction based on a reported history of allergy to NSAID in which ANGIOEDEMA;  ASTHMA was experienced."
         ],
         "drugAllergyAlerts": [
             {
-                "allergen": "ASPIRIN",
-                "allergenCustomId": "0000090237",
+                "allergen": "NSAID",
+                "allergenCustomId": "0000091696",
                 "certainty": "Certain",
-                "drugAllergyAlertMessage": "The use of ASPIRIN TABLET may result in an allergic reaction based on a reported history of allergy to ASPIRIN in which RASH; URTICARIA was experienced.",
-                "drugCustomId": "ASPIRIN TABLET|1||VH |0|1|1050396",
-                "drugName": "ASPIRIN TABLET",
-                "indexRow": 1,
-                "manifestation": "RASH; URTICARIA",
-                "matchType": "1",
-                "remark": "TEST 1",
+                "drugAllergyAlertMessage": "The use of SULPHASALAZINE ENTERIC COATED TABLET may result in an allergic reaction based on a reported history of allergy to NSAID in which ANGIOEDEMA;  ASTHMA was experienced.",
+                "drugCustomId": "SULPHASALAZINE ENTERIC COATED TABLET|0||VH|0|0|1052650",
+                "drugName": "SULPHASALAZINE ENTERIC COATED TABLET",
+                "indexRow": 0,
+                "manifestation": "ANGIOEDEMA;  ASTHMA",
+                "matchType": "3",
+                "remark": "NSAID)\n(Original: NIDOL)",
                 "suppress": false
             }
         ],
@@ -107,13 +111,13 @@
         "messageCount": 1
     },
     "drugError": {
+        "hasDrugError": false,
         "errorAction": null,
         "errorCause": null,
         "errorDesc": null,
         "errorDetails": [
             
-        ],
-        "hasDrugError": false
+        ]
     },
     "dscmCheckingResults": null,
     "errorCode": null,

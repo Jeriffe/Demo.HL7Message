@@ -9,7 +9,7 @@
           <case>
             <admissionDatetime>20200302 16:06</admissionDatetime>
             <bedNo>01</bedNo>
-            <hospitalCode>TPH</hospitalCode>
+            <hospitalCode>VH</hospitalCode>
             <number>HN202003005</number>
             <patientType>PA</patientType>
             <sourceCode>AHN</sourceCode>
@@ -17,7 +17,7 @@
             <specialty>MED</specialty>
             <type>I</type>
             <wardClass>3</wardClass>
-            <wardCode>4CL</wardCode>
+            <wardCode>6A</wardCode>
           </case>
         </caseList>
         <patient>

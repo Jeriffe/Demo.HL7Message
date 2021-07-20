@@ -10,68 +10,34 @@ using System.Windows.Forms;
 
 namespace Demo.HL7MessageParser.WinForms.Controls
 {
-    public partial class StringMasterDetailControl : UserControl
+    public partial class RichTextBoxEx : RichTextBox
     {
-        private bool mGrowing;
-        public StringMasterDetailControl()
+        public RichTextBoxEx()
         {
-            InitializeComponent();
+
+        }
+        public RichTextBoxEx(string selectedText, string textStr)
+        {
+            BorderStyle = BorderStyle.None;
+            this.SetAutoSizeMode(AutoSizeMode.GrowAndShrink);
+            this.ContentsResized += RichTextBoxEx_ContentsResized;
+            SetDrugNameColor(selectedText, textStr);
         }
 
-        public override bool AutoSize
+        private void RichTextBoxEx_ContentsResized(object sender, ContentsResizedEventArgs e)
         {
-            get { return lblContent.AutoSize; }
-            set
+            ((RichTextBox)sender).Height = e.NewRectangle.Height;
+        }
+
+        private void SetDrugNameColor(string drugName, string message)
+        {
+            Text = message;
+
+            var index = message.IndexOf(drugName);
+            if (index == 0)
             {
-                lblContent.AutoSize = value;
-                Invalidate();
+                Select(0, drugName.Length);
             }
-        }
-        [Category("ContentString")]
-        [Browsable(true)]
-        public string Title_Text
-        {
-            get { return lblTitle.Text; }
-            set { lblTitle.Text = value; }
-        }
-
-        [Category("ContentString")]
-        [Browsable(true)]
-        public string Content_Text
-        {
-            get { return lblContent.Text; }
-            set
-            {
-                lblContent.Text = string.Format("{0}{1}", Environment.NewLine, value);
-
-                Invalidate();
-            }
-        }
-        private void ResizeLabelContent()
-        {
-            if (mGrowing) return;
-            try
-            {
-                mGrowing = true;
-
-
-                Size sz = new Size(this.Width, Int32.MaxValue);
-
-                sz = TextRenderer.MeasureText(this.lblContent.Text, this.Font, sz, TextFormatFlags.Left | TextFormatFlags.Bottom | TextFormatFlags.WordBreak);
-                this.lblContent.Height = sz.Height;
-                this.Height = lblTitle.Height + sz.Height + +1;
-            }
-            finally
-            {
-                mGrowing = false;
-            }
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-
-            ResizeLabelContent();
         }
     }
 }

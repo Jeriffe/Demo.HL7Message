@@ -9,7 +9,7 @@
           <case>
             <admissionDatetime>20200302 16:06</admissionDatetime>
             <bedNo>01</bedNo>
-            <hospitalCode>TPH</hospitalCode>
+            <hospitalCode>VH</hospitalCode>
             <number>HN202003010</number>
             <patientType>PA</patientType>
             <sourceCode>AHN</sourceCode>
@@ -41,7 +41,7 @@
           <key>02271254</key>
           <lastPayCode>PA</lastPayCode>
           <maritalStatus>U</maritalStatus>
-          <name>WONG, KA WAI</name>
+          <name>ZHANG,SAN</name>
           <race>CH</race>
           <sex>M</sex>
         </patient>

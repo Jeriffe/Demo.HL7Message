@@ -1,4 +1,5 @@
 ﻿using Demo.HL7MessageParser.Models;
+using Demo.HL7MessageParser.WinForms.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,18 +28,30 @@ namespace Demo.HL7MessageParser.WinForms
 
             for (int i = mds.MdsCheckAlertDetails.Count - 1; i >= 0; i--)
             {
-                var Glabel = new GrowLabel();
-                Glabel.Text = mds.MdsCheckAlertDetails[i].CheckAlertMessage;
-                Glabel.Dock = DockStyle.Top;
-                Glabel.Font = new Font("Segoe UI", 7, FontStyle.Bold);
-                Glabel.TextAlign = ContentAlignment.BottomLeft;
-                pnlCheckList.Controls.Add(Glabel);
+                for (int j = mds.MdsCheckAlertDetails[i].CheckAlerts.Count - 1; j >= 0; j--)
+                {
+                    var currentItem = mds.MdsCheckAlertDetails[i].CheckAlerts[j];
 
-                var lkLabel = new LinkLabel();
+                    var Glabel = new GrowLabel();
+                    Glabel.Text = currentItem.CheckAlertMessage;
+                    Glabel.Dock = DockStyle.Top;
+                    Glabel.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    Glabel.TextAlign = ContentAlignment.BottomLeft;
+                    pnlCheckList.Controls.Add(Glabel);
+
+                    var rTxt = new RichTextBoxEx(currentItem.CheckingDrugName, currentItem.CheckingDrugName + currentItem.CheckingDrugSuffix);
+                    rTxt.Dock = DockStyle.Top;
+                    rTxt.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    rTxt.SelectionColor = Color.Blue;                  
+                    pnlCheckList.Controls.Add(rTxt);
+                }
+
+                var lkLabel = new TextBox();
                 lkLabel.Text = mds.MdsCheckAlertDetails[i].CategoryName;
                 lkLabel.Dock = DockStyle.Top;
-                lkLabel.Font = new Font("Segoe UI", 7, FontStyle.Bold);
-                lkLabel.TextAlign = ContentAlignment.BottomLeft;
+                lkLabel.Font = new Font("Segoe UI", 10, FontStyle.Underline | FontStyle.Bold);
+                lkLabel.TextAlign = HorizontalAlignment.Left;
+                lkLabel.BorderStyle = BorderStyle.None;
                 pnlCheckList.Controls.Add(lkLabel);
             }
 

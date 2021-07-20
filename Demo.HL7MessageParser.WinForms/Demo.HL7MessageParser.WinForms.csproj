@@ -97,10 +97,7 @@
       <DependentUpon>AlertProfileParserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\StringMasterDetailControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\StringMasterDetailControl.Designer.cs">
-      <DependentUpon>StringMasterDetailControl.cs</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Views\Form2.cs">
       <SubType>Form</SubType>
@@ -194,9 +191,6 @@
     <EmbeddedResource Include="Controls\AlertProfileParserControl.resx">
       <DependentUpon>AlertProfileParserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\StringMasterDetailControl.resx">
-      <DependentUpon>StringMasterDetailControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +236,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MDSCheckDialogBox.resx">
       <DependentUpon>MDSCheckDialogBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Demo\AP\H2003001.json">

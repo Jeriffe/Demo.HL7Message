@@ -35,12 +35,13 @@
             this.lblHKID = new System.Windows.Forms.Label();
             this.txtItemCode = new System.Windows.Forms.TextBox();
             this.lblItemCode = new System.Windows.Forms.Label();
-            this.growLabel1 = new Demo.HL7MessageParser.WinForms.GrowLabel();
+            this.stringMasterDetailControl1 = new Demo.HL7MessageParser.WinForms.Controls.RichTextBoxEx();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(106, 179);
+            this.btnGenerate.Location = new System.Drawing.Point(520, 96);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(75, 23);
             this.btnGenerate.TabIndex = 0;
@@ -96,27 +97,38 @@
             this.lblItemCode.TabIndex = 5;
             this.lblItemCode.Text = "ItemCode";
             // 
-            // growLabel1
+            // stringMasterDetailControl1
             // 
-            this.growLabel1.AutoSize = true;
-            this.growLabel1.Location = new System.Drawing.Point(255, 233);
-            this.growLabel1.Name = "growLabel1";
-            this.growLabel1.Size = new System.Drawing.Size(270, 13);
-            this.growLabel1.TabIndex = 7;
-            this.growLabel1.Text = "sdfsadfdsafsadfasfasdfasddddddddddddddddddd\\nsdfs";
+            this.stringMasterDetailControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stringMasterDetailControl1.Location = new System.Drawing.Point(118, 281);
+            this.stringMasterDetailControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.stringMasterDetailControl1.Name = "stringMasterDetailControl1";
+            this.stringMasterDetailControl1.Size = new System.Drawing.Size(492, 86);
+            this.stringMasterDetailControl1.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(628, 301);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "test";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.growLabel1);
+            this.Controls.Add(this.stringMasterDetailControl1);
             this.Controls.Add(this.txtItemCode);
             this.Controls.Add(this.lblItemCode);
             this.Controls.Add(this.txtHKID);
             this.Controls.Add(this.lblHKID);
             this.Controls.Add(this.txtCaseNumber);
             this.Controls.Add(this.lblCaseNumber);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnGenerate);
             this.Name = "Form2";
             this.Text = "Form2";
@@ -135,6 +147,7 @@
         private System.Windows.Forms.Label lblHKID;
         private System.Windows.Forms.TextBox txtItemCode;
         private System.Windows.Forms.Label lblItemCode;
-        private GrowLabel growLabel1;
+        private Controls.RichTextBoxEx stringMasterDetailControl1;
+        private System.Windows.Forms.Button button1;
     }
 }

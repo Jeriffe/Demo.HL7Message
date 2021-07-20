@@ -24,13 +24,20 @@ namespace Demo.HL7MessageParser.Models
     public class MdsCheckAlert
     {
         public string CategoryName;
-        public string CheckAlertMessage;
+        public List<MdsCheckAlertContent> CheckAlerts;
 
-        public MdsCheckAlert(string name, string detail)
+        public MdsCheckAlert(string name, List<MdsCheckAlertContent> details)
         {
             CategoryName = name;
-            CheckAlertMessage = detail;
+            CheckAlerts = details;
         }
+    }
+    public class MdsCheckAlertContent
+    {
+        public string CheckingDrugName { get; set; }
+        public string CheckingDrugSuffix { get; set; }
+
+        public string CheckAlertMessage { get; set; }
     }
     public class MDSCheckResult
     {

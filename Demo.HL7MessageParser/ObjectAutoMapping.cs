@@ -148,7 +148,7 @@ namespace Demo.HL7MessageParser
                     sbuilder.AppendLine(string.Format("Level of Certainty: {0}", allergyMsg.certainty));
                     sbuilder.AppendLine(allergyMsg.drugAllergyAlertMessage);
 
-                    resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("Allergy Checking", sbuilder.ToString()));
+                 //   resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("Allergy Checking", sbuilder.ToString()));
                 }
             }
             #endregion
@@ -158,7 +158,7 @@ namespace Demo.HL7MessageParser
             {
                 foreach (string ddcmAlert in mdsResult.ddcmCheckingResults.ddcmAlertMessages)
                 {
-                    resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("G6PD Deficiency Contraindication Checking", ddcmAlert));
+                  //  resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("G6PD Deficiency Contraindication Checking", ddcmAlert));
                 }
             }
             #endregion
@@ -179,7 +179,7 @@ namespace Demo.HL7MessageParser
                     sbuilder.AppendLine(string.Format("Level of Certainty: {0}", adrAlert.severity));
                     sbuilder.AppendLine(adrAlert.drugAdrAlertMessage);
 
-                    resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("Adverse Drug Reaction Checking", sbuilder.ToString()));
+                  //  resultForShow.MdsCheckAlertDetails.Add(new MdsCheckAlert("Adverse Drug Reaction Checking", sbuilder.ToString()));
                 }
             }
             #endregion

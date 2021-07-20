@@ -215,5 +215,9 @@ namespace Demo.HL7MessageParser.WinForms
 
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

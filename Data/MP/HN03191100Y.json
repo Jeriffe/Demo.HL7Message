@@ -1,5 +1,177 @@
 ﻿{
-  "medProfileId": null,
-  "caseNum": null,
-  "medProfileMoItems": null
+    "MedProfileId": "20000002815655",
+    "CaseNum": "HN03191100Y",
+    "MedProfileMoItems": [
+        {
+            "MedProfileMoItemId": 20000030130573,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246125,
+                    "ItemCode": "FRUS01"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030130574,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246129,
+                    "ItemCode": "SPIR01"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030131695,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246126,
+                    "ItemCode": "ASPI01"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030131701,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246127,
+                    "ItemCode": "FINA01"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030130575,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246128,
+                    "ItemCode": "PANT01"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030131696,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246111,
+                    "ItemCode": "PARA01"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030131702,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246112,
+                    "ItemCode": "SENN01"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030130576,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246113,
+                    "ItemCode": "LACT05"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030131697,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246114,
+                    "ItemCode": "TRAM01"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030131703,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246121,
+                    "ItemCode": "TRIM12"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030130577,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246122,
+                    "ItemCode": "SIMV01"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030131698,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246115,
+                    "ItemCode": "BISA02"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030131704,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246123,
+                    "ItemCode": "BUDE24"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030130578,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246116,
+                    "ItemCode": "HEPA06"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030131705,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246117,
+                    "ItemCode": "HYPR01"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030131699,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246118,
+                    "ItemCode": "IPRA01"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030130579,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013246119,
+                    "ItemCode": "SALB06"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030279056,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013311433,
+                    "ItemCode": "COLC02"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000030278157,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000013311432,
+                    "ItemCode": "COLC02"
+                }
+            ]
+        }
+    ]
 }
