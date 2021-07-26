@@ -15,7 +15,7 @@
           <groupRouteformGeneric>3740</groupRouteformGeneric>
           <groupSingleIngred>Y</groupSingleIngred>
           <hiclSeqno>1482</hiclSeqno>
-          <moeCheckFlag>Y</moeCheckFlag>
+          <moeCheckFlag>N</moeCheckFlag>
           <routedGeneric>6292938</routedGeneric>
           <routeformGeneric>3740</routeformGeneric>
         </drugMds>
