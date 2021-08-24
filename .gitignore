@@ -366,3 +366,5 @@
 /Demo.WinFormTest/obj/Debug
 /Demo.WinFormTest/obj/Release
 /Demp.SimpleSoapService/obj
+/Demo.WCFClient.Test/bin/Debug
+/Demo.WCFClient.Test/obj/Debug
