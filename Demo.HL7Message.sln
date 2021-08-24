@@ -298,6 +298,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{11B1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.WinFormTest", "Demo.WinFormTest\Demo.WinFormTest.csproj", "{D2C03A08-79F7-4A68-AD89-2C62B00E9FED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MdsReceiver", "MdsReceiver\MdsReceiver.csproj", "{214CD94D-DD2E-4B3E-9DFF-605417026FDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -352,6 +354,10 @@ Global
 		{D2C03A08-79F7-4A68-AD89-2C62B00E9FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2C03A08-79F7-4A68-AD89-2C62B00E9FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2C03A08-79F7-4A68-AD89-2C62B00E9FED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{214CD94D-DD2E-4B3E-9DFF-605417026FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{214CD94D-DD2E-4B3E-9DFF-605417026FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{214CD94D-DD2E-4B3E-9DFF-605417026FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{214CD94D-DD2E-4B3E-9DFF-605417026FDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  tpm_mdsreciever:
+    image: mdsreceiver
+    ports:
+      - "9098:9098"    

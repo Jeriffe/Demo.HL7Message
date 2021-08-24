@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  mdsreceiver:
+    image: ${DOCKER_REGISTRY-}mdsreceiver
+    build:
+      context: .
+      dockerfile: MdsReceiver/Dockerfile

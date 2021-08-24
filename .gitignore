@@ -361,3 +361,7 @@
 /Demo.HL7MessageParser.Test/bin/Release/Data/MDS
 /Demo.HL7MessageParser.Test/bin/Release/Data/MP
 /Demo.WinFormTest/bin/Release
+/MdsReceiver/bin
+/MdsReceiver/Properties/PublishProfiles
+/MdsReceiver/publish
+/obj/Docker
