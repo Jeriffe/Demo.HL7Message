@@ -1,0 +1,10 @@
+D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.WinFormTest\bin\Debug\Demo.WinFormTest.exe.config
+D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.WinFormTest\bin\Debug\Demo.WinFormTest.exe
+D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.WinFormTest\bin\Debug\Demo.WinFormTest.pdb
+D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.WinFormTest\obj\Debug\Demo.WinFormTest.csprojAssemblyReference.cache
+D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.WinFormTest\obj\Debug\Demo.WinFormTest.Form1.resources
+D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.WinFormTest\obj\Debug\Demo.WinFormTest.Properties.Resources.resources
+D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.WinFormTest\obj\Debug\Demo.WinFormTest.csproj.GenerateResource.cache
+D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.WinFormTest\obj\Debug\Demo.WinFormTest.csproj.CoreCompileInputs.cache
+D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.WinFormTest\obj\Debug\Demo.WinFormTest.exe
+D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.WinFormTest\obj\Debug\Demo.WinFormTest.pdb

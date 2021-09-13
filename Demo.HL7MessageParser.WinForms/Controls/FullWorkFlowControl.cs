@@ -446,6 +446,11 @@ namespace Demo.HL7MessageParser.WinForms
             {
                 MessageBox.Show(ex.Message);
             }
+        private void btnShowAllergyInfo_Click(object sender, EventArgs e)
+        {
+            var alertProfileResult = FullCacheHK.PataientCache[CASE_NUMBER].AlertProfileRes;
+
+            new AllergyListDialog(alertProfileResult).ShowDialog();
         }
     }
 }

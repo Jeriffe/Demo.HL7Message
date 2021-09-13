@@ -37,14 +37,13 @@
             this.stringMasterDetailControl1.Location = new System.Drawing.Point(101, 46);
             this.stringMasterDetailControl1.Name = "stringMasterDetailControl1";
             this.stringMasterDetailControl1.Size = new System.Drawing.Size(157, 79);
-            this.stringMasterDetailControl1.TabIndex = 4;
+            this.stringMasterDetailControl1.TabIndex = 4;          
             // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.stringMasterDetailControl1);
             this.Name = "TestForm";
             this.Text = "TestForm";
             this.Load += new System.EventHandler(this.TestForm_Load);

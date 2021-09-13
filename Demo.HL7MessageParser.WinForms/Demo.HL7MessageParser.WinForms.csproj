@@ -98,6 +98,11 @@
     </Compile>
     <Compile Include="Controls\StringMasterDetailControl.cs">
       <SubType>Component</SubType>
+    <Compile Include="Views\AllergyListDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AllergyListDialog.designer.cs">
+      <DependentUpon>AllergyListDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Form2.cs">
       <SubType>Form</SubType>
@@ -137,12 +142,6 @@
       <DependentUpon>PatientDemographicControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\Global.cs" />
-    <Compile Include="Controls\StringMasterDetailCollectionControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\StringMasterDetailCollectionControl.Designer.cs">
-      <DependentUpon>StringMasterDetailCollectionControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\TestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +190,9 @@
     <EmbeddedResource Include="Controls\AlertProfileParserControl.resx">
       <DependentUpon>AlertProfileParserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\AllergyListDialog.resx">
+      <DependentUpon>AllergyListDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,9 +227,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Controls\StringMasterDetailCollectionControl.resx">
-      <DependentUpon>StringMasterDetailCollectionControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\SystemConfig.resx">
       <DependentUpon>SystemConfig.cs</DependentUpon>
     </EmbeddedResource>
