@@ -6,7 +6,8 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>bin\Publish</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\jma\Desktop\HK IPMOE\Demo.HL7Message\Demo.RESTServcie\bin\Publish</_PublishTargetUrl>
+    <History>True|2022-06-21T06:39:17.5603527Z;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Data/AP/HN03191100Y.json">
@@ -49,22 +50,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2019 16:35:10</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Common.dll">
-      <publishTime>03/02/2020 10:26:47</publishTime>
+      <publishTime>06/21/2022 14:39:13</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Common.pdb">
-      <publishTime>03/02/2020 10:26:47</publishTime>
+      <publishTime>06/21/2022 14:39:13</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Models.dll">
-      <publishTime>03/02/2020 10:26:47</publishTime>
+      <publishTime>06/21/2022 14:39:13</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Models.pdb">
-      <publishTime>03/02/2020 10:26:47</publishTime>
+      <publishTime>06/21/2022 14:39:13</publishTime>
     </File>
     <File Include="bin/Demo.RESTServcie.dll">
-      <publishTime>03/02/2020 10:27:34</publishTime>
+      <publishTime>06/21/2022 14:39:13</publishTime>
     </File>
     <File Include="bin/Demo.RESTServcie.pdb">
-      <publishTime>03/02/2020 10:27:34</publishTime>
+      <publishTime>06/21/2022 14:39:13</publishTime>
     </File>
     <File Include="bin/FluentValidation.dll">
       <publishTime>05/10/2019 10:53:18</publishTime>
@@ -77,6 +78,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>04/22/2019 01:06:16</publishTime>
@@ -219,6 +223,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
       <publishTime>05/24/2018 13:38:24</publishTime>
     </File>
+    <File Include="bin/Swashbuckle.Core.dll">
+      <publishTime>07/08/2017 09:30:56</publishTime>
+    </File>
     <File Include="bin/System.ComponentModel.Annotations.dll">
       <publishTime>11/20/2017 18:09:04</publishTime>
     </File>
@@ -230,6 +237,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
       <publishTime>02/01/2018 12:19:26</publishTime>
+    </File>
+    <File Include="bin/WebActivatorEx.dll">
+      <publishTime>02/09/2013 00:42:28</publishTime>
     </File>
     <File Include="Data/AP/HN03191100Y.json">
       <publishTime>09/11/2019 16:38:10</publishTime>
@@ -286,13 +296,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/29/2019 16:03:28</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>09/09/2019 12:09:55</publishTime>
+      <publishTime>09/09/2019 12:09:56</publishTime>
+    </File>
+    <File Include="HellowWorld.html">
+      <publishTime>03/02/2020 12:11:30</publishTime>
     </File>
     <File Include="IIS_start_issue.txt">
-      <publishTime>11/12/2019 15:10:18</publishTime>
+      <publishTime>11/12/2019 15:10:20</publishTime>
+    </File>
+    <File Include="libman.json">
+      <publishTime>01/06/2022 13:50:22</publishTime>
+    </File>
+    <File Include="swagger.js">
+      <publishTime>01/06/2022 13:50:22</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/19/2019 10:21:52</publishTime>
+      <publishTime>06/08/2022 12:37:28</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -368,3 +368,7 @@
 /Demp.SimpleSoapService/obj
 /Demo.WCFClient.Test/bin/Debug
 /Demo.WCFClient.Test/obj/Debug
+/Demo.MDSServcie/bin/Debug/net5.0
+/Demo.MDSServcie/bin/Release/net5.0
+/Demo.OWINRESTServcieHost/bin/Debug
+/Demo.OWINRESTServcieHost/obj/Debug
