@@ -35,7 +35,7 @@
             this.lblHKID = new System.Windows.Forms.Label();
             this.txtItemCode = new System.Windows.Forms.TextBox();
             this.lblItemCode = new System.Windows.Forms.Label();
-            this.stringMasterDetailControl1 = new Demo.HL7MessageParser.WinForms.Controls.RichTextBoxEx();
+            //this.stringMasterDetailControl1 = new Demo.HL7MessageParser.WinForms.Controls.RichTextBoxEx();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -96,15 +96,15 @@
             this.lblItemCode.Size = new System.Drawing.Size(52, 13);
             this.lblItemCode.TabIndex = 5;
             this.lblItemCode.Text = "ItemCode";
-            // 
-            // stringMasterDetailControl1
-            // 
-            this.stringMasterDetailControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stringMasterDetailControl1.Location = new System.Drawing.Point(118, 281);
-            this.stringMasterDetailControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.stringMasterDetailControl1.Name = "stringMasterDetailControl1";
-            this.stringMasterDetailControl1.Size = new System.Drawing.Size(492, 86);
-            this.stringMasterDetailControl1.TabIndex = 8;
+            //// 
+            //// stringMasterDetailControl1
+            //// 
+            //this.stringMasterDetailControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.stringMasterDetailControl1.Location = new System.Drawing.Point(118, 281);
+            //this.stringMasterDetailControl1.Margin = new System.Windows.Forms.Padding(4);
+            //this.stringMasterDetailControl1.Name = "stringMasterDetailControl1";
+            //this.stringMasterDetailControl1.Size = new System.Drawing.Size(492, 86);
+            //this.stringMasterDetailControl1.TabIndex = 8;
             // 
             // button1
             // 
@@ -121,7 +121,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.stringMasterDetailControl1);
+            //this.Controls.Add(this.stringMasterDetailControl1);
             this.Controls.Add(this.txtItemCode);
             this.Controls.Add(this.lblItemCode);
             this.Controls.Add(this.txtHKID);
@@ -147,7 +147,7 @@
         private System.Windows.Forms.Label lblHKID;
         private System.Windows.Forms.TextBox txtItemCode;
         private System.Windows.Forms.Label lblItemCode;
-        private Controls.RichTextBoxEx stringMasterDetailControl1;
+        //private Controls.RichTextBoxEx stringMasterDetailControl1;
         private System.Windows.Forms.Button button1;
     }
 }

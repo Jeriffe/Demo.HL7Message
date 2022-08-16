@@ -26,6 +26,14 @@ namespace Demo.HL7MessageParser.Models
 
         }
         public long MedProfileMoItemId { get; set; }
+        public string DrugOrder { get; set; }
+        public string VerifiedFlag { get; set; }
+        public string MdsAlertFlag { get; set; }
+        public string ManualFlag { get; set; }
+        public string SingleDsfFlag { get; set; }
+        public string DoctorCode { get; set; }
+        public string DoctorName { get; set; }
+        public string DoctorRankCode { get; set; }
 
         public List<MedProfilePoItem> MedProfilePoItems { get; set; }
     }
@@ -36,8 +44,10 @@ namespace Demo.HL7MessageParser.Models
         {
 
         }
-        public long MedProfilePoItemId { get; set; }
+        public long? MedProfilePoItemId { get; set; }
 
         public string ItemCode { get; set; }
+
+        public string SpecialHandleFlag { get; set; }
     }
 }

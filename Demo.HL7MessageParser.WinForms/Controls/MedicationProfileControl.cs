@@ -47,7 +47,7 @@ namespace Demo.HL7MessageParser.WinForms
 
             dataLoader.LoadDataAsync(restService.GetMedicationProfile, caseNumber);
         }
-        
+
         private void InitializeService()
         {
             restService = new RestParserSvc(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
@@ -76,26 +76,6 @@ namespace Demo.HL7MessageParser.WinForms
                         scintillaRes.Text = JsonHelper.FormatJson(responseJsonStr);
                     }, false);
                 }
-            };
-            dataLoader.Exceptioned += (Exception ex) =>
-            {
-                logger.Error(ex, ex.Message);
-
-                this.SafeInvoke(() =>
-                {
-
-                    if (ex is AMException)
-                    {
-                        var restEx = ex as AMException;
-
-                        MessageBox.Show(string.Format("HttpStatusCode:{1}", restEx.Message, restEx.HttpStatusCode));
-                        return;
-                    }
-
-                    MessageBox.Show(string.Format("Unknown Exception: {0}", ex.Message));
-
-                }, false);
-
             };
         }
     }

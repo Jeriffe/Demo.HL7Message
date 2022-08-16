@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.stringMasterDetailControl1 = new Demo.HL7MessageParser.WinForms.Controls.RichTextBoxEx();
+            //this.stringMasterDetailControl1 = new Demo.HL7MessageParser.WinForms.Controls.RichTextBoxEx();
             this.SuspendLayout();
-            // 
-            // stringMasterDetailControl1
-            // 
-            this.stringMasterDetailControl1.Location = new System.Drawing.Point(101, 46);
-            this.stringMasterDetailControl1.Name = "stringMasterDetailControl1";
-            this.stringMasterDetailControl1.Size = new System.Drawing.Size(157, 79);
-            this.stringMasterDetailControl1.TabIndex = 4;          
+            //// 
+            //// stringMasterDetailControl1
+            //// 
+            //this.stringMasterDetailControl1.Location = new System.Drawing.Point(101, 46);
+            //this.stringMasterDetailControl1.Name = "stringMasterDetailControl1";
+            //this.stringMasterDetailControl1.Size = new System.Drawing.Size(157, 79);
+            //this.stringMasterDetailControl1.TabIndex = 4;          
             // 
             // TestForm
             // 
@@ -53,6 +53,6 @@
 
         #endregion
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private Controls.RichTextBoxEx stringMasterDetailControl1;
+        //private Controls.RichTextBoxEx stringMasterDetailControl1;
     }
 }

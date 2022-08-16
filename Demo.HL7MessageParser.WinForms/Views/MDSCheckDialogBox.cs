@@ -1,5 +1,4 @@
 ﻿using Demo.HL7MessageParser.Models;
-using Demo.HL7MessageParser.WinForms.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,11 +38,11 @@ namespace Demo.HL7MessageParser.WinForms
                     Glabel.TextAlign = ContentAlignment.BottomLeft;
                     pnlCheckList.Controls.Add(Glabel);
 
-                    var rTxt = new RichTextBoxEx(currentItem.CheckingDrugName, currentItem.CheckingDrugName + currentItem.CheckingDrugSuffix);
-                    rTxt.Dock = DockStyle.Top;
-                    rTxt.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                    rTxt.SelectionColor = Color.Blue;                  
-                    pnlCheckList.Controls.Add(rTxt);
+                    //var rTxt = new RichTextBoxEx(currentItem.CheckingDrugName, currentItem.CheckingDrugName + currentItem.CheckingDrugSuffix);
+                    //rTxt.Dock = DockStyle.Top;
+                    //rTxt.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    //rTxt.SelectionColor = Color.Blue;                  
+                    //pnlCheckList.Controls.Add(rTxt);
                 }
 
                 var lkLabel = new TextBox();
