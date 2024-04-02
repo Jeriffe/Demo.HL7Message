@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4E61A17F-CC30-4F3E-8CFC-2F1ED9594B04}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Demo.HL7MessageParser.Models</RootNamespace>
-    <AssemblyName>Demo.HL7MessageParser.Models</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <ProjectGuid>{5511E7AD-E8B8-4C22-8412-9B9A567F4995}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Demo.WCFSoapServices.Hosting</RootNamespace>
+    <AssemblyName>Demo.WCFSoapServices.Hosting</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,26 +35,35 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlertInputParm.cs" />
-    <Compile Include="AlertProfileResult.cs" />
-    <Compile Include="MDSCheckInputParm.cs" />
-    <Compile Include="MDSCheckResult.cs" />
-    <Compile Include="GetDrugMdsPropertyHqResponse.cs" />
-    <Compile Include="GetDrugMdsPropertyHqRequest.cs" />
-    <Compile Include="GetPreparationResponse.cs" />
-    <Compile Include="GetPreparationRequest.cs" />
-    <Compile Include="PatientDemoEnquiryResult.cs" />
-    <Compile Include="MedicationProfileResult.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="searchHKPMIPatientByCaseNo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Demo.WCFSoapServices\Demo.WCFSoapServices.csproj">
+      <Project>{cec4dba9-2d77-470c-a123-1aa1eb8bce98}</Project>
+      <Name>Demo.WCFSoapServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>SET TARGET=$(TargetDir)\Data
+rmdir /S/Q "%25TARGET%25"
+rmdir /S/Q "%25TARGET%25\PE"
+rmdir /S/Q "%25TARGET%25\DM"
+SET Source=$(SolutionDir)\Data
+xcopy /Y/S "%25Source%25\PE\*.*" "%25TARGET%25\PE\"
+xcopy /Y/S "%25Source%25\DM\*.*" "%25TARGET%25\DM\"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

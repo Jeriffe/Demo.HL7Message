@@ -9,12 +9,16 @@ namespace Demo.EnterpriseLibrarySamples
     {
         static void Main(string[] args)
         {
+            var result = SampleDal.CheckReturnValueBySelectCaluse();
+
+
+            /*
             var result2 = SampleDal.CheckReturnValueByReturnCaluse();
 
 
             var result1 = SampleDal.CheckSingleValueByADONET();
-
-            var result = SampleDal.CheckReturnValueBySelectCaluse();
+            */
+            
 
 
         }

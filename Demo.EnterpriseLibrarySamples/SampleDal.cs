@@ -50,11 +50,15 @@ namespace Demo.EnterpriseLibrarySamples
         {
             try
             {
-                using (DbCommand cmd = _db.GetStoredProcCommand("dbo.[UP_CheckReturnValueBySELECTCaluse]"))
+                using (DbCommand cmd = _db.GetStoredProcCommand("dbo.[usp_GetAuditNumberByStationIDAndReportNumber]"))
                 {
-                    _db.AddInParameter(cmd, "InputValue", DbType.Int32, 123);
+                    _db.AddInParameter(cmd, "@StationID", DbType.Int32, 1);
+                    _db.AddInParameter(cmd, "@CareUnitCode", DbType.String, "TPH");
+                    _db.AddInParameter(cmd, "@ReportNumber", DbType.String, "277");
 
-                    return (int)_db.ExecuteScalar(cmd);
+                    var result= (string)_db.ExecuteScalar(cmd);
+
+                    return 0;
 
                 }
             }

@@ -1,12 +1,15 @@
-﻿using System.Xml.Serialization;
+﻿using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Xml.Serialization;
 
 namespace Demo.HL7MessageParser.Models
 {
+    [MessageContract(WrapperName = "getPreparation", WrapperNamespace = "http://biz.dms.pms.model.ha.org.hk/")]
     [XmlRoot(ElementName = "getPreparation")]
     public class GetPreparationRequest
     {
-        [XmlElement(ElementName = "arg0", Namespace = "")]
-        // [XmlElement(ElementName = "arg0")]
+        [MessageBodyMember(Name = "arg0", Namespace = "")]
+        [DataMember] [XmlElement(ElementName = "arg0", Namespace = "")]
         public Arg0 Arg0 { get; set; }
 
         private XmlSerializerNamespaces xmlns;
@@ -26,44 +29,44 @@ namespace Demo.HL7MessageParser.Models
             set { xmlns = value; }
         }
     }
-
+    [DataContract(Name = "arg0", Namespace ="")]
     [XmlRoot(ElementName = "arg0")]
     public class Arg0
     {
-        [XmlElement(ElementName = "dispHospCode")]
+        [DataMember] [XmlElement(ElementName = "dispHospCode")]
         public string DispHospCode { get; set; }
 
-        [XmlElement(ElementName = "dispWorkstore")]
+        [DataMember] [XmlElement(ElementName = "dispWorkstore")]
         public string DispWorkstore { get; set; }
 
-        [XmlElement(ElementName = "itemCode")]
+        [DataMember] [XmlElement(ElementName = "itemCode")]
         public string ItemCode { get; set; }
 
-        [XmlElement(ElementName = "trueDisplayname")]
+        [DataMember] [XmlElement(ElementName = "trueDisplayname")]
         public string TrueDisplayname { get; set; }
 
-        [XmlElement(ElementName = "formCode")]
+        [DataMember] [XmlElement(ElementName = "formCode")]
         public string FormCode { get; set; }
 
-        [XmlElement(ElementName = "saltProperty")]
+        [DataMember] [XmlElement(ElementName = "saltProperty")]
         public string SaltProperty { get; set; }
 
-        [XmlElement(ElementName = "drugScope")]
+        [DataMember] [XmlElement(ElementName = "drugScope")]
         public string DrugScope { get; set; }
 
-        [XmlElement(ElementName = "specialtyType")]
+        [DataMember] [XmlElement(ElementName = "specialtyType")]
         public string SpecialtyType { get; set; }
 
-        [XmlElement(ElementName = "pasSpecialty")]
+        [DataMember] [XmlElement(ElementName = "pasSpecialty")]
         public string PasSpecialty { get; set; }
 
-        [XmlElement(ElementName = "pasSubSpecialty")]
+        [DataMember] [XmlElement(ElementName = "pasSubSpecialty")]
         public string PasSubSpecialty { get; set; }
 
-        [XmlElement(ElementName = "costIncluded")]
+        [DataMember] [XmlElement(ElementName = "costIncluded")]
         public bool CostIncluded { get; set; }
 
-        [XmlElement(ElementName = "hqFlag")]
+        [DataMember] [XmlElement(ElementName = "hqFlag")]
         public bool HqFlag { get; set; }
     }
 
