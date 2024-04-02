@@ -8,7 +8,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.ServiceModel.Channels;
+using System.ServiceModel.Security;
+using System.ServiceModel;
 using System.Text;
+using Demo.HL7MessageParser.ServiceSimulator.Test.HKSoap;
 
 namespace Demo.HL7MessageParser.ServiceSimulator.Test
 {
@@ -17,21 +21,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
         static void Main(string[] args)
         {
 
-            var files = Directory.GetFiles(@"D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Data\AP", "*.json");
-            foreach (var fileName in files)
-            {
-                try
-                {
-                    var result = JsonHelper.JsonToObjectFromFile<AlertProfileResult>(fileName);
-
-                }
-                catch (Exception ex)
-                {
-                    ex = ex;
-                }
-
-            }
-
+            WCFClientWithUserToken();
 
             var datetimeStr = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.0");
             var r1 = string.Format("{0:0000.00}", 12394.039); //结果为：12394.04
@@ -64,6 +54,62 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
             Console.ReadLine();
         }
 
+        private static void WCFClientWithUserToken()
+        {
+            try
+            {
+                var client = CreatePatientDemographicProxy("http://localhost:8096/PatientService.asmx", "pas-appt-ws-user", "pas-appt-ws-user-pwd");
+                var workcontext = new HKSoap.WorkContextSoapHeader();
+                var result = client.searchHKPMIPatientByCaseNo(ref workcontext, new HKSoap.SearchHKPMIPatientByCaseNo() { caseNo = "HN202003001", hospitalCode = "VH" });
+
+            }
+            catch (Exception ex)
+            {
+                ex = ex;
+            }
+
+
+        }
+        public static HKSoap.PatientServiceSoapClient CreatePatientDemographicProxy(string url,
+                                                                string username,
+                                                                string password)
+        {
+            if (string.IsNullOrEmpty(url))
+                url = "http://localhost:8096/PatientService.asmx";
+
+            CustomBinding binding = new CustomBinding();
+
+            var security = TransportSecurityBindingElement.CreateUserNameOverTransportBindingElement();
+            security.DefaultAlgorithmSuite = SecurityAlgorithmSuite.Basic256;
+            security.MessageSecurityVersion = MessageSecurityVersion.WSSecurity10WSTrustFebruary2005WSSecureConversationFebruary2005WSSecurityPolicy11BasicSecurityProfile10;
+            //security.AllowInsecureTransport = true;
+            security.EnableUnsecuredResponse = true;
+
+            var encoding = new TextMessageEncodingBindingElement();
+            encoding.MessageVersion = MessageVersion.Soap11;
+
+            //var transport = new HttpsTransportBindingElement();
+            var transport = new HttpTransportBindingElement();
+            
+            transport.MaxReceivedMessageSize = 20000000; // 20 megs
+
+            binding.Elements.Add(security);
+            binding.Elements.Add(encoding);
+            binding.Elements.Add(transport);
+
+            var client = new PatientServiceSoapClient(binding, new EndpointAddress(url));
+
+            // to use full client credential with Nonce uncomment this code:
+            // it looks like this might not be required - the service seems to work without it
+            client.ChannelFactory.Endpoint.Behaviors.Remove<System.ServiceModel.Description.ClientCredentials>();
+            client.ChannelFactory.Endpoint.Behaviors.Add(new CustomCredentials());
+
+            client.ClientCredentials.UserName.UserName = username;
+            client.ClientCredentials.UserName.Password = password;
+
+            return client;
+        }
+
         private static void MDSCheckInputTest()
         {
             var input = new MDSCheckInputParm
@@ -88,7 +134,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
 
                 var r1 = soapservice.getDrugMdsPropertyHq(new GetDrugMdsPropertyHqRequest());
 
-               // var r2 = soapservice.getPreparation(new GetPreparationRequest { Arg0 = new Arg0 { ItemCode = "AMET02" } });
+                // var r2 = soapservice.getPreparation(new GetPreparationRequest { Arg0 = new Arg0 { ItemCode = "AMET02" } });
             }
             catch (Exception ex)
             {

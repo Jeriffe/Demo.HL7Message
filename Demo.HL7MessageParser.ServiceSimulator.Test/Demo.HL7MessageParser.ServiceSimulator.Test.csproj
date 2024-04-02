@@ -45,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
@@ -55,11 +56,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\HKSoap\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="CustomCredential\CustomCredentials.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Connected Services\HKSoap\Demo.HL7MessageParser.ServiceSimulator.Test.HKSoap.SearchHKPMIPatientByCaseNoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\HKSoap\Demo.HL7MessageParser.ServiceSimulator.Test.HKSoap.WorkContextSoapHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\HKSoap\PatientService.wsdl" />
     <None Include="packages.config" />
     <None Include="wse3policyCache.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -82,6 +96,27 @@
       <Project>{BE8C3682-2147-4458-B6D7-9EA9C8F22A92}</Project>
       <Name>Demo.HL7MessageParser</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\HKSoap\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\HKSoap\PatientService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\HKSoap\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\HKSoap\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\HKSoap\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s2="http://oracle.com/weblogic/soap/workarea/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://webservice.pas.ha.org.hk/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://webservice.pas.ha.org.hk/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://webservice.pas.ha.org.hk/">
+      <s:import />
+      <s:element name="searchHKPMIPatientByCaseNo" nillable="true" type="tns:SearchHKPMIPatientByCaseNo" />
+      <s:complexType name="SearchHKPMIPatientByCaseNo">
+        <s:annotation>
+          <s:appinfo>
+            <keepNamespaceDeclarations>Xmlns</keepNamespaceDeclarations>
+          </s:appinfo>
+        </s:annotation>
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" ref="hospitalCode" />
+          <s:element minOccurs="0" maxOccurs="1" ref="caseNo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="searchHKPMIPatientByCaseNoResponse" nillable="true" type="tns:SearchHKPMIPatientByCaseNoResponse" />
+      <s:complexType name="SearchHKPMIPatientByCaseNoResponse">
+        <s:annotation>
+          <s:appinfo>
+            <keepNamespaceDeclarations>Xmlns</keepNamespaceDeclarations>
+          </s:appinfo>
+        </s:annotation>
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" ref="PatientDemoEnquiryResult" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified">
+      <s:element name="hospitalCode" type="s:string" />
+      <s:element name="caseNo" type="s:string" />
+      <s:element name="PatientDemoEnquiryResult" type="PatientDemoEnquiry" />
+      <s:complexType name="PatientDemoEnquiry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="caseList" type="caseList" />
+          <s:element minOccurs="0" maxOccurs="1" name="patient" type="patient" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="caseList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="case" nillable="true" type="case" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="case">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="admissionDatetime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bedNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hospitalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="patientType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sourceCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sourceIndicator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="specialty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="wardClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="wardCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="patient">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="address" type="address" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCCode1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCCode2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCCode3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCCode4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCCode5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCCode6" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="chineseName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="confidentialFlag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="exactDOBFlag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HKID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hkicSymbol" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="homePhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lastPayCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="maritalStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="officePhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="race" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sex" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="address">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="building" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="districtCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fullEnglishAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="record_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="room" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://oracle.com/weblogic/soap/workarea/">
+      <s:element name="WorkContext" type="s2:WorkContextSoapHeader" />
+      <s:complexType name="WorkContextSoapHeader">
+        <s:annotation>
+          <s:appinfo>
+            <keepNamespaceDeclarations>Xmlns</keepNamespaceDeclarations>
+          </s:appinfo>
+        </s:annotation>
+        <s:anyAttribute />
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="searchHKPMIPatientByCaseNoSoapIn">
+    <wsdl:part name="searchHKPMIPatientByCaseNo" element="tns:searchHKPMIPatientByCaseNo" />
+  </wsdl:message>
+  <wsdl:message name="searchHKPMIPatientByCaseNoSoapOut">
+    <wsdl:part name="searchHKPMIPatientByCaseNoResult" element="tns:searchHKPMIPatientByCaseNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="searchHKPMIPatientByCaseNoWorkContext">
+    <wsdl:part name="WorkContext" element="s2:WorkContext" />
+  </wsdl:message>
+  <wsdl:portType name="PatientServiceSoap">
+    <wsdl:operation name="searchHKPMIPatientByCaseNo">
+      <wsdl:input message="tns:searchHKPMIPatientByCaseNoSoapIn" />
+      <wsdl:output message="tns:searchHKPMIPatientByCaseNoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PatientServiceSoap" type="tns:PatientServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="searchHKPMIPatientByCaseNo">
+      <soap:operation soapAction="http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:searchHKPMIPatientByCaseNoWorkContext" part="WorkContext" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:searchHKPMIPatientByCaseNoWorkContext" part="WorkContext" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PatientServiceSoap12" type="tns:PatientServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="searchHKPMIPatientByCaseNo">
+      <soap12:operation soapAction="http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:searchHKPMIPatientByCaseNoWorkContext" part="WorkContext" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:searchHKPMIPatientByCaseNoWorkContext" part="WorkContext" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PatientService">
+    <wsdl:port name="PatientServiceSoap" binding="tns:PatientServiceSoap">
+      <soap:address location="http://localhost:8096/PatientService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PatientServiceSoap12" binding="tns:PatientServiceSoap12">
+      <soap12:address location="http://localhost:8096/PatientService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
